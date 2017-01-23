@@ -1,5 +1,5 @@
 "------------------------------------------
-"プラグイン
+"プラグインセットアップ
 "------------------------------------------
 " Note: Skip initialization for vim-tiny or vim-small.
 if 0 | endif
@@ -17,10 +17,22 @@ endif
 call neobundle#begin(expand('~/.vim/bundle/'))
 
 
-" コメントON/OFFを手軽に実行
+" QuickRun
+NeoBundle 'thinca/vim-quickrun'
+" gc でコメントON/OFF
 NeoBundle 'tomtom/tcomment_vim'
+" :NERDTree でファイルのtree表示
+NeoBundle 'scrooloose/nerdtree'
+" [Ruby etc.] endの自動挿入
+NeoBundle 'tpope/vim-endwise'
+" for LaTeX
+NeoBundle 'lervag/vimtex'
+
+" COLORSCHEMES
 " jellybeans
 NeoBundle 'nanotech/jellybeans.vim'
+" hybrid
+NeoBundle 'w0ng/vim-hybrid'
 " lucius
 NeoBundle 'jonathanfilip/vim-lucius'
 
@@ -45,10 +57,12 @@ set number
 set nrformats=
 " 末尾から2行目にステータスラインを表示
 set laststatus=2
-" 編集行番号のハイライト
+" 編集行、番号のハイライト
 set cursorline
 hi clear CursorLine
 hi LineNr ctermfg=241
+" jellybeans の設定
+colorscheme jellybeans
 
 "------------------------------------------
 "検索・置換え設定
@@ -76,7 +90,7 @@ set shiftwidth=4
 "------------------------------------------
 "キーボード入力
 "------------------------------------------
-" [ノーマルモード] j, kが表示行単位の移動に
+" [ノーマルモード] 常に表示行単位の移動に
 nnoremap j gj
 nnoremap k gk
 " [ノーマルモード] Yを行末までのヤンクに
@@ -84,19 +98,19 @@ nnoremap Y y$
 " [ノーマルモード] 数字のインクリメント/デクリメント
 nnoremap + <C-a>
 nnoremap - <C-x>
-" [ノーマルモード] Enterキーで改行
-nnoremap <CR> o<Esc>
 " [インサートモード] jjと入力するとコマンドモードに
 inoremap jj <Esc>:
-" [インサートモード] 閉じ括弧を自動的に入力
-imap { {}<LEFT>
-imap [ []<LEFT>
-imap ( ()<LEFT>
+" [コマンドモード] <C-p>/<C-n> で履歴を遡れる
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
 
 "------------------------------------------
 " その他
 "------------------------------------------
-" 複数ファイルを編集...?
+"マウス設定
+set mouse=i
+set ttymouse=xterm2
+" 複数ファイルを編集
 set hidden
 " ヴィジュアル短形で行末以降も選択可能
 set virtualedit=block
@@ -109,3 +123,18 @@ set showmatch
 set matchtime=1
 " コマンドパターンを100個まで履歴に残す
 set history=100
+
+
+" ファイルタイプごとの設定
+augroup filetypedetect
+	" C
+	autocmd BufRead,BufNewFile *.c setlocal tabstop=4 shiftwidth=4
+	" C++
+	autocmd BufRead,BufNewFile *.cpp setlocal tabstop=4 shiftwidth=4
+	" TeX
+	autocmd BufRead,BufNewFile *.tex setlocal tabstop=4 shiftwidth=4
+	autocmd BufNewfile *.tex 0r $HOME/.vim/templates/tex.txt
+	" Ruby
+	autocmd BufRead,BufNewFile *.rb setlocal tabstop=2 shiftwidth=2
+augroup END
+
