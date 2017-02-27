@@ -1,0 +1,25 @@
+\documentclass[a4paper]{jsarticle}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{listings,jlisting}
+
+% Title
+\title{}
+\author{国立明石工業高等専門学校 E1507 泉 和哉}
+\date{}
+
+\lstset{
+	basicstyle=\ttfamily\footnotesize,
+	numbers=left,
+	frame=single
+}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\clearpage
+\setcounter{page}{1}
+
+% Text
+
+\end{document}

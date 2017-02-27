@@ -39,7 +39,7 @@ NeoBundle 'jonathanfilip/vim-lucius'
 
 call neobundle#end()
 
-filetype plugin indent on     " required!
+filetype plugin indent on
 filetype indent on
 syntax on
 
@@ -58,11 +58,11 @@ set nrformats=
 " 末尾から2行目にステータスラインを表示
 set laststatus=2
 " 編集行、番号のハイライト
+"set t_Co=256
 set cursorline
 hi clear CursorLine
-hi LineNr ctermfg=241
-" jellybeans の設定
 colorscheme jellybeans
+
 
 "------------------------------------------
 "検索・置換え設定
@@ -132,9 +132,16 @@ augroup filetypedetect
 	" C++
 	autocmd BufRead,BufNewFile *.cpp setlocal tabstop=4 shiftwidth=4
 	" TeX
-	autocmd BufRead,BufNewFile *.tex setlocal tabstop=4 shiftwidth=4
+	autocmd BufRead,BufNewFile *.tex setlocal tabstop=2 shiftwidth=2
 	autocmd BufNewfile *.tex 0r $HOME/.vim/templates/tex.txt
 	" Ruby
 	autocmd BufRead,BufNewFile *.rb setlocal tabstop=2 shiftwidth=2
 augroup END
 
+augroup highlight
+	autocmd VimEnter * highlight Normal ctermbg=NONE
+	autocmd VimEnter * highlight NonText ctermbg=NONE
+	autocmd VimEnter * highlight TablineSel ctermbg=NONE
+	autocmd VimEnter * highlight LineNr ctermbg=NONE
+	autocmd VimEnter * highlight CursorLineNr ctermbg=NONE
+augroup END
