@@ -17,23 +17,16 @@ endif
 call neobundle#begin(expand('~/.vim/bundle/'))
 
 
-" QuickRun
 NeoBundle 'thinca/vim-quickrun'
-" gc でコメントON/OFF
 NeoBundle 'tomtom/tcomment_vim'
-" :NERDTree でファイルのtree表示
 NeoBundle 'scrooloose/nerdtree'
-" [Ruby etc.] endの自動挿入
 NeoBundle 'tpope/vim-endwise'
-" for LaTeX
 NeoBundle 'lervag/vimtex'
+NeoBundle 'tpope/vim-surround'
 
 " COLORSCHEMES
-" jellybeans
 NeoBundle 'nanotech/jellybeans.vim'
-" hybrid
 NeoBundle 'w0ng/vim-hybrid'
-" lucius
 NeoBundle 'jonathanfilip/vim-lucius'
 
 
