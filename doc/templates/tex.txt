@@ -4,7 +4,7 @@
 
 % Title
 \title{}
-\author{国立明石工業高等専門学校 E1507 泉 和哉}
+\author{}
 \date{}
 
 \lstset{
