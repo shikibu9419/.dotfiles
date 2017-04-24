@@ -17,9 +17,11 @@ NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'tpope/vim-endwise'
-NeoBundle 'lervag/vimtex'
 NeoBundle 'tpope/vim-surround'
-"NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'bronson/vim-trailing-whitespace'
+"NeoBundle 'lervag/vimtex'
+"NeoBundle 'tpope/vim-rails'
+"NeoBundle 'vim-scripts/AnsiEsc.vim'
 
 " COLORSCHEMES
 NeoBundle 'nanotech/jellybeans.vim'
@@ -39,7 +41,7 @@ NeoBundleCheck
 " カラー設定
 "------------------------------------------
 set t_Co=256
-colorscheme lucius
+colorscheme hybrid
 set background=dark
 
 set cursorline
@@ -47,6 +49,7 @@ hi LineNr ctermfg=243
 hi CursorLineNr ctermfg=255
 
 augroup highlight
+	autocmd!
 	autocmd VimEnter,ColorScheme * highlight Normal ctermbg=NONE
 	autocmd VimEnter,ColorScheme * highlight NonText ctermbg=NONE
 	autocmd VimEnter,ColorScheme * highlight TablineSel ctermbg=NONE
@@ -66,11 +69,15 @@ set number
 set nrformats=
 " 末尾から2行目にステータスラインを表示
 set laststatus=2
+" 上下3行の視界を確保
+set scrolloff=3
 
 
 "------------------------------------------
 "検索・置換え設定
 "------------------------------------------
+" インクリメンタルサーチを行う
+set incsearch
 " 検索にマッチした部分を強調表示
 set hls
 " 大文字/小文字の区別なく検索
@@ -79,6 +86,8 @@ set ignorecase
 set smartcase
 " 検索時に最後まで行ったら最初に戻る
 set wrapscan
+" 置換時g オプションをデフォルトに
+set gdefault
 
 
 "------------------------------------------
@@ -90,6 +99,7 @@ set list listchars=tab:\▸\
 set tabstop=4
 " 改行時に前のインデントを継続
 set autoindent
+set smartindent
 set shiftwidth=4
 
 
@@ -121,10 +131,12 @@ set mouse=i
 set ttymouse=xterm2
 " 改行時コメント継続を防ぐ
 autocmd FileType * setlocal formatoptions-=ro
-" 複数ファイルを編集
+" バッファを削除しない
 set hidden
 " ヴィジュアル短形で行末以降も選択可能
 set virtualedit=block
+" バックアップファイルを作らない
+set nobackup
 " スワップファイルを作らない
 set noswapfile
 " 編集中のファイルが変更されたら自動で読み直す
@@ -132,8 +144,8 @@ set autoread
 " 入力した括弧に対応する括弧にカーソルが飛ぶ(0.1秒間)
 set showmatch
 set matchtime=1
-" コマンドパターンを100個まで履歴に残す
-set history=100
+" コマンドパターンを1000個まで履歴に残す
+set history=1000
 
 
 "------------------------------------------
@@ -165,24 +177,21 @@ function! s:my_tabline()
 endfunction
 
 let &tabline = '%!'. s:SID_PREFIX() . 'my_tabline()'
-set showtabline=2 " 常にタブラインを表示
+set showtabline=2
 
-" The prefix key.
-nnoremap [Tag] <Nop>
-nmap t [Tag]
-" Tab jump (t1 で1番左のタブ、t2 で1番左から2番目のタブにジャンプ)
+" Tab jump (<Tab>1 で1番左のタブ、<Tab>2 で2番目のタブにジャンプ)
 for n in range(1, 9)
 	execute 'nnoremap <silent> [Tag]'.n  ':<C-u>tabnext'.n.'<CR>'
 endfor
 
-" tc: 新しいタブを一番右に作る
-map <silent> [Tag]c :tablast <bar> tabnew<CR>
-" tx: タブを閉じる
-map <silent> [Tag]x :tabclose<CR>
-" tn: 次のタブ
-map <silent> [Tag]n :tabnext<CR>
-" tp: 前のタブ
-map <silent> [Tag]p :tabprevious<CR>
+" 新しいタブを一番右に作る
+map <silent> <Tab>c :tablast <bar> tabnew<CR>
+" タブを閉じる
+map <silent> <Tab>x :tabclose<CR>
+" 次のタブ
+map <silent> <Tab>n :tabnext<CR>
+" 前のタブ
+map <silent> <Tab>p :tabprevious<CR>
 
 
 "------------------------------------------

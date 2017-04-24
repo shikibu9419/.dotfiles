@@ -5,7 +5,7 @@
 # 分割ファイル呼び出し
 for file in ~/.zsh/[0-9]*.zsh
 do
-	    source "$file"
+	source "$file"
 done
 
 # for rbenv
@@ -24,8 +24,8 @@ zstyle ':completion:*' menu select=2
 
 # history
 HISTFILE=~/.zsh_history
-HISTSIZE=100000
-SAVEHIST=100000
+HISTSIZE=1000000
+SAVEHIST=1000000
 setopt hist_ignore_dups	# 重複履歴の削除
 # setopt hist_reduse_blanks
 
@@ -37,16 +37,13 @@ setopt print_eight_bit
 setopt no_beep
 setopt extended_glob
 
-# cdコマンド実行後、lsを実行する
-# function cd() {
-#   builtin cd $@ && ls;
-# }
-
 # aliases
 alias la='ls -a'
 alias ll='ls -l'
 alias lla='ls -al'
 alias lal='ls -al'
-alias rm='rm -I'
+alias rm='rm -i'
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
+
+[[ -z "$TMUX" && ! -z "$PS1" ]] && tmux
