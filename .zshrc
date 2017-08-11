@@ -45,5 +45,3 @@ alias lal='ls -al'
 alias rm='rm -i'
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
-
-[[ -z "$TMUX" && ! -z "$PS1" ]] && tmux

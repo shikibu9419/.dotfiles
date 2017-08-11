@@ -1,6 +1,8 @@
 \documentclass[a4paper]{jsarticle}
 \usepackage[dvipdfmx]{graphicx}
 \usepackage{listings,jlisting}
+\usepackage{empheq}
+\usepackage{enumitem}
 
 % Title
 \title{}
@@ -20,6 +22,6 @@
 \clearpage
 \setcounter{page}{1}
 
-% Text
+% TEXT HERE
 
 \end{document}

@@ -1,0 +1,27 @@
+reset
+
+# logscales
+# set logscale
+# set grid xtics ytics mxtics mytics
+# set grid lt -1 lw 1, lt 0 lw 0.3
+
+# keys
+set key left top
+
+# fonts
+set xlabel font "Times New Roman,15"
+set ylabel font "Times New Roman,15"
+set key font "Times New Roman,15"
+
+# ranges[begin:end]
+set xrange[:]
+set yrange[:]
+
+# label name
+set xlabel ""
+set ylabel ""
+
+# output (plot "PlotFileName" using x:y:z with [plottypes...])
+# set term emf
+# set output ""
+# plot
