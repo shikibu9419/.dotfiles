@@ -1,53 +1,49 @@
 "------------------------------------------
-" NeoBundle set up
+" dein.vim set up
 "------------------------------------------
-" Note: Skip initialization for vim-tiny or vim-small.
+" Skip initialization for vim-tiny or vim-small.
 if 0 | endif
 
+set nocompatible
 filetype off
 
-if has('vim_starting')
-	set nocompatible               " Be iMproved
-	set runtimepath+=~/.vim/bundle/neobundle.vim
+let s:dein_dir = $HOME . '/.vim/dein'
+let s:dein_repo_dir = s:dein_dir . 'repos/github.com/Shougo/dein.vim'
+
+set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
+
+if dein#load_state(s:dein_dir)
+	call dein#begin(s:dein_dir)
+	" TOML files
+	let s:toml      = s:dein_dir . '/dein.toml'
+	let s:lazy_toml = s:dein_dir . '/dein_lazy.toml'
+
+	call dein#load_toml(s:toml, {'lazy': 0})
+	call dein#load_toml(s:lazy_toml, {'lazy': 1})
+	call dein#end()
+	call dein#save_state()
 endif
 
-call neobundle#begin(expand('~/.vim/bundle/'))
-
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'tomtom/tcomment_vim'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'tpope/vim-endwise'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'bronson/vim-trailing-whitespace'
-"NeoBundle 'lervag/vimtex'
-"NeoBundle 'tpope/vim-rails'
-"NeoBundle 'vim-scripts/AnsiEsc.vim'
-
-" COLORSCHEMES
-NeoBundle 'nanotech/jellybeans.vim'
-NeoBundle 'w0ng/vim-hybrid'
-NeoBundle 'jonathanfilip/vim-lucius'
-
-call neobundle#end()
+" プラグインを自動インストール
+if dein#check_install()
+	call dein#install()
+endif
 
 filetype plugin indent on
-filetype indent on
 syntax on
-
-NeoBundleCheck
 
 
 "------------------------------------------
 " カラー設定
 "------------------------------------------
 set t_Co=256
-colorscheme hybrid
 set background=dark
-
+colorscheme hybrid
+" カーソルラインのハイライト
 set cursorline
 hi LineNr ctermfg=243
 hi CursorLineNr ctermfg=255
-
+" Vim の半透明化
 augroup highlight
 	autocmd!
 	autocmd VimEnter,ColorScheme * highlight Normal ctermbg=NONE
@@ -65,7 +61,7 @@ augroup END
 set title
 " 行番号の表示
 set number
-" 0が前置されていても10進数と認識(デフォルトは8進数)
+" 0 が前置されていても10進数と認識
 set nrformats=
 " 末尾から2行目にステータスラインを表示
 set laststatus=2
@@ -74,7 +70,7 @@ set scrolloff=3
 
 
 "------------------------------------------
-"検索・置換え設定
+" 検索・置換え設定
 "------------------------------------------
 " インクリメンタルサーチを行う
 set incsearch
@@ -86,17 +82,18 @@ set ignorecase
 set smartcase
 " 検索時に最後まで行ったら最初に戻る
 set wrapscan
-" 置換時g オプションをデフォルトに
+" 置換時、g オプションをデフォルトに
 set gdefault
 
 
 "------------------------------------------
 "インデント設定
 "------------------------------------------
-" Tab文字の可視化
-set list listchars=tab:\▸\ 
+" タブ入力を複数の空白に置き換え
+set expandtab
 " Tab文字を半角スペース4つ分に設定
 set tabstop=4
+set softtabstop=4
 " 改行時に前のインデントを継続
 set autoindent
 set smartindent
@@ -104,21 +101,16 @@ set shiftwidth=4
 
 
 "------------------------------------------
-"キーボード入力
+" キーボード入力
 "------------------------------------------
-" [ノーマルモード] 常に表示行単位の移動に
-nnoremap j gj
-nnoremap k gk
 " [ノーマルモード] Yを行末までのヤンクに
 nnoremap Y y$
 " [ノーマルモード] 数字のインクリメント/デクリメント
 nnoremap + <C-a>
 nnoremap - <C-x>
-" [ノーマルモード] Enter で改行
-nnoremap <CR> o<Esc>
 " [インサートモード] jjと入力するとコマンドモードに
 inoremap jj <Esc>:
-" [コマンドモード] <C-p>/<C-n> で履歴を遡れる
+" [コマンドモード] <C-p>/<C-n> で履歴を遡る
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
 
@@ -126,30 +118,35 @@ cnoremap <C-n> <Down>
 "------------------------------------------
 " その他
 "------------------------------------------
-"マウス設定
-set mouse=i
+" マウス入力を有効に
+set mouse=a
 set ttymouse=xterm2
-" 改行時コメント継続を防ぐ
-autocmd FileType * setlocal formatoptions-=ro
+" backspaceを有効に
+set backspace=indent,eol,start
+" クリップボード設定
+set clipboard+=unnamed
 " バッファを削除しない
 set hidden
 " ヴィジュアル短形で行末以降も選択可能
 set virtualedit=block
-" バックアップファイルを作らない
+" バックアップ・スワップファイルを作らない
 set nobackup
-" スワップファイルを作らない
 set noswapfile
 " 編集中のファイルが変更されたら自動で読み直す
 set autoread
 " 入力した括弧に対応する括弧にカーソルが飛ぶ(0.1秒間)
 set showmatch
 set matchtime=1
+" 改行時コメント継続を防ぐ
+autocmd FileType * setlocal formatoptions-=ro
+" コマンドモードの補完
+set wildmenu
 " コマンドパターンを1000個まで履歴に残す
 set history=1000
 
 
 "------------------------------------------
-" タブ設定(http://qiita.com/wadako111/items/755e753677dd72d8036d)
+" タブ設定 (http://qiita.com/wadako111/items/755e753677dd72d8036d)
 "------------------------------------------
 " Anywhere SID.
 function! s:SID_PREFIX()
@@ -198,13 +195,10 @@ map <silent> <Tab>p :tabprevious<CR>
 " ファイルタイプごとの設定
 "------------------------------------------
 augroup filetypedetect
-	" C
-	autocmd BufRead,BufNewFile *.c setlocal tabstop=4 shiftwidth=4
-	" C++
-	autocmd BufRead,BufNewFile *.cpp setlocal tabstop=4 shiftwidth=4
-	" TeX
-	autocmd BufRead,BufNewFile *.tex setlocal tabstop=2 shiftwidth=2
-	autocmd BufNewfile *.tex 0r $HOME/.vim/templates/tex.txt
 	" Ruby
-	autocmd BufRead,BufNewFile *.rb setlocal tabstop=2 shiftwidth=2
+	autocmd BufRead,BufNewFile *.rb setlocal tabstop=2 shiftwidth=2 softtabstop=2
+	" TeX
+	autocmd BufNewfile *.tex 0r $HOME/.vim/templates/tex.txt
+	" Gnuplot
+	autocmd BufNewfile *.gpi 0r $HOME/.vim/templates/gnuplot.txt
 augroup END
