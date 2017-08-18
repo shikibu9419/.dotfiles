@@ -7,6 +7,9 @@ if 0 | endif
 set nocompatible
 filetype off
 
+" <Leader>
+let mapleader="\<Space>"
+
 let s:dein_dir = $HOME . '/.vim/dein'
 let s:dein_repo_dir = s:dein_dir . 'repos/github.com/Shougo/dein.vim'
 
