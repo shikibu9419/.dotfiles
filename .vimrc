@@ -90,7 +90,7 @@ set gdefault
 
 
 "------------------------------------------
-"インデント設定
+" インデント設定
 "------------------------------------------
 " タブ入力を複数の空白に置き換え
 set expandtab
@@ -106,6 +106,8 @@ set shiftwidth=4
 "------------------------------------------
 " キーボード入力
 "------------------------------------------
+" [全モード] .vimrcを開く
+noremap <Leader>. :tabedit $MYVIMRC<CR>
 " [ノーマルモード] Yを行末までのヤンクに
 nnoremap Y y$
 " [ノーマルモード] 数字のインクリメント/デクリメント
@@ -179,7 +181,7 @@ endfunction
 let &tabline = '%!'. s:SID_PREFIX() . 'my_tabline()'
 set showtabline=2
 
-" Tab jump (<Tab>1 で1番左のタブ、<Tab>2 で2番目のタブにジャンプ)
+" Tab jump (<Tab>n で左からn番目のタブにジャンプ)
 for n in range(1, 9)
 	execute 'nnoremap <silent> [Tag]'.n  ':<C-u>tabnext'.n.'<CR>'
 endfor
