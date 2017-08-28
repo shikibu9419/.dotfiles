@@ -3,18 +3,18 @@ This is my dotfiles for OS X.
 
 ## Installation
 ```
-$ bash -c "$(curl -L raw.github.com/shikibu9419/dotfiles/master/dotfiles/init/install.sh)"
+$ bash -c "$(curl -L raw.github.com/shikibu9419/dotfiles/master/init/install.sh)"
 ```
 
 ### Install and Initialize
 ```
-$ bash -c "$(curl -L raw.github.com/shikibu9419/dotfiles/master/dotfiles/init/install.sh)" init
+$ bash -c "$(curl -L raw.github.com/shikibu9419/dotfiles/master/init/install.sh)" init
 ```
 
 ### Deploy
 - Install and deploy:
 ```
-$ bash -c "$(curl -L raw.github.com/shikibu9419/dotfiles/master/dotfiles/init/install.sh)" deploy
+$ bash -c "$(curl -L raw.github.com/shikibu9419/dotfiles/master/init/install.sh)" deploy
 ```
 
 - Deploy only (dotfiles were installed):
