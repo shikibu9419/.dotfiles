@@ -10,7 +10,7 @@ has() {
 
 install() {
     if [ -d $DOT_DIRECTORY ]; then
-        echo "**worning** $DOT_DIRECTORY will be deleted!!\nStop deploying."
+        echo "**warning** $DOT_DIRECTORY will be deleted!!\nStop deploying."
         exit 1
     fi
 
