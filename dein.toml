@@ -112,6 +112,7 @@ hook_add = 'let g:airline#extensions#branch#enabled=1'
 #----------------------------------------------
 [[plugins]]
 repo = 'plasticboy/vim-markdown'
+hook_add = 'let g:vim_markdown_folding_disabled=1'
 
 [[plugins]]
 repo = 'kannokanno/previm'
