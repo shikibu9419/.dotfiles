@@ -60,7 +60,6 @@ initialize() {
         'ctags'
     )
 
-    ###############
     for formula in ${install_formulae[@]}; do
         brew install $formula && echo "Installed $formula"
     done
