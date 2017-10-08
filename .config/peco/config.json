@@ -1,0 +1,15 @@
+{
+  "Keymap": {
+    "C-k": "peco.SelectUp",
+    "C-j": "peco.SelectDown",
+    "C-b": "peco.ScrollPageUp",
+    "C-f": "peco.ScrollPageDown",
+
+    "C-a": "peco.SelectAll",
+    "C-g": "peco.SelectNone"
+  },
+  "Style": {
+    "Selected": ["underline", "on_green", "black"],
+    "Query": ["white", "underline"]
+  }
+}

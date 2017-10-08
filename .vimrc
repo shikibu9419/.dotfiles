@@ -1,5 +1,5 @@
 "------------------------------------------
-" dein.vim set up
+" Dein.vim
 "------------------------------------------
 " Skip initialization for vim-tiny or vim-small.
 if 0 | endif
@@ -7,19 +7,21 @@ if 0 | endif
 set nocompatible
 filetype off
 
-" <Leader>
+" <Leader> setting
 let mapleader="\<Space>"
 
-let s:dein_dir = $HOME . '/.vim/dein'
+let s:dein_dir = expand('~/.vim/dein')
 let s:dein_repo_dir = s:dein_dir . 'repos/github.com/Shougo/dein.vim'
 
 set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
 
 if dein#load_state(s:dein_dir)
 	call dein#begin(s:dein_dir)
+
 	" TOML files
-	let s:toml      = s:dein_dir . '/dein.toml'
-	let s:lazy_toml = s:dein_dir . '/dein_lazy.toml'
+    let s:vim_dir   = expand('~/.vim')
+	let s:toml      = s:vim_dir . '/dein.toml'
+	let s:lazy_toml = s:vim_dir . '/dein_lazy.toml'
 
 	call dein#load_toml(s:toml, {'lazy': 0})
 	call dein#load_toml(s:lazy_toml, {'lazy': 1})
@@ -27,7 +29,7 @@ if dein#load_state(s:dein_dir)
 	call dein#save_state()
 endif
 
-" プラグインを自動インストール
+" Install plugins
 if dein#check_install()
 	call dein#install()
 endif
@@ -37,7 +39,7 @@ syntax on
 
 
 "------------------------------------------
-" カラー設定
+" Color
 "------------------------------------------
 set t_Co=256
 set background=dark
@@ -58,7 +60,7 @@ augroup END
 
 
 "------------------------------------------
-" 表示設定
+" View
 "------------------------------------------
 " 編集中のファイル名を表示
 set title
@@ -73,7 +75,7 @@ set scrolloff=3
 
 
 "------------------------------------------
-" 検索・置換え設定
+" Search & Replace
 "------------------------------------------
 " インクリメンタルサーチを行う
 set incsearch
@@ -90,21 +92,41 @@ set gdefault
 
 
 "------------------------------------------
-" インデント設定
+" Indent
 "------------------------------------------
 " タブ入力を複数の空白に置き換え
 set expandtab
 " Tab文字を半角スペース4つ分に設定
 set tabstop=4
+set shiftwidth=4
 set softtabstop=4
 " 改行時に前のインデントを継続
 set autoindent
 set smartindent
-set shiftwidth=4
+
+augroup filetypedetect
+	" Ruby
+	autocmd BufRead,BufNewFile *.rb setlocal tabstop=2 shiftwidth=2 softtabstop=2
+    " Python
+	autocmd BufRead,BufNewFile *.html setlocal tabstop=2 shiftwidth=2 softtabstop=2
+    " HTML
+	autocmd BufRead,BufNewFile *.html setlocal tabstop=2 shiftwidth=2 softtabstop=2
+    " CSS
+	autocmd BufRead,BufNewFile *.css setlocal tabstop=2 shiftwidth=2 softtabstop=2
+    " Markdown
+	autocmd BufRead,BufNewFile *.md setlocal tabstop=2 shiftwidth=2 softtabstop=2
+    " Shell
+	autocmd BufRead,BufNewFile *.sh setlocal tabstop=2 shiftwidth=2 softtabstop=2
+	" TeX
+	autocmd BufRead,BufNewFile *.tex setlocal tabstop=2 shiftwidth=2 softtabstop=2
+	autocmd BufNewfile *.tex 0r ~/.vim/templates/tex.txt
+	" Gnuplot
+	autocmd BufNewfile *.gpi 0r ~/.vim/templates/gnuplot.txt
+augroup END
 
 
 "------------------------------------------
-" キーボード入力
+" Map
 "------------------------------------------
 " [全モード] .vimrcを開く
 noremap <Leader>. :tabedit $MYVIMRC<CR>
@@ -121,37 +143,7 @@ cnoremap <C-n> <Down>
 
 
 "------------------------------------------
-" その他
-"------------------------------------------
-" マウス入力を有効に
-set mouse=a
-set ttymouse=xterm2
-" backspaceを有効に
-set backspace=indent,eol,start
-" クリップボード設定
-set clipboard+=unnamed
-" バッファを削除しない
-set hidden
-" ヴィジュアル短形で行末以降も選択可能
-set virtualedit=block
-" バックアップ・スワップファイルを作らない
-set nobackup
-set noswapfile
-" 編集中のファイルが変更されたら自動で読み直す
-set autoread
-" 入力した括弧に対応する括弧にカーソルが飛ぶ(0.1秒間)
-set showmatch
-set matchtime=1
-" 改行時コメント継続を防ぐ
-autocmd FileType * setlocal formatoptions-=ro
-" コマンドモードの補完
-set wildmenu
-" コマンドパターンを1000個まで履歴に残す
-set history=1000
-
-
-"------------------------------------------
-" タブ設定 (http://qiita.com/wadako111/items/755e753677dd72d8036d)
+" Tab (Respect http://qiita.com/wadako111/items/755e753677dd72d8036d)
 "------------------------------------------
 " Anywhere SID.
 function! s:SID_PREFIX()
@@ -197,13 +189,30 @@ map <silent> <Tab>p :tabprevious<CR>
 
 
 "------------------------------------------
-" ファイルタイプごとの設定
+" Edit
 "------------------------------------------
-augroup filetypedetect
-	" Ruby
-	autocmd BufRead,BufNewFile *.rb setlocal tabstop=2 shiftwidth=2 softtabstop=2
-	" TeX
-	autocmd BufNewfile *.tex 0r $HOME/.vim/templates/tex.txt
-	" Gnuplot
-	autocmd BufNewfile *.gpi 0r $HOME/.vim/templates/gnuplot.txt
-augroup END
+" マウス入力を有効に
+set mouse=a
+set ttymouse=xterm2
+" backspaceを有効に
+set backspace=indent,eol,start
+" クリップボード設定
+set clipboard+=unnamed
+" バッファを削除しない
+set hidden
+" ヴィジュアル短形で行末以降も選択可能
+set virtualedit=block
+" バックアップ・スワップファイルを作らない
+set nobackup
+set noswapfile
+" 編集中のファイルが変更されたら自動で読み直す
+set autoread
+" 入力した括弧に対応する括弧にカーソルが飛ぶ(0.1秒間)
+set showmatch
+set matchtime=1
+" 改行時コメント継続を防ぐ
+autocmd FileType * setlocal formatoptions-=ro
+" コマンドモードの補完
+set wildmenu
+" コマンドパターンを1000個まで履歴に残す
+set history=1000
