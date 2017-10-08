@@ -19,5 +19,5 @@ $ bash -c "$(curl -fsSL raw.github.com/shikibu9419/dotfiles/master/init/install.
 
 - Deploy only (if dotfiles are installed):
 ```
-$ sh ~/dotfiles/init/deploy.sh
+$ bash ~/dotfiles/init/deploy.sh
 ```
