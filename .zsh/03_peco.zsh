@@ -1,14 +1,15 @@
 # Select histories
 function peco_select_history() {
-    local tac
-    if which tac > /dev/null; then
-        tac="tac"
-    else
-        tac="tail -r"
-    fi
-    buffer=$(fc -l -n 1 | eval $tac | peco --query "$lbuffer")
-    cursor=$#buffer
-    zle clear-screen
+  local tac
+  if which tac > /dev/null; then
+    tac="tac"
+  else
+    tac="tail -r"
+  fi
+
+  buffer=$(fc -l -n 1 | eval $tac | peco --query "$lbuffer")
+  cursor=$#buffer
+  zle clear-screen
 }
 zle -N peco_select_history
 bindkey '^r' peco_select_history

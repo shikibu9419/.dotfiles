@@ -7,15 +7,15 @@ repo = 'Shougo/dein.vim'
 [[plugins]]
 repo = 'Shougo/neocomplete.vim'
 hook_add = '''
-    let g:acp_enableAtStartup = 0
-    let g:neocomplete#enable_at_startup = 1
-    let g:neocomplete#enable_smart_case = 1
-    let g:neocomplete#sources#syntax#min_keyword_length = 3
+  let g:acp_enableAtStartup = 0
+  let g:neocomplete#enable_at_startup = 1
+  let g:neocomplete#enable_smart_case = 1
+  let g:neocomplete#sources#syntax#min_keyword_length = 3
 
-    " Plugin key-mappings.
-    inoremap <expr><C-g> neocomplete#undo_completion()
-    inoremap <expr><C-l> neocomplete#complete_common_string()
-    inoremap <expr><tab>  pumvisible() ? "\<C-n>" : "\<TAB>"
+  " Plugin key-mappings.
+  inoremap <expr><C-g> neocomplete#undo_completion()
+  inoremap <expr><C-l> neocomplete#complete_common_string()
+  inoremap <expr><tab>  pumvisible() ? "\<C-n>" : "\<TAB>"
 '''
 
 # repo = 'Shougo/neosnippet.vim'
@@ -28,13 +28,13 @@ hook_add = '''
 [[plugins]]
 repo = 'vim-airline/vim-airline'
 hook_add = '''
-    let g:airline#extensions#tabline#enabled=1
-    let g:airline#extensions#tabline#left_sep=' '
-    let g:airline#extensions#tabline#left_alt_sep=' '
-    " タブバーの右領域を非表示
-    "let g:airline#extensions#tabline#show_splits = 0
-    "let g:airline#extensions#tabline#show_tab_type = 0
-    "let g:airline#extensions#tabline#show_close_button = 0
+  let g:airline#extensions#tabline#enabled=1
+  let g:airline#extensions#tabline#left_sep=' '
+  let g:airline#extensions#tabline#left_alt_sep=' '
+  " タブバーの右領域を非表示
+  "let g:airline#extensions#tabline#show_splits = 0
+  "let g:airline#extensions#tabline#show_tab_type = 0
+  "let g:airline#extensions#tabline#show_close_button = 0
 '''
 
 
@@ -95,12 +95,12 @@ repo = 'kannokanno/previm'
 [[plugins]]
 repo = 'scrooloose/nerdtree'
 hook_add = '''
-    " ファイル指定なしのとき自動起動
-    let g:NERDTreeShowHidden=1
-    " ブックマーク
-    let g:NERDTreeShowBookmarks=1
+  " ファイル指定なしのとき自動起動
+  let g:NERDTreeShowHidden=1
+  " ブックマーク
+  let g:NERDTreeShowBookmarks=1
 
-    nmap <Leader>n :NERDTreeToggle<CR>
+  nmap <Leader>n :NERDTreeToggle<CR>
 '''
 
 # NERDTree のタブ間共有
@@ -119,8 +119,8 @@ hook_add = '''
 [[plugins]]
 repo = 'thinca/vim-quickrun'
 hook_add = '''
-    set splitbelow
-    set splitright
+  set splitbelow
+  set splitright
 '''
 hook_post_source = 'nmap <Leader>r :Quickrun'
 
@@ -142,17 +142,17 @@ repo = 'Yggdroot/indentLine'
 [[plugins]]
 repo = 'tyru/open-browser.vim'
 hook_add = '''
-    nmap <Leader>b <Plug>(openbrowser-smart-search)
-    vmap <Leader>b <Plug>(openbrowser-smart-search)
+  nmap <Leader>b <Plug>(openbrowser-smart-search)
+  vmap <Leader>b <Plug>(openbrowser-smart-search)
 '''
 
 [[plugins]]
 repo = 'rhysd/accelerated-jk'
 hook_add = '''
-    nmap j <Plug>(accelerated_jk_gj)
-    "xmap j <Plug>(accelerated_jk_gj)
-    nmap k <Plug>(accelerated_jk_gk)
-    "xmap k <Plug>(accelerated_jk_gk)
+  nmap j <Plug>(accelerated_jk_gj)
+  "xmap j <Plug>(accelerated_jk_gj)
+  nmap k <Plug>(accelerated_jk_gk)
+  "xmap k <Plug>(accelerated_jk_gk)
 '''
 
 # [[plugins]]

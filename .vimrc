@@ -16,22 +16,22 @@ let s:dein_repo_dir = s:dein_dir . 'repos/github.com/Shougo/dein.vim'
 set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
 
 if dein#load_state(s:dein_dir)
-	call dein#begin(s:dein_dir)
+  call dein#begin(s:dein_dir)
 
-	" TOML files
-    let s:vim_dir   = expand('~/.vim')
-	let s:toml      = s:vim_dir . '/dein.toml'
-	let s:lazy_toml = s:vim_dir . '/dein_lazy.toml'
+  " TOML files
+  let s:vim_dir   = expand('~/.vim')
+  let s:toml      = s:vim_dir . '/dein.toml'
+  let s:lazy_toml = s:vim_dir . '/dein_lazy.toml'
 
-	call dein#load_toml(s:toml, {'lazy': 0})
-	call dein#load_toml(s:lazy_toml, {'lazy': 1})
-	call dein#end()
-	call dein#save_state()
+  call dein#load_toml(s:toml, {'lazy': 0})
+  call dein#load_toml(s:lazy_toml, {'lazy': 1})
+  call dein#end()
+  call dein#save_state()
 endif
 
 " Install plugins
 if dein#check_install()
-	call dein#install()
+  call dein#install()
 endif
 
 filetype plugin indent on
@@ -50,12 +50,12 @@ hi LineNr ctermfg=243
 hi CursorLineNr ctermfg=255
 " Vim の半透明化
 augroup highlight
-	autocmd!
-	autocmd VimEnter,ColorScheme * highlight Normal ctermbg=NONE
-	autocmd VimEnter,ColorScheme * highlight NonText ctermbg=NONE
-	autocmd VimEnter,ColorScheme * highlight TablineSel ctermbg=NONE
-	autocmd VimEnter,ColorScheme * highlight LineNr ctermbg=NONE
-	autocmd VimEnter,ColorScheme * highlight CursorLineNr ctermbg=NONE
+  autocmd!
+  autocmd VimEnter,ColorScheme * highlight Normal ctermbg=NONE
+  autocmd VimEnter,ColorScheme * highlight NonText ctermbg=NONE
+  autocmd VimEnter,ColorScheme * highlight TablineSel ctermbg=NONE
+  autocmd VimEnter,ColorScheme * highlight LineNr ctermbg=NONE
+  autocmd VimEnter,ColorScheme * highlight CursorLineNr ctermbg=NONE
 augroup END
 
 
@@ -97,31 +97,21 @@ set gdefault
 " タブ入力を複数の空白に置き換え
 set expandtab
 " Tab文字を半角スペース4つ分に設定
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 " 改行時に前のインデントを継続
 set autoindent
 set smartindent
 
 augroup filetypedetect
-	" Ruby
-	autocmd BufRead,BufNewFile *.rb setlocal tabstop=2 shiftwidth=2 softtabstop=2
-    " Python
-	autocmd BufRead,BufNewFile *.html setlocal tabstop=2 shiftwidth=2 softtabstop=2
-    " HTML
-	autocmd BufRead,BufNewFile *.html setlocal tabstop=2 shiftwidth=2 softtabstop=2
-    " CSS
-	autocmd BufRead,BufNewFile *.css setlocal tabstop=2 shiftwidth=2 softtabstop=2
-    " Markdown
-	autocmd BufRead,BufNewFile *.md setlocal tabstop=2 shiftwidth=2 softtabstop=2
-    " Shell
-	autocmd BufRead,BufNewFile *.sh setlocal tabstop=2 shiftwidth=2 softtabstop=2
-	" TeX
-	autocmd BufRead,BufNewFile *.tex setlocal tabstop=2 shiftwidth=2 softtabstop=2
-	autocmd BufNewfile *.tex 0r ~/.vim/templates/tex.txt
-	" Gnuplot
-	autocmd BufNewfile *.gpi 0r ~/.vim/templates/gnuplot.txt
+  " C / C++
+  autocmd BufRead,BufNewFile *.c setlocal tabstop=4 shiftwidth=4 softtabstop=4
+  autocmd BufRead,BufNewFile *.cpp setlocal tabstop=4 shiftwidth=4 softtabstop=4
+  " TeX
+  autocmd BufNewfile *.tex 0r ~/.vim/templates/tex.txt
+  " Gnuplot
+  autocmd BufNewfile *.gpi 0r ~/.vim/templates/gnuplot.txt
 augroup END
 
 
@@ -147,27 +137,27 @@ cnoremap <C-n> <Down>
 "------------------------------------------
 " Anywhere SID.
 function! s:SID_PREFIX()
-	return matchstr(expand('<sfile>'), '<SNR>\d\+_\zeSID_PREFIX$')
+  return matchstr(expand('<sfile>'), '<SNR>\d\+_\zeSID_PREFIX$')
 endfunction
 
 " Set tabline.
 function! s:my_tabline()
-	let s = ''
-	for i in range(1, tabpagenr('$'))
-		let bufnrs = tabpagebuflist(i)
-		let bufnr = bufnrs[tabpagewinnr(i) - 1]  " first window, first appears
-		let no = i  " display 0-origin tabpagenr.
-		let mod = getbufvar(bufnr, '&modified') ? '!' : ' '
-		let title = fnamemodify(bufname(bufnr), ':t')
-		let title = '[' . title . ']'
-		let s .= '%'.i.'T'
-		let s .= '%#' . (i == tabpagenr() ? 'TabLineSel' : 'TabLine') . '#'
-		let s .= no . ':' . title
-		let s .= mod
-		let s .= '%#TabLineFill# '
-	endfor
-	let s .= '%#TabLineFill#%T%=%#TabLine#'
-	return s
+  let s = ''
+  for i in range(1, tabpagenr('$'))
+    let bufnrs = tabpagebuflist(i)
+    let bufnr = bufnrs[tabpagewinnr(i) - 1]  " first window, first appears
+    let no = i  " display 0-origin tabpagenr.
+    let mod = getbufvar(bufnr, '&modified') ? '!' : ' '
+    let title = fnamemodify(bufname(bufnr), ':t')
+    let title = '[' . title . ']'
+    let s .= '%'.i.'T'
+    let s .= '%#' . (i == tabpagenr() ? 'TabLineSel' : 'TabLine') . '#'
+    let s .= no . ':' . title
+    let s .= mod
+    let s .= '%#TabLineFill# '
+  endfor
+  let s .= '%#TabLineFill#%T%=%#TabLine#'
+  return s
 endfunction
 
 let &tabline = '%!'. s:SID_PREFIX() . 'my_tabline()'
@@ -175,7 +165,7 @@ set showtabline=2
 
 " Tab jump (<Tab>n で左からn番目のタブにジャンプ)
 for n in range(1, 9)
-	execute 'nnoremap <silent> [Tag]'.n  ':<C-u>tabnext'.n.'<CR>'
+  execute 'nnoremap <silent> [Tag]'.n  ':<C-u>tabnext'.n.'<CR>'
 endfor
 
 " 新しいタブを一番右に作る
