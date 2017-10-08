@@ -1,7 +1,7 @@
 # dotfiles
 This is my dotfiles for OS X.
 
-## Installation
+## Install
 ```
 $ bash -c "$(curl -fsSL raw.github.com/shikibu9419/dotfiles/master/init/install.sh)"
 ```
