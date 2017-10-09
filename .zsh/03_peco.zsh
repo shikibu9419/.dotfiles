@@ -7,8 +7,9 @@ function peco_select_history() {
     tac="tail -r"
   fi
 
-  buffer=$(fc -l -n 1 | eval $tac | peco --query "$lbuffer")
-  cursor=$#buffer
+  BUFFER=$(fc -l -n 1 | eval "$tac" | peco --query "$LBUFFER")
+  CURSOR=$#BUFFER
+  #zle accept-line
   zle clear-screen
 }
 zle -N peco_select_history
