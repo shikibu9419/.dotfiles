@@ -2,34 +2,6 @@
 repo = 'Shougo/dein.vim'
 
 #----------------------------------------------
-# Completion & Snippets
-#----------------------------------------------
-[[plugins]]
-repo = 'Shougo/neocomplete.vim'
-hook_add = '''
-  let g:acp_enableAtStartup = 0
-  let g:neocomplete#enable_at_startup = 1
-  let g:neocomplete#enable_smart_case = 1
-  let g:neocomplete#sources#syntax#min_keyword_length = 3
-
-  " For Ruby
-  if !exists('g:neocomplete#force_omni_input_patterns')
-    let g:neocomplete#force_omni_input_patterns = {}
-  endif
-  let g:neocomplete#force_omni_input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
-  let g:rsenseUseomniFunc = 1
-
-  " Plugin key-mappings.
-  inoremap <expr><C-g> neocomplete#undo_completion()
-  inoremap <expr><C-l> neocomplete#complete_common_string()
-  inoremap <expr><tab>  pumvisible() ? "\<C-n>" : "\<TAB>"
-'''
-
-# repo = 'Shougo/neosnippet.vim'
-# repo = 'Shougo/neosnippet-snippets'
-
-
-#----------------------------------------------
 # Tab & Status Line
 #----------------------------------------------
 [[plugins]]
@@ -51,17 +23,6 @@ hook_add = '''
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 hook_add = 'let g:airline#extensions#branch#enabled=1'
-
-
-#----------------------------------------------
-# Markdown
-#----------------------------------------------
-[[plugins]]
-repo = 'plasticboy/vim-markdown'
-hook_add = 'let g:vim_markdown_folding_disabled=1'
-
-[[plugins]]
-repo = 'kannokanno/previm'
 
 
 #----------------------------------------------
@@ -132,21 +93,6 @@ hook_add = '''
 hook_post_source = 'nmap <Leader>r :Quickrun'
 
 [[plugins]]
-repo = 'tomtom/tcomment_vim'
-
-[[plugins]]
-repo = 'tpope/vim-endwise'
-
-[[plugins]]
-repo = 'tpope/vim-surround'
-
-[[plugins]]
-repo = 'bronson/vim-trailing-whitespace'
-
-[[plugins]]
-repo = 'Yggdroot/indentLine'
-
-[[plugins]]
 repo = 'tyru/open-browser.vim'
 hook_add = '''
   nmap <Leader>b <Plug>(openbrowser-smart-search)
@@ -174,6 +120,20 @@ hook_add = '''
 # repo = 'osyo-manga/vim-precious'
 # depends = ['Shougo/context_filetype.vim']
 
+[[plugins]]
+repo = 'tomtom/tcomment_vim'
+
+[[plugins]]
+repo = 'tpope/vim-endwise'
+
+[[plugins]]
+repo = 'tpope/vim-surround'
+
+[[plugins]]
+repo = 'bronson/vim-trailing-whitespace'
+
+[[plugins]]
+repo = 'Yggdroot/indentLine'
 
 # repo = 'vim-scripts/AnsiEsc.vim'
 # repo = 'tyru/caw.vim'
