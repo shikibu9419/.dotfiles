@@ -1,8 +1,12 @@
 \documentclass[a4paper]{jsarticle}
 \usepackage[dvipdfmx]{graphicx}
 \usepackage{listings,jlisting}
+\usepackage{multirow}
 \usepackage{empheq}
 \usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{mathptmx}
+\usepackage{lscape}
 
 % Title
 \title{}
