@@ -48,7 +48,7 @@ local -a install_formulae=(
 )
 
 for formula in ${install_formulae[@]}; do
-    brew install $formula && echo "Installed $formula"
+    brew install $formula && echo "Installed $formula."
 done
 
 # cask install
@@ -61,7 +61,7 @@ local -a install_formulae=(
 )
 
 for formula in ${install_formulae[@]}; do
-    brew cask install $formula && echo "Installed $formula"
+    brew cask install $formula && echo "Installed $formula."
 done
 
 brew cleanup
@@ -79,4 +79,4 @@ git clone https://github.com/Shougo/dein.vim.git $VIM_DEIN_DIRECTORY
 # gem install bundle
 # bundle install
 
-echo "Initialization is completed!!"
+echo "Initialization is complete!!"

@@ -26,7 +26,7 @@ install() {
         rm -f $HOME/dotfiles.tar.gz
     fi
 
-    echo "Dotfiles installed!"
+    echo "Dotfiles were installed!"
 }
 
 usage() {

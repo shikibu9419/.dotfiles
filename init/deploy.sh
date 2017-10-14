@@ -2,8 +2,6 @@
 
 cd ~/dotfiles/
 
-echo "Deploying..."
-
 for f in .??*
 do
 	[[ "${f}" = ".git" ]] && continue
