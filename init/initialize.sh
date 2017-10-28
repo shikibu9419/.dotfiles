@@ -32,6 +32,7 @@ local -a install_formulae=(
     'zsh'
     'zsh-completions'
     'tmux'
+    'reattach-to-user-namespace'
     'pyenv'
     'rbenv'
     'ruby-build'
@@ -56,8 +57,14 @@ local -a install_formulae=(
     'google-chrome'
     '4k-video-downloader'
     'iterm2'
-    'mactex'
+    'sourcetree'
+    'docker-toolbox'
+    'basictex'
     'skim'
+    'skype'
+    '0xed'
+    'atom'
+    'sublime-text'
 )
 
 for formula in ${install_formulae[@]}; do
