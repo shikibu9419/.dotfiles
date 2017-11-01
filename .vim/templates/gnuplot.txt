@@ -21,7 +21,9 @@ set yrange[:]
 set xlabel ""
 set ylabel ""
 
-# output (plot "PlotFileName" using x:y:z with [plottypes...])
-# set term emf
-# set output ""
-# plot
+# set term <FileType>
+# set output "OutputFileName"
+# plot "InputFileName" using x:y:z with [plottypes...], ...
+set term png
+set output "hoge.png"
+plot "fuga.dat" using 1:2 with lines lt 2 lw 2 lc 8 title "fuga1","fuga.dat" using 1:3 with lines lt 1 lw 2 lc 8 title "fuga2"
