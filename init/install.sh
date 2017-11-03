@@ -33,7 +33,7 @@ usage() {
     name=`basename $0`
     cat <<EOF
 Usage:
-  $name [command]
+  install.sh [command]
 Commands:
   init      Initialize your OS X and deploy dotfiles.
   deploy    Deploy dotfiles.
@@ -44,11 +44,7 @@ EOF
 if [ $# -le 1 ]; then
     install
 
-    if [ $# -eq 0 ]; then
-        exit 0
-    fi
-
-    case $1 in
+    case $0 in
         deploy)
             bash $DOTPATH/init/deploy.sh
             ;;
