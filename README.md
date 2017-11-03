@@ -11,7 +11,7 @@ $ bash -c "$(curl -fsSL raw.github.com/shikibu9419/dotfiles/master/init/install.
 $ bash -c "$(curl -fsSL raw.github.com/shikibu9419/dotfiles/master/init/install.sh)" init
 ```
 
-### Deploy
+### Deploy (Existing derectories will be deleted!)
 - Install and deploy:
 ```
 $ bash -c "$(curl -fsSL raw.github.com/shikibu9419/dotfiles/master/init/install.sh)" deploy

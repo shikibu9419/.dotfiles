@@ -45,16 +45,16 @@ if [ $# -le 1 ]; then
     install
 
     if [ $# -eq 0 ]; then
-        break
+        exit 0
     fi
 
     case $1 in
         deploy)
-            sh $DOTPATH/init/deploy.sh
+            bash $DOTPATH/init/deploy.sh
             ;;
         init)
-            sh $DOTPATH/init/initialize.sh
-            sh $DOTPATH/init/deploy.sh
+            bash $DOTPATH/init/initialize.sh
+            bash $DOTPATH/init/deploy.sh
             ;;
         *)
             usage

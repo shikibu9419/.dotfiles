@@ -31,16 +31,6 @@ setopt extended_glob
 
 
 #------------------------------------------
-# History
-#------------------------------------------
-HISTFILE=~/.zsh_history
-HISTSIZE=1000000
-SAVEHIST=1000000
-setopt hist_ignore_dups
-setopt share_history
-
-
-#------------------------------------------
 # Options
 #------------------------------------------
 setopt auto_cd
