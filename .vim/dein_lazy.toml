@@ -35,6 +35,19 @@ on_i = 1
 
 
 #----------------------------------------------
+# TeX
+#----------------------------------------------
+[[plugins]]
+repo = 'lervag/vimtex'
+hook_source = '''
+  let g:vimtex_latexmk_continuous = 1
+  let g:vimtex_latexmk_options = '-pdfdvi'
+  let g:vimtex_view_general_viewer = 'skim'
+  " let g:vimtex_view_general_options = '--unique @pdf\#src:@line@tex'
+'''
+
+
+#----------------------------------------------
 # Markdown
 #----------------------------------------------
 [[plugins]]

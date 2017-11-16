@@ -108,6 +108,9 @@ hook_add = '''
   "xmap k <Plug>(accelerated_jk_gk)
 '''
 
+[[plugins]]
+repo = 'tpope/vim-obsession'
+
 # [[plugins]]
 # repo = 'Shougo/context_filetype.vim'
 # hook_add = '''

@@ -96,7 +96,7 @@ set gdefault
 "------------------------------------------
 " タブ入力を複数の空白に置き換え
 set expandtab
-" Tab文字を半角スペース4つ分に設定
+" Tab文字を半角スペース2つ分に設定
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2

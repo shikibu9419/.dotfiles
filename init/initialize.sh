@@ -46,6 +46,7 @@ local -a install_formulae=(
     'ghq'
     'peco'
     'hub'
+    'highlight'
 )
 
 for formula in ${install_formulae[@]}; do
@@ -59,7 +60,8 @@ local -a install_formulae=(
     'iterm2'
     'sourcetree'
     'docker-toolbox'
-    'basictex'
+    'mactex'
+    'mendeley'
     'skim'
     'skype'
     '0xed'
