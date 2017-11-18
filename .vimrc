@@ -108,10 +108,6 @@ augroup filetypedetect
   " C / C++
   autocmd BufRead,BufNewFile *.c setlocal tabstop=4 shiftwidth=4 softtabstop=4
   autocmd BufRead,BufNewFile *.cpp setlocal tabstop=4 shiftwidth=4 softtabstop=4
-  " TeX
-  autocmd BufNewfile *.tex 0r ~/.vim/templates/tex.txt
-  " Gnuplot
-  autocmd BufNewfile *.gpi 0r ~/.vim/templates/gnuplot.txt
 augroup END
 
 

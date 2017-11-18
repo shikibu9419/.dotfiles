@@ -34,6 +34,7 @@ local -a install_formulae=(
     'tmux'
     'reattach-to-user-namespace'
     'pyenv'
+    'opencv'
     'rbenv'
     'ruby-build'
     'gnuplot'
