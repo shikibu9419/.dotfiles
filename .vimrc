@@ -43,7 +43,8 @@ syntax on
 "------------------------------------------
 set t_Co=256
 set background=dark
-colorscheme hybrid
+colorscheme lucius
+
 " カーソルラインのハイライト
 set cursorline
 hi LineNr ctermfg=243
@@ -105,17 +106,21 @@ set autoindent
 set smartindent
 
 augroup filetypedetect
-  " C / C++
+  " C / C++, Java, Kotlin
   autocmd BufRead,BufNewFile *.c setlocal tabstop=4 shiftwidth=4 softtabstop=4
   autocmd BufRead,BufNewFile *.cpp setlocal tabstop=4 shiftwidth=4 softtabstop=4
+  autocmd BufRead,BufNewFile *.java setlocal tabstop=4 shiftwidth=4 softtabstop=4
+  autocmd BufRead,BufNewFile *.kt setlocal tabstop=4 shiftwidth=4 softtabstop=4
 augroup END
 
 
 "------------------------------------------
-" Map
+" Maps
 "------------------------------------------
 " [全モード] .vimrcを開く
 noremap <Leader>. :tabedit $MYVIMRC<CR>
+" [全モード] .vimrcの再読み込み
+noremap <Leader>, :source $MYVIMRC<CR>
 " [ノーマルモード] Yを行末までのヤンクに
 nnoremap Y y$
 " [ノーマルモード] 数字のインクリメント/デクリメント
@@ -202,3 +207,7 @@ autocmd FileType * setlocal formatoptions-=ro
 set wildmenu
 " コマンドパターンを1000個まで履歴に残す
 set history=1000
+
+if !exists('loaded_matchit')
+  runtime macros/matchit.vim
+endif

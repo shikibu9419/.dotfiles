@@ -26,6 +26,27 @@ hook_add = 'let g:airline#extensions#branch#enabled=1'
 
 
 #----------------------------------------------
+# Tmux
+#----------------------------------------------
+[[plugins]]
+repo = 'christoomey/vim-tmux-navigator'
+
+
+#----------------------------------------------
+# Tags
+#----------------------------------------------
+[[plugins]]
+repo = 'szw/vim-tags'
+hook_add = '''
+  let g:vim_tags_project_tags_command = "/usr/local/bin/ctags -R {OPTIONS} {DIRECTORY} 2>/dev/null"
+  let g:vim_tags_gems_tags_command = "/usr/local/bin/ctags -R {OPTIONS} `bundle show --paths` 2>/dev/null"
+
+  nnoremap <Leader>h :split<CR> :exe("tjump ".expand('<cword>'))<CR>
+  nnoremap <Leader>v :vsplit<CR> :exe("tjump ".expand('<cword>'))<CR>
+'''
+
+
+#----------------------------------------------
 # Unite.vim
 #----------------------------------------------
 # [[plugins]]
@@ -124,6 +145,10 @@ repo = 'tpope/vim-obsession'
 # depends = ['Shougo/context_filetype.vim']
 
 [[plugins]]
+repo = 'AndrewRadev/switch.vim'
+hook_add = 'let g:switch_mapping = "S"'
+
+[[plugins]]
 repo = 'tomtom/tcomment_vim'
 
 [[plugins]]
@@ -156,6 +181,21 @@ repo = 'jonathanfilip/vim-lucius'
 
 [[plugins]]
 repo = 'tomasr/molokai'
+
+[[plugins]]
+repo = 'gosukiwi/vim-atom-dark'
+
+[[plugins]]
+repo = 'raphamorim/lucario'
+
+[[plugins]]
+repo = 'jdkanani/vim-material-theme'
+
+[[plugins]]
+repo = 'jacoborus/tender.vim'
+
+[[plugins]]
+repo = 'dracula/vim'
 
 [[plugins]]
 repo = 'joshdick/onedark.vim'
