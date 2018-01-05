@@ -48,6 +48,7 @@ local -a install_formulae=(
     'peco'
     'hub'
     'highlight'
+    'dash'
 )
 
 for formula in ${install_formulae[@]}; do
@@ -68,6 +69,7 @@ local -a install_formulae=(
     '0xed'
     'atom'
     'sublime-text'
+    'alfred'
 )
 
 for formula in ${install_formulae[@]}; do
