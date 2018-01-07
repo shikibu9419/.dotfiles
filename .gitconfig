@@ -1,4 +1,5 @@
 [ghq]
-    root = ~/src
+    root = ~/ghq_repositories
 [user]
-	name = shikibu9419@gmail.com
+	name = Shikibu
+	email = shikibu9419@gmail.com

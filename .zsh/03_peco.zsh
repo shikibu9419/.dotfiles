@@ -14,8 +14,8 @@ function peco_select_history() {
 zle -N peco_select_history
 bindkey '^r' peco_select_history
 
-# Search ~/src/repositories
-function peco-src () {
+# Search ~/ghq_repositories
+function peco-ghq () {
   local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
   if [ -n "$selected_dir" ]; then
     BUFFER="cd ${selected_dir}"
@@ -23,5 +23,5 @@ function peco-src () {
   fi
   zle clear-screen
 }
-zle -N peco-src
-bindkey '^]' peco-src
+zle -N peco-ghq
+bindkey '^]' peco-ghq
