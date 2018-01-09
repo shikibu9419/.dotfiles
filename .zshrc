@@ -1,7 +1,7 @@
-for file in ~/.zsh/[0-9]*.zsh
-do
-	source "$file"
-done
+source colors.zsh
+source aliases.zsh
+source peco_config.zsh
+source history_config.zsh
 
 
 #------------------------------------------
