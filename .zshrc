@@ -1,7 +1,7 @@
-source colors.zsh
-source aliases.zsh
-source peco_config.zsh
-source history_config.zsh
+source ~/dotfiles/.zsh/colors.zsh
+source ~/dotfiles/.zsh/aliases.zsh
+source ~/dotfiles/.zsh/peco_config.zsh
+source ~/dotfiles/.zsh/history_config.zsh
 
 
 #------------------------------------------
