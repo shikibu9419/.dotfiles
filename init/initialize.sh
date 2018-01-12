@@ -37,7 +37,7 @@ local -a install_formulae=(
     'opencv'
     'rbenv'
     'ruby-build'
-    'gnuplot'
+    'gnuplot --with-latex-with-x11'
     'go'
     'sqlite'
     'mysql'

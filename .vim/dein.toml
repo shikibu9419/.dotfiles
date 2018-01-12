@@ -23,7 +23,8 @@ hook_add = '''
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 hook_add = 'let g:airline#extensions#branch#enabled=1'
-
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
 
 #----------------------------------------------
 # Tmux
@@ -32,12 +33,19 @@ hook_add = 'let g:airline#extensions#branch#enabled=1'
 repo = 'christoomey/vim-tmux-navigator'
 hook_add = '''
   let g:tmux_navigator_no_mappings = 1
+  let g:tmux_navigator_save_on_switch = 2
 
-  nnoremap <silent> {Left-Mapping} :TmuxNavigateLeft<cr>
-  nnoremap <silent> {Down-Mapping} :TmuxNavigateDown<cr>
-  nnoremap <silent> {Up-Mapping} :TmuxNavigateUp<cr>
-  nnoremap <silent> {Right-Mapping} :TmuxNavigateRight<cr>
-  nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
+  nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
+  nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
+  nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
+  nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
+  nnoremap <silent> <C-/> :TmuxNavigatePrevious<cr>
+
+  " nnoremap <silent> {Left-Mapping} :TmuxNavigateLeft<cr>
+  " nnoremap <silent> {Down-Mapping} :TmuxNavigateDown<cr>
+  " nnoremap <silent> {Up-Mapping} :TmuxNavigateUp<cr>
+  " nnoremap <silent> {Right-Mapping} :TmuxNavigateRight<cr>
+  " nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
 '''
 
 
