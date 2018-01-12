@@ -7,6 +7,8 @@ repo = 'Shougo/dein.vim'
 [[plugins]]
 repo = 'vim-airline/vim-airline'
 hook_add = '''
+  " 末尾から2行目にステータスラインを表示
+  set laststatus=2
   let g:airline#extensions#tabline#enabled=1
   let g:airline#extensions#tabline#left_sep=' '
   let g:airline#extensions#tabline#left_alt_sep=' '
@@ -40,13 +42,10 @@ hook_add = '''
   nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
   nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
   nnoremap <silent> <C-/> :TmuxNavigatePrevious<cr>
-
-  " nnoremap <silent> {Left-Mapping} :TmuxNavigateLeft<cr>
-  " nnoremap <silent> {Down-Mapping} :TmuxNavigateDown<cr>
-  " nnoremap <silent> {Up-Mapping} :TmuxNavigateUp<cr>
-  " nnoremap <silent> {Right-Mapping} :TmuxNavigateRight<cr>
-  " nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
 '''
+
+[[plugins]]
+repo = 'tpope/vim-obsession'
 
 
 #----------------------------------------------
@@ -66,32 +65,8 @@ hook_add = '''
 #----------------------------------------------
 # Unite.vim
 #----------------------------------------------
-# [[plugins]]
-# repo = 'kannokanno/previm'
-# hook_add = '''
-#     let g:unite_enable_start_insert = 1
-#     let g:unite_enable_split_vertically = 0
-#     let g:unite_winwidth = 40
-#
-#     nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file file/new<CR>
-#     nnoremap <silent> ,um :<C-u>Unite  file_mru <CR>
-#     nnoremap <silent> ,urc :<C-u>Unite file_rec/async:app/controllers/ <CR>
-#     nnoremap <silent> ,urfc :<C-u>Unite file file/new -input=app/controllers/ <CR>
-#     nnoremap <silent> ,urm :<C-u>Unite file_rec/async:app/models/ <CR>
-#     nnoremap <silent> ,urfm :<C-u>Unite file file/new -input=app/models/ <CR>
-#     nnoremap <silent> ,urv :<C-u>Unite file_rec/async:app/views/ <CR>
-#     nnoremap <silent> ,urfv :<C-u>Unite file file/new -input=app/views/ <CR>
-#     nnoremap <silent> ,urs :<C-u>Unite file_rec/async:app/assets/stylesheets/ <CR>
-#     nnoremap <silent> ,urfs :<C-u>Unite file file/new -input=app/assets/stylesheets/ <CR>
-#     nnoremap <silent> ,urj :<C-u>Unite file_rec/async:app/assets/javascripts/ <CR>
-#     nnoremap <silent> ,urfj :<C-u>Unite file file/new -input=app/assets/javascripts/ <CR>
-#     nnoremap <silent> ,uro :<C-u>Unite file_rec/async:config/ <CR>
-#     nnoremap <silent> ,urfo :<C-u>Unite file file/new -input=config/ <CR>
-#     nnoremap <silent> ,url :<C-u>Unite file_rec/async:lib/ <CR>
-#     nnoremap <silent> ,urfl :<C-u>Unite file file/new -input=lib/ <CR>
-#     nnoremap <silent> ,urr :<C-u>Unite file_rec/async:spec/ <CR>
-#     nnoremap <silent> ,urfr :<C-u>Unite file file/new -input=spec/ <CR
-# '''
+[[plugins]]
+repo = 'Shougo/unite.vim'
 
 
 #----------------------------------------------
@@ -141,25 +116,20 @@ hook_add = '''
 repo = 'rhysd/accelerated-jk'
 hook_add = '''
   nmap j <Plug>(accelerated_jk_gj)
-  "xmap j <Plug>(accelerated_jk_gj)
   nmap k <Plug>(accelerated_jk_gk)
-  "xmap k <Plug>(accelerated_jk_gk)
 '''
 
 [[plugins]]
-repo = 'tpope/vim-obsession'
+repo = 'Shougo/context_filetype.vim'
+hook_add = '''
+    if !exists('g:context_filetype#filetypes')
+        let g:context_filetype#filetypes = {}
+    endif
+'''
 
-# [[plugins]]
-# repo = 'Shougo/context_filetype.vim'
-# hook_add = '''
-#     if !exists('g:context_filetype#filetypes')
-#         let g:context_filetype#filetypes = {}
-#     endif
-# '''
-
-# [[plugins]]
-# repo = 'osyo-manga/vim-precious'
-# depends = ['Shougo/context_filetype.vim']
+[[plugins]]
+repo = 'osyo-manga/vim-precious'
+depends = ['Shougo/context_filetype.vim']
 
 [[plugins]]
 repo = 'AndrewRadev/switch.vim'

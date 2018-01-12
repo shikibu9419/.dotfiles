@@ -29,7 +29,7 @@ on_i = 1
 
 
 #----------------------------------------------
-# Ruby
+# Rails
 #----------------------------------------------
 # repo = 'tpope/vim-rails'
 # repo = 'todesking/ruby_hl_lvar.vim'
@@ -68,10 +68,18 @@ on_ft = ['tex']
 # Markdown
 #----------------------------------------------
 [[plugins]]
-repo = 'plasticboy/vim-markdown'
-hook_add = 'let g:vim_markdown_folding_disabled=1'
+repo = 'kannokanno/previm'
 on_ft = ['markdown']
 
+
+#----------------------------------------------
+# Syntax
+#----------------------------------------------
+[[plugins]] # toml syntax
+repo = 'cespare/vim-toml'
+on_ft = 'toml'
+
 [[plugins]]
-repo = 'kannokanno/previm'
+repo = 'plasticboy/vim-markdown'
+hook_add = 'let g:vim_markdown_folding_disabled=1'
 on_ft = ['markdown']

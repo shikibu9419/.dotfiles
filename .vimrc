@@ -69,8 +69,6 @@ set title
 set number
 " 0 が前置されていても10進数と認識
 set nrformats=
-" 末尾から2行目にステータスラインを表示
-set laststatus=2
 " 上下3行の視界を確保
 set scrolloff=3
 
@@ -207,7 +205,7 @@ autocmd FileType * setlocal formatoptions-=ro
 set wildmenu
 " コマンドパターンを1000個まで履歴に残す
 set history=1000
-
+" %移動の拡張
 if !exists('loaded_matchit')
   runtime macros/matchit.vim
 endif
