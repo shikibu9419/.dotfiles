@@ -1,26 +1,6 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
-#----------------------------------------------
-# Tab & Status Line
-#----------------------------------------------
-# [[plugins]]
-# repo = 'vim-airline/vim-airline'
-# hook_add = '''
-#   " 末尾から2行目にステータスラインを表示
-#   " set laststatus=2
-#   " let g:airline#extensions#tabline#enabled=1
-#   " let g:airline#extensions#tabline#left_sep=' '
-#   " let g:airline#extensions#tabline#left_alt_sep=' '
-#   " タブバーの右領域を非表示
-#   "let g:airline#extensions#tabline#show_splits = 0
-#   "let g:airline#extensions#tabline#show_tab_type = 0
-#   "let g:airline#extensions#tabline#show_close_button = 0
-# '''
-
-[[plugins]]
-repo = 'itchyny/lightline.vim'
-
 
 #----------------------------------------------
 # Git
@@ -101,6 +81,9 @@ hook_add = '''
 #----------------------------------------------
 # Others
 #----------------------------------------------
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+
 [[plugins]]
 repo = 'thinca/vim-quickrun'
 hook_add = '''
