@@ -36,6 +36,34 @@ on_i = 1
 
 
 #----------------------------------------------
+# HTML
+#----------------------------------------------
+[[plugins]]
+repo = 'mattn/emmet-vim'
+on_ft = ['html']
+
+[[plugins]]
+repo = 'alvan/vim-closetag'
+on_ft = ['html']
+
+[[plugins]]
+repo = 'hail2u/vim-css3-syntax'
+on_ft = ['html']
+
+[[plugins]]
+repo = 'gko/vim-coloresque'
+on_ft = ['html']
+
+
+#----------------------------------------------
+# Markdown
+#----------------------------------------------
+[[plugins]]
+repo = 'kannokanno/previm'
+on_ft = ['markdown']
+
+
+#----------------------------------------------
 # TeX
 #----------------------------------------------
 [[plugins]]
@@ -62,14 +90,6 @@ hook_source = '''
   " let g:vimtex_view_general_options = '--unique @pdf\#src:@line@tex'
 '''
 on_ft = ['tex']
-
-
-#----------------------------------------------
-# Markdown
-#----------------------------------------------
-[[plugins]]
-repo = 'kannokanno/previm'
-on_ft = ['markdown']
 
 
 #----------------------------------------------

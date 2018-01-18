@@ -45,6 +45,13 @@ hook_add = '''
   nnoremap <Leader>v :vsplit<CR> :exe("tjump ".expand('<cword>'))<CR>
 '''
 
+[[plugins]]
+repo = 'majutsushi/tagbar'
+hook_add = '''
+  let g:tagbar_width = 30
+  set statusline=%F%m%r%h%w\%=%{tagbar#currenttag('[%s]','')}\[Pos=%v,%l]\[Len=%L]
+'''
+
 
 #----------------------------------------------
 # Unite.vim
