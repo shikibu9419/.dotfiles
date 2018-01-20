@@ -4,5 +4,6 @@ alias lla='ls -al'
 alias lal='ls -al'
 alias ls='gls --color=auto'
 alias grep='grep --color=auto'
-alias mkdir="mkdir -p"
-alias ql="qlmanage -p $@ >& /dev/null"
+alias mkdir='mkdir -p'
+alias ql='qlmanage -p $@ >& /dev/null'
+alias reload='source ~/.zshrc'
