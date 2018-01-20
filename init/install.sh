@@ -42,20 +42,21 @@ EOF
 }
 
 if [ $# -le 1 ]; then
-    install
-
+  install
+  if [ $# -eq 1]; then
     case $0 in
-        deploy)
-            bash $DOTPATH/init/deploy.sh
-            ;;
-        init)
-            bash $DOTPATH/init/initialize.sh
-            bash $DOTPATH/init/deploy.sh
-            ;;
-        *)
-            usage
-            ;;
+      deploy)
+        bash $DOTPATH/init/deploy.sh
+        ;;
+      init)
+        bash $DOTPATH/init/initialize.sh
+        bash $DOTPATH/init/deploy.sh
+        ;;
+      *)
+        usage
+        ;;
     esac
+  fi
 else
-    usage
+  usage
 fi

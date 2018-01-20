@@ -2,6 +2,7 @@
 set -e
 
 VIM_DEIN_DIRECTORY="$DOTPATH/.vim/dein/repos/github.com/Shougo/dein.vim"
+TMUX_TPM_DIRECTORY="$HOME/.tmux/plugins/tpm"
 
 has() {
 	type "$1" > /dev/null 2>&1
@@ -20,63 +21,13 @@ if !has "brew"; then
     exit 1
 fi
 
-brew tap caskroom/cask
-brew tap homebrew/dupes
-brew tap homebrew/apache
+echo "Start brew install..."
 
-echo "Installing formulae..."
-
-local -a install_formulae=(
-    'coreutils'
-    'git'
-    'zsh'
-    'zsh-completions'
-    'tmux'
-    'reattach-to-user-namespace'
-    'pyenv'
-    'opencv'
-    'rbenv'
-    'ruby-build'
-    'gnuplot --with-latex-with-x11'
-    'go'
-    'sqlite'
-    'mysql'
-    'httpd24'
-    'vim --with-lua'
-    'ctags'
-    'ghq'
-    'peco'
-    'hub'
-    'highlight'
-    'dash'
-)
-
-for formula in ${install_formulae[@]}; do
-    brew install $formula && echo "Installed $formula."
-done
-
-# cask install
-local -a install_formulae=(
-    'google-chrome'
-    '4k-video-downloader'
-    'iterm2'
-    'sourcetree'
-    'docker-toolbox'
-    'mactex'
-    'mendeley'
-    'skim'
-    'skype'
-    '0xed'
-    'atom'
-    'sublime-text'
-    'alfred'
-)
-
-for formula in ${install_formulae[@]}; do
-    brew cask install $formula && echo "Installed $formula."
-done
-
+brew tap homebrew/bundle
+brew bundle
 brew cleanup
+
+echo "Brew finished!"
 
 # zsh config
 if [ $SHELL != "/usr/local/bin/zsh" ]; then
@@ -84,11 +35,14 @@ if [ $SHELL != "/usr/local/bin/zsh" ]; then
 fi
 
 # vim config
-mkdir -p $VIM_DEIN_DIRECTORY
-git clone https://github.com/Shougo/dein.vim.git $VIM_DEIN_DIRECTORY
+if [[ ! -d $VIM_DEIN_DIRECTORY ]]; then
+  mkdir -p $VIM_DEIN_DIRECTORY
+  git clone https://github.com/Shougo/dein.vim.git $VIM_DEIN_DIRECTORY
+fi
 
-# ruby config
-# gem install bundle
-# bundle install
+# tmux config
+if [[ ! -d $TMUX_TPM_DIRECTORY ]]; then
+  git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
+fi
 
-echo "Initialization is complete!!"
+echo "Initialization is completed!!"
