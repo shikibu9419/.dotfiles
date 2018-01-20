@@ -43,14 +43,18 @@ EOF
 
 if [ $# -le 1 ]; then
   install
+
   if [ $# -eq 1]; then
+    "Move $DOTPATH."
+    cd $DOTPATH
+
     case $0 in
       deploy)
-        bash $DOTPATH/init/deploy.sh
+        bash init/deploy.sh
         ;;
       init)
-        bash $DOTPATH/init/initialize.sh
-        bash $DOTPATH/init/deploy.sh
+        bash init/initialize.sh
+        bash init/deploy.sh
         ;;
       *)
         usage

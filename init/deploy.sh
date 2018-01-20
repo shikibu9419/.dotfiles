@@ -1,14 +1,12 @@
 #!/bin/zsh
 
-cd ~/dotfiles/
-
 for f in .??*
 do
-	[[ "${f}" = ".git" ]] && continue
-	[[ "${f}" = ".gitignore" ]] && continue
+	[[ "$f" = ".git" ]] && continue
+	[[ "$f" = ".gitignore" ]] && continue
 
-	ln -sifF ~/dotfiles/${f} ~/${f}
-	echo "${f}"
+	ln -sifF ~/dotfiles/$f ~/$f
+	echo "$f"
 done
 
 echo "Dotfiles deployed!"
