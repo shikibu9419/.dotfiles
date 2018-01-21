@@ -131,6 +131,7 @@ hook_add = 'let g:switch_mapping = "S"'
 
 [[plugins]]
 repo = 'tomtom/tcomment_vim'
+# repo = 'tyru/caw.vim'
 
 [[plugins]]
 repo = 'tpope/vim-endwise'
@@ -143,9 +144,6 @@ repo = 'bronson/vim-trailing-whitespace'
 
 [[plugins]]
 repo = 'Yggdroot/indentLine'
-
-# repo = 'vim-scripts/AnsiEsc.vim'
-# repo = 'tyru/caw.vim'
 
 
 #----------------------------------------------
