@@ -19,8 +19,10 @@ set gdefault
 " Edit
 "------------------------------------------
 " マウス入力を有効に
+if !has('nvim')
+  set ttymouse=xterm2
+endif
 set mouse=a
-set ttymouse=xterm2
 " backspaceを有効に
 set backspace=indent,eol,start
 " クリップボード設定

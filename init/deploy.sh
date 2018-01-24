@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/sh
 
 for f in .??*
 do

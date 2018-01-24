@@ -3,9 +3,8 @@
 #----------------------------------------------
 [[plugins]]
 repo = 'Shougo/neocomplete.vim'
-if = "has('lua')"
 hook_add = '''
-  let g:acp_enableAtStartup = 0
+  let g:acp_enableAtStartup = 1
   let g:neocomplete#enable_at_startup = 1
   let g:neocomplete#enable_smart_case = 1
   let g:neocomplete#sources#syntax#min_keyword_length = 3
@@ -22,6 +21,13 @@ hook_add = '''
   inoremap <expr><C-l> neocomplete#complete_common_string()
   inoremap <expr><tab>  pumvisible() ? "\<C-n>" : "\<TAB>"
 '''
+if = "!has('nvim')"
+on_i = 1
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+hook_add = 'let g:deoplete#enable_at_startup = 1'
+if = "has('nvim')"
 on_i = 1
 
 # repo = 'Shougo/neosnippet.vim'
@@ -29,8 +35,21 @@ on_i = 1
 
 
 #----------------------------------------------
+# Unite & Denite
+#----------------------------------------------
+[[plugins]]
+repo = 'Shougo/unite.vim'
+if = "!has('nvim')"
+
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+if = "has('nvim')"
+
+
+#----------------------------------------------
 # Rails
 #----------------------------------------------
+[[plugins]]
 repo = 'tpope/vim-rails'
 # repo = 'todesking/ruby_hl_lvar.vim'
 
@@ -93,9 +112,23 @@ on_ft = ['tex']
 
 
 #----------------------------------------------
-# Syntax
+# Others
 #----------------------------------------------
-[[plugins]] # toml syntax
+[[plugins]]
+repo = 'cohama/lexima.vim'
+hook_source = '''
+  " latex settings
+  call lexima#add_rule({'char': '$', 'input_after': '$', 'filetype': 'latex'})
+  call lexima#add_rule({'char': '$', 'at': '\%#\$', 'leave': 1, 'filetype': 'latex'})
+  call lexima#add_rule({'char': '<BS>', 'at': '\$\%#\$', 'delete': 1, 'filetype': 'latex'})
+'''
+on_i = 1
+
+
+#----------------------------------------------
+# Syntaxs
+#----------------------------------------------
+[[plugins]]
 repo = 'cespare/vim-toml'
 on_ft = 'toml'
 

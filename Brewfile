@@ -19,6 +19,7 @@ brew 'coreutils'
 brew 'mas'
 brew 'git'
 brew 'zsh'
+brew 'neovim'
 brew 'vim', args: ['with-lua']
 brew 'tmux'
 

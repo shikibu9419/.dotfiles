@@ -12,6 +12,7 @@ hook_add = 'let g:airline#extensions#branch#enabled=1'
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
 
+
 #----------------------------------------------
 # Tmux
 #----------------------------------------------
@@ -51,13 +52,6 @@ hook_add = '''
   let g:tagbar_width = 30
   set statusline=%F%m%r%h%w\%=%{tagbar#currenttag('[%s]','')}\[Pos=%v,%l]\[Len=%L]
 '''
-
-
-#----------------------------------------------
-# Unite.vim
-#----------------------------------------------
-[[plugins]]
-repo = 'Shougo/unite.vim'
 
 
 #----------------------------------------------
@@ -132,9 +126,6 @@ hook_add = 'let g:switch_mapping = "S"'
 [[plugins]]
 repo = 'tomtom/tcomment_vim'
 # repo = 'tyru/caw.vim'
-
-[[plugins]]
-repo = 'tpope/vim-endwise'
 
 [[plugins]]
 repo = 'tpope/vim-surround'
