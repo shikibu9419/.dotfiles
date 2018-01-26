@@ -37,9 +37,10 @@ hook_add = '''
   let g:deoplete#file#enable_buffer_path = 1
   let g:deoplete#max_list = 10000
 
-  inoremap <expr><tab> pumvisible() ? "\<C-n>" :
-        \ neosnippet#expandable_or_jumpable() ?
-        \    "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
+  inoremap <expr><tab>  pumvisible() ? "\<C-n>" : "\<TAB>"
+  " inoremap <expr><tab> pumvisible() ? "\<C-n>" :
+  "       \ neosnippet#expandable_or_jumpable() ?
+  "       \    "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
 '''
 if = "has('nvim')"
 on_i = 1
@@ -77,7 +78,7 @@ if = "has('nvim')"
 #----------------------------------------------
 [[plugins]]
 repo = 'davidhalter/jedi-vim'
-on_ft = ['Python']
+on_ft = 'Python'
 
 
 #----------------------------------------------
@@ -93,19 +94,19 @@ repo = 'tpope/vim-rails'
 #----------------------------------------------
 [[plugins]]
 repo = 'mattn/emmet-vim'
-on_ft = ['html']
+on_ft = 'html'
 
 [[plugins]]
 repo = 'alvan/vim-closetag'
-on_ft = ['html']
+on_ft = 'html'
 
 [[plugins]]
 repo = 'hail2u/vim-css3-syntax'
-on_ft = ['html']
+on_ft = 'html'
 
 [[plugins]]
 repo = 'gko/vim-coloresque'
-on_ft = ['html']
+on_ft = 'html'
 
 
 #----------------------------------------------
@@ -113,7 +114,11 @@ on_ft = ['html']
 #----------------------------------------------
 [[plugins]]
 repo = 'kannokanno/previm'
-on_ft = ['markdown']
+on_ft = 'markdown'
+
+[[plugins]]
+repo = 'euclio/vim-markdown-composer'
+on_ft = 'markdown'
 
 
 #----------------------------------------------
@@ -142,7 +147,7 @@ hook_source = '''
   let g:vimtex_view_general_viewer = '/Applications/Skim.app/Contents/SharedSupport/displayline'
   " let g:vimtex_view_general_options = '--unique @pdf\#src:@line@tex'
 '''
-on_ft = ['tex']
+on_ft = 'tex'
 
 
 #----------------------------------------------
@@ -164,9 +169,9 @@ on_i = 1
 #----------------------------------------------
 [[plugins]]
 repo = 'cespare/vim-toml'
-on_ft = ['toml']
+on_ft = 'toml'
 
 [[plugins]]
 repo = 'plasticboy/vim-markdown'
 hook_add = 'let g:vim_markdown_folding_disabled=1'
-on_ft = ['markdown']
+on_ft = 'markdown'

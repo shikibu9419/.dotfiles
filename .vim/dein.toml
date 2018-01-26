@@ -108,6 +108,13 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'yonchu/accelerated-smooth-scroll'
+hook_add = '''
+  let g:ac_smooth_scroll_du_sleep_time_msec = 7
+  let g:ac_smooth_scroll_fb_sleep_time_msec = 7
+'''
+
+[[plugins]]
 repo = 'Shougo/context_filetype.vim'
 hook_add = '''
     if !exists('g:context_filetype#filetypes')
@@ -117,7 +124,7 @@ hook_add = '''
 
 [[plugins]]
 repo = 'osyo-manga/vim-precious'
-depends = ['Shougo/context_filetype.vim']
+depends = 'Shougo/context_filetype.vim'
 
 [[plugins]]
 repo = 'AndrewRadev/switch.vim'
@@ -135,6 +142,13 @@ repo = 'bronson/vim-trailing-whitespace'
 
 [[plugins]]
 repo = 'Yggdroot/indentLine'
+
+[[plugins]]
+repo = 'junegunn/vim-easy-align'
+hook_add = '''
+  " nmap ga <Plug>(EasyAlign)
+  " xmap ga <Plug>(EasyAlign)
+'''
 
 
 #----------------------------------------------
