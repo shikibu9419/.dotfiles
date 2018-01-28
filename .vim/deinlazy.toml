@@ -116,10 +116,6 @@ on_ft = 'html'
 repo = 'kannokanno/previm'
 on_ft = 'markdown'
 
-[[plugins]]
-repo = 'euclio/vim-markdown-composer'
-on_ft = 'markdown'
-
 
 #----------------------------------------------
 # TeX

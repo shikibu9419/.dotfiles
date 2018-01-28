@@ -1,4 +1,3 @@
-source ~/.zsh/plugins.zsh
 source ~/.zsh/colors.zsh
 source ~/.zsh/aliases.zsh
 source ~/.zsh/peco_config.zsh
@@ -21,7 +20,7 @@ eval "$(pyenv init -)"
 #------------------------------------------
 autoload -U compinit
 compinit
-fpath=(~/.zplug/repos/zsh-users/zsh-completions/src ~/.zsh/completion $fpath)
+fpath=(/usr/local/share/zsh-completions $fpath)
 
 zstyle ':completion:*' list-colors "${LS_COLORS}"
 zstyle ':completion:*' menu select=2
