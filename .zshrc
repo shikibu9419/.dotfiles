@@ -9,7 +9,7 @@ source ~/.zsh/history_config.zsh
 #------------------------------------------
 typeset -U path cdpath fpath manpath
 
-path=(${path} ${HOME}/.rbenv/bin ${GOPATH}/bin(N-/) ${HOME}/Android/Sdk/tools(N-/) ${HOME}/Android/Sdk/platform-tools(N-/) ${HOME}/utils(N-/))
+path=(${path} ${HOME}/.rbenv/bin ${GOPATH}/bin(N-/) ${HOME}/Android/Sdk/tools(N-/) ${HOME}/Android/Sdk/platform-tools(N-/) ${HOME}/dotfiles/bin(N-/))
 
 eval "$(rbenv init -)"
 eval "$(pyenv init -)"

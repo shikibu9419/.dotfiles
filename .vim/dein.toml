@@ -7,7 +7,15 @@ repo = 'Shougo/dein.vim'
 #----------------------------------------------
 [[plugins]]
 repo = 'tpope/vim-fugitive'
-hook_add = 'let g:airline#extensions#branch#enabled=1'
+hook_add = '''
+  let g:lightline#extensions#branch#enabled=1
+  nmap [figitive] <Nop>
+  map <Leader>g [figitive]
+  nmap <silent> [figitive]s :<C-u>Gstatus<CR>
+  nmap <silent> [figitive]d :<C-u>Gdiff<CR>
+  nmap <silent> [figitive]b :<C-u>Gblame<CR>
+  nmap <silent> [figitive]l :<C-u>Glog<CR>
+'''
 
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
@@ -67,6 +75,23 @@ hook_add = '''
   let g:NERDTreeShowBookmarks=1
 
   nmap <Leader>n :NERDTreeToggle<CR>
+'''
+
+[[plugins]]
+repo = 'Xuyuanp/nerdtree-git-plugin'
+hook_add = '''
+  let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
 '''
 
 # NERDTree のタブ間共有
