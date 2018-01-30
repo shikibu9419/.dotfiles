@@ -1,0 +1,27 @@
+#!/bin/sh
+
+if [ $# -eq 0 ]; then
+  echo "圧縮ファイル名を引数に入力してください" 1>&2
+  exit 1
+fi
+
+dir=${2-/tmp}
+
+case $1 in
+  *.tar.gz|*.tar.Z)
+    tar -zxvf $1
+    ;;
+  *tar.bz2)
+    tar -jxvf $1
+    ;;
+  *.zip)
+    unzip $1
+    ;;
+  *.bz2)
+    bunzip2 $1
+    ;;
+    *)
+    echo "$1の展開方法が不明です" 1>&2
+    exit 1
+    ;;
+esac

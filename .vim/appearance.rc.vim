@@ -4,7 +4,7 @@
 " Color
 set t_Co=256
 set background=dark
-colorscheme lucius
+colorscheme atom-dark-256
 
 " 編集中のファイル名を表示
 set title
@@ -23,7 +23,7 @@ hi LineNr ctermfg=243
 hi CursorLineNr ctermfg=255
 
 " Vim の半透明化
-augroup highlight
+augroup highlights
   autocmd!
   autocmd VimEnter,ColorScheme * highlight Normal ctermbg=NONE
   autocmd VimEnter,ColorScheme * highlight NonText ctermbg=NONE

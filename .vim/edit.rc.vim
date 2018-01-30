@@ -49,3 +49,13 @@ set history=1000
 if !exists('loaded_matchit')
   runtime macros/matchit.vim
 endif
+
+" 保存時ファイルタイプを再アサイン
+augroup asign
+  autocmd!
+  autocmd BufWritePost *
+        \ if &filetype ==# '' && exists('b:ftdetect') |
+        \  unlet! b:ftdetect |
+        \  filetype detect |
+        \ endif
+augroup END

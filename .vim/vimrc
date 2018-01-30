@@ -1,3 +1,12 @@
+if !has('gui_running') && exists('&termguicolors') && $COLORTERM ==# 'truecolor'
+    if !has('nvim')
+      let &t_8f = "\e[38;2;%lu;%lu;%lum"
+      let &t_8b = "\e[48;2;%lu;%lu;%lum"
+    endif
+
+    set termguicolors
+endif
+
 source $HOME/.vim/config_dein.rc.vim
 source $HOME/.vim/appearance.rc.vim
 source $HOME/.vim/edit.rc.vim
@@ -7,7 +16,7 @@ source $HOME/.vim/edit.rc.vim
 " Maps
 "------------------------------------------
 " [全モード] .vimrcを開く
-noremap <Leader>. :tabedit $MYVIMRC<CR>
+noremap <Leader>. :tabedit $HOME/.vim/vimrc<CR>
 " [全モード] .vimrcの再読み込み
 noremap <Leader>, :source $MYVIMRC<CR>
 " [ノーマルモード] Yを行末までのヤンクに
@@ -66,3 +75,6 @@ map <silent> <Tab>x :tabclose<CR>
 map <silent> <Tab>n :tabnext<CR>
 " 前のタブ
 map <silent> <Tab>p :tabprevious<CR>
+
+
+set secure

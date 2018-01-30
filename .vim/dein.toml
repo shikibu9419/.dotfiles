@@ -116,7 +116,7 @@ hook_add = '''
   set splitbelow
   set splitright
 '''
-hook_post_source = 'nmap <Leader>r :Quickrun'
+hook_post_source = 'nmap <Leader>r <Plug>(quickrun)'
 
 [[plugins]]
 repo = 'tyru/open-browser.vim'
@@ -209,3 +209,6 @@ repo = 'dracula/vim'
 [[plugins]]
 repo = 'joshdick/onedark.vim'
 hook_source = 'let g:one_dark_termcolors=16'
+
+[[plugins]]
+repo = 'aereal/vim-colors-japanesque'
