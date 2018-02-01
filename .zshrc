@@ -5,14 +5,13 @@ source ~/.zsh/history_config.zsh
 
 
 #------------------------------------------
-# PATH
+# Initialize
 #------------------------------------------
-typeset -U path cdpath fpath manpath
-
-path=(${path} ${HOME}/.rbenv/bin ${GOPATH}/bin(N-/) ${HOME}/Android/Sdk/tools(N-/) ${HOME}/Android/Sdk/platform-tools(N-/) ${HOME}/dotfiles/bin(N-/))
-
+fpath=(/usr/local/share/zsh-completions $fpath)
+typeset -U path PATH cdpath fpath manpath
 eval "$(rbenv init -)"
 eval "$(pyenv init -)"
+eval "$(docker-machine env first)"
 
 
 #------------------------------------------
@@ -20,9 +19,8 @@ eval "$(pyenv init -)"
 #------------------------------------------
 autoload -U compinit
 compinit
-fpath=(/usr/local/share/zsh-completions $fpath)
 
-zstyle ':completion:*' list-colors "${LS_COLORS}"
+zstyle ':completion:*' list-colors "$LS_COLORS"
 zstyle ':completion:*' menu select=2
 setopt no_list_types
 setopt print_eight_bit

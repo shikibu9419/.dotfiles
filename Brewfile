@@ -19,11 +19,11 @@ brew 'coreutils'
 brew 'mas'
 brew 'git'
 brew 'zsh'
-brew 'neovim'
+brew 'zsh-completions'
 brew 'vim', args: ['with-lua']
+brew 'neovim'
 brew 'tmux'
 
-brew 'zplug'
 brew 'ctags'
 brew 'reattach-to-user-namespace'
 brew 'dash'
