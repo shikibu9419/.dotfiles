@@ -1,5 +1,5 @@
 #----------------------------------------------
-# Completion & Snippets
+# Completion
 #----------------------------------------------
 [[plugins]]
 repo = 'Shougo/neocomplete.vim'
@@ -38,9 +38,9 @@ hook_add = '''
   let g:deoplete#max_list = 10000
 
   inoremap <expr><tab>  pumvisible() ? "\<C-n>" : "\<TAB>"
-  " inoremap <expr><tab> pumvisible() ? "\<C-n>" :
-  "       \ neosnippet#expandable_or_jumpable() ?
-  "       \    "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
+  inoremap <expr><tab> pumvisible() ? "\<C-n>" :
+        \ neosnippet#expandable_or_jumpable() ?
+        \    "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
 '''
 if = "has('nvim')"
 on_i = 1
@@ -57,8 +57,28 @@ repo = 'zchee/deoplete-go'
 [[plugins]]
 repo = 'fishbullet/deoplete-ruby'
 
-# repo = 'Shougo/neosnippet.vim'
-# repo = 'Shougo/neosnippet-snippets'
+
+#----------------------------------------------
+# Snippets
+#----------------------------------------------
+[[plugins]]
+repo = 'Shougo/neosnippet.vim'
+hook_source = '''
+  imap <C-k> <Plug>(neosnippet_expand_or_jump)
+  smap <C-k> <Plug>(neosnippet_expand_or_jump)
+  xmap <C-k> <Plug>(neosnippet_expand_target)
+
+  if has('conceal')
+    set conceallevel=2 concealcursor=niv
+  endif
+
+  let g:neosnippet#snippets_directory = '~/.vim/snippets/, ~/.vim/dein/repos/github.com/Shougo/neosnippet-snippets/neosnippets/'
+'''
+on_i = 1
+depends = 'neosnippet-snippets'
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
 
 
 #----------------------------------------------

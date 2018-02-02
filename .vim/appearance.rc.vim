@@ -4,7 +4,7 @@
 " Color
 set t_Co=256
 set background=dark
-colorscheme atom-dark-256
+colorscheme lucius
 
 " 編集中のファイル名を表示
 set title
