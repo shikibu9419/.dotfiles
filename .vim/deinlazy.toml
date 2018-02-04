@@ -188,6 +188,13 @@ repo = 'cespare/vim-toml'
 on_ft = 'toml'
 
 [[plugins]]
+repo = 'slim-template/vim-slim'
+hook_add = '''
+  autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
+'''
+on_ft = 'slim'
+
+[[plugins]]
 repo = 'plasticboy/vim-markdown'
 hook_add = 'let g:vim_markdown_folding_disabled=1'
 on_ft = 'markdown'

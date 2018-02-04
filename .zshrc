@@ -11,7 +11,6 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 typeset -U path PATH cdpath fpath manpath
 eval "$(rbenv init -)"
 eval "$(pyenv init -)"
-eval "$(docker-machine env first)"
 
 
 #------------------------------------------
