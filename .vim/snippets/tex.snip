@@ -29,6 +29,14 @@ snippet figure
     \label{fig:${4}}
   \end{figure}
 
+snippet graph
+  \begin{figure}[htbp]
+    \centering
+    \resizebox{${1}\hsize}{!}{\input{${2}}}
+    \caption{${3}}
+    \label{fig:${4}}
+  \end{figure}
+
 snippet itemize
   \begin{itemize}
     \item ${1}
