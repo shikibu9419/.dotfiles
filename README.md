@@ -1,5 +1,5 @@
 # dotfiles
-This is my dotfiles for OS X.
+This is my dotfiles for Mac OS X.
 
 ### Install only
 ```

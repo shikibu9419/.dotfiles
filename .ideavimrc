@@ -3,6 +3,12 @@ let mapleader="\<Space>"
 
 " 上下3行の視界を確保
 set scrolloff=3
+" クリップボード設定
+set clipboard+=unnamed
+" %移動の拡張
+if !exists('loaded_matchit')
+  runtime macros/matchit.vim
+endif
 
 "------------------------------------------
 " Search & Replace
@@ -23,17 +29,13 @@ set gdefault
 "------------------------------------------
 " Maps
 "------------------------------------------
-" [全モード] .vimrcを開く
-noremap <Leader>. :tabedit $MYVIMRC<CR>
-" [全モード] .vimrcの再読み込み
-noremap <Leader>, :source $MYVIMRC<CR>
 " [ノーマルモード] Yを行末までのヤンクに
 nnoremap Y y$
 " [ノーマルモード] 数字のインクリメント/デクリメント
 nnoremap + <C-a>
 nnoremap - <C-x>
-" [インサートモード] jjと入力するとコマンドモードに
-inoremap jj <Esc>:
+" [インサートモード] jjと入力するとノーマルモードに
+inoremap jj <Esc>
 " [コマンドモード] <C-p>/<C-n> で履歴を遡る
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>

@@ -24,8 +24,8 @@ nnoremap Y y$
 " [ノーマルモード] 数字のインクリメント/デクリメント
 nnoremap + <C-a>
 nnoremap - <C-x>
-" [インサートモード] jjと入力するとコマンドモードに
-inoremap jj <Esc>:
+" [インサートモード] jjと入力するとノーマルモードに
+inoremap jj <Esc>
 " [コマンドモード] <C-p>/<C-n> で履歴を遡る
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
