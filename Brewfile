@@ -25,6 +25,7 @@ brew 'neovim'
 brew 'tmux'
 
 brew 'ctags'
+brew 'global', args: ['with-pygments']
 brew 'reattach-to-user-namespace'
 brew 'dash'
 brew 'gnuplot', args: ['with-x11']
