@@ -39,9 +39,16 @@ brew 'rbenv'
 brew 'ruby-build'
 brew 'go'
 brew 'lua'
-brew 'sqlite'
+
 brew 'opencv'
 brew 'opencv@2'
+
+brew 'heroku'
+brew 'unicorn'
+brew 'nginx'
+brew 'redis'
+brew 'sqlite'
+brew 'postgresql'
 
 brew 'highlight'
 brew 'httpd'
@@ -53,8 +60,12 @@ brew 'nmap'
 # cask
 #------------------------------------------
 cask 'google-chrome'
+cask 'google-chrome-canary'
+cask 'firefox'
+
 cask 'iterm2'
 cask 'mactex'
+cask 'docker'
 cask 'docker-toolbox'
 
 cask 'alfred'
