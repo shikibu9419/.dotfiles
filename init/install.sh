@@ -2,7 +2,6 @@
 set -e
 
 export DOTPATH="$HOME/dotfiles"
-
 DOT_TARBALL="https://github.com/shikibu9419/dotfiles/tarball/master"
 
 has() {
@@ -11,7 +10,7 @@ has() {
 
 install() {
   if [ -d $DOTPATH ]; then
-    echo "**warning** $DOTPATH will be deleted!!"
+    echo "\n**warning** $DOTPATH will be deleted!!"
     echo "Installation failed."
     exit 1
   fi
@@ -20,13 +19,18 @@ install() {
 
   if has "git"; then
     git clone https://github.com/shikibu9419/dotfiles $DOTPATH
-  else
+  elif has "curl"; then
     curl -fsSLo $HOME/dotfiles.tar.gz $DOT_TARBALL
     tar -zxvf $HOME/dotfiles.tar.gz --strip-components=1 -C $DOTPATH
     rm -f $HOME/dotfiles.tar.gz
+  else
+    echo "Installing shikibu9419's dotfiles failed..."
+    exit 1
   fi
 
+  echo "================================="
   echo "Dotfiles were installed!"
+  echo "================================="
 }
 
 usage() {
@@ -45,7 +49,6 @@ if [ $# -le 1 ]; then
   install
 
   if [ $# -eq 1]; then
-    "Move $DOTPATH."
     cd $DOTPATH
 
     case $0 in

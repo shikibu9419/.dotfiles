@@ -9,4 +9,4 @@ do
 	echo "$f"
 done
 
-echo "Dotfiles deployed!"
+echo "\nDotfiles deployed!"

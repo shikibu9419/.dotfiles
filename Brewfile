@@ -34,6 +34,7 @@ brew 'hub'
 brew 'ghq'
 brew 'peco'
 
+brew 'python'
 brew 'pyenv'
 brew 'rbenv'
 brew 'ruby-build'

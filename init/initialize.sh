@@ -9,25 +9,35 @@ has() {
 }
 
 if has "brew"; then
+  echo "================================="
   echo "Updating Homebrew..."
+  echo "================================="
+
   brew update && brew upgrade
 else
+  echo "================================="
   echo "Installing Homebrew..."
+  echo "================================="
+
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
 if !has "brew"; then
-  echo "Installing Homebrew failed."
+  echo "\nInstalling Homebrew failed."
   exit 1
 fi
 
+echo "================================="
 echo "Start brew install..."
+echo "================================="
 
 brew tap homebrew/bundle
 brew bundle
 brew cleanup
 
+echo "================================="
 echo "Brew finished!"
+echo "================================="
 
 # zsh config
 if [ $SHELL != "/usr/local/bin/zsh" ]; then
@@ -50,4 +60,4 @@ pip install --upgrade setuptools
 pip install --upgrade pip
 pip3 install neovim
 
-echo "Initialization is completed!!"
+echo "\nInitialization is completed!!"
