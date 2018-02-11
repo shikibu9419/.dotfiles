@@ -40,8 +40,8 @@ echo "Brew finished!"
 echo "================================="
 
 # zsh config
-if [ $SHELL != "/usr/local/bin/zsh" ]; then
-  chsh -s /usr/local/bin/zsh
+if [ $SHELL != $(which zsh) ]; then
+  chsh -s $(which zsh)
 fi
 
 # vim config

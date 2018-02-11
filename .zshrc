@@ -1,3 +1,8 @@
+if [[ -z "$TMUX" ]]; then
+  tmux && exit
+fi
+
+source ~/.zsh/plugins.zsh
 source ~/.zsh/colors.zsh
 source ~/.zsh/aliases.zsh
 source ~/.zsh/peco_config.zsh
@@ -7,7 +12,8 @@ source ~/.zsh/history_config.zsh
 #------------------------------------------
 # Initialize
 #------------------------------------------
-fpath=(/usr/local/share/zsh-completions $fpath)
+# fpath=(/usr/local/share/zsh-completions $fpath)
+fpath=(~/.zplug/repos/zsh-users/zsh-completions/src ~/.zsh/completion $fpath)
 typeset -U path PATH cdpath fpath manpath
 eval "$(rbenv init -)"
 eval "$(pyenv init -)"
@@ -17,7 +23,7 @@ eval "$(pyenv init -)"
 # Completion
 #------------------------------------------
 autoload -U compinit
-compinit
+# compinit
 
 zstyle ':completion:*' list-colors "$LS_COLORS"
 zstyle ':completion:*' menu select=2
