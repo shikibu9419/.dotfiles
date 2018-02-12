@@ -22,7 +22,7 @@ eval "$(pyenv init -)"
 #------------------------------------------
 # Completion
 #------------------------------------------
-autoload -U compinit
+# autoload -U compinit
 # compinit
 
 zstyle ':completion:*' list-colors "$LS_COLORS"
