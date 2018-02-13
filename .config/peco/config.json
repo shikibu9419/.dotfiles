@@ -1,7 +1,7 @@
 {
   "Keymap": {
-    "C-k": "peco.SelectUp",
-    "C-j": "peco.SelectDown",
+    "C-p": "peco.SelectUp",
+    "C-n": "peco.SelectDown",
     "C-b": "peco.ScrollPageUp",
     "C-f": "peco.ScrollPageDown",
 

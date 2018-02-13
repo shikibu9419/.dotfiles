@@ -14,7 +14,7 @@ function peco_select_history() {
 zle -N peco_select_history
 bindkey '^r' peco_select_history
 
-# Search ~/ghq_repositories
+# Search ~/Projects/
 function peco-ghq () {
   local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
   if [ -n "$selected_dir" ]; then
