@@ -12,8 +12,7 @@ source ~/.zsh/history_config.zsh
 #------------------------------------------
 # Initialize
 #------------------------------------------
-# fpath=(/usr/local/share/zsh-completions $fpath)
-fpath=(~/.zplug/repos/zsh-users/zsh-completions/src ~/.zsh/completion $fpath)
+fpath=(~/.zplug/repos/zsh-users/zsh-completions/src $HOME/.zsh/completions $fpath)
 typeset -U path PATH cdpath fpath manpath
 eval "$(rbenv init -)"
 eval "$(pyenv init -)"
@@ -22,11 +21,9 @@ eval "$(pyenv init -)"
 #------------------------------------------
 # Completion
 #------------------------------------------
-# autoload -U compinit
-# compinit
-
 zstyle ':completion:*' list-colors "$LS_COLORS"
 zstyle ':completion:*' menu select=2
+
 setopt no_list_types
 setopt print_eight_bit
 setopt globdots

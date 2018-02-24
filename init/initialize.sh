@@ -9,15 +9,15 @@ has() {
 }
 
 if has "brew"; then
-  echo "================================="
+  echo "=================================================="
   echo "Updating Homebrew..."
-  echo "================================="
+  echo "=================================================="
 
   brew update && brew upgrade
 else
-  echo "================================="
+  echo "=================================================="
   echo "Installing Homebrew..."
-  echo "================================="
+  echo "=================================================="
 
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
@@ -27,17 +27,17 @@ if !has "brew"; then
   exit 1
 fi
 
-echo "================================="
+echo "=================================================="
 echo "Start brew install..."
-echo "================================="
+echo "=================================================="
 
 brew tap homebrew/bundle
 brew bundle
 brew cleanup
 
-echo "================================="
+echo "=================================================="
 echo "Brew finished!"
-echo "================================="
+echo "=================================================="
 
 # zsh config
 if [ $SHELL != $(which zsh) ]; then
@@ -54,6 +54,8 @@ fi
 if [[ ! -d $TMUX_TPM_DIRECTORY ]]; then
   git clone https://github.com/tmux-plugins/tpm $TMUX_TPM_DIRECTORY
 fi
+
+# docker config
 
 # python config
 pip install --upgrade setuptools

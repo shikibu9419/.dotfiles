@@ -27,7 +27,6 @@ brew 'tmux'
 brew 'ctags'
 brew 'global', args: ['with-pygments']
 brew 'reattach-to-user-namespace'
-brew 'dash'
 brew 'gnuplot', args: ['with-x11']
 
 brew 'hub'
@@ -61,14 +60,13 @@ brew 'nmap'
 # cask
 #------------------------------------------
 cask 'google-chrome'
-cask 'google-chrome-canary'
-cask 'firefox'
 
 cask 'iterm2'
 cask 'mactex'
 cask 'docker'
 cask 'docker-toolbox'
 
+cask 'dash'
 cask 'alfred'
 cask 'appcleaner'
 cask 'android-file-transfer'
