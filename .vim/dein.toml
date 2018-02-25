@@ -45,18 +45,18 @@ repo = 'tpope/vim-obsession'
 # Tags
 #----------------------------------------------
 # gtags
-[[plugins]]
-repo = 'lighttiger2505/gtags.vim'
-hook_add = '''
-  let g:Gtags_Auto_Map = 0
-  let g:Gtags_OpenQuickfixWindow = 1
-  nmap <silent> K :<C-u>exe("Gtags ".expand('<cword>'))<CR>
-  nmap <silent> R :<C-u>exe("Gtags -r ".expand('<cword>'))<CR>
-'''
+# [[plugins]]
+# repo = 'lighttiger2505/gtags.vim'
+# hook_add = '''
+#   let g:Gtags_Auto_Map = 0
+#   let g:Gtags_OpenQuickfixWindow = 1
+#   nmap <silent> K :<C-u>exe("Gtags ".expand('<cword>'))<CR>
+#   nmap <silent> R :<C-u>exe("Gtags -r ".expand('<cword>'))<CR>
+# '''
 
-[[plugins]]
-repo = 'jsfaint/gen_tags.vim'
-hook_add = 'let g:gen_tags#gtags_auto_gen = 1'
+# [[plugins]]
+# repo = 'jsfaint/gen_tags.vim'
+# hook_add = 'let g:gen_tags#gtags_auto_gen = 1'
 
 # ctags
 # [[plugins]]
@@ -69,12 +69,12 @@ hook_add = 'let g:gen_tags#gtags_auto_gen = 1'
 #   nnoremap <Leader>v :vsplit<CR> :exe("tjump ".expand('<cword>'))<CR>
 # '''
 
-[[plugins]]
-repo = 'majutsushi/tagbar'
-hook_add = '''
-  let g:tagbar_width = 30
-  set statusline=%F%m%r%h%w\%=%{tagbar#currenttag('[%s]','')}\[Pos=%v,%l]\[Len=%L]
-'''
+# [[plugins]]
+# repo = 'majutsushi/tagbar'
+# hook_add = '''
+#   let g:tagbar_width = 30
+#   set statusline=%F%m%r%h%w\%=%{tagbar#currenttag('[%s]','')}\[Pos=%v,%l]\[Len=%L]
+# '''
 
 
 #----------------------------------------------
@@ -123,6 +123,10 @@ hook_add = '''
 #----------------------------------------------
 [[plugins]]
 repo = 'itchyny/lightline.vim'
+
+[[plugins]]
+repo = 'rizzatti/dash.vim'
+hook_add = 'nmap <silent> <Leader>d <Plug>DashSearch'
 
 [[plugins]]
 repo = 'thinca/vim-quickrun'
@@ -180,7 +184,15 @@ repo = 'tpope/vim-surround'
 repo = 'bronson/vim-trailing-whitespace'
 
 [[plugins]]
-repo = 'Yggdroot/indentLine'
+repo = 'nathanaelkane/vim-indent-guides'
+hook_add = '''
+  let g:indent_guides_enable_on_vim_startup = 1
+  hi IndentGuidesOdd  ctermbg=black
+  hi IndentGuidesEven ctermbg=darkgrey
+'''
+
+# [[plugins]]
+# repo = 'Yggdroot/indentLine'
 
 [[plugins]]
 repo = 'junegunn/vim-easy-align'
