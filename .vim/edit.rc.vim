@@ -18,6 +18,10 @@ set gdefault
 "------------------------------------------
 " Edit
 "------------------------------------------
+" 行を跨いだ移動
+set whichwrap=b,s,h,l,<,>,[,]
+" 入力コマンドの表示
+set showcmd
 " マウス入力を有効に
 if !has('nvim')
   set ttymouse=xterm2
@@ -46,6 +50,7 @@ set wildmenu
 " コマンドパターンを1000個まで履歴に残す
 set history=1000
 " %移動の拡張
+set matchpairs+=<:>
 if !exists('loaded_matchit')
   runtime macros/matchit.vim
 endif

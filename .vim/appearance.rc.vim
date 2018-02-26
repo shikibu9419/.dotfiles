@@ -6,6 +6,14 @@ set t_Co=256
 set background=dark
 colorscheme lucius
 
+" 文字コード
+set encoding=utf-8
+scriptencoding utf-8
+set fileencoding=utf-8
+set fileencodings=ucs-boms,utf-8,euc-jp,cp932
+set fileformats=unix,dos,mac
+set ambiwidth=double
+
 " 編集中のファイル名を表示
 set title
 " 行番号の表示
