@@ -238,3 +238,6 @@ hook_source = 'let g:one_dark_termcolors=16'
 
 [[plugins]]
 repo = 'aereal/vim-colors-japanesque'
+
+[[plugins]]
+repo = 'danilo-augusto/vim-afterglow'
