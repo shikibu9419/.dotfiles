@@ -1,3 +1,4 @@
-.vim/dein
 .DS_Store
 .globalrc
+.vim/dein
+.zsh/completions

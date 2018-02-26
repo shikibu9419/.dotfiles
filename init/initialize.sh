@@ -3,6 +3,7 @@ set -e
 
 VIM_DEIN_DIRECTORY="$DOTPATH/.vim/dein/repos/github.com/Shougo/dein.vim"
 TMUX_TPM_DIRECTORY="$HOME/.tmux/plugins/tpm"
+DOCKER_COMPLETION_PATH="/Applications/Docker.app/Contents/Resources/etc"
 
 has() {
   type "$1" > /dev/null 2>&1
@@ -56,6 +57,9 @@ if [[ ! -d $TMUX_TPM_DIRECTORY ]]; then
 fi
 
 # docker config
+cp $DOCKER_COMPLETION_PATH/docker.zsh-completion $DOTPATH/.zsh/completions/_docker
+cp $DOCKER_COMPLETION_PATH/docker-compose.zsh-completion $DOTPATH/.zsh/completions/_docker-compose
+cp $DOCKER_COMPLETION_PATH/docker-machine.zsh-completion $DOTPATH/.zsh/completions/_docker-machine
 
 # python config
 pip install --upgrade setuptools
