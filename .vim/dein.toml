@@ -160,9 +160,9 @@ hook_add = '''
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'
 hook_add = '''
-    if !exists('g:context_filetype#filetypes')
-        let g:context_filetype#filetypes = {}
-    endif
+  if !exists('g:context_filetype#filetypes')
+    let g:context_filetype#filetypes = {}
+  endif
 '''
 
 [[plugins]]
@@ -183,16 +183,18 @@ repo = 'tpope/vim-surround'
 [[plugins]]
 repo = 'bronson/vim-trailing-whitespace'
 
-[[plugins]]
-repo = 'nathanaelkane/vim-indent-guides'
-hook_add = '''
-  let g:indent_guides_enable_on_vim_startup = 1
-  hi IndentGuidesOdd  ctermbg=black
-  hi IndentGuidesEven ctermbg=darkgrey
-'''
-
 # [[plugins]]
-# repo = 'Yggdroot/indentLine'
+# repo = 'nathanaelkane/vim-indent-guides'
+# hook_add = '''
+#   let g:indent_guides_enable_on_vim_startup = 1
+#   let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
+#   let g:indent_guides_auto_colors = 1
+#   autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=black
+#   autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=darkgrey
+# '''
+
+[[plugins]]
+repo = 'Yggdroot/indentLine'
 
 [[plugins]]
 repo = 'junegunn/vim-easy-align'
