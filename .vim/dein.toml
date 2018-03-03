@@ -9,12 +9,12 @@ repo = 'Shougo/dein.vim'
 repo = 'tpope/vim-fugitive'
 hook_add = '''
   let g:lightline#extensions#branch#enabled=1
-  nmap [figitive] <Nop>
-  map <Leader>g [figitive]
-  nmap <silent> [figitive]s :<C-u>Gstatus<CR>
-  nmap <silent> [figitive]d :<C-u>Gdiff<CR>
-  nmap <silent> [figitive]b :<C-u>Gblame<CR>
-  nmap <silent> [figitive]l :<C-u>Glog<CR>
+  nmap [fugitive] <Nop>
+  map <Leader>g [fugitive]
+  nmap <silent> [fugitive]s :<C-u>Gstatus<CR>
+  nmap <silent> [fugitive]d :<C-u>Gdiff<CR>
+  nmap <silent> [fugitive]b :<C-u>Gblame<CR>
+  nmap <silent> [fugitive]l :<C-u>Glog<CR>
 '''
 
 [[plugins]]
