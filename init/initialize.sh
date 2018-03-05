@@ -9,6 +9,12 @@ has() {
   type "$1" > /dev/null 2>&1
 }
 
+echo "=================================================="
+echo "Installing Xcode..."
+echo "=================================================="
+
+xcode-select --install
+
 if has "brew"; then
   echo "=================================================="
   echo "Updating Homebrew..."
@@ -29,7 +35,7 @@ if !has "brew"; then
 fi
 
 echo "=================================================="
-echo "Start brew install..."
+echo "Start brew install."
 echo "=================================================="
 
 brew tap homebrew/bundle
@@ -37,7 +43,7 @@ brew bundle
 brew cleanup
 
 echo "=================================================="
-echo "Brew finished!"
+echo "Brew install finished!"
 echo "=================================================="
 
 # zsh config
