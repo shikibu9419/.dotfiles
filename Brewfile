@@ -18,20 +18,21 @@ tap 'homebrew/core'
 brew 'coreutils'
 brew 'mas'
 brew 'git'
+
 brew 'zsh'
-brew 'zsh-completions'
-brew 'vim', args: ['with-lua']
-brew 'neovim'
-brew 'tmux'
-
-brew 'ctags'
-brew 'global', args: ['with-pygments']
-brew 'reattach-to-user-namespace'
-brew 'gnuplot', args: ['with-x11']
-
 brew 'hub'
 brew 'ghq'
 brew 'peco'
+
+brew 'vim', args: ['with-lua']
+brew 'neovim'
+brew 'ctags'
+brew 'global', args: ['with-pygments']
+
+brew 'tmux'
+brew 'reattach-to-user-namespace'
+
+brew 'gnuplot', args: ['with-x11']
 
 brew 'python'
 brew 'pyenv'
@@ -60,7 +61,6 @@ brew 'nmap'
 # cask
 #------------------------------------------
 cask 'google-chrome'
-
 cask 'iterm2'
 cask 'mactex'
 cask 'docker'
@@ -68,6 +68,7 @@ cask 'docker-toolbox'
 
 cask 'dash'
 cask 'alfred'
+cask 'cheatsheet'
 cask 'appcleaner'
 cask 'android-file-transfer'
 cask 'bettertouchtool'
@@ -75,19 +76,21 @@ cask 'skim'
 
 cask 'java'
 
+cask 'sublime-text'
+cask 'atom'
+
 cask 'android-studio'
 cask 'androidtool'
 cask 'android-platform-tools'
+cask 'intellij-idea'
 cask 'pycharm'
-cask 'atom'
-cask 'sublime-text'
 
 cask '0xed'
 cask 'fiddler'
+cask 'mono-mdk'
 cask 'mendeley'
 cask 'wireshark'
 
-cask 'mono-mdk'
 cask 'skype'
 cask '4k-video-downloader'
 
