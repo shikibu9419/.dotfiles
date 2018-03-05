@@ -158,6 +158,15 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'rhysd/clever-f.vim'
+hook_add = '''
+  let g:clever_f_across_no_line = 1
+  let g:clever_f_ignore_case = 1
+  let g:clever_f_smart_case = 1
+  let g:clever_f_fix_key_direction = 1
+'''
+
+[[plugins]]
 repo = 'Shougo/context_filetype.vim'
 hook_add = '''
   if !exists('g:context_filetype#filetypes')
