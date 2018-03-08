@@ -158,6 +158,10 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'osyo-manga/vim-over'
+hook_add = 'nnoremap <silent> <Leader>o :OverCommandLine<CR>'
+
+[[plugins]]
 repo = 'rhysd/clever-f.vim'
 hook_add = '''
   let g:clever_f_across_no_line = 1
