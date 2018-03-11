@@ -184,6 +184,14 @@ on_i = 1
 # Syntax highlights
 #----------------------------------------------
 [[plugins]]
+repo = 'othree/yajs.vim'
+on_ft = 'javascript'
+
+[[plugins]]
+repo = 'maxmellon/vim-jsx-pretty'
+on_ft = 'javascript'
+
+[[plugins]]
 repo = 'cespare/vim-toml'
 on_ft = 'toml'
 

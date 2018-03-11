@@ -196,6 +196,16 @@ repo = 'tpope/vim-surround'
 [[plugins]]
 repo = 'bronson/vim-trailing-whitespace'
 
+# [[plugins]]
+# repo = 'nathanaelkane/vim-indent-guides'
+# hook_source = '''
+#   " let g:indent_guides_enable_on_vim_startup = 1
+#   " let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
+#   " let g:indent_guides_auto_colors = 1
+#   " autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=black
+#   " autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=darkgrey
+# '''
+
 [[plugins]]
 repo = 'Yggdroot/indentLine'
 
