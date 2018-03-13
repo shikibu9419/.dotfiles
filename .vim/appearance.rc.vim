@@ -30,16 +30,6 @@ set cursorline
 hi LineNr ctermfg=243
 hi CursorLineNr ctermfg=255
 
-" Vim の半透明化
-augroup highlights
-  autocmd!
-  autocmd VimEnter,ColorScheme * highlight Normal ctermbg=NONE
-  autocmd VimEnter,ColorScheme * highlight NonText ctermbg=NONE
-  autocmd VimEnter,ColorScheme * highlight TablineSel ctermbg=NONE
-  autocmd VimEnter,ColorScheme * highlight LineNr ctermbg=NONE
-  autocmd VimEnter,ColorScheme * highlight CursorLineNr ctermbg=NONE
-augroup END
-
 
 "------------------------------------------
 " Indent
