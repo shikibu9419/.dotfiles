@@ -71,5 +71,8 @@ cp $DOCKER_COMPLETION_PATH/docker-machine.zsh-completion $DOTPATH/.zsh/completio
 pip install --upgrade setuptools
 pip install --upgrade pip
 pip3 install neovim
+pip install numpy
+pip install scipy
+pip install matplotlib
 
 echo "\nInitialization is completed!!"
