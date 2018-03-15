@@ -1,0 +1,36 @@
+#!/bin/zsh
+
+usage() {
+  name=`basename $0`
+  cat <<EOF
+Usage:
+  update [Targets]
+Targets:
+  zplug     Update zplug.
+  brew      Update Homebrew.
+EOF
+  exit 1
+}
+
+if [[ $# -ne 1 ]]; then
+  usage
+fi
+
+case $1 in
+  zplug)
+    if ! zplug check --verbose; then
+      printf "Install? [y/N]: "
+      if read -q; then
+        echo; zplug install
+      fi
+    fi
+    ;;
+  brew)
+    brew update
+    brew upgrade
+    brew cleanup
+    ;;
+  *)
+    usage
+    ;;
+esac
