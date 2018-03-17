@@ -2,7 +2,8 @@ if [[ -z "$TMUX" ]]; then
   tmux && exit
 fi
 
-fpath=(~/.zplug/repos/zsh-users/zsh-completions/src $HOME/.zsh/completions $fpath)
+path=(~/.rbenv/bin(N-/) $GOPATH/bin(N-/) ~/Android/Sdk/tools(N-/) ~/Android/Sdk/platform-tools(N-/) ~/dotfiles/bin(N-/) ~/programs/flutter/bin(N-/) $path)
+fpath=(~/.zplug/repos/zsh-users/zsh-completions/src(N-/) $HOME/.zsh/completions(N-/) $fpath)
 
 source ~/.zsh/plugins.zsh
 source ~/.zsh/colors.zsh
@@ -14,7 +15,7 @@ source ~/.zsh/history_config.zsh
 #------------------------------------------
 # Initialize
 #------------------------------------------
-typeset -U path PATH cdpath fpath manpath
+typeset -U PATH path cdpath fpath manpath
 eval "$(rbenv init -)"
 eval "$(pyenv init -)"
 
