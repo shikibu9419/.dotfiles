@@ -24,7 +24,7 @@ install() {
     tar -zxvf $HOME/dotfiles.tar.gz --strip-components=1 -C $DOTPATH
     rm -f $HOME/dotfiles.tar.gz
   else
-    echo "Installing shikibu9419's dotfiles failed..."
+    echo "\nInstalling shikibu9419's dotfiles failed..."
     exit 1
   fi
 
@@ -42,16 +42,16 @@ Commands:
   init      Initialize your OS X and deploy dotfiles.
   deploy    Deploy dotfiles.
 EOF
-exit 1
+  exit 1
 }
 
-if [ $# -le 1 ]; then
+if [[ $# -le 1 ]]; then
   install
 
-  if [ $# -eq 1]; then
+  if [[ $# -eq 1 ]]; then
     cd $DOTPATH
 
-    case $0 in
+    case $1 in
       deploy)
         bash init/deploy.sh
         ;;
