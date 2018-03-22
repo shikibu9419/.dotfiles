@@ -137,6 +137,15 @@ hook_add = '''
 hook_post_source = 'nmap <Leader>r <Plug>(quickrun)'
 
 [[plugins]]
+repo = 'scrooloose/syntastic'
+hook_add = '''
+  let g:syntastic_mode_map = { 'mode': 'passive' }
+  let g:syntastic_ruby_checkers = ['rubocop']
+
+  nnoremap <Leader>s :SyntasticCheck<CR>
+'''
+
+[[plugins]]
 repo = 'tyru/open-browser.vim'
 hook_add = '''
   nmap <Leader>b <Plug>(openbrowser-smart-search)
