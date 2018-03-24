@@ -185,6 +185,10 @@ on_i = 1
 # Syntax highlights
 #----------------------------------------------
 [[plugins]]
+repo = 'udalov/kotlin-vim'
+on_ft = 'kotlin'
+
+[[plugins]]
 repo = 'othree/yajs.vim'
 on_ft = 'javascript'
 

@@ -38,6 +38,7 @@ brew 'python'
 brew 'pyenv'
 brew 'rbenv'
 brew 'ruby-build'
+brew 'kotlin'
 brew 'go'
 brew 'lua'
 
