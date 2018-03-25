@@ -4,6 +4,7 @@ cask_args appdir: '/Applications'
 # tap
 #------------------------------------------
 tap 'caskroom/cask'
+tap 'argon/mas'
 tap 'caskroom/fonts'
 tap 'caskroom/versions'
 tap 'homebrew/dupes'
@@ -41,6 +42,7 @@ brew 'ruby-build'
 brew 'kotlin'
 brew 'go'
 brew 'lua'
+brew 'llvm'
 
 brew 'opencv'
 brew 'opencv@2'
@@ -79,6 +81,7 @@ cask 'java'
 
 cask 'sublime-text'
 cask 'atom'
+cask 'visual-studio-code'
 
 cask 'android-studio'
 cask 'androidtool'
@@ -94,6 +97,7 @@ cask 'wireshark'
 
 cask 'skype'
 cask '4k-video-downloader'
+cask 'xld'
 
 
 #------------------------------------------
@@ -107,3 +111,6 @@ mas 'Numbers', id: 409203825
 mas 'Pages', id: 409201541
 mas 'QaLL', id: 480452005
 mas 'Slack', id: 803453959
+mas 'PicGIF Lite', id: 844918735
+mas 'Tag Editor Free', id: 984278082
+mas 'To MP3 Converter Free', id: 983472324
