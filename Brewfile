@@ -4,13 +4,14 @@ cask_args appdir: '/Applications'
 # tap
 #------------------------------------------
 tap 'caskroom/cask'
-tap 'argon/mas'
 tap 'caskroom/fonts'
 tap 'caskroom/versions'
 tap 'homebrew/dupes'
 tap 'homebrew/apache'
 tap 'homebrew/science'
 tap 'homebrew/core'
+tap 'argon/mas'
+tap 'sanemat/font'
 
 
 #------------------------------------------
@@ -59,6 +60,7 @@ brew 'httpd'
 brew 'pandoc'
 brew 'cowsay'
 brew 'nmap'
+brew 'ricty', args: ['with-powerline']
 
 #------------------------------------------
 # cask
