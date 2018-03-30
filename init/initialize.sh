@@ -63,6 +63,7 @@ if [[ ! -d $TMUX_TPM_DIRECTORY ]]; then
 fi
 
 # Docker config
+mkdir $DOTPATH/.zsh/completions
 cp $DOCKER_COMPLETION_PATH/docker.zsh-completion $DOTPATH/.zsh/completions/_docker
 cp $DOCKER_COMPLETION_PATH/docker-compose.zsh-completion $DOTPATH/.zsh/completions/_docker-compose
 cp $DOCKER_COMPLETION_PATH/docker-machine.zsh-completion $DOTPATH/.zsh/completions/_docker-machine
@@ -74,9 +75,10 @@ pip3 install neovim
 pip install numpy
 pip install scipy
 pip install matplotlib
+pip install mutagen
 
 # Ricty setup
 cp -f /usr/local/opt/ricty/share/fonts/Ricty*.ttf ~/Library/Fonts/
 fc-cache -vf
 
-echo "\nInitialization is completed!!"
+echo "\n**Initialization is completed!!**"
