@@ -2,3 +2,5 @@
 .globalrc
 .vim/dein
 .zsh/completions
+.tmux/plugins
+.tmux/resurrect
