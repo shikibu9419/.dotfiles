@@ -55,6 +55,7 @@ brew 'redis'
 brew 'sqlite'
 brew 'postgresql'
 
+brew 'easy-tag'
 brew 'highlight'
 brew 'httpd'
 brew 'pandoc'
@@ -88,8 +89,8 @@ cask 'visual-studio-code'
 cask 'android-studio'
 cask 'androidtool'
 cask 'android-platform-tools'
-cask 'intellij-idea'
-cask 'pycharm'
+cask 'intellij-idea-ce'
+cask 'pycharm-ce'
 
 cask '0xed'
 cask 'fiddler'
@@ -114,5 +115,4 @@ mas 'Pages', id: 409201541
 mas 'QaLL', id: 480452005
 mas 'Slack', id: 803453959
 mas 'PicGIF Lite', id: 844918735
-mas 'Tag Editor Free', id: 984278082
 mas 'To MP3 Converter Free', id: 983472324

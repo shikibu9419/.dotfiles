@@ -4,3 +4,4 @@
 .zsh/completions
 .tmux/plugins
 .tmux/resurrect
+.config/easytag
