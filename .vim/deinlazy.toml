@@ -47,15 +47,15 @@ on_i = 1
 
 [[plugins]]
 repo = 'zchee/deoplete-clang'
+on_i = 1
 
 [[plugins]]
 repo = 'zchee/deoplete-jedi'
+on_i = 1
 
 [[plugins]]
 repo = 'zchee/deoplete-go'
-
-[[plugins]]
-repo = 'fishbullet/deoplete-ruby'
+on_i = 1
 
 
 #----------------------------------------------
@@ -106,7 +106,20 @@ on_ft = 'python'
 #----------------------------------------------
 [[plugins]]
 repo = 'tpope/vim-rails'
-# repo = 'todesking/ruby_hl_lvar.vim'
+
+[[plugins]]
+repo = 'todesking/ruby_hl_lvar.vim'
+
+[[plugins]]
+repo = 'osyo-manga/vim-monster'
+hook_add = '''
+let g:monster#completion#rcodetools#backend = "async_rct_complete"
+let g:deoplete#sources#omni#input_patterns = {
+  \ "ruby" : '[^. *\t]\.\w*\|\h\w*::',
+  \}
+'''
+on_ft = 'ruby'
+on_i = 1
 
 
 #----------------------------------------------

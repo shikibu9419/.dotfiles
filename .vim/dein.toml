@@ -125,6 +125,9 @@ hook_add = '''
 repo = 'itchyny/lightline.vim'
 
 [[plugins]]
+repo = 'Shougo/vimproc.vim'
+
+[[plugins]]
 repo = 'rizzatti/dash.vim'
 hook_add = 'nmap <silent> <Leader>d <Plug>DashSearch'
 
