@@ -49,6 +49,8 @@ autocmd FileType * setlocal formatoptions-=ro
 set wildmenu
 " コマンドパターンを1000個まで履歴に残す
 set history=1000
+" 一つ目の候補を選択状態にする
+set completeopt+=noinsert
 " %移動の拡張
 set matchpairs+=<:>
 if !exists('loaded_matchit')

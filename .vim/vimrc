@@ -15,20 +15,21 @@ source $HOME/.vim/edit.rc.vim
 "------------------------------------------
 " Maps
 "------------------------------------------
-" [全モード] .vimrcを開く
+" Normal Mode
 noremap <Leader>. :tabedit $HOME/.vim/vimrc<CR>
-" [全モード] .vimrcの再読み込み
 noremap <Leader>, :source $MYVIMRC<CR>
-" [ノーマルモード] Yを行末までのヤンクに
 nnoremap Y y$
-" [ノーマルモード] 数字のインクリメント/デクリメント
 nnoremap + <C-a>
 nnoremap - <C-x>
-" [インサートモード] jjと入力するとノーマルモードに
+
+" Insert Mode
 inoremap jj <Esc>
-" [コマンドモード] <C-p>/<C-n> で履歴を遡る
+
+" Command Mode
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
+cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
+cnoremap <expr> ? getcmdtype() == '?' ? '\?' : '?
 
 
 "------------------------------------------
