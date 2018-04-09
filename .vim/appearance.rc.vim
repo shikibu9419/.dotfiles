@@ -4,7 +4,7 @@
 " Color
 set t_Co=256
 set background=dark
-colorscheme afterglow
+colorscheme hybrid
 
 " 文字コード
 set encoding=utf-8

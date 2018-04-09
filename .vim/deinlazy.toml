@@ -47,15 +47,12 @@ on_i = 1
 
 [[plugins]]
 repo = 'zchee/deoplete-clang'
-on_i = 1
 
 [[plugins]]
 repo = 'zchee/deoplete-jedi'
-on_i = 1
 
 [[plugins]]
 repo = 'zchee/deoplete-go'
-on_i = 1
 
 
 #----------------------------------------------

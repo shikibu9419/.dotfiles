@@ -1,0 +1,8 @@
+
+<!--
+  URL id (e.g. [text][id] => (text)[URL])
+-->
+[github]: https://github.com/shikibu9419
+[brew]: https://brew.sh/
+[cask]: https://github.com/caskroom/homebrew-cask
+[dein]: https://github.com/Shougo/dein.vim
