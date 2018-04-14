@@ -18,12 +18,15 @@ fi
 
 case $1 in
   zplug)
+    source ~/.zshrc 2> /dev/null
     if ! zplug check --verbose; then
       printf "Install? [y/N]: "
       if read -q; then
         echo; zplug install
       fi
     fi
+    echo "Reloading..."
+    source ~/.zshrc
     ;;
   brew)
     brew update
