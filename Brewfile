@@ -33,13 +33,14 @@ brew 'global', args: ['with-pygments']
 
 brew 'tmux'
 brew 'reattach-to-user-namespace'
+brew 'tmux-xpanes'
 
 brew 'gnuplot', args: ['with-x11']
 
 brew 'python'
 brew 'pyenv'
-brew 'rbenv'
 brew 'ruby-build'
+brew 'rbenv'
 brew 'kotlin'
 brew 'go'
 brew 'lua'
@@ -59,9 +60,11 @@ brew 'easy-tag'
 brew 'highlight'
 brew 'httpd'
 brew 'pandoc'
+brew 'awk'
 brew 'cowsay'
 brew 'nmap'
 brew 'ricty', args: ['with-powerline']
+
 
 #------------------------------------------
 # cask
@@ -85,12 +88,12 @@ cask 'java'
 cask 'sublime-text'
 cask 'atom'
 cask 'visual-studio-code'
+cask 'intellij-idea-ce'
+cask 'pycharm-ce'
 
 cask 'android-studio'
 cask 'androidtool'
 cask 'android-platform-tools'
-cask 'intellij-idea-ce'
-cask 'pycharm-ce'
 
 cask '0xed'
 cask 'fiddler'
