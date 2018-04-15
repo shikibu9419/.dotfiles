@@ -6,7 +6,7 @@ path=(~/.rbenv/bin(N-/) $GOPATH/bin(N-/) ~/Android/Sdk/tools(N-/) ~/Android/Sdk/
 fpath=(~/.zplug/repos/zsh-users/zsh-completions/src(N-/) $HOME/.zsh/completions(N-/) $fpath)
 
 source ~/.zsh/plugins.zsh
-source ~/.zsh/colors.zsh
+source ~/.zsh/appearance.zsh
 source ~/.zsh/aliases.zsh
 source ~/.zsh/peco_config.zsh
 source ~/.zsh/history_config.zsh
