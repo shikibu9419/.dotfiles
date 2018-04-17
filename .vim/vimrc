@@ -21,6 +21,8 @@ noremap <Leader>, :source $MYVIMRC<CR>
 nnoremap Y y$
 nnoremap + <C-a>
 nnoremap - <C-x>
+nnoremap <Leader>m :<C-u>marks
+nnoremap <Leader>r :<C-u>registers
 
 " Insert Mode
 inoremap jj <Esc>
