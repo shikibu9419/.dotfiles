@@ -5,10 +5,7 @@ let mapleader="\<Space>"
 set scrolloff=3
 " クリップボード設定
 set clipboard+=unnamed
-" %移動の拡張
-if !exists('loaded_matchit')
-  runtime macros/matchit.vim
-endif
+
 
 "------------------------------------------
 " Search & Replace
@@ -25,6 +22,7 @@ set smartcase
 set wrapscan
 " 置換時、g オプションをデフォルトに
 set gdefault
+
 
 "------------------------------------------
 " Maps
