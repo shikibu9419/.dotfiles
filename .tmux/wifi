@@ -117,7 +117,7 @@ do
         # make signal
         signal="${signal}${signals[$j]} "
     else
-        signal="${signal}  "
+        signal="${signal} "
     fi
 done
 
