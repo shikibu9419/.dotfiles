@@ -1,12 +1,20 @@
+autoload -Uz add-zsh-hook
+autoload -Uz vcs_info
 autoload -Uz colors
 colors
 
+zstyle ':vcs_info:*' formats '%B%F{green}[%b]%f'
+zstyle ':vcs_info:*' actionformats '%B%F{red}[%b|%a]%f'
+_update_vcs_info() {
+  LANG=en_US.UTF-8 vcs_info
+  RPROMPT="${vcs_info_msg_0_}"
+}
 
 PROMPT="%F{154}%n: %B%F{111}%~
 %#%b%f %{${reset_color}%}"
 # PROMPT2="%{$fg[green]%}%_> %{$reset_color%}"
 SPROMPT="%{$fg[red]%}correct: %R -> %r [nyae]? %{$reset_color%}"
-RPROMPT=""
+add-zsh-hook precmd _update_vcs_info
 
 # LS_COLORS
 export LSCOLORS=exfxcxdxbxegedabagacad
