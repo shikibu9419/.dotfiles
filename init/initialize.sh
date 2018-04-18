@@ -9,42 +9,44 @@ has() {
   type "$1" > /dev/null 2>&1
 }
 
-echo "=================================================="
-echo "Installing Xcode..."
-echo "=================================================="
+notice() {
+  echo "=================================================="
+  echo $1
+  echo "=================================================="
+}
 
+result_msg() {
+  if has "printf"; then
+    printf "\n\e[37;1m$1\n"
+  else
+    echo "\n**$1**\n"
+  fi
+}
+
+
+notice "Installing Xcode..."
 xcode-select --install
 
 if has "brew"; then
-  echo "=================================================="
-  echo "Updating Homebrew..."
-  echo "=================================================="
-
+  notice "Updating Homebrew..."
   brew update && brew upgrade
 else
-  echo "=================================================="
-  echo "Installing Homebrew..."
-  echo "=================================================="
-
+  notice "Installing Homebrew..."
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
 if !has "brew"; then
-  echo "\nInstalling Homebrew failed."
+  result_msg "Installing Homebrew failed."
   exit 1
 fi
 
-echo "=================================================="
-echo "Start brew install."
-echo "=================================================="
-
+notice "Start brew install."
 brew tap homebrew/bundle
 brew bundle
 brew cleanup
 
-echo "=================================================="
-echo "Brew install finished!"
-echo "=================================================="
+result_msg "Brew install finished!"
+notice "Others..."
 
 # Zsh config
 if [ $SHELL != $(which zsh) ]; then
@@ -81,4 +83,4 @@ pip install mutagen
 cp -f /usr/local/opt/ricty/share/fonts/Ricty*.ttf ~/Library/Fonts/
 fc-cache -vf
 
-echo "\n**Initialization is completed!!**"
+result_msg "Initialization is completed!!"

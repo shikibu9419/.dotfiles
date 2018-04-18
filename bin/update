@@ -17,8 +17,8 @@ if [[ $# -ne 1 ]]; then
 fi
 
 case $1 in
-  zplug)
-    source ~/.zshrc 2> /dev/null
+  zplug|z)
+    source ~/.zshrc > /dev/null
     if ! zplug check --verbose; then
       printf "Install? [y/N]: "
       if read -q; then
@@ -28,7 +28,7 @@ case $1 in
     echo "Reloading..."
     source ~/.zshrc
     ;;
-  brew)
+  brew|b)
     brew update
     brew upgrade
     brew cleanup
