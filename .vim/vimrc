@@ -10,28 +10,7 @@ endif
 source $HOME/.vim/config_dein.rc.vim
 source $HOME/.vim/appearance.rc.vim
 source $HOME/.vim/edit.rc.vim
-
-
-"------------------------------------------
-" Maps
-"------------------------------------------
-" Normal Mode
-noremap <Leader>. :tabedit $HOME/.vim/vimrc<CR>
-noremap <Leader>, :source $MYVIMRC<CR>
-nnoremap Y y$
-nnoremap + <C-a>
-nnoremap - <C-x>
-nnoremap <Leader>m :<C-u>marks
-nnoremap <Leader>r :<C-u>registers
-
-" Insert Mode
-inoremap jj <Esc>
-
-" Command Mode
-cnoremap <C-p> <Up>
-cnoremap <C-n> <Down>
-cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
-cnoremap <expr> ? getcmdtype() == '?' ? '\?' : '?
+source $HOME/.vim/keymap.rc.vim
 
 
 "------------------------------------------
