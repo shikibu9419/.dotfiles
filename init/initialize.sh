@@ -24,9 +24,6 @@ result_msg() {
 }
 
 
-notice "Installing Xcode..."
-xcode-select --install
-
 if has "brew"; then
   notice "Updating Homebrew..."
   brew update && brew upgrade

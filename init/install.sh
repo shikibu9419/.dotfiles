@@ -8,7 +8,16 @@ has() {
   type "$1" > /dev/null 2>&1
 }
 
+notice() {
+  echo "=================================================="
+  echo $1
+  echo "=================================================="
+}
+
 install() {
+  notice "Installing Xcode..."
+  xcode-select --install
+
   if [ -d $DOTPATH ]; then
     echo "\n**warning** $DOTPATH will be deleted!!"
     echo "Installation failed."
@@ -28,9 +37,7 @@ install() {
     exit 1
   fi
 
-  echo "================================="
-  echo "Dotfiles were installed!"
-  echo "================================="
+  notice "Dotfiles were installed!"
 }
 
 usage() {
