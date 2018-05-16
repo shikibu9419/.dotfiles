@@ -1,4 +1,4 @@
-if [[ -z "$TMUX" ]]; then
+if [[ -z $TMUX ]]; then
   tmux && exit
 fi
 
