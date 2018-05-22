@@ -10,6 +10,7 @@ tap 'homebrew/dupes'
 tap 'homebrew/apache'
 tap 'homebrew/science'
 tap 'homebrew/core'
+tap 'homebrew/services'
 tap 'argon/mas'
 tap 'sanemat/font'
 
@@ -19,7 +20,9 @@ tap 'sanemat/font'
 #------------------------------------------
 brew 'coreutils'
 brew 'mas'
+
 brew 'git'
+brew 'tig'
 
 brew 'zsh'
 brew 'hub'
@@ -30,6 +33,7 @@ brew 'vim', args: ['with-lua']
 brew 'neovim'
 brew 'ctags'
 brew 'global', args: ['with-pygments']
+brew 'ricty', args: ['with-powerline']
 
 brew 'tmux'
 brew 'reattach-to-user-namespace'
@@ -44,10 +48,8 @@ brew 'rbenv'
 brew 'kotlin'
 brew 'go'
 brew 'lua'
+brew 'awk'
 brew 'llvm'
-
-brew 'opencv'
-brew 'opencv@2'
 
 brew 'heroku'
 brew 'unicorn'
@@ -60,10 +62,8 @@ brew 'easy-tag'
 brew 'highlight'
 brew 'httpd'
 brew 'pandoc'
-brew 'awk'
 brew 'cowsay'
 brew 'nmap'
-brew 'ricty', args: ['with-powerline']
 
 
 #------------------------------------------
@@ -100,6 +100,7 @@ cask 'fiddler'
 cask 'mono-mdk'
 cask 'mendeley'
 cask 'wireshark'
+cask 'netspot'
 
 cask 'skype'
 cask '4k-video-downloader'
