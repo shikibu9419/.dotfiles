@@ -49,23 +49,27 @@ notice "Others..."
 if [ $SHELL != $(which zsh) ]; then
   chsh -s $(which zsh)
 fi
+echo "zsh: done."
 
 # Vim config
 if [[ ! -d $VIM_DEIN_DIRECTORY ]]; then
   mkdir -p $VIM_DEIN_DIRECTORY
   git clone https://github.com/Shougo/dein.vim.git $VIM_DEIN_DIRECTORY
 fi
+echo "vim: done."
 
 # Tmux config
 if [[ ! -d $TMUX_TPM_DIRECTORY ]]; then
   git clone https://github.com/tmux-plugins/tpm $TMUX_TPM_DIRECTORY
 fi
+echo "tmux: done."
 
 # Docker config
 mkdir $DOTPATH/.zsh/completions
 cp $DOCKER_COMPLETION_PATH/docker.zsh-completion $DOTPATH/.zsh/completions/_docker
 cp $DOCKER_COMPLETION_PATH/docker-compose.zsh-completion $DOTPATH/.zsh/completions/_docker-compose
 cp $DOCKER_COMPLETION_PATH/docker-machine.zsh-completion $DOTPATH/.zsh/completions/_docker-machine
+echo "docker: done."
 
 # Python config
 pip install --upgrade setuptools
@@ -75,9 +79,11 @@ pip install numpy
 pip install scipy
 pip install matplotlib
 pip install mutagen
+echo "python: done."
 
 # Ricty setup
 cp -f /usr/local/opt/ricty/share/fonts/Ricty*.ttf ~/Library/Fonts/
 fc-cache -vf
+echo "ricty: done."
 
 result_msg "Initialization is completed!!"
