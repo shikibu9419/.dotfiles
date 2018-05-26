@@ -5,3 +5,4 @@
 .tmux/plugins
 .tmux/resurrect
 .config/easytag
+.config/hub

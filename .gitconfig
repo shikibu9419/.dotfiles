@@ -3,3 +3,5 @@
   email = shikibu9419@gmail.com
 [ghq]
   root = ~/Projects
+[alias]
+	see = browse
