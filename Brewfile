@@ -90,8 +90,8 @@ cask 'atom'
 cask 'visual-studio-code'
 cask 'intellij-idea-ce'
 cask 'pycharm-ce'
-
 cask 'android-studio'
+
 cask 'androidtool'
 cask 'android-platform-tools'
 
@@ -103,6 +103,8 @@ cask 'wireshark'
 cask 'netspot'
 
 cask 'skype'
+cask 'zoomus'
+cask 'notion'
 cask '4k-video-downloader'
 cask 'xld'
 
