@@ -31,7 +31,9 @@ alias gpl='git pull --rebase'
 alias grb='git rebase'
 alias grs='git reset'
 alias gs="git status"
-alias gse='git see'
+alias gst='git stash'
+alias gsta='git stash apply'
+alias gsee='git see'
 alias gpr='git pull-request'
 
 

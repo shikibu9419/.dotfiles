@@ -3,5 +3,6 @@ rails
 pry
 rspec
 rubocop
-rcodetools
-fastri
+gem-browse
+unf
+mp3info
