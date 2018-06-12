@@ -10,7 +10,7 @@ endif
 " <Leader> setting
 let mapleader="\<Space>"
 
-source $HOME/.vim/dein.rc.vim
+source $HOME/.vim/dein_config.rc.vim
 source $HOME/.vim/appearance.rc.vim
 source $HOME/.vim/edit.rc.vim
 source $HOME/.vim/keymap.rc.vim
