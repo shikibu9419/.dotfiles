@@ -1,8 +1,12 @@
 .DS_Store
 .globalrc
+
 .vim/dein
 .zsh/completions
+
 .tmux/plugins
 .tmux/resurrect
+
 .config/easytag
 .config/hub
+.config/configstore
