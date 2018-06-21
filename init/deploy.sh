@@ -1,7 +1,6 @@
 #!/bin/sh
 
-for f in .??*
-do
+for f in .??*; do
 	[[ "$f" = ".git" ]] && continue
 	[[ "$f" = ".gitignore" ]] && continue
 
