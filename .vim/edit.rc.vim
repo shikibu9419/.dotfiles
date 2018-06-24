@@ -12,6 +12,7 @@ set gdefault
 "------------------------------------------
 " Edit
 "------------------------------------------
+set updatetime=250
 set whichwrap=b,s,h,l,<,>,[,]
 set showcmd
 set clipboard+=unnamed

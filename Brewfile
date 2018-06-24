@@ -63,6 +63,7 @@ brew 'highlight'
 brew 'httpd'
 brew 'pandoc'
 brew 'cowsay'
+brew 'sl'
 brew 'nmap'
 
 

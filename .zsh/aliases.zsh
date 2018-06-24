@@ -10,6 +10,7 @@ alias grep='grep --color=auto'
 
 # git
 git() { hub "$@" }
+
 git-clone() {
   input=$1
   if [[ ${input#*/} = 'https:' ]]; then
@@ -18,6 +19,11 @@ git-clone() {
     hub clone $input
   fi
 }
+
+remote-origin() {
+  git remote add origin $(pbpaste)
+}
+
 alias g='git'
 alias ga='git add'
 alias gb='git branch'
@@ -31,6 +37,7 @@ alias gp='git push'
 alias gpl='git pull --rebase'
 alias grb='git rebase'
 alias grs='git reset'
+alias grm='git remote'
 alias gs='git status'
 alias gst='git stash'
 alias gsta='git stash apply'
