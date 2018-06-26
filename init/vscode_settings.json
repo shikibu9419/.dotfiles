@@ -1,3 +1,43 @@
 {
-    "editor.renderIndentGuides": true
+    "editor.renderIndentGuides": true,
+    "files.autoSave": "off",
+    "editor.fontSize": 12,
+    "editor.tabSize": 4,
+    "editor.renderWhitespace": "none",
+    "editor.cursorStyle": "line",
+    "editor.insertSpaces": true,
+    "editor.tabCompletion": true,
+    "editor.wordWrap": "on",
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true
+    },
+    "html.autoClosingTags": true,
+
+    "vim.useSystemClipboard":true,
+    "vim.hlsearch": true,
+    "vim.easymotion": true,
+    "vim.visualstar": true,
+    "vim.useCtrlKeys": true,
+
+    "[html]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true
+    },
+
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+    },
+    "emmet.syntaxProfiles": {
+        "jsx": {
+            "self_closing_tag": true
+        }
+    },
+    "emmet.triggerExpansionOnTab": true,
+    "gitlens.advanced.messages": {
+        "suppressShowKeyBindingsNotice": true
+    }
 }
