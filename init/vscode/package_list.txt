@@ -1,0 +1,9 @@
+abusaidm.html-snippets
+dbaeumer.vscode-eslint
+eg2.tslint
+formulahendry.code-runner
+mkaufman.HTMLHint
+ms-python.python
+msjsdiag.debugger-for-chrome
+PeterJausovec.vscode-docker
+vscodevim.vim
