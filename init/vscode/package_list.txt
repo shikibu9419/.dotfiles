@@ -1,9 +1,15 @@
 abusaidm.html-snippets
+christian-kohler.npm-intellisense
+DavidAnson.vscode-markdownlint
 dbaeumer.vscode-eslint
+eamodio.gitlens
 eg2.tslint
+eg2.vscode-npm-script
 formulahendry.code-runner
 mkaufman.HTMLHint
 ms-python.python
 msjsdiag.debugger-for-chrome
+octref.vetur
 PeterJausovec.vscode-docker
 vscodevim.vim
+wyze.theme-hybrid-next

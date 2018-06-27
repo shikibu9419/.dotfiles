@@ -6,8 +6,9 @@ usage() {
 Usage:
   update [Targets]
 Targets:
-  zplug     Update zplug.
-  brew      Update Homebrew.
+  brew   b   Update Homebrew.
+  vscode v   Update VS Code package list.
+  zplug  z   Update zplug.
 EOF
   exit 1
 }
@@ -32,6 +33,10 @@ case $1 in
     brew update
     brew upgrade
     brew cleanup
+    ;;
+  vscode|v)
+    code --list-extensions > ~/dotfiles/init/vscode/package_list.txt
+    echo "vscode package list: updated."
     ;;
   *)
     usage
