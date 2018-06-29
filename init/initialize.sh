@@ -45,45 +45,45 @@ brew cleanup
 result_msg "Brew install finished!"
 notice "Others..."
 
-# Zsh config
+# Zsh
 if [ $SHELL != $(which zsh) ]; then
   chsh -s $(which zsh)
 fi
-echo "zsh: done."
+echo "Zsh: done."
 
-# Vim config
+# Vim
 if [[ ! -d $VIM_DEIN_DIRECTORY ]]; then
   mkdir -p $VIM_DEIN_DIRECTORY
   git clone https://github.com/Shougo/dein.vim.git $VIM_DEIN_DIRECTORY
 fi
-echo "vim: done."
+echo "Vim: done."
 
-# Tmux config
+# Tmux
 if [[ ! -d $TMUX_TPM_DIRECTORY ]]; then
   git clone https://github.com/tmux-plugins/tpm $TMUX_TPM_DIRECTORY
 fi
-echo "tmux: done."
+echo "Tmux: done."
 
-# Docker config
+# Docker
 mkdir $DOTPATH/.zsh/completions
 cp $DOCKER_COMPLETION_PATH/docker.zsh-completion $DOTPATH/.zsh/completions/_docker
 cp $DOCKER_COMPLETION_PATH/docker-compose.zsh-completion $DOTPATH/.zsh/completions/_docker-compose
 cp $DOCKER_COMPLETION_PATH/docker-machine.zsh-completion $DOTPATH/.zsh/completions/_docker-machine
-echo "docker: done."
+echo "Docker: done."
 
-# Python config
+# Python
 pip install --upgrade setuptools
 pip install --upgrade pip
 pip3 install neovim
-pip install numpy
-pip install scipy
-pip install matplotlib
-pip install mutagen
-echo "python: done."
+echo "Python: done."
 
-# Ricty setup
+# Ricty
 cp -f /usr/local/opt/ricty/share/fonts/Ricty*.ttf ~/Library/Fonts/
 fc-cache -vf
-echo "ricty: done."
+echo "Ricty: done."
+
+# VS Code
+sh ~/dotfiles/init/vscode/setup.sh
+echo "VS Code: done."
 
 result_msg "Initialization is completed!!"
