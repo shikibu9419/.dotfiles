@@ -41,8 +41,8 @@ notice "Start brew install."
 brew tap homebrew/bundle
 brew bundle
 brew cleanup
-
 result_msg "Brew install finished!"
+
 notice "Others..."
 
 # Zsh
@@ -78,8 +78,13 @@ pip3 install neovim
 echo "Python: done."
 
 # Ricty
-cp -f /usr/local/opt/ricty/share/fonts/Ricty*.ttf ~/Library/Fonts/
-fc-cache -vf
+if [[ -d /usr/local/opt/ricty/share/fonts ]]; then
+  for font in /usr/local/opt/ricty/share/fonts/*.ttf; do
+    cp $font ~/Library/Fonts/
+  done
+
+  fc-cache -vf
+fi
 echo "Ricty: done."
 
 # VS Code
