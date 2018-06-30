@@ -39,5 +39,6 @@
     "emmet.triggerExpansionOnTab": true,
     "gitlens.advanced.messages": {
         "suppressShowKeyBindingsNotice": true
-    }
+    },
+    "workbench.colorTheme": "Monokai Dimmed"
 }

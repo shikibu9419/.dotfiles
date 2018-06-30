@@ -28,6 +28,8 @@ brew 'zsh'
 brew 'hub'
 brew 'ghq'
 brew 'peco'
+brew 'emojify'
+brew 'jq'
 
 brew 'vim', args: ['with-lua']
 brew 'neovim'
@@ -49,7 +51,6 @@ brew 'kotlin'
 brew 'go'
 brew 'lua'
 brew 'awk'
-brew 'llvm'
 
 brew 'heroku'
 brew 'unicorn'
@@ -57,14 +58,14 @@ brew 'nginx'
 brew 'redis'
 brew 'sqlite'
 brew 'postgresql'
+brew 'llvm'
 
-brew 'easy-tag'
 brew 'highlight'
 brew 'httpd'
 brew 'pandoc'
 brew 'cowsay'
-brew 'sl'
 brew 'nmap'
+brew 'easy-tag'
 
 
 #------------------------------------------
@@ -83,14 +84,15 @@ cask 'appcleaner'
 cask 'bettertouchtool'
 cask 'skim'
 
-cask 'java'
-
 cask 'sublime-text'
 cask 'atom'
 cask 'visual-studio-code'
+cask 'breckets'
+cask 'android-studio'
 cask 'intellij-idea-ce'
 cask 'pycharm-ce'
-cask 'android-studio'
+
+cask 'java'
 
 cask 'androidtool'
 cask 'android-platform-tools'
