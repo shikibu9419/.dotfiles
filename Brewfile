@@ -44,6 +44,7 @@ brew 'tmux-xpanes'
 brew 'gnuplot', args: ['with-x11']
 
 brew 'python'
+brew 'python@2'
 brew 'pyenv'
 brew 'ruby-build'
 brew 'rbenv'

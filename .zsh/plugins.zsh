@@ -4,7 +4,7 @@ ZPLUG_REPOS="$HOME/.zplug/repos"
 zplug "zsh-users/zsh-completions", lazy:true
 zplug "b4b4r07/enhancd", use:init.sh
 zplug "b4b4r07/emoji-cli"
-zplug "b4b4r07/zsh-gomi", use:bin/gomi
+zplug "b4b4r07/zsh-gomi"
 zplug "arks22/tmuximum", use:'!*'
 zplug "mollifier/cd-gitroot", use:'!*'
 zplug "supercrabtree/k", use:'!*'

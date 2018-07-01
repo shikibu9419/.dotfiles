@@ -11,6 +11,7 @@ nnoremap <Leader>w <Esc>:w<CR>
 nnoremap <Leader>q <Esc>:q<CR>
 nnoremap <Leader>. :tabedit $HOME/.vim/vimrc<CR>
 nnoremap <Leader>, :source $MYVIMRC<CR>
+nnoremap <Esc><Esc> :noh<CR>
 
 " Insert Mode
 inoremap jj <Esc>

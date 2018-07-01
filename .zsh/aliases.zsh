@@ -47,6 +47,7 @@ alias gpr='git pull-request'
 
 # others
 alias vim='nvim'
+alias vi='nvim'
 alias rm='rm -r'
 alias cp='cp -r'
 alias mkdir='mkdir -p'
