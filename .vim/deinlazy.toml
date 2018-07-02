@@ -161,30 +161,21 @@ on_i = 1
 #----------------------------------------------
 # HTML
 #----------------------------------------------
-[[plugins]]
-repo = 'mattn/emmet-vim'
-on_ft = 'html'
-
-[[plugins]]
-repo = 'alvan/vim-closetag'
-on_ft = 'html'
-
-[[plugins]]
-repo = 'hail2u/vim-css3-syntax'
-on_ft = 'html'
-
-[[plugins]]
-repo = 'gko/vim-coloresque'
-on_ft = 'html'
-
-
-#----------------------------------------------
-# Markdown
-#----------------------------------------------
-[[plugins]]
-repo = 'kannokanno/previm'
-hook_add = 'nnoremap <Leader>p :PrevimOpen<CR>'
-on_ft = 'markdown'
+# [[plugins]]
+# repo = 'mattn/emmet-vim'
+# on_ft = 'html'
+#
+# [[plugins]]
+# repo = 'alvan/vim-closetag'
+# on_ft = 'html'
+#
+# [[plugins]]
+# repo = 'hail2u/vim-css3-syntax'
+# on_ft = 'html'
+#
+# [[plugins]]
+# repo = 'gko/vim-coloresque'
+# on_ft = 'html'
 
 
 #----------------------------------------------
@@ -223,9 +214,9 @@ on_ft = 'tex'
 repo = 'cohama/lexima.vim'
 hook_source = '''
   " latex settings
-  call lexima#add_rule({'char': '$', 'input_after': '$', 'filetype': 'latex'})
-  call lexima#add_rule({'char': '$', 'at': '\%#\$', 'leave': 1, 'filetype': 'latex'})
-  call lexima#add_rule({'char': '<BS>', 'at': '\$\%#\$', 'delete': 1, 'filetype': 'latex'})
+  call lexima#add_rule({'char': '$', 'input_after': '$', 'filetype': 'tex'})
+  call lexima#add_rule({'char': '$', 'at': '\%#\$', 'leave': 1, 'filetype': 'tex'})
+  call lexima#add_rule({'char': '<BS>', 'at': '\$\%#\$', 'delete': 1, 'filetype': 'tex'})
 '''
 on_i = 1
 
