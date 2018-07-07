@@ -24,10 +24,13 @@ brew 'mas'
 brew 'git'
 brew 'tig'
 
-brew 'zsh'
+brew 'fish'
 brew 'hub'
 brew 'ghq'
 brew 'peco'
+
+brew 'zsh'
+brew 'zsh-completions'
 brew 'emojify'
 brew 'jq'
 
