@@ -1,14 +1,16 @@
 #!/bin/sh
 
-cd ~/dotfiles
+source $DOTPATH/init/utils.sh
+
+cd $DOTPATH
 
 for f in .??*; do
 	[[ $f = ".git" ]] && continue
 	[[ $f = ".gitignore" ]] && continue
 	[[ $f = ".DS_Store" ]] && continue
 
-	ln -sifF ~/dotfiles/$f ~/$f
+	ln -sifF $DOTPATH/$f ~/$f
 	echo $f
 done
 
-echo "\nDotfiles deployed!"
+result_msg "Dotfiles deployed!"

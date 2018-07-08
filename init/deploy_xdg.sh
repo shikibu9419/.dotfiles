@@ -1,5 +1,9 @@
 #!/bin/sh
 
+source $DOTPATH/init/utils.sh
+
+XDG_DOTPATH="$DOTPATH/xdg_configs"
+
 recursive_deploy() {
   if [[ -n $1 ]]; then
     dir=$1
@@ -11,7 +15,7 @@ recursive_deploy() {
     [[ $f = ".DS_Store" ]] && continue
 
     if [[ -f $f ]]; then
-      ln -sifF ~/dotfiles/xdg_configs/$f $XDG_CONFIG_HOME/$f
+      ln -sifF $XDG_DOTPATH/$f $XDG_CONFIG_HOME/$f
     else
       recursive_deploy $f
     fi
@@ -20,14 +24,14 @@ recursive_deploy() {
 }
 
 
-cd ~/dotfiles/xdg_configs/
+cd $XDG_DOTPATH/
 
-ln -sifF ~/dotfiles/xdg_configs/nvim $XDG_CONFIG_HOME/nvim
-ln -sifF ~/dotfiles/xdg_configs/peco $XDG_CONFIG_HOME/peco
+ln -sifF $XDG_DOTPATH/nvim $XDG_CONFIG_HOME/nvim
+ln -sifF $XDG_DOTPATH/peco $XDG_CONFIG_HOME/peco
 
 echo "$XDG_CONFIG_HOME/nvim"
 echo "$XDG_CONFIG_HOME/peco"
 
 recursive_deploy "fish"
 
-echo "\nxdg_configs deployed!"
+result_msg "xdg_configs deployed!"
