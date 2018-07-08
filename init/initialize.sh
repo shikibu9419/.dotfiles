@@ -45,11 +45,17 @@ result_msg "Brew install finished!"
 
 notice "Others..."
 
-# Zsh
-if [ $SHELL != $(which zsh) ]; then
-  chsh -s $(which zsh)
+# FISH
+if has "tee"; then
+  echo "/usr/local/bin/zsh" | sudo tee -a /etc/shells
+  echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
 fi
-echo "Zsh: done."
+
+if [ $SHELL != $(which fish) ]; then
+  chsh -s $(which fish)
+fi
+
+echo "FISH: done."
 
 # Vim
 if [[ ! -d $VIM_DEIN_DIRECTORY ]]; then

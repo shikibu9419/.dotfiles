@@ -3,12 +3,12 @@
 cd ~/dotfiles
 
 for f in .??*; do
-	[[ "$f" = ".git" ]] && continue
-	[[ "$f" = ".gitignore" ]] && continue
-	[[ "$f" = ".DS_Store" ]] && continue
+	[[ $f = ".git" ]] && continue
+	[[ $f = ".gitignore" ]] && continue
+	[[ $f = ".DS_Store" ]] && continue
 
 	ln -sifF ~/dotfiles/$f ~/$f
-	echo "$f"
+	echo $f
 done
 
 echo "\nDotfiles deployed!"
