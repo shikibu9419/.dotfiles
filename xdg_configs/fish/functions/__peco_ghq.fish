@@ -1,8 +1,8 @@
-function peco_ghq
+function __peco_ghq
   commandline | read -l buffer
   ghq list --full-path | \
     sed -e "s|$HOME/||g" | \
-    peco --query "$buffer" | \
+    peco | \
     read -l repository_path
   if [ -n "$repository_path" ]
     commandline "cd ~/$repository_path"
