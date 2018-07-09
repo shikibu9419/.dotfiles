@@ -27,7 +27,7 @@ set -g default_user your_normal_user
 
 
 #------------------------------------------
-# aliases
+# aliases & abbrs
 #------------------------------------------
 balias reload 'source ~/.config/fish/config.fish'
 balias fishrc 'vim ~/.config/fish/config.fish; and reload'
@@ -35,26 +35,26 @@ balias ls     'gls --color'
 balias grep   'grep --color'
 
 # git
-balias git  'hub'
-balias g    'git'
-balias ga   'git add'
-balias gb   'git branch'
-balias gc   'git commit -m'
-balias gca  'git commit --amend'
-balias gcl  'git-clone'
-balias gch  'git checkout'
-balias gd   'git diff'
-balias gl   'git log'
-balias gp   'git push'
-balias gpl  'git pull --rebase'
-balias grb  'git rebase'
-balias grs  'git reset'
-balias grm  'git remote'
-balias gs   'git status'
-balias gst  'git stash'
-balias gsta 'git stash apply'
-balias gsee 'git see'
-balias gpr  'git pull-request'
+abbr git  'hub'
+abbr g    'git'
+abbr ga   'git add'
+abbr gb   'git branch'
+abbr gc   'git commit -m'
+abbr gca  'git commit --amend'
+abbr gcl  'git-clone'
+abbr gch  'git checkout'
+abbr gd   'git diff'
+abbr gl   'git log'
+abbr gp   'git push'
+abbr gpl  'git pull --rebase'
+abbr grb  'git rebase'
+abbr grs  'git reset'
+abbr grm  'git remote'
+abbr gs   'git status'
+abbr gst  'git stash'
+abbr gsta 'git stash apply'
+abbr gsee 'git see'
+abbr gpr  'git pull-request'
 
 # others
 # balias vim 'nvim'
