@@ -4,9 +4,16 @@
 .vim/dein
 .zsh/completions
 
-.tmux/plugins
-.tmux/resurrect
+.tmux/*
+!.tmux/wifi
 
-.config/easytag
-.config/hub
-.config/configstore
+.config/*
+!.config/peco
+!.config/nvim
+!.config/fish
+.config/fish/*
+!.config/fish/fishfile
+!.config/fish/config.fish
+!.config/fish/functions
+.config/fish/functions/*
+!.config/fish/functions/__ghq_project_search.fish
