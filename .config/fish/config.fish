@@ -1,0 +1,1 @@
+source ~/.fish/rc.fish

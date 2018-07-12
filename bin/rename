@@ -1,0 +1,3 @@
+#!/bin/sh
+path=${1%/*}
+mv $1 $path/$2

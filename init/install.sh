@@ -1,25 +1,11 @@
 #!/bin/sh
-set -e
-
-export DOTPATH="$HOME/dotfiles"
-DOT_TARBALL="https://github.com/shikibu9419/dotfiles/tarball/master"
-
-has() {
-  type "$1" > /dev/null 2>&1
-}
-
-notice() {
-  echo "=================================================="
-  echo $1
-  echo "=================================================="
-}
 
 install() {
   notice "Installing Xcode..."
   xcode-select --install
 
   if [ -d $DOTPATH ]; then
-    echo "\n**warning** $DOTPATH will be deleted!!"
+    echo "**warning** $DOTPATH will be deleted!!"
     echo "Installation failed."
     exit 1
   fi
