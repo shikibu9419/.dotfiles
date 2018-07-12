@@ -6,9 +6,9 @@ usage() {
 Usage:
   update [Targets]
 Targets:
-  brew   b   Update Homebrew.
-  vscode v   Update VS Code package list.
-  zplug  z   Update zplug.
+  brew  b  Update Homebrew.
+  fish  f  Update fish.
+  zsh   z  Update Zsh.
 EOF
   exit 1
 }
@@ -18,7 +18,12 @@ if [[ $# -ne 1 ]]; then
 fi
 
 case $1 in
-  zplug|z)
+  brew|b)
+    brew update
+    brew upgrade
+    brew cleanup
+    ;;
+  zsh|z)
     source ~/.zshrc > /dev/null
     if ! zplug check --verbose; then
       printf "Install? [y/N]: "
@@ -28,15 +33,6 @@ case $1 in
     fi
     echo "Reloading..."
     source ~/.zshrc
-    ;;
-  brew|b)
-    brew update
-    brew upgrade
-    brew cleanup
-    ;;
-  vscode|v)
-    code --list-extensions > ~/dotfiles/init/vscode/package_list.txt
-    echo "vscode package list: updated."
     ;;
   *)
     usage
