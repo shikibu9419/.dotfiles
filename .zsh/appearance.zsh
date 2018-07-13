@@ -3,6 +3,8 @@ autoload -Uz vcs_info
 autoload -Uz colors
 colors
 
+setopt transient_rprompt
+
 zstyle ':vcs_info:*' formats '%B%F{green}[%b]%f'
 zstyle ':vcs_info:*' actionformats '%B%F{red}[%b|%a]%f'
 _update_vcs_info() {

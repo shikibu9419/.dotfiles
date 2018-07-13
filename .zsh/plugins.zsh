@@ -2,8 +2,9 @@ source /usr/local/opt/zplug/init.zsh
 ZPLUG_REPOS="$HOME/.zplug/repos"
 
 zplug "b4b4r07/enhancd", use:init.sh
-zplug "b4b4r07/emoji-cli"
-zplug "b4b4r07/zsh-gomi"
+zplug "zsh-users/zsh-autosuggestions", defer:2
+# zplug "b4b4r07/emoji-cli"
+# zplug "b4b4r07/zsh-gomi"
 zplug "arks22/tmuximum", use:'!*'
 zplug "mollifier/cd-gitroot", use:'!*'
 zplug "supercrabtree/k", use:'!*'
@@ -20,7 +21,6 @@ cd-gitroot() {
 
   autoload -Uz cd-gitroot
 }
-alias cdg=cd-gitroot
 
 k() {
   unfunction k

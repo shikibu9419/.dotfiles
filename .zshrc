@@ -7,8 +7,8 @@ fpath=(/usr/local/share/zsh-completions(N-/) ~/.zsh/completions(N-/) $fpath)
 
 source ~/.zsh/plugins.zsh
 source ~/.zsh/appearance.zsh
-source ~/.zsh/aliases.zsh
-source ~/.zsh/peco_config.zsh
+source ~/.zsh/keymaps.zsh
+source ~/.zsh/functions.zsh
 source ~/.zsh/history_config.zsh
 
 
@@ -51,5 +51,4 @@ setopt no_beep
 setopt correct
 setopt prompt_subst
 
-bindkey -v	# http://qiita.com/b4b4r07/items/8db0257d2e6f6b19ecb9
 chpwd() { ls }
