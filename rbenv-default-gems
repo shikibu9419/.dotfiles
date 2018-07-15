@@ -3,6 +3,7 @@ rails
 pry
 rspec
 rubocop
+cocoapod
 gem-browse
 unf
 mp3info

@@ -3,7 +3,7 @@ if [[ -z $TMUX ]]; then
 fi
 
 path=(~/.rbenv/bin(N-/) $GOPATH/bin(N-/) ~/Android/Sdk/tools(N-/) ~/Android/Sdk/platform-tools(N-/) ~/dotfiles/bin(N-/) ~/programs/flutter/bin(N-/) $path)
-fpath=(/usr/local/share/zsh-completions(N-/) ~/.zsh/completions(N-/) $fpath)
+fpath=(~/.zplug/repos/zsh-users/zsh-completions/src(N-/) ~/.zsh/completions(N-/) $fpath)
 
 source ~/.zsh/plugins.zsh
 source ~/.zsh/appearance.zsh

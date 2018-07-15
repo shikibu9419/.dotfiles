@@ -48,12 +48,9 @@ alias ls='gls --color=auto'
 alias grep='grep --color=auto'
 
 # others
-rm() {
-  mv $@ ~/.Trash
-}
-
 alias vim='nvim'
 alias vi='nvim'
+alias rm='() { mv $@ ~/.Trash }'
 alias cp='cp -r'
 alias mkdir='mkdir -p'
 alias ql='qlmanage -p $@ >& /dev/null'
