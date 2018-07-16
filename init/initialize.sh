@@ -49,11 +49,11 @@ fi
 echo "Tmux: done."
 
 # Docker
-# mkdir $DOTPATH/.zsh/completions
-# cp $DOCKER_COMPLETION_PATH/docker.zsh-completion $DOTPATH/.zsh/completions/_docker
-# cp $DOCKER_COMPLETION_PATH/docker-compose.zsh-completion $DOTPATH/.zsh/completions/_docker-compose
-# cp $DOCKER_COMPLETION_PATH/docker-machine.zsh-completion $DOTPATH/.zsh/completions/_docker-machine
-# echo "Docker: done."
+mkdir $DOTPATH/.zsh/completions
+cp $DOCKER_COMPLETION_PATH/docker.zsh-completion $DOTPATH/.zsh/completions/_docker
+cp $DOCKER_COMPLETION_PATH/docker-compose.zsh-completion $DOTPATH/.zsh/completions/_docker-compose
+cp $DOCKER_COMPLETION_PATH/docker-machine.zsh-completion $DOTPATH/.zsh/completions/_docker-machine
+echo "Docker: done."
 
 # Python
 pip install --upgrade setuptools
