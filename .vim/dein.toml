@@ -240,6 +240,9 @@ repo = 'bronson/vim-trailing-whitespace'
 repo = 'Yggdroot/indentLine'
 
 [[plugins]]
+repo = 'junegunn/fzf.vim'
+
+[[plugins]]
 repo = 'junegunn/vim-easy-align'
 hook_add = '''
   map ga <Nop>

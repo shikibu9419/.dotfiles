@@ -7,7 +7,6 @@ nnoremap - <C-x>
 " nnoremap <Leader>r :<C-u>registers
 nnoremap <Leader>v :vsplit 
 nnoremap <Leader>s :split 
-nnoremap <Leader>w <Esc>:w<CR>
 nnoremap <Leader>q <Esc>:q<CR>
 nnoremap <Leader>. :tabedit $HOME/.vim/vimrc<CR>
 nnoremap <Leader>, :source $MYVIMRC<CR>

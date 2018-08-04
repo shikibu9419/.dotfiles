@@ -26,6 +26,18 @@ set matchtime=1
 set wildmenu
 set history=1000
 
+" Auto save
+set autowriteall
+
+function s:AutoWriteIfPossible()
+  if &modified && !&readonly && bufname('%') !=# '' && &buftype ==# '' && expand("%") !=# ''
+    write
+  endif
+endfunction
+
+autocmd CursorHold * call s:AutoWriteIfPossible()
+autocmd CursorHoldI * call s:AutoWriteIfPossible()
+
 " Enable backspace (for Mac)
 set backspace=indent,eol,start
 " Comment setting
@@ -43,6 +55,7 @@ if !exists('loaded_matchit')
   runtime macros/matchit.vim
 endif
 
+" Reasign
 augroup asign
   autocmd!
   autocmd BufWritePost *
