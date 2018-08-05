@@ -2,15 +2,15 @@
 # aliases & abbrs
 #------------------------------------------
 balias reload 'source ~/.config/fish/config.fish'
+balias git    'hub'
 balias ls     'gls --color'
 balias grep   'grep --color'
 
 # plugins
-balias git  'hub'
 balias cdg 'cd-gitroot'
 
-function rm
-  mv $argv ~/.Trash
+function fed
+	funced $argv[1]; and funcsave $argv[1]
 end
 
 # git
@@ -35,8 +35,8 @@ abbr gsee 'git see'
 abbr gpr  'git pull-request'
 
 # others
-# balias vim 'nvim'
-# balias vi 'nvim'
+abbr vim 'nvim'
+# balias rm 'rm -r'
 # balias cp 'cp -r'
 # balias mkdir 'mkdir -p'
 # balias ql 'qlmanage -p $@ >& /dev/null'
