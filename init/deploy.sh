@@ -1,6 +1,6 @@
 #!/bin/sh
 
-source $DOTPATH/init/utils.sh
+source $DOTPATH/init/_utils.sh
 
 cd $DOTPATH
 
@@ -13,4 +13,4 @@ for f in .??*; do
 	echo $f
 done
 
-result_msg "Dotfiles deployed!"
+success_msg "Dotfiles deployed!"

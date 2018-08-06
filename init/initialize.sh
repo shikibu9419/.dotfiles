@@ -1,6 +1,6 @@
 #!/bin/sh
 
-source $DOTPATH/init/utils.sh
+source $DOTPATH/init/_utils.sh
 
 if has "brew"; then
   notice "Updating Homebrew..."
@@ -11,15 +11,15 @@ else
 fi
 
 if !has "brew"; then
-  result_msg "Installing Homebrew failed."
-  exit 1
+  error_msg "Installing Homebrew failed."
 fi
 
+# brew install
 notice "Start brew install."
 brew tap homebrew/bundle
 brew bundle
 brew cleanup
-result_msg "Brew install finished!"
+success_msg "Brew install finished!"
 
 notice "Others..."
 
@@ -71,4 +71,4 @@ if [[ -d /usr/local/opt/ricty/share/fonts ]]; then
 fi
 echo "Ricty: done."
 
-result_msg "Initialization is completed!!"
+success_msg "Initialization is completed!!"
