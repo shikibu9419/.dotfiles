@@ -49,8 +49,6 @@ alias grep='grep --color=auto'
 
 # others
 alias vim='nvim'
-alias vi='nvim'
-alias rm='() { mv $@ ~/.Trash }'
 alias cp='cp -r'
 alias mkdir='mkdir -p'
 alias ql='qlmanage -p $@ >& /dev/null'

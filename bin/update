@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 usage() {
   name=`basename $0`
