@@ -11,7 +11,6 @@ tap 'homebrew/apache'
 tap 'homebrew/science'
 tap 'homebrew/core'
 tap 'homebrew/services'
-tap 'argon/mas'
 tap 'sanemat/font'
 
 
@@ -119,6 +118,7 @@ cask 'xld'
 #------------------------------------------
 # mas
 #------------------------------------------
+mas 'Xcode', id: 497799835
 mas 'Fotor Photo Editor', id: 503039729
 mas 'GarageBand', id: 682658836
 mas 'iMovie', id: 408981434

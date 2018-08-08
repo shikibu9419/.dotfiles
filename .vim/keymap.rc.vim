@@ -19,7 +19,7 @@ inoremap jj <Esc>
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
 cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
-cnoremap <expr> ? getcmdtype() == '?' ? '\?' : '?
+cnoremap <expr> ? getcmdtype() == '?' ? '\?' : '?'
 
 " Visual Mode
 vnoremap < <gv
