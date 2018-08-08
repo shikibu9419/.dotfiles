@@ -2,6 +2,7 @@
 
 source $DOTPATH/init/_utils.sh
 
+# set Homebrew
 if has "brew"; then
   notice "Updating Homebrew..."
   brew update && brew upgrade
@@ -21,54 +22,50 @@ brew bundle
 brew cleanup
 success_msg "Brew install finished!"
 
-notice "Others..."
-
 # Shell
+notice "Shell..."
 if has "tee"; then
   echo "/usr/local/bin/zsh" | sudo tee -a /etc/shells
   echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
 fi
-
-echo "Shell: done."
+cp /usr/local/opt/global/share/gtags/gtags.conf ~/.globalrc
 
 # Vim
+notice "Vim..."
 if [[ ! -d $VIM_DEIN_DIRECTORY ]]; then
   mkdir -p $VIM_DEIN_DIRECTORY
   git clone https://github.com/Shougo/dein.vim.git $VIM_DEIN_DIRECTORY
 fi
-echo "Vim: done."
 
 # VS Code
-sh ~/dotfiles/init/vscode/setup.sh
-echo "VS Code: done."
+notice "VS Code..."
+sh $DOTPATH/init/vscode/setup.sh
 
 # Tmux
+notice "Tmux..."
 if [[ ! -d $TMUX_TPM_DIRECTORY ]]; then
   git clone https://github.com/tmux-plugins/tpm $TMUX_TPM_DIRECTORY
 fi
-echo "Tmux: done."
 
 # Docker
+notice "Docker..."
 mkdir $DOTPATH/.zsh/completions
 cp $DOCKER_COMPLETION_PATH/docker.zsh-completion $DOTPATH/.zsh/completions/_docker
 cp $DOCKER_COMPLETION_PATH/docker-compose.zsh-completion $DOTPATH/.zsh/completions/_docker-compose
 cp $DOCKER_COMPLETION_PATH/docker-machine.zsh-completion $DOTPATH/.zsh/completions/_docker-machine
-echo "Docker: done."
 
-# Python
+# pip
+notice "pip..."
 pip install --upgrade setuptools
 pip install --upgrade pip
+pip install --upgrade pygments
 pip3 install neovim
-echo "Python: done."
 
 # Ricty
-if [[ -d /usr/local/opt/ricty/share/fonts ]]; then
-  for font in /usr/local/opt/ricty/share/fonts/*.ttf; do
-    cp $font ~/Library/Fonts/
-  done
-
-  fc-cache -vf
-fi
-echo "Ricty: done."
+notice "Ricty..."
+for font in /usr/local/opt/ricty/share/fonts/*.ttf; do
+  cp $font ~/Library/Fonts/
+done
+fc-cache -vf
 
 success_msg "Initialization is completed!!"

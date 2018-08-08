@@ -67,40 +67,34 @@ EOF
 }
 
 
-if [[ $# -gt 2 ]]; then
+if [[ $# -gt 2 || $1 != "deploy" && $1 != "init" ]]; then
   usage
 fi
 
-# set DOTPATH
+# export DOTPATH
 export DOTPATH="$HOME/dotfiles"
 if [[ $# -eq 2 ]]; then
-  if [[ -d $2 ]]; then
-    export DOTPATH="$2/dotfiles"
-  else
-    echo "Path $2 not found."
-    exit 1
-  fi
+  mkdir -p $2
+  export DOTPATH=$2
 fi
 
 install
 
 # deploy or initialize
-while getopts :ad:h opt; do
-  case $opt in
-    d)  bash $DOTPATH/init/deploy.sh
-        ;;
-    i)  bash $DOTPATH/init/initialize.sh
-        bash $DOTPATH/init/deploy.sh
-        ;;
-    *)  usage
-        ;;
-  esac
-done
+case $1 in
+  deploy)  bash $DOTPATH/init/deploy.sh
+      ;;
+  init)  bash $DOTPATH/init/initialize.sh
+      bash $DOTPATH/init/deploy.sh
+      ;;
+  *)  usage
+      ;;
+esac
 
 # set shell
-read -p "Change shell? (enter zsh or fish): " shell
+read -p "Which shell do you use? (zsh or fish): " shell
 if [[ $shell = 'zsh' || $shell = 'fish' ]]; then
   chsh -s $(which $shell)
 fi
 
-result_msg "Install finished successfully!"
+success_msg "Install finished successfully!"
