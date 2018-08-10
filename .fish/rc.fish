@@ -12,7 +12,19 @@ end
 # }
 
 source ~/.fish/env.fish
-source ~/.fish/aliases.fish
+source ~/.fish/keymaps.fish
+
+# function _remember_command -e fish_postexec
+#   echo $argv > ~/.fish/.cache/previous_command
+# end
+#
+# function _history_sort -e fish_prompt
+#   set -l prev (cat ~/.fish/.cache/previous_command | string trim)
+#   set -l len (string length $prev)
+#   if [ $len -le 4 ]
+#     history delete --exact $prev
+#   end
+# end
 
 
 #------------------------------------------

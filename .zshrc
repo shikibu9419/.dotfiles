@@ -11,14 +11,12 @@ source ~/.zsh/keymaps.zsh
 source ~/.zsh/functions.zsh
 source ~/.zsh/history_config.zsh
 
-
 #------------------------------------------
 # Initialize
 #------------------------------------------
 typeset -U PATH path cdpath fpath manpath
 eval "$(rbenv init -)"
 eval "$(pyenv init -)"
-
 
 #------------------------------------------
 # Completion
@@ -41,7 +39,6 @@ function _pip_completion {
              PIP_AUTO_COMPLETE=1 $words[1] ) )
 }
 compctl -K _pip_completion pip
-
 
 #------------------------------------------
 # Options
