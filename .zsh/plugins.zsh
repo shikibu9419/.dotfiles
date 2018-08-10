@@ -13,7 +13,6 @@ zplug "supercrabtree/k", use:'!*'
 
 zplug load
 
-
 #------------------------------------------
 # Plugin Setting
 #------------------------------------------
@@ -22,11 +21,11 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main pattern cursor)
 typeset -A ZSH_HIGHLIGHT_STYLES
 
 # command
-ZSH_HIGHLIGHT_STYLES[command]='fg=013'
-ZSH_HIGHLIGHT_STYLES[commandseparator]='fg=013'
-ZSH_HIGHLIGHT_STYLES[alias]='fg=013'
-ZSH_HIGHLIGHT_STYLES[builtin]='fg=013'
-ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=013'
+ZSH_HIGHLIGHT_STYLES[command]='fg=133'
+ZSH_HIGHLIGHT_STYLES[commandseparator]='fg=133'
+ZSH_HIGHLIGHT_STYLES[alias]='fg=133'
+ZSH_HIGHLIGHT_STYLES[builtin]='fg=133'
+ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=133'
 ZSH_HIGHLIGHT_STYLES[globbing]='none'
 
 # args
@@ -37,29 +36,27 @@ ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=111'
 # ZSH_HIGHLIGHT_STYLES[precommand]='fg=111'
 
 # quote
-ZSH_HIGHLIGHT_STYLES[comment]='fg=yellow'
-ZSH_HIGHLIGHT_STYLES[back-quoted-argument]='fg=yellow'
-ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=yellow'
-ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=yellow'
-ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]='fg=yellow'
+ZSH_HIGHLIGHT_STYLES[comment]='fg=002'
+ZSH_HIGHLIGHT_STYLES[back-quoted-argument]='fg=002'
+ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=002'
+ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=002'
+ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]='fg=002'
 
 # errors
-ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=197'
-ZSH_HIGHLIGHT_STYLES[back-quoted-argument-unclosed]='fg=197'
-ZSH_HIGHLIGHT_STYLES[single-quoted-argument-unclosed]='fg=197'
-ZSH_HIGHLIGHT_STYLES[double-quoted-argument-unclosed]='fg=197'
-ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument-unclosed]='fg=197'
+ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=red'
+ZSH_HIGHLIGHT_STYLES[back-quoted-argument-unclosed]='fg=red'
+ZSH_HIGHLIGHT_STYLES[single-quoted-argument-unclosed]='fg=red'
+ZSH_HIGHLIGHT_STYLES[double-quoted-argument-unclosed]='fg=red'
+ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument-unclosed]='fg=red'
 
 cd-gitroot() {
   unfunction cd-gitroot
   . $ZPLUG_REPOS/mollifier/cd-gitroot/cd-gitroot
-
   autoload -Uz cd-gitroot
 }
 
 k() {
   unfunction k
   . $ZPLUG_REPOS/supercrabtree/k/k.sh
-
   k "$@"
 }

@@ -1,6 +1,5 @@
 autoload -Uz colors
 colors
-# setopt transient_rprompt
 
 #------------------------------------------
 # Prompt
@@ -26,7 +25,7 @@ if [ $(id -u) -eq 0 ]; then
   user_bg_color="green"
 else
   # other user color
-  user_fg_color="white"
+  user_fg_color="black"
   user_bg_color="blue"
 fi
 
@@ -38,12 +37,18 @@ git_bg_color="white"
 #   VENV_STATUS=" %F{black}($VENV_NAME)%f"
 # fi
 
-user_info="%F{$user_fg_color}%K{$user_bg_color}$VENV_STATUS %d %F{$user_bg_color}%K{$git_bg_color}"
-git_info="%F{$git_fg_color}%K{$git_bg_color}$(git_prompt_info)$(git_prompt_status) %F{$git_bg_color}%k"
+autoload -Uz add-zsh-hook
+add-zsh-hook precmd _update_info
 
-PROMPT="$user_info"$'\ue0b0'"$git_info"$'\ue0b0'"%f%k "
+user_info="%F{$user_fg_color}%K{$user_bg_color}$VENV_STATUS %(5~,%-1~/.../%2~,%~) %F{$user_bg_color}%K{$git_bg_color}"
+
+_update_info() {
+  git_info="%F{$git_fg_color}%K{$git_bg_color}$(git_prompt_info)$(git_prompt_status) %F{$git_bg_color}%k"
+  PROMPT="$user_info"$'\ue0b0'"$git_info"$'\ue0b0'"%f%k "
+}
 
 SPROMPT="%{$fg[red]%}correct: %R -> %r [nyae]? %{$reset_color%}"
+
 
 # LS_COLORS
 export LSCOLORS=exfxcxdxbxegedabagacad
