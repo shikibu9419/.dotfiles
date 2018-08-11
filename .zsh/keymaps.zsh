@@ -48,6 +48,8 @@ alias ls='gls --color=auto'
 alias grep='grep --color=auto'
 
 # others
+alias v='nvim'
+alias vi='nvim'
 alias vim='nvim'
 alias cp='cp -r'
 alias mkdir='mkdir -p'

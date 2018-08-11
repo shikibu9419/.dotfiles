@@ -1,8 +1,8 @@
 zshaddhistory() {
   local line=${1%%$'\n'}
-  local cmd=${line%% *}
+  # local cmd=${line%% *}
 
-  [[ $#line -ge 5 && $cmd != (exit) ]]
+  [[ $#line -ge 5 && $line != 'reload' ]]
 }
 
 HISTFILE=~/.zsh_history
