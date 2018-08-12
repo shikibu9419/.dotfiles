@@ -1,7 +1,6 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
-
 #----------------------------------------------
 # Git
 #----------------------------------------------
@@ -24,7 +23,6 @@ hook_add = '''
   nmap [h <Plug>GitGutterPrevHunk
 '''
 
-
 #----------------------------------------------
 # Tmux
 #----------------------------------------------
@@ -44,7 +42,6 @@ hook_add = '''
 [[plugins]]
 repo = 'tpope/vim-obsession'
 
-
 #----------------------------------------------
 # Tags
 #----------------------------------------------
@@ -54,6 +51,7 @@ repo = 'lighttiger2505/gtags.vim'
 hook_add = '''
   let g:Gtags_Auto_Map = 0
   let g:Gtags_OpenQuickfixWindow = 1
+  " TODO: Change keymaps
   " nmap <silent> K :<C-u>exe("Gtags ".expand('<cword>'))<CR>
   " nmap <silent> R :<C-u>exe("Gtags -r ".expand('<cword>'))<CR>
 '''
@@ -79,8 +77,9 @@ hook_add = '''
   let g:vim_tags_project_tags_command = "/usr/local/bin/ctags -R {OPTIONS} {DIRECTORY} 2>/dev/null"
   let g:vim_tags_gems_tags_command = "/usr/local/bin/ctags -R {OPTIONS} `bundle show --paths` 2>/dev/null"
 
-  nnoremap <Leader>h :split<CR> :exe("tjump ".expand('<cword>'))<CR>
-  nnoremap <Leader>v :vsplit<CR> :exe("tjump ".expand('<cword>'))<CR>
+  " TODO: Change keymap
+  " nnoremap <Leader>h :split<CR> :exe("tjump ".expand('<cword>'))<CR>
+  " nnoremap <Leader>v :vsplit<CR> :exe("tjump ".expand('<cword>'))<CR>
 '''
 
 # [[plugins]]
@@ -89,7 +88,6 @@ hook_add = '''
 #   let g:tagbar_width = 30
 #   set statusline=%F%m%r%h%w\%=%{tagbar#currenttag('[%s]','')}\[Pos=%v,%l]\[Len=%L]
 # '''
-
 
 #----------------------------------------------
 # NERDTree.vim
@@ -134,7 +132,6 @@ hook_add = '''
 		let g:nerdtree_tabs_open_on_console_startup=1
 	endif
 '''
-
 
 #----------------------------------------------
 # Others
@@ -277,7 +274,6 @@ hook_add = '''
   let g:ac_smooth_scroll_du_sleep_time_msec = 7
   let g:ac_smooth_scroll_fb_sleep_time_msec = 7
 '''
-
 
 #----------------------------------------------
 # Colorschemes

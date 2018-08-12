@@ -8,7 +8,6 @@ set smartcase
 set wrapscan
 set gdefault
 
-
 "------------------------------------------
 " Edit
 "------------------------------------------
@@ -26,7 +25,7 @@ set matchtime=1
 set wildmenu
 set history=1000
 
-" Auto save
+" Auto write
 set autowriteall
 
 function s:AutoWriteIfPossible()
@@ -35,8 +34,11 @@ function s:AutoWriteIfPossible()
   endif
 endfunction
 
-autocmd CursorHold * call s:AutoWriteIfPossible()
-autocmd CursorHoldI * call s:AutoWriteIfPossible()
+augroup autowrite
+  autocmd!
+  autocmd CursorHold * call s:AutoWriteIfPossible()
+  autocmd CursorHoldI * call s:AutoWriteIfPossible()
+augroup END
 
 " Enable backspace (for Mac)
 set backspace=indent,eol,start
