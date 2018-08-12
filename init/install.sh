@@ -82,13 +82,15 @@ install
 
 # deploy or initialize
 case $1 in
-  deploy)  bash $DOTPATH/init/deploy.sh
-      ;;
-  init)  bash $DOTPATH/init/initialize.sh
-      bash $DOTPATH/init/deploy.sh
-      ;;
+  deploy)
+    bash $DOTPATH/init/deploy.sh
+    ;;
+  init)
+    bash $DOTPATH/init/initialize.sh
+    bash $DOTPATH/init/deploy.sh
+    ;;
   *)  usage
-      ;;
+    ;;
 esac
 
 # set shell

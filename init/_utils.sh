@@ -29,3 +29,10 @@ error_msg() {
   echo $1
   exit 1
 }
+
+break_point() {
+  read -p "Next is $1. Continue? (y or n): " order
+  if [[ $order = 'n' ]]; then
+    exit 0
+  fi
+}
