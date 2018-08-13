@@ -1,18 +1,17 @@
-function __select_history() {
-  local tac
-  if which tac > /dev/null; then
-    tac="tac"
-  else
+# select history
+_select_history() {
+  local tac="tac"
+  if ! which tac > /dev/null; then
     tac="tail -r"
   fi
 
-  BUFFER=$(fc -l -n 1 | eval "$tac" | fzf --query "$LBUFFER")
+  BUFFER=$(fc -l -n 1 | eval "$tac" | fzf --query --reverse "$LBUFFER")
   CURSOR=$#BUFFER
   zle clear-screen
 }
-zle -N __select_history
 
-function __ghq_list_projects() {
+# ghq list repositories
+_ghq_list_repositories() {
   local selected_dir=$(ghq list -p | fzf --query "$LBUFFER")
   if [ -n "$selected_dir" ]; then
     BUFFER="cd ${selected_dir}"
@@ -20,4 +19,18 @@ function __ghq_list_projects() {
   fi
   zle clear-screen
 }
-zle -N __ghq_list_projects
+
+# git
+_remote_origin() {
+  git remote add origin $(pbpaste)
+}
+
+_push_origin() {
+  git push origin $(git branch | grap "*\ " | sed "s/.* //")
+}
+
+_list_checkout() {
+  local branches=$(git branch --all | grep -v HEAD)
+  local branch=$(echo $branches | fzf-tmux -d)
+  git checkout $(echo $branch | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+}

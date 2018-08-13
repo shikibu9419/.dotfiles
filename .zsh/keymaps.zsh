@@ -1,21 +1,18 @@
 # bindkeys
-bindkey -v	# http://qiita.com/b4b4r07/items/8db0257d2e6f6b19ecb9
+zle -N _select_history
+zle -N _ghq_list_repositories
+zle -N _list_checkout
+
+bindkey -v
 bindkey '^P' history-beginning-search-backward
 bindkey '^N' history-beginning-search-forward
 bindkey '^e' autosuggest-accept
 bindkey '^t' forward-word  # autosuggest-partial-accept
-bindkey '^r' __select_history
-bindkey '^]' __ghq_list_projects
-
-# plugins
-alias cdg=cd-gitroot
-alias t='tmuximum'
+bindkey '^r' _select_history
+bindkey '^]' _ghq_list_projects
+bindkey '^b' _list_checkout
 
 # git
-remote-origin() {
-  git remote add origin $(pbpaste)
-}
-
 alias git='hub'
 alias g='git'
 alias ga='git add'
@@ -36,6 +33,9 @@ alias gst='git stash'
 alias gsta='git stash apply'
 alias gsee='git see'
 alias gpr='git pull-request'
+
+alias gremote=_remote_origin
+alias gpush=_push_origin
 
 # ls
 alias la='ls -a'
