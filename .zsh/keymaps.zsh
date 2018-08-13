@@ -9,7 +9,7 @@ bindkey '^N' history-beginning-search-forward
 bindkey '^e' autosuggest-accept
 bindkey '^t' forward-word  # autosuggest-partial-accept
 bindkey '^r' _select_history
-bindkey '^]' _ghq_list_projects
+bindkey '^]' _ghq_list_repositories
 bindkey '^b' _list_checkout
 
 # git

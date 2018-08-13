@@ -5,7 +5,7 @@ _select_history() {
     tac="tail -r"
   fi
 
-  BUFFER=$(fc -l -n 1 | eval "$tac" | fzf --query --reverse "$LBUFFER")
+  BUFFER=$(fc -l -n 1 | eval "$tac" | fzf --reverse --query "$LBUFFER")
   CURSOR=$#BUFFER
   zle clear-screen
 }
@@ -26,7 +26,7 @@ _remote_origin() {
 }
 
 _push_origin() {
-  git push origin $(git branch | grap "*\ " | sed "s/.* //")
+  git push origin $(git branch | grep "*\ " | sed "s/.* //")
 }
 
 _list_checkout() {
