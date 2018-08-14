@@ -33,4 +33,5 @@ _list_checkout() {
   local branches=$(git branch --all | grep -v HEAD)
   local branch=$(echo $branches | fzf-tmux -d)
   git checkout $(echo $branch | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+  zle accept-line
 }

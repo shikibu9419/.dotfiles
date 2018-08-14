@@ -4,3 +4,4 @@ export TERM=xterm-256color
 export EDITOR=vim
 export XDG_CONFIG_HOME=$HOME/.config
 export GOPATH=$HOME
+export FZF_ALT_C_OPTS="--select-1 --exit-0"
