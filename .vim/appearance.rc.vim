@@ -51,7 +51,6 @@ set shiftwidth=2
 set softtabstop=2
 
 augroup filetypedetect
-  autocmd!
   " C/C++, Java, Kotlin, CSS/SCSS/SASS, JSON => 4 spaces
   autocmd BufRead,BufNewFile *.c    setlocal tabstop=4 shiftwidth=4 softtabstop=4
   autocmd BufRead,BufNewFile *.cpp  setlocal tabstop=4 shiftwidth=4 softtabstop=4

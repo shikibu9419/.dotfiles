@@ -61,7 +61,13 @@ brew 'nginx'
 brew 'redis'
 brew 'sqlite'
 brew 'postgresql'
+
+brew 'yarn'
+brew 'node'
 brew 'llvm'
+brew 'cmake'
+brew 'imagemagick@6'
+brew 'nodenv'
 
 brew 'highlight'
 brew 'httpd'
