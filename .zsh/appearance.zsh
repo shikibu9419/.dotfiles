@@ -4,54 +4,54 @@ colors
 SPROMPT="%{$fg[red]%}correct: %R -> %r [nyae]? %{$reset_color%}"
 
 # pure setting
-autoload -U promptinit; promptinit
-prompt pure
+# autoload -U promptinit; promptinit
+# prompt pure
 
 #------------------------------------------
 # Prompt
 #------------------------------------------
-# ZSH_THEME_GIT_PROMPT_PREFIX=" \ue0a0 "
-# ZSH_THEME_GIT_PROMPT_SUFFIX=""
-# ZSH_THEME_GIT_PROMPT_DIRTY=" ✘"
-# ZSH_THEME_GIT_PROMPT_CLEAN=" ✔"
-#
-# ZSH_THEME_GIT_PROMPT_ADDED=" %F{green}✚%F{black}"
-# ZSH_THEME_GIT_PROMPT_MODIFIED=" %F{blue}✹%F{black}"
-# ZSH_THEME_GIT_PROMPT_DELETED=" %F{red}✖%F{black}"
-# ZSH_THEME_GIT_PROMPT_UNTRACKED=" %F{yellow}✭%F{black}"
-# ZSH_THEME_GIT_PROMPT_RENAMED=" ➜"
-# ZSH_THEME_GIT_PROMPT_UNMERGED=" ═"
-# ZSH_THEME_GIT_PROMPT_AHEAD=" ⬆"
-# ZSH_THEME_GIT_PROMPT_BEHIND=" ⬇"
-# ZSH_THEME_GIT_PROMPT_DIVERGED=" ⬍"
-#
-# if [ $(id -u) -eq 0 ]; then
-#   # root color
-#   user_fg_color="black"
-#   user_bg_color="green"
-# else
-#   # other user color
-#   user_fg_color="black"
-#   user_bg_color="blue"
+ZSH_THEME_GIT_PROMPT_PREFIX=" \ue0a0 "
+ZSH_THEME_GIT_PROMPT_SUFFIX=""
+ZSH_THEME_GIT_PROMPT_DIRTY=" ✘"
+ZSH_THEME_GIT_PROMPT_CLEAN=" ✔"
+
+ZSH_THEME_GIT_PROMPT_ADDED=" %F{green}✚%F{black}"
+ZSH_THEME_GIT_PROMPT_MODIFIED=" %F{blue}✹%F{black}"
+ZSH_THEME_GIT_PROMPT_DELETED=" %F{red}✖%F{black}"
+ZSH_THEME_GIT_PROMPT_UNTRACKED=" %F{yellow}✭%F{black}"
+ZSH_THEME_GIT_PROMPT_RENAMED=" ➜"
+ZSH_THEME_GIT_PROMPT_UNMERGED=" ═"
+ZSH_THEME_GIT_PROMPT_AHEAD=" ⬆"
+ZSH_THEME_GIT_PROMPT_BEHIND=" ⬇"
+ZSH_THEME_GIT_PROMPT_DIVERGED=" ⬍"
+
+if [ $(id -u) -eq 0 ]; then
+  # root color
+  user_fg_color="black"
+  user_bg_color="green"
+else
+  # other user color
+  user_fg_color="black"
+  user_bg_color="blue"
+fi
+
+git_fg_color="black"
+git_bg_color="white"
+
+# if [ "$VIRTUAL_ENV" != "" ] && [ "$POWERLINE_HIDE_VIRTUAL_ENV" = "" ]; then
+#   VENV_NAME=$(basename "$VIRTUAL_ENV")
+#   VENV_STATUS=" %F{black}($VENV_NAME)%f"
 # fi
-#
-# git_fg_color="black"
-# git_bg_color="white"
-#
-# # if [ "$VIRTUAL_ENV" != "" ] && [ "$POWERLINE_HIDE_VIRTUAL_ENV" = "" ]; then
-# #   VENV_NAME=$(basename "$VIRTUAL_ENV")
-# #   VENV_STATUS=" %F{black}($VENV_NAME)%f"
-# # fi
-#
-# autoload -Uz add-zsh-hook
-# add-zsh-hook precmd _update_info
-#
-# user_info="%F{$user_fg_color}%K{$user_bg_color}$VENV_STATUS %(5~,%-1~/.../%2~,%~) %F{$user_bg_color}%K{$git_bg_color}"
-#
-# _update_info() {
-#   git_info="%F{$git_fg_color}%K{$git_bg_color}$(git_prompt_info)$(git_prompt_status) %F{$git_bg_color}%k"
-#   PROMPT="$user_info"$'\ue0b0'"$git_info"$'\ue0b0'"%f%k "
-# }
+
+autoload -Uz add-zsh-hook
+add-zsh-hook precmd _update_info
+
+user_info="%F{$user_fg_color}%K{$user_bg_color}$VENV_STATUS %(5~,%-1~/.../%2~,%~) %F{$user_bg_color}%K{$git_bg_color}"
+
+_update_info() {
+  git_info="%F{$git_fg_color}%K{$git_bg_color}$(git_prompt_info)$(git_prompt_status) %F{$git_bg_color}%k"
+  PROMPT="$user_info"$'\ue0b0'"$git_info"$'\ue0b0'"%f%k "
+}
 
 # LS_COLORS
 export LSCOLORS=exfxcxdxbxegedabagacad
