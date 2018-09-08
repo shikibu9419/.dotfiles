@@ -27,6 +27,7 @@ brew 'fish'
 brew 'hub'
 brew 'ghq'
 brew 'peco'
+brew 'bat'
 
 brew 'zsh'
 brew 'zsh-completions'

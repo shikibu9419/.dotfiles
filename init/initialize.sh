@@ -89,4 +89,8 @@ for font in /usr/local/opt/ricty/share/fonts/*.ttf; do
 done
 fc-cache -vf
 
+# Rust
+curl https://sh.rustup.rs -sSf | sh
+rustup component add rls-preview rust-analysis rust-src
+
 success_msg "Initialization is completed!!"
