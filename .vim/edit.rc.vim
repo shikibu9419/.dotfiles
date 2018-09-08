@@ -26,9 +26,9 @@ set wildmenu
 set history=1000
 
 " Auto write
-set autowriteall
+set autowrite
 
-function s:AutoWriteIfPossible()
+function! s:AutoWriteIfPossible()
   if &modified && !&readonly && bufname('%') !=# '' && &buftype ==# '' && expand("%") !=# ''
     write
   endif
