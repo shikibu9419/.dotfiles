@@ -1,40 +1,18 @@
 #!/bin/zsh
 
-usage() {
-  name=`basename $0`
-  cat <<EOF
-Usage:
-  update [Targets]
-Targets:
-  brew  b  Update Homebrew.
-  fish  f  Update fish.
-  zsh   z  Update Zsh.
-EOF
-  exit 1
-}
+echo "UPDATE: brew..."
+brew update
+brew upgrade
+brew cleanup
 
-if [[ $# -ne 1 ]]; then
-  usage
+echo "UPDATE: zplug..."
+source ~/.zshrc > /dev/null
+if ! zplug check --verbose; then
+  printf "Install? [y/N]: "
+  if read -q; then
+    echo; zplug install
+  fi
 fi
 
-case $1 in
-  brew|b)
-    brew update
-    brew upgrade
-    brew cleanup
-    ;;
-  zsh|z)
-    source ~/.zshrc > /dev/null
-    if ! zplug check --verbose; then
-      printf "Install? [y/N]: "
-      if read -q; then
-        echo; zplug install
-      fi
-    fi
-    echo "Reloading..."
-    source ~/.zshrc
-    ;;
-  *)
-    usage
-    ;;
-esac
+echo "Reloading..."
+source ~/.zshrc
