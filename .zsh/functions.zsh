@@ -1,4 +1,4 @@
-# select history
+# use incremental search
 _select_history() {
   local tac="tac"
   if ! which tac > /dev/null; then
@@ -10,7 +10,6 @@ _select_history() {
   zle clear-screen
 }
 
-# ghq list repositories
 _ghq_list_repositories() {
   local selected_dir=$(ghq list -p | fzf --query "$LBUFFER")
   if [ -n "$selected_dir" ]; then
