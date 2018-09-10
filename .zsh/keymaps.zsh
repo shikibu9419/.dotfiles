@@ -37,6 +37,9 @@ alias gpr='git pull-request'
 alias gremote=_remote_origin
 alias gpush=_push_origin
 
+# rails
+alias railc='rails c'
+
 # ls
 alias la='ls -a'
 alias ll='ls -l'
@@ -51,6 +54,7 @@ alias grep='grep --color=auto'
 alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
+alias c='clear'
 alias cp='cp -r'
 alias mkdir='mkdir -p'
 alias ql='qlmanage -p $@ >& /dev/null'
