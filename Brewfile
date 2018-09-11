@@ -121,6 +121,7 @@ cask 'wireshark'
 cask 'netspot'
 
 cask 'gitify'
+cask 'quail'
 cask 'skype'
 cask 'zoomus'
 cask 'notion'

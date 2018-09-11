@@ -1,0 +1,21 @@
+#!/bin/sh
+
+### compract - compress / extract files
+
+usage() {
+  name=`basename $0`
+  cat <<EOF
+Usage:
+  compract -ce Command path targets...
+Options:
+  -c    Compress files.
+  -e    Extract files.
+Commands:
+  zip   Compress / Extract to .zip
+  gz    Compress / Extract to .tar.gz
+  bz    Compress / Extract to .tar.bz2
+EOF
+  exit 1
+}
+
+
