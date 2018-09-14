@@ -1,3 +1,5 @@
+### The functions whose name starts with '_' define in .zsh/functions.zsh
+
 # bindkeys
 zle -N _select_history
 zle -N _ghq_list_repositories
@@ -34,6 +36,8 @@ alias gst='git stash'
 alias gsta='git stash apply'
 alias gsee='git see'
 alias gpr='git pull-request'
+alias gw='git worktree'
+alias gwa=_worktree_add
 
 alias glog=_git_list_log
 alias gpush=_push_origin

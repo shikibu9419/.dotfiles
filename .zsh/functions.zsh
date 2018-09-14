@@ -54,6 +54,11 @@ _git_list_worktree() {
 }
 
 # git
+_worktree_add() {
+  local cdup_dir=`git rev-parse --show-cdup`
+  git worktree add ${cdup_dir}.git-worktrees/$1 -b $1
+}
+
 _remote_origin() {
   git remote add origin $(pbpaste)
 }
