@@ -1,11 +1,9 @@
-.DS_Store
-
 .vim/dein
+
+.zsh/completions
 
 .tmux/*
 !.tmux/wifi
-
-.zsh/completions
 
 .config/*
 !.config/peco

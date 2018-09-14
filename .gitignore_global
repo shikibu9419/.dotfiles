@@ -1,0 +1,14 @@
+# .DS_Store
+.DS_Store
+
+# IDE dirs
+.idea
+.project
+
+# git-worktree
+.git-worktrees
+
+# gtags
+GPATH
+GRTAGS
+GTAGS
