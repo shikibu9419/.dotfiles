@@ -38,6 +38,7 @@ alias gpr='git pull-request'
 alias glog=_git_list_log
 alias gpush=_push_origin
 alias gremote=_remote_origin
+alias gwork=_git_list_worktree
 
 # rails
 alias railc='rails c'

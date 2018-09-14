@@ -37,6 +37,22 @@ _git_list_log() {
 FZF-EOF"
 }
 
+_git_list_worktree() {
+  git rev-parse &>/dev/null
+  if [ $? -ne 0 ]; then
+    echo fatal: Not a git repository.
+    return
+  fi
+
+  local work_dir=`git worktree list | fzf | awk '{print $1}'`
+
+  if [ $work_dir = "" ]; then
+    return
+  fi
+
+  cd $work_dir
+}
+
 # git
 _remote_origin() {
   git remote add origin $(pbpaste)
