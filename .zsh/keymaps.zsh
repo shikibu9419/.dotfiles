@@ -1,7 +1,8 @@
 # bindkeys
 zle -N _select_history
 zle -N _ghq_list_repositories
-zle -N _list_checkout
+zle -N _git_list_log
+zle -N _git_list_checkout
 
 bindkey -v
 bindkey '^P' history-beginning-search-backward
@@ -10,7 +11,7 @@ bindkey '^e' autosuggest-accept
 bindkey '^t' forward-word  # autosuggest-partial-accept
 bindkey '^r' _select_history
 bindkey '^]' _ghq_list_repositories
-bindkey '^b' _list_checkout
+bindkey '^b' _git_list_checkout
 
 # git
 alias git='hub'
@@ -34,8 +35,9 @@ alias gsta='git stash apply'
 alias gsee='git see'
 alias gpr='git pull-request'
 
-alias gremote=_remote_origin
+alias glog=_git_list_log
 alias gpush=_push_origin
+alias gremote=_remote_origin
 
 # rails
 alias railc='rails c'

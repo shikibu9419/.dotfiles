@@ -19,6 +19,24 @@ _ghq_list_repositories() {
   zle clear-screen
 }
 
+_git_list_checkout() {
+  local branches=$(git branch --all | grep -v HEAD)
+  local branch=$(echo $branches | fzf-tmux -d)
+  git checkout $(echo $branch | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+  zle accept-line
+}
+
+_git_list_log() {
+  git log --graph --color=always \
+      --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
+  fzf --ansi --no-sort --reverse --tiebreak=index \
+      --bind "ctrl-m:execute:
+                (grep -o '[a-f0-9]\{7\}' | head -1 |
+                xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
+                {}
+FZF-EOF"
+}
+
 # git
 _remote_origin() {
   git remote add origin $(pbpaste)
@@ -26,11 +44,4 @@ _remote_origin() {
 
 _push_origin() {
   git push origin $(git branch | grep "*\ " | sed "s/.* //")
-}
-
-_list_checkout() {
-  local branches=$(git branch --all | grep -v HEAD)
-  local branch=$(echo $branches | fzf-tmux -d)
-  git checkout $(echo $branch | sed "s/.* //" | sed "s#remotes/[^/]*/##")
-  zle accept-line
 }
