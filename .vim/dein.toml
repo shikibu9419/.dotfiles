@@ -251,6 +251,16 @@ hook_add = '''
   " :FzfColors Setting
   command! -bang Colors
     \ call fzf#vim#colors({'left': '15%', 'options': '--reverse --margin 30%,0'}, <bang>0)
+
+  nnoremap <Leader>l :FzfFileList<CR>
+  command! FzfFileList call fzf#run({
+    \ 'source': 'find . -type d -name .git -prune -o ! -name .DS_Store', 'sink': 'e'
+    \ })
+
+  nnoremap <Leader>m :FzfMostRecentlyUsed<CR>
+  command! FzfMostRecentlyUsed call fzf#run({
+    \ 'scommand!ource': v:oldfiles, 'sink': 'tabe', 'options': '-m -x +s', 'down': '40%'
+    \ })
 '''
 
 [[plugins]]
