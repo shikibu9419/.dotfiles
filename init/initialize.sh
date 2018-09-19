@@ -63,6 +63,12 @@ cp $DOCKER_COMPLETION_PATH/docker.zsh-completion $DOTPATH/.zsh/completions/_dock
 cp $DOCKER_COMPLETION_PATH/docker-compose.zsh-completion $DOTPATH/.zsh/completions/_docker-compose
 cp $DOCKER_COMPLETION_PATH/docker-machine.zsh-completion $DOTPATH/.zsh/completions/_docker-machine
 
+# Rust
+break_point "Rust"
+notice "Rust..."
+curl https://sh.rustup.rs -sSf | sh
+rustup component add rls-preview rust-analysis rust-src
+
 # pip
 break_point "pip"
 notice "pip..."
@@ -81,6 +87,11 @@ break_point "iTerm"
 notice "iTerm..."
 git clone --depth=1 https://github.com/mbadolato/iTerm2-Color-Schemes
 
+# Alacritty (Dependent: Rust)
+break_point "Alacritty"
+notice "Alacritty..."
+brew install --HEAD mscharley/homebrew/alacritty
+
 # Ricty
 break_point "Ricty"
 notice "Ricty..."
@@ -88,9 +99,5 @@ for font in /usr/local/opt/ricty/share/fonts/*.ttf; do
   cp $font ~/Library/Fonts/
 done
 fc-cache -vf
-
-# Rust
-curl https://sh.rustup.rs -sSf | sh
-rustup component add rls-preview rust-analysis rust-src
 
 success_msg "Initialization is completed!!"
