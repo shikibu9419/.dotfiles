@@ -1,43 +1,28 @@
 " <Leader> setting
 let mapleader="\<Space>"
 
-" 上下3行の視界を確保
 set scrolloff=3
-" クリップボード設定
 set clipboard+=unnamed
-
 
 "------------------------------------------
 " Search & Replace
 "------------------------------------------
-" インクリメンタルサーチを行う
 set incsearch
-" 検索にマッチした部分を強調表示
 set hls
-" 大文字/小文字の区別なく検索
 set ignorecase
-" 検索文字列に大文字が含まれている場合は区別して検索
 set smartcase
-" 検索時に最後まで行ったら最初に戻る
 set wrapscan
-" 置換時、g オプションをデフォルトに
 set gdefault
 
-
 "------------------------------------------
-" Maps
+" Keymaps
 "------------------------------------------
-" [ノーマルモード] Yを行末までのヤンクに
 nnoremap Y y$
-" [ノーマルモード] 数字のインクリメント/デクリメント
 nnoremap + <C-a>
 nnoremap - <C-x>
-" [インサートモード] jjと入力するとノーマルモードに
 inoremap jj <Esc>
-" [コマンドモード] <C-p>/<C-n> で履歴を遡る
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
-
 
 "------------------------------------------
 " IDE actions (https://gist.github.com/zchee/9c78f91cc5ad771c1f5d)
