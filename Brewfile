@@ -22,17 +22,17 @@ brew 'mas'
 
 brew 'git'
 brew 'tig'
-
 brew 'fish'
-brew 'hub'
-brew 'ghq'
-brew 'peco'
-brew 'bat'
 
 brew 'zsh'
 brew 'zsh-completions'
 brew 'emojify'
 brew 'jq'
+
+brew 'hub'
+brew 'ghq'
+brew 'peco'
+brew 'bat'
 
 brew 'vim', args: ['with-lua']
 brew 'neovim'
@@ -46,8 +46,6 @@ brew 'tmux-xpanes'
 
 brew 'gnuplot', args: ['with-x11']
 
-brew 'python'
-brew 'python@2'
 brew 'pyenv'
 brew 'ruby-build'
 brew 'rbenv'
