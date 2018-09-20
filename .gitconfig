@@ -4,6 +4,6 @@
 [ghq]
   root = ~/Projects
 [alias]
-	see = browse
+  see = browse
 [core]
-	excludesfile = /Users/shikibu/.gitignore_global
+  excludesfile = ~/.gitignore_global
