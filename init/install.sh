@@ -34,6 +34,7 @@ error_msg() {
 install() {
   notice "Installing command-line-tools..."
   xcode-select --install
+  sudo xcode-select -s /Library/Developer/CommandLineTools
 
   if [ -d $DOTPATH ]; then
     error_msg "**warning** $DOTPATH will be deleted!!\nInstallation failed."
