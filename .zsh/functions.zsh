@@ -7,8 +7,8 @@ _select_history() {
 
 _ghq_list_repositories() {
   local selected_dir=$(ghq list -p | fzf --query=$LBUFFER)
-  if [ -n $selected_dir ]; then
-    BUFFER="cd ${selected_dir}"
+  if [ -n "$selected_dir" ]; then
+    BUFFER="cd $selected_dir"
     zle accept-line
   fi
   zle clear-screen

@@ -4,6 +4,8 @@ ZPLUG_REPOS="$HOME/.zplug/repos"
 zplug 'zsh-users/zsh-completions', lazy:true
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-autosuggestions", defer:2
+zplug "lukechilds/zsh-nvm"
+zplug "lukechilds/zsh-better-npm-completion", defer:2
 zplug "b4b4r07/enhancd", use:init.sh
 zplug "arks22/tmuximum", use:'!*'
 zplug "mollifier/cd-gitroot", use:'!*'
