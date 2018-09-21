@@ -10,7 +10,7 @@ nnoremap <Leader>s :split
 nnoremap <Leader>q <Esc>:q<CR>
 nnoremap <Leader>. :tabedit $HOME/.vim/vimrc<CR>
 nnoremap <Leader>, :source $MYVIMRC<CR>
-nnoremap <Esc><Esc> :noh<CR>
+nnoremap <Esc> :noh<CR>
 inoremap <F1> <Esc>
 noremap  <F1> <Esc>
 
