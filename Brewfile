@@ -142,3 +142,6 @@ mas 'QaLL', id: 480452005
 mas 'Slack', id: 803453959
 mas 'PicGIF Lite', id: 844918735
 mas 'To MP3 Converter Free', id: 983472324
+mas "BetterSnapTool", id: 417375580
+mas "CocoaPacketAnalyzer", id: 418357707
+mas "Mathpix Snipping Tool", id: 1349670778

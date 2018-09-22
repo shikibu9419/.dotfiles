@@ -18,6 +18,7 @@ msjsdiag.debugger-for-chrome
 mushan.vscode-paste-image
 octref.vetur
 PeterJausovec.vscode-docker
+rust-lang.rust
 SirTobi.code-clip-ring
 vscodevim.vim
 wyze.theme-hybrid-next
