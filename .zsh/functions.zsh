@@ -45,16 +45,16 @@ _git_list_worktree() {
   fi
 }
 
-# git
-_worktree_add() {
+# other
+_git_worktree_add() {
   local cdup_dir=`git rev-parse --show-cdup`
   git worktree add $cdup_dir.git-worktrees/$1 -b $1
 }
 
-_remote_origin() {
+_git_remote_origin() {
   git remote add origin $(pbpaste)
 }
 
-_push_origin() {
+_git_push_origin() {
   git push origin $(git branch | grep "*\ " | sed "s/.* //")
 }
