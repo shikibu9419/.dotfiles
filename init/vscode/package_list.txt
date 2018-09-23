@@ -10,6 +10,7 @@ eg2.tslint
 eg2.vscode-npm-script
 esbenp.prettier-vscode
 formulahendry.code-runner
+GitHub.vscode-pull-request-github
 gizak.shortcuts
 MariusAlchimavicius.json-to-ts
 mkaufman.HTMLHint
@@ -19,6 +20,7 @@ mushan.vscode-paste-image
 octref.vetur
 PeterJausovec.vscode-docker
 rust-lang.rust
+satokaz.vscode-bs-ctrlchar-remover
 SirTobi.code-clip-ring
 vscodevim.vim
 wyze.theme-hybrid-next

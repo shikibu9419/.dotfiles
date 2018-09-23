@@ -14,5 +14,8 @@ if ! zplug check --verbose; then
   fi
 fi
 
+echo "UPDATE: VSCode..."
+code --list-extensions > ~/dotfiles/init/vscode/package_list.txt
+
 echo "Reloading..."
 source ~/.zshrc
