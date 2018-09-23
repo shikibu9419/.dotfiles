@@ -37,7 +37,7 @@ ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=111'
 # ZSH_HIGHLIGHT_STYLES[arg0]='fg=111'
 # ZSH_HIGHLIGHT_STYLES[precommand]='fg=111'
 
-# quote
+# string
 ZSH_HIGHLIGHT_STYLES[comment]='fg=002'
 ZSH_HIGHLIGHT_STYLES[back-quoted-argument]='fg=002'
 ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=002'
@@ -50,6 +50,8 @@ ZSH_HIGHLIGHT_STYLES[back-quoted-argument-unclosed]='fg=red'
 ZSH_HIGHLIGHT_STYLES[single-quoted-argument-unclosed]='fg=red'
 ZSH_HIGHLIGHT_STYLES[double-quoted-argument-unclosed]='fg=red'
 ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument-unclosed]='fg=red'
+
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=245'
 
 alias t='tmuximum'
 

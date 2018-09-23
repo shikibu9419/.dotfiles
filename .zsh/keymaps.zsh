@@ -1,4 +1,4 @@
-### The functions whose name starts with '_' define in .zsh/functions.zsh
+### Functions whose name starts with '_' are defined in dotfiles/.zsh/functions.zsh
 
 # bindkeys
 zle -N _select_history
@@ -45,14 +45,14 @@ alias gremote=_git_remote_origin
 alias gwork=_git_list_worktree
 alias gwa=_git_worktree_add
 
+alias vls='vim $(git ls-files | fzf --reverse)'
+
 # rails
 alias railc='rails c'
 
 # ls
-alias la='ls -a'
+alias la='ls -al'
 alias ll='ls -l'
-alias lla='ls -al'
-alias lal='ls -al'
 
 # color=auto
 alias ls='gls --color=auto'
