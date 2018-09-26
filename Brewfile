@@ -118,6 +118,7 @@ cask 'mendeley'
 cask 'wireshark'
 cask 'netspot'
 
+cask 'tunnelblick'
 cask 'gitify'
 cask 'quail'
 cask 'skype'
