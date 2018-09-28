@@ -59,7 +59,7 @@ usage() {
   name=`basename $0`
   cat <<EOF
 Usage:
-  install.sh COMMAND [dotpath]
+  install.sh COMMAND
 COMMAND:
   init      Initialize your OS X and deploy dotfiles.
   deploy    Deploy dotfiles.
@@ -72,12 +72,7 @@ if [[ $# -gt 2 || $1 != "deploy" && $1 != "init" ]]; then
   usage
 fi
 
-# export DOTPATH
 export DOTPATH="$HOME/dotfiles"
-if [[ $# -eq 2 ]]; then
-  mkdir -p $2
-  export DOTPATH=$2
-fi
 
 install
 

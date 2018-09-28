@@ -30,13 +30,9 @@ notice "Shell..."
 if has "tee"; then
   echo $(which zsh) | sudo tee -a /etc/shells
   echo $(which fish) | sudo tee -a /etc/shells
-  echo "export DOTPATH=$DOTPATH" | tee -a $DOTPATH/.zshenv
-  echo "set -x DOTPATH $DOTPATH" | tee -a $DOTPATH/.fish/env.fish
 else
   sudo echo $(which zsh) >> /etc/shells; echo $(which zsh)
   sudo echo $(which fish) >> /etc/shells; echo $(which zsh)
-  echo "export DOTPATH=$DOTPATH" >> $DOTPATH/.zshenv; echo "export DOTPATH=$DOTPATH" 
-  echo "set -x DOTPATH $DOTPATH" >> $DOTPATH/.fish/env.fish; echo "set -x DOTPATH $DOTPATH"
 fi
 cp /usr/local/opt/global/share/gtags/gtags.conf ~/.globalrc
 
