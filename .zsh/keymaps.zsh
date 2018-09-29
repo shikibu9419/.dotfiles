@@ -59,6 +59,8 @@ alias ls='gls --color=auto'
 alias grep='grep --color=auto'
 
 # others
+alias ...='../..'
+alias ....='../../..'
 alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
