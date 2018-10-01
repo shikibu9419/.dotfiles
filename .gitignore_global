@@ -1,12 +1,15 @@
-# .DS_Store
 .DS_Store
+
+# git worktree
+.git-worktrees
+
+# **env
+.ruby-version
+.python-version
 
 # IDE dirs
 .idea
 .project
-
-# git-worktree
-.git-worktrees
 
 # gtags
 GPATH
