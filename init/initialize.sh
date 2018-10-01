@@ -1,5 +1,4 @@
 #!/bin/sh
-
 source $DOTPATH/init/_utils.sh
 cd $DOTPATH
 
@@ -34,14 +33,13 @@ else
 fi
 cp /usr/local/opt/global/share/gtags/gtags.conf ~/.globalrc
 
-# Vim
+# Editors
 notice "Vim..."
 if [ ! -d $VIM_DEIN_DIRECTORY ]; then
   mkdir -p $VIM_DEIN_DIRECTORY
   git clone https://github.com/Shougo/dein.vim.git $VIM_DEIN_DIRECTORY
 fi
 
-# VS Code
 notice "VS Code..."
 sh $DOTPATH/init/vscode/initialize.sh
 
@@ -58,27 +56,28 @@ cp $DOCKER_COMPLETION_PATH/docker.zsh-completion $DOTPATH/.zsh/completions/_dock
 cp $DOCKER_COMPLETION_PATH/docker-compose.zsh-completion $DOTPATH/.zsh/completions/_docker-compose
 cp $DOCKER_COMPLETION_PATH/docker-machine.zsh-completion $DOTPATH/.zsh/completions/_docker-machine
 
-# Rust
+# Programing Languages
+notice "gem..."
+ln -sifF $DOTPATH/rbenv-default-gems ~/.rbenv/default-gems
+
 notice "Rust..."
 curl https://sh.rustup.rs -sSf | sh
 rustup component add rls-preview rust-analysis rust-src
 
-# pip
 notice "pip..."
 pip install --upgrade setuptools
 pip install --upgrade pip
 pip install --upgrade pygments
 pip3 install neovim
 
-# iTerm
+# Terminal
 notice "iTerm..."
 git clone --depth=1 https://github.com/mbadolato/iTerm2-Color-Schemes
 
-# Alacritty (Dependent: Rust)
 notice "Alacritty..."
 brew install --HEAD mscharley/homebrew/alacritty
 
-# Ricty
+# Fonts
 notice "Ricty..."
 for font in /usr/local/opt/ricty/share/fonts/*.ttf; do
   [ -f $font ] && cp $font ~/Library/Fonts/
