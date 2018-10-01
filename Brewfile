@@ -12,6 +12,7 @@ tap 'homebrew/science'
 tap 'homebrew/core'
 tap 'homebrew/services'
 tap 'sanemat/font'
+tap 'kyoshidajp/ghkw'
 
 
 #------------------------------------------
@@ -25,8 +26,10 @@ brew 'tig'
 brew 'fish'
 
 brew 'zsh'
-brew 'zplug'
 brew 'zsh-completions'
+brew 'zplug'
+brew 'ghkw'
+brew 'fzf'
 brew 'emojify'
 brew 'jq'
 

@@ -12,7 +12,10 @@ esbenp.prettier-vscode
 formulahendry.code-runner
 GitHub.vscode-pull-request-github
 gizak.shortcuts
+henoc.svgeditor
+kisstkondoros.vscode-gutter-preview
 MariusAlchimavicius.json-to-ts
+mechatroner.rainbow-csv
 mkaufman.HTMLHint
 ms-python.python
 msjsdiag.debugger-for-chrome
