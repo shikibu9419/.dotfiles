@@ -40,7 +40,7 @@ cp /usr/local/opt/global/share/gtags/gtags.conf ~/.globalrc
 # Vim
 break_point "Vim"
 notice "Vim..."
-if [[ ! -d $VIM_DEIN_DIRECTORY ]]; then
+if [ ! -d $VIM_DEIN_DIRECTORY ]; then
   mkdir -p $VIM_DEIN_DIRECTORY
   git clone https://github.com/Shougo/dein.vim.git $VIM_DEIN_DIRECTORY
 fi
@@ -53,7 +53,7 @@ sh $DOTPATH/init/vscode/initialize.sh
 # Tmux
 break_point "Tmux"
 notice "Tmux..."
-if [[ ! -d $TMUX_TPM_DIRECTORY ]]; then
+if [ ! -d $TMUX_TPM_DIRECTORY ]; then
   git clone https://github.com/tmux-plugins/tpm $TMUX_TPM_DIRECTORY
 fi
 
@@ -93,7 +93,7 @@ brew install --HEAD mscharley/homebrew/alacritty
 break_point "Ricty"
 notice "Ricty..."
 for font in /usr/local/opt/ricty/share/fonts/*.ttf; do
-  [[ -f $font ]] && cp $font ~/Library/Fonts/
+  [ -f $font ] && cp $font ~/Library/Fonts/
 done
 fc-cache -vf
 

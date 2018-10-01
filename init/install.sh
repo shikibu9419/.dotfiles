@@ -27,7 +27,6 @@ error_msg() {
   echo $1
   exit 1
 }
-
 # ======================================================================
 
 
@@ -68,7 +67,7 @@ EOF
 }
 
 
-if [[ $# -gt 2 || $1 != "deploy" && $1 != "init" ]]; then
+if [ $# -ne 1 || $1 != "deploy" && $1 != "init" ]; then
   usage
 fi
 
@@ -76,7 +75,6 @@ export DOTPATH="$HOME/dotfiles"
 
 install
 
-# deploy or initialize
 case $1 in
   deploy)
     bash $DOTPATH/init/deploy.sh
@@ -85,7 +83,8 @@ case $1 in
     bash $DOTPATH/init/initialize.sh
     bash $DOTPATH/init/deploy.sh
     ;;
-  *)  usage
+  *)
+    usage
     ;;
 esac
 
