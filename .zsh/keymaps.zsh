@@ -1,12 +1,12 @@
 ### Functions whose name starts with '_' are defined in dotfiles/.zsh/functions.zsh
 
 # bindkeys
+bindkey -v
 zle -N _select_history
 zle -N _ghq_list_repositories
 zle -N _git_list_log
 zle -N _git_list_checkout
 
-bindkey -v
 bindkey '^P' history-beginning-search-backward
 bindkey '^N' history-beginning-search-forward
 bindkey '^e' autosuggest-accept
@@ -21,8 +21,8 @@ alias g='git'
 alias ga='git add'
 alias gb='git branch'
 alias gc='git commit -m'
-alias gcadd='git commit -am'
 alias gca='git commit --amend'
+alias gcadd='git commit -am'
 alias gcl='git clone'
 alias gch='git checkout'
 alias gd='git diff'
@@ -45,8 +45,6 @@ alias gremote=_git_remote_origin
 alias gwork=_git_list_worktree
 alias gwa=_git_worktree_add
 
-alias vls='vim $(git ls-files | fzf --reverse)'
-
 # rails
 alias railc='rails c'
 
@@ -59,11 +57,12 @@ alias ls='gls --color=auto'
 alias grep='grep --color=auto'
 
 # others
-alias ...='../..'
-alias ....='../../..'
+alias -g ...='../..'
+alias -g ....='../../..'
 alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
+alias vls='vim $(git ls-files | fzf --reverse)'
 alias c='clear'
 alias cp='cp -r'
 alias mkdir='mkdir -p'
