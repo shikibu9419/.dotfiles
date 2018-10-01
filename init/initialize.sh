@@ -1,6 +1,7 @@
 #!/bin/sh
 
 source $DOTPATH/init/_utils.sh
+cd $DOTPATH
 
 # set Homebrew
 break_point "Homebrew"
@@ -12,7 +13,7 @@ else
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
-if !has "brew"; then
+if ! has "brew"; then
   error_msg "Installing Homebrew failed."
 fi
 
@@ -47,7 +48,7 @@ fi
 # VS Code
 break_point "VS Code"
 notice "VS Code..."
-sh $DOTPATH/init/vscode/setup.sh
+sh $DOTPATH/init/vscode/initialize.sh
 
 # Tmux
 break_point "Tmux"
@@ -78,11 +79,6 @@ pip install --upgrade pip
 pip install --upgrade pygments
 pip3 install neovim
 
-# Node / npm
-break_point "Node"
-notice "Node..."
-nodenv init
-
 # iTerm
 break_point "iTerm"
 notice "iTerm..."
@@ -97,7 +93,7 @@ brew install --HEAD mscharley/homebrew/alacritty
 break_point "Ricty"
 notice "Ricty..."
 for font in /usr/local/opt/ricty/share/fonts/*.ttf; do
-  cp $font ~/Library/Fonts/
+  [[ -f $font ]] && cp $font ~/Library/Fonts/
 done
 fc-cache -vf
 
