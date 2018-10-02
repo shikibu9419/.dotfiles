@@ -2,7 +2,7 @@
   name  = Shikibu
   email = shikibu9419@gmail.com
 [ghq]
-  root = ~/Projects
+  root = ~/projects
 [alias]
   see = browse
 [core]
