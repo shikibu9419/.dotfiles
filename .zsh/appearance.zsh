@@ -5,7 +5,7 @@ colors
 autoload -U promptinit; promptinit
 prompt pure
 
-## When not using pure-prompt...
+### When not using pure-prompt...
 #------------------------------------------
 # Prompt
 #------------------------------------------

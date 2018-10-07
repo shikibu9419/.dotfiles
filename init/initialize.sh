@@ -33,6 +33,9 @@ else
 fi
 cp /usr/local/opt/global/share/gtags/gtags.conf ~/.globalrc
 
+# prompt setting
+npm install -g pure-prompt
+
 # Editors
 notice "Vim..."
 if [ ! -d $VIM_DEIN_DIRECTORY ]; then
@@ -76,12 +79,5 @@ git clone --depth=1 https://github.com/mbadolato/iTerm2-Color-Schemes
 
 notice "Alacritty..."
 brew install --HEAD mscharley/homebrew/alacritty
-
-# Fonts
-notice "Ricty..."
-for font in /usr/local/opt/ricty/share/fonts/*.ttf; do
-  [ -f $font ] && cp $font ~/Library/Fonts/
-done
-fc-cache -vf
 
 success_msg "Initialization is completed!!"
