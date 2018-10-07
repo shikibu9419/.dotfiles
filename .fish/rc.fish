@@ -26,7 +26,6 @@ source ~/.fish/keymaps.fish
 #   end
 # end
 
-
 #------------------------------------------
 # appearances
 #------------------------------------------
@@ -34,7 +33,6 @@ function fish_right_prompt
 end
 
 set fish_pager_color_completion yellow --bold
-
 
 #------------------------------------------
 # key bindings
@@ -46,6 +44,6 @@ end
 fish_vi_key_bindings --no-erase
 
 function fish_user_key_bindings
-  bind \cr __peco_select_history
-  bind \c] __ghq_project_search
+  bind \cr _peco_select_history
+  bind \c] _ghq_project_search
 end
