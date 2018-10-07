@@ -6,7 +6,9 @@ zle -N _select_history
 zle -N _ghq_list_repositories
 zle -N _git_list_log
 zle -N _git_list_checkout
+zle -N _show_ls_gs
 
+bindkey '^m' _show_ls_gs
 bindkey '^P' history-beginning-search-backward
 bindkey '^N' history-beginning-search-forward
 bindkey '^e' autosuggest-accept

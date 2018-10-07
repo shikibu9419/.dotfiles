@@ -1,3 +1,25 @@
+# on push enter
+_show_ls_gs() {
+  if [ -n "$BUFFER" ]; then
+    zle accept-line
+    return 0
+  fi
+
+  echo
+  echo -e "\e[0;33m--- ls ---\e[0m"
+  ls
+  echo
+
+  if [ "$(git rev-parse --is-inside-work-tree 2> /dev/null)" = 'true' ]; then
+    echo -e "\e[0;33m--- git status ---\e[0m"
+    git status -sb
+    echo
+  fi
+  echo
+
+  zle reset-prompt
+}
+
 # use incremental search
 _select_history() {
   local BUFFER=$(fc -l -n 1 | fzf --reverse --tac --query=$LBUFFER)
