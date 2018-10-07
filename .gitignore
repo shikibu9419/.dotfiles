@@ -1,5 +1,4 @@
 .vim/dein
-
 .zsh/completions
 
 .tmux/*
@@ -9,9 +8,12 @@
 !.config/peco
 !.config/nvim
 !.config/fish
+!.config/alacritty
+
 .config/fish/*
 !.config/fish/fishfile
 !.config/fish/config.fish
 !.config/fish/functions
+
 .config/fish/functions/*
-!.config/fish/functions/__ghq_project_search.fish
+!.config/fish/functions/_ghq_list_repositories.fish
