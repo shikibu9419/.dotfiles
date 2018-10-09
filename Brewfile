@@ -3,14 +3,11 @@ cask_args appdir: '/Applications'
 #------------------------------------------
 # tap
 #------------------------------------------
+tap 'homebrew/core'
+tap 'homebrew/services'
 tap 'caskroom/cask'
 tap 'caskroom/fonts'
 tap 'caskroom/versions'
-tap 'homebrew/dupes'
-tap 'homebrew/apache'
-tap 'homebrew/science'
-tap 'homebrew/core'
-tap 'homebrew/services'
 tap 'sanemat/font'
 tap 'kyoshidajp/ghkw'
 
@@ -42,12 +39,13 @@ brew 'vim', args: ['with-lua']
 brew 'neovim'
 brew 'ctags'
 brew 'global', args: ['with-pygments']
-brew 'ricty', args: ['with-powerline']
 
 brew 'tmux'
 brew 'reattach-to-user-namespace'
 brew 'tmux-xpanes'
 
+# dependency
+cask 'xquartz'
 brew 'gnuplot', args: ['with-x11']
 
 brew 'pyenv'
@@ -110,7 +108,6 @@ cask 'intellij-idea-ce'
 cask 'pycharm-ce'
 
 cask 'java'
-
 cask 'androidtool'
 cask 'android-platform-tools'
 
@@ -134,17 +131,17 @@ cask 'xld'
 #------------------------------------------
 # mas
 #------------------------------------------
-mas 'Xcode', id: 497799835
-mas 'Fotor Photo Editor', id: 503039729
-mas 'GarageBand', id: 682658836
-mas 'iMovie', id: 408981434
-mas 'Keynote', id: 409183694
-mas 'Numbers', id: 409203825
-mas 'Pages', id: 409201541
-mas 'QaLL', id: 480452005
-mas 'Slack', id: 803453959
-mas 'PicGIF Lite', id: 844918735
-mas 'To MP3 Converter Free', id: 983472324
-mas "BetterSnapTool", id: 417375580
-mas "CocoaPacketAnalyzer", id: 418357707
-mas "Mathpix Snipping Tool", id: 1349670778
+# mas 'Xcode', id: 497799835
+# mas 'Fotor Photo Editor', id: 503039729
+# mas 'GarageBand', id: 682658836
+# mas 'iMovie', id: 408981434
+# mas 'Keynote', id: 409183694
+# mas 'Numbers', id: 409203825
+# mas 'Pages', id: 409201541
+# mas 'QaLL', id: 480452005
+# mas 'Slack', id: 803453959
+# mas 'PicGIF Lite', id: 844918735
+# mas 'To MP3 Converter Free', id: 983472324
+# mas "BetterSnapTool", id: 417375580
+# mas "CocoaPacketAnalyzer", id: 418357707
+# mas "Mathpix Snipping Tool", id: 1349670778
