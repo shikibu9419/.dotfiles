@@ -45,6 +45,7 @@ compctl -K _pip_completion pip
 #------------------------------------------
 # Options
 #------------------------------------------
+SPROMPT="%{$fg[red]%}correct: %R -> %r [nyae]? %{$reset_color%}"
 setopt auto_cd
 setopt no_beep
 setopt correct
