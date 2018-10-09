@@ -2,7 +2,8 @@ if [[ -z $TMUX ]]; then
   tmux && exit
 fi
 
-path=($JAVA_HOME(N-/) ~/.cargo/bin(N-/) /usr/local/opt/imagemagick@6/bin(N-/) ~/.rbenv/bin(N-/) $GOPATH/bin(N-/) ~/Android/Sdk/tools(N-/) ~/Android/Sdk/platform-tools(N-/) ~/dotfiles/bin(N-/) ~/programs/flutter/bin(N-/) $path)
+path=(/usr/local/opt/imagemagick@6/bin(N-/) ~/programs/flutter/bin(N-/) ~/Android/Sdk/tools(N-/) ~/Android/Sdk/platform-tools(N-/) \
+      $JAVA_HOME(N-/) ~/.cargo/bin(N-/) $GOPATH/bin(N-/) ~/.rbenv/bin(N-/) ~/dotfiles/bin(N-/) $path)
 fpath=(~/.zplug/repos/zsh-users/zsh-completions/src(N-/) ~/.zsh/completions(N-/) $fpath)
 
 source ~/.zsh/plugins.zsh
