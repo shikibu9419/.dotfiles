@@ -77,11 +77,11 @@ install
 
 case $1 in
   deploy)
-    bash $DOTPATH/init/deploy.sh
+    sh $DOTPATH/init/deploy.sh
     ;;
   init)
-    bash $DOTPATH/init/initialize.sh
-    bash $DOTPATH/init/deploy.sh
+    sh $DOTPATH/init/initialize.sh
+    sh $DOTPATH/init/deploy.sh
     ;;
   *)
     usage
