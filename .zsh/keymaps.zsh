@@ -8,11 +8,16 @@ zle -N _git_list_log
 zle -N _git_list_checkout
 zle -N _show_ls_gs
 
-bindkey '^m' _show_ls_gs
-bindkey '^P' history-beginning-search-backward
-bindkey '^N' history-beginning-search-forward
+autoload -U history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+
+autoload -U tetris; zle -N tetris
+bindkey '^P' history-beginning-search-backward-end
+bindkey '^N' history-beginning-search-forward-end
 bindkey '^e' autosuggest-accept
 bindkey '^t' forward-word  # autosuggest-partial-accept
+bindkey '^m' _show_ls_gs
 bindkey '^r' _select_history
 bindkey '^]' _ghq_list_repositories
 bindkey '^b' _git_list_checkout
