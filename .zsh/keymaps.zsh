@@ -49,11 +49,10 @@ alias gw='git worktree'
 alias glog=_git_list_log
 alias gpush=_git_push_origin
 alias gremote=_git_remote_origin
-alias gwork=_git_list_worktree
 alias gwa=_git_worktree_add
-
-# rails
-alias railc='rails c'
+alias gwork=_git_list_worktree
+alias gclone='git clone $(pbpaste)'
+alias ghq-get='ghq get $(pbpaste)'
 
 # ls
 alias la='ls -al'
