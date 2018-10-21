@@ -94,4 +94,10 @@ if [[ $shell = 'zsh' || $shell = 'fish' ]]; then
   chsh -s $(which $shell)
 fi
 
+# Notification
+cat <<EOF
+Please run this command to complete initialize truly.
+> rustup component add rls-preview rust-analysis rust-src
+EOF
+
 success_msg "Install finished successfully!"

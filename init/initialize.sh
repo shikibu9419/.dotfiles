@@ -65,7 +65,6 @@ ln -sifF $DOTPATH/rbenv-default-gems ~/.rbenv/default-gems
 
 notice "Rust..."
 curl https://sh.rustup.rs -sSf | sh
-rustup component add rls-preview rust-analysis rust-src
 
 notice "pip..."
 pip install --upgrade setuptools
