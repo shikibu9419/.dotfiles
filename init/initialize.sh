@@ -1,5 +1,9 @@
 #!/bin/sh
-source $DOTPATH/init/_utils.sh
+
+VIM_DEIN_DIRECTORY="$DOTPATH/.vim/dein/repos/github.com/Shougo/dein.vim"
+TMUX_TPM_DIRECTORY="$HOME/.tmux/plugins/tpm"
+DOCKER_COMPLETION_PATH="/Applications/Docker.app/Contents/Resources/etc"
+
 cd $DOTPATH
 
 # set Homebrew

@@ -1,6 +1,5 @@
 #!/bin/sh
 
-# _utils ===============================================================
 set -e
 
 DOT_TARBALL="https://github.com/shikibu9419/dotfiles/tarball/master"
@@ -27,8 +26,19 @@ error_msg() {
   echo $1
   exit 1
 }
-# ======================================================================
 
+
+usage() {
+  name=`basename $0`
+  cat <<EOF
+Usage:
+  install.sh COMMAND
+COMMAND:
+  init      Initialize your OS X and deploy dotfiles.
+  deploy    Deploy dotfiles.
+EOF
+  exit 1
+}
 
 install() {
   notice "Installing command-line-tools..."
@@ -54,18 +64,6 @@ install() {
   success_msg "Dotfiles were installed!"
 }
 
-usage() {
-  name=`basename $0`
-  cat <<EOF
-Usage:
-  install.sh COMMAND
-COMMAND:
-  init      Initialize your OS X and deploy dotfiles.
-  deploy    Deploy dotfiles.
-EOF
-  exit 1
-}
-
 
 if [ $# -ne 1 || $1 != "deploy" && $1 != "init" ]; then
   usage
@@ -82,9 +80,6 @@ case $1 in
   init)
     sh $DOTPATH/init/initialize.sh
     sh $DOTPATH/init/deploy.sh
-    ;;
-  *)
-    usage
     ;;
 esac
 
