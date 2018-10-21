@@ -22,8 +22,10 @@ brew bundle
 brew cleanup
 success_msg "Brew install finished!"
 
+notice "Other settings..."
+
 # Shell
-notice "Shell..."
+echo "Shell..."
 if has "tee"; then
   echo $(which zsh) | sudo tee -a /etc/shells
   echo $(which fish) | sudo tee -a /etc/shells
@@ -33,50 +35,49 @@ else
 fi
 cp /usr/local/opt/global/share/gtags/gtags.conf ~/.globalrc
 
-# prompt setting
 npm install -g pure-prompt
 
 # Editors
-notice "Vim..."
+echo "Vim..."
 if [ ! -d $VIM_DEIN_DIRECTORY ]; then
   mkdir -p $VIM_DEIN_DIRECTORY
   git clone https://github.com/Shougo/dein.vim.git $VIM_DEIN_DIRECTORY
 fi
 
-notice "VS Code..."
+echo "VS Code..."
 sh $DOTPATH/init/vscode/initialize.sh
 
 # Tmux
-notice "Tmux..."
+echo "Tmux..."
 if [ ! -d $TMUX_TPM_DIRECTORY ]; then
   git clone https://github.com/tmux-plugins/tpm $TMUX_TPM_DIRECTORY
 fi
 
 # Docker
-notice "Docker..."
+echo "Docker..."
 mkdir $DOTPATH/.zsh/completions
 cp $DOCKER_COMPLETION_PATH/docker.zsh-completion $DOTPATH/.zsh/completions/_docker
 cp $DOCKER_COMPLETION_PATH/docker-compose.zsh-completion $DOTPATH/.zsh/completions/_docker-compose
 cp $DOCKER_COMPLETION_PATH/docker-machine.zsh-completion $DOTPATH/.zsh/completions/_docker-machine
 
 # Programing Languages
-notice "gem..."
+echo "gem..."
 ln -sifF $DOTPATH/rbenv-default-gems ~/.rbenv/default-gems
 
-notice "Rust..."
+echo "Rust..."
 curl https://sh.rustup.rs -sSf | sh
 
-notice "pip..."
+echo "pip..."
 pip install --upgrade setuptools
 pip install --upgrade pip
 pip install --upgrade pygments
 pip3 install neovim
 
 # Terminal
-notice "iTerm..."
+echo "iTerm..."
 git clone --depth=1 https://github.com/mbadolato/iTerm2-Color-Schemes
 
-notice "Alacritty..."
+echo "Alacritty..."
 brew install --HEAD mscharley/homebrew/alacritty
 
 success_msg "Initialization is completed!!"
