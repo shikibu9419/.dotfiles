@@ -5,3 +5,5 @@ set -x DOTPATH ~/dotfiles
 set -x EDITOR vim
 set -x XDG_CONFIG_HOME ~/.config
 set -x FZF_ALT_C_OPTS "--select-1 --exit-0"
+set -x GOPATH ~/go
+set -x JAVA_HOME /Library/Java/JavaVirtualMachines/jdk-11.jdk/Contents/Home

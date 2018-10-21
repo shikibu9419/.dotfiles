@@ -6,4 +6,4 @@ export EDITOR=vim
 export XDG_CONFIG_HOME=$HOME/.config
 export GOPATH=$HOME/go
 export FZF_ALT_C_OPTS="--select-1 --exit-0"
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-10.0.2.jdk/Contents/Home
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-11.jdk/Contents/Home
