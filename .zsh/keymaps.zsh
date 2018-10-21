@@ -22,6 +22,9 @@ bindkey '^r' _select_history
 bindkey '^]' _ghq_list_repositories
 bindkey '^b' _git_list_checkout
 
+# Using fzf
+alias vls='vim $(git ls-files | fzf --reverse)'
+
 # git
 alias git='hub'
 alias g='git'
@@ -42,9 +45,10 @@ alias grm='git remote'
 alias gs='git status'
 alias gst='git stash'
 alias gsta='git stash apply'
-alias gsee='git see'
-alias gpr='git pull-request'
 alias gw='git worktree'
+alias gcom='hub compare'
+alias gpr='hub pull-request'
+alias gsee='hub see'
 
 alias glog=_git_list_log
 alias gpush=_git_push_origin
@@ -68,7 +72,6 @@ alias -g ....='../../..'
 alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
-alias vls='vim $(git ls-files | fzf --reverse)'
 alias c='clear'
 alias cp='cp -r'
 alias mkdir='mkdir -p'
