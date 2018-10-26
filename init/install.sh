@@ -27,7 +27,6 @@ error_msg() {
   exit 1
 }
 
-
 usage() {
   name=`basename $0`
   cat <<EOF
@@ -54,11 +53,12 @@ install() {
   if has "git"; then
     git clone https://github.com/shikibu9419/dotfiles $DOTPATH
   elif has "curl"; then
-    curl -fsSLo $HOME/dotfiles.tar.gz $DOT_TARBALL
-    tar -zxvf $HOME/dotfiles.tar.gz --strip-components=1 -C $DOTPATH
-    rm -f $HOME/dotfiles.tar.gz
+    # $DOTPATH.tar.gz => ~/dotfiles.tar.gz
+    curl -fsSLo $DOTPAH.tar.gz $DOT_TARBALL
+    tar -zxvf $DOTPAH.tar.gz --strip-components=1 -C $DOTPATH
+    rm -f $DOTPAH.tar.gz
   else
-    error_msg "Command 'git' and 'curl' not found.\nPlease install one of them to install dotfiles."
+    error_msg "Command 'git' and 'curl' were not found.\nPlease install one of them to install dotfiles."
   fi
 
   success_msg "Dotfiles were installed!"
