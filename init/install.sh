@@ -90,9 +90,9 @@ if [[ $shell = 'zsh' || $shell = 'fish' ]]; then
 fi
 
 # Notification
+success_msg "Install finished successfully!"
+
 cat <<EOF
 Please run this command to complete initialize truly.
 > rustup component add rls-preview rust-analysis rust-src
 EOF
-
-success_msg "Install finished successfully!"
