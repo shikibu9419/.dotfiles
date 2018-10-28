@@ -28,12 +28,38 @@ _select_history() {
 }
 
 _ghq_list_repositories() {
-  local selected_dir=$(ghq list -p | fzf --query=$LBUFFER)
-  if [ -n "$selected_dir" ]; then
-    BUFFER="cd $selected_dir"
+  local selected dir repo session current_session
+  selected=$(ghq list | fzf --query=$LBUFFER)
+  dir=$(ghq root)/$selected
+  BUFFER="cd $dir"
+
+  if [[ $dir = "$(ghq root)/" ]]; then
+    zle clear-screen
+  fi
+
+  if [[ -z $TMUX ]]; then
     zle accept-line
   fi
-  zle clear-screen
+
+  repo=${dir##*/}
+  if [[ ! $selected =~ ^github\.com.+$ ]]; then
+    parent=${dir%/*}
+    repo=${parent##*/}/$repo
+  fi
+
+  session=${repo//./-}
+  current_session=$(tmux list-sessions | grep 'attached' | cut -d":" -f1)
+
+  if [[ $current_session =~ ^[0-9]+$ ]]; then
+    tmux rename-session $session
+    zle accept-line
+  else
+    tmux list-sessions | cut -d":" -f1 | grep $session > /dev/null
+    if [[ $? != 0 ]]; then
+      tmux new-session -d -c $dir -s $session
+    fi
+    tmux switch-client -t $session
+  fi
 }
 
 _git_list_checkout() {
