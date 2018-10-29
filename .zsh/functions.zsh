@@ -51,9 +51,10 @@ _ghq_list_repositories() {
   current_session=$(tmux list-sessions | grep 'attached' | cut -d":" -f1)
 
   if [[ $current_session =~ ^[0-9]+$ ]]; then
-    tmux rename-session $session
     zle accept-line
+    tmux rename-session $session
   else
+    zle clear-screen
     tmux list-sessions | cut -d":" -f1 | grep $session > /dev/null
     if [[ $? != 0 ]]; then
       tmux new-session -d -c $dir -s $session
