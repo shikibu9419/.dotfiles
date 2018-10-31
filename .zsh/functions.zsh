@@ -33,7 +33,7 @@ _ghq_list_repositories() {
   dir=$(ghq root)/$selected
   BUFFER="cd $dir"
 
-  if [[ $dir = "$(ghq root)/" ]]; then
+  if [[ $dir = "$(ghq root)" ]]; then
     zle clear-screen
   fi
 
