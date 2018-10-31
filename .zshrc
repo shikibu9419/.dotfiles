@@ -1,10 +1,6 @@
 if [[ -z $TMUX ]]; then
-  tmux && exit
+  tmuximum && exit
 fi
-
-path=(/usr/local/opt/imagemagick@6/bin(N-/) ~/programs/flutter/bin(N-/) ~/Android/Sdk/tools(N-/) ~/Android/Sdk/platform-tools(N-/) \
-      $JAVA_HOME(N-/) ~/.cargo/bin(N-/) $GOPATH/bin(N-/) ~/.rbenv/bin(N-/) ~/dotfiles/bin(N-/) $path)
-fpath=(~/.zplug/repos/zsh-users/zsh-completions/src(N-/) ~/.zsh/completions(N-/) $fpath)
 
 source ~/.zsh/plugins.zsh
 source ~/.zsh/appearance.zsh
