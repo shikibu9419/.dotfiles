@@ -22,7 +22,7 @@ bindkey '^r' _select_history
 bindkey '^]' _ghq_list_repositories
 bindkey '^b' _git_list_checkout
 
-# Using fzf
+# Using with fzf
 alias vls='vim $(git ls-files | fzf --reverse)'
 
 # git
@@ -51,12 +51,12 @@ alias gpr='hub pull-request'
 alias gsee='hub see'
 
 alias glog=_git_list_log
-alias gpush=_git_push_origin
-alias gremote=_git_remote_origin
-alias gwa=_git_worktree_add
 alias gwork=_git_list_worktree
 alias gclone='git clone $(pbpaste)'
 alias ghq-get='ghq get $(pbpaste)'
+alias gpush='git push origin $(git branch | grep "*\ " | sed "s/.* //")'
+alias gremote='git remote add origin $(pbpaste)'
+alias gwa='git worktree add $(git rev-parse --show-cdup).git-worktrees/$1 -b $1'
 
 # ls
 alias la='ls -al'

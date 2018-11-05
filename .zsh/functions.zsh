@@ -93,17 +93,3 @@ _git_list_worktree() {
     cd $work_dir
   fi
 }
-
-# other
-_git_worktree_add() {
-  local cdup_dir=`git rev-parse --show-cdup`
-  git worktree add $cdup_dir.git-worktrees/$1 -b $1
-}
-
-_git_remote_origin() {
-  git remote add origin $(pbpaste)
-}
-
-_git_push_origin() {
-  git push origin $(git branch | grep "*\ " | sed "s/.* //")
-}
