@@ -1,4 +1,4 @@
-# on push enter
+# on accepting line
 _show_ls_gs() {
   if [ -n "$BUFFER" ]; then
     zle accept-line
@@ -20,47 +20,11 @@ _show_ls_gs() {
   zle reset-prompt
 }
 
-# use incremental search
+# using with fzf
 _select_history() {
   local BUFFER=$(fc -l -n 1 | fzf --reverse --tac --query=$LBUFFER)
   CURSOR=$#BUFFER
   zle clear-screen
-}
-
-_ghq_list_repositories() {
-  local selected dir repo session current_session
-  selected=$(ghq list | fzf --query=$LBUFFER)
-  dir=$(ghq root)/$selected
-  BUFFER="cd $dir"
-
-  if [[ $dir = "$(ghq root)" ]]; then
-    zle clear-screen
-  fi
-
-  if [[ -z $TMUX ]]; then
-    zle accept-line
-  fi
-
-  repo=${dir##*/}
-  if [[ ! $selected =~ ^github\.com.+$ ]]; then
-    parent=${dir%/*}
-    repo=${parent##*/}/$repo
-  fi
-
-  session=${repo//./-}
-  current_session=$(tmux list-sessions | grep 'attached' | cut -d":" -f1)
-
-  if [[ $current_session =~ ^[0-9]+$ ]]; then
-    zle accept-line
-    tmux rename-session $session
-  else
-    zle clear-screen
-    tmux list-sessions | cut -d":" -f1 | grep $session > /dev/null
-    if [[ $? != 0 ]]; then
-      tmux new-session -d -c $dir -s $session
-    fi
-    tmux switch-client -t $session
-  fi
 }
 
 _git_list_checkout() {
@@ -91,5 +55,43 @@ _git_list_worktree() {
   local work_dir=`git worktree list | fzf --exit-0 --select-1 | awk '{print $1}'`
   if [ -z $work_dir ]; then
     cd $work_dir
+  fi
+}
+
+_ghq_list_repositories() {
+  local selected dir repo session current_session
+  selected=$(ghq list | fzf --query=$LBUFFER)
+  dir=$(ghq root)/$selected
+
+  if [[ -z $selected ]]; then
+    return
+  elif [[ -z $TMUX ]]; then
+    BUFFER="cd $dir"
+    zle accept-line
+    return
+  fi
+
+  repo=${dir##*/}
+
+  if [[ ! $selected =~ ^github\.com.+$ ]]; then
+    parent=${dir%/*}
+    repo=${parent##*/}/$repo
+  fi
+
+  session=${repo//./-}
+  current_session=$(tmux list-sessions | grep 'attached' | cut -d":" -f1)
+
+  tmux list-sessions | grep $session > /dev/null
+  if [[ $? = 0 ]]; then
+    tmux switch-client -t $session
+  else
+    if [[ $current_session =~ ^[0-9]+$ ]]; then
+      BUFFER="cd $dir"
+      zle accept-line
+      tmux rename-session $session
+    else
+      tmux new-session -d -c $dir -s $session
+      tmux switch-client -t $session
+    fi
   fi
 }
