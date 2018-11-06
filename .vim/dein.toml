@@ -51,9 +51,8 @@ repo = 'lighttiger2505/gtags.vim'
 hook_add = '''
   let g:Gtags_Auto_Map = 0
   let g:Gtags_OpenQuickfixWindow = 1
-  " TODO: Change keymaps
-  " nmap <silent> K :<C-u>exe("Gtags ".expand('<cword>'))<CR>
-  " nmap <silent> R :<C-u>exe("Gtags -r ".expand('<cword>'))<CR>
+  nmap <silent> <C-t>k :<C-u>exe("Gtags ".expand('<cword>'))<CR>
+  nmap <silent> <C-t>r :<C-u>exe("Gtags -r ".expand('<cword>'))<CR>
 '''
 
 [[plugins]]
@@ -70,18 +69,17 @@ hook_add = 'let g:gen_tags#gtags_auto_gen = 1'
 #     nmap <silent> [denite]<C-D> :Denite -buffer-name=gtags_completion gtags_completion<cr>
 # '''
 
-# ctags
-[[plugins]]
-repo = 'szw/vim-tags'
-hook_add = '''
-  let g:vim_tags_project_tags_command = "/usr/local/bin/ctags -R {OPTIONS} {DIRECTORY} 2>/dev/null"
-  let g:vim_tags_gems_tags_command = "/usr/local/bin/ctags -R {OPTIONS} `bundle show --paths` 2>/dev/null"
-
-  " TODO: Change keymap
-  " nnoremap <Leader>h :split<CR> :exe("tjump ".expand('<cword>'))<CR>
-  " nnoremap <Leader>v :vsplit<CR> :exe("tjump ".expand('<cword>'))<CR>
-'''
-
+# # ctags
+# [[plugins]]
+# repo = 'szw/vim-tags'
+# hook_add = '''
+#   let g:vim_tags_project_tags_command = "/usr/local/bin/ctags -R {OPTIONS} {DIRECTORY} 2>/dev/null"
+#   let g:vim_tags_gems_tags_command = "/usr/local/bin/ctags -R {OPTIONS} `bundle show --paths` 2>/dev/null"
+#   " TODO: Change keymap
+#   " nnoremap <Leader>h :split<CR> :exe("tjump ".expand('<cword>'))<CR>
+#   " nnoremap <Leader>v :vsplit<CR> :exe("tjump ".expand('<cword>'))<CR>
+# '''
+#
 # [[plugins]]
 # repo = 'majutsushi/tagbar'
 # hook_add = '''
@@ -209,18 +207,18 @@ repo = 'tpope/vim-surround'
 [[plugins]]
 repo = 'bronson/vim-trailing-whitespace'
 
-# [[plugins]]
-# repo = 'nathanaelkane/vim-indent-guides'
-# hook_source = '''
-#   " let g:indent_guides_enable_on_vim_startup = 1
-#   " let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
-#   " let g:indent_guides_auto_colors = 1
-#   " autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=black
-#   " autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=darkgrey
-# '''
-
 [[plugins]]
-repo = 'Yggdroot/indentLine'
+repo = 'nathanaelkane/vim-indent-guides'
+hook_source = '''
+  let g:indent_guides_enable_on_vim_startup = 1
+  let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
+  let g:indent_guides_auto_colors = 1
+  autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=black
+  autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=darkgrey
+'''
+
+# [[plugins]]
+# repo = 'Yggdroot/indentLine'
 
 [[plugins]]
 repo = 'junegunn/fzf'
