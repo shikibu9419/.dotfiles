@@ -11,7 +11,6 @@ tap 'caskroom/versions'
 tap 'sanemat/font'
 tap 'kyoshidajp/ghkw'
 
-
 #------------------------------------------
 # brew
 #------------------------------------------
@@ -38,14 +37,13 @@ brew 'bat'
 brew 'vim', args: ['with-lua']
 brew 'neovim'
 brew 'ctags'
-brew 'global', args: ['with-pygments']
+brew 'global', args: ['with-exuberant-ctags', 'with-pygments']
 
 brew 'tmux'
 brew 'reattach-to-user-namespace'
 brew 'tmux-xpanes'
 
-# dependency
-cask 'xquartz'
+cask 'xquartz' # dependency
 brew 'gnuplot', args: ['with-x11']
 
 brew 'pyenv'
@@ -81,13 +79,12 @@ brew 'cowsay'
 brew 'nmap'
 brew 'easy-tag'
 
-
 #------------------------------------------
 # cask
 #------------------------------------------
 cask 'station'
 cask 'google-chrome'
-cask 'iterm2'
+# cask 'iterm2'
 cask 'mactex'
 cask 'docker'
 cask 'docker-toolbox'
@@ -118,7 +115,7 @@ cask 'wireshark'
 cask 'netspot'
 
 cask 'tunnelblick'
-cask 'gitify'
+# cask 'gitify'
 cask 'quail'
 cask 'skype'
 cask 'zoomus'
@@ -126,22 +123,3 @@ cask 'notion'
 cask 'kindle'
 cask '4k-video-downloader'
 cask 'xld'
-
-
-#------------------------------------------
-# mas
-#------------------------------------------
-# mas 'Xcode', id: 497799835
-# mas 'Fotor Photo Editor', id: 503039729
-# mas 'GarageBand', id: 682658836
-# mas 'iMovie', id: 408981434
-# mas 'Keynote', id: 409183694
-# mas 'Numbers', id: 409203825
-# mas 'Pages', id: 409201541
-# mas 'QaLL', id: 480452005
-# mas 'Slack', id: 803453959
-# mas 'PicGIF Lite', id: 844918735
-# mas 'To MP3 Converter Free', id: 983472324
-# mas "BetterSnapTool", id: 417375580
-# mas "CocoaPacketAnalyzer", id: 418357707
-# mas "Mathpix Snipping Tool", id: 1349670778
