@@ -7,10 +7,10 @@ tmuximum::help() {
   cat <<EOF
 tmuximum: Usage
 $ tmuximum [OPTION]
-OPTIONS : "-h" --> Display help message (this message)
-          "-s" --> Start kill-session mode
-          "-w" --> Start kill-window mode
-To quit tmuximum, press esc
+OPTIONS: "-h"    Display help message (this message)
+         "-s"    Start kill-session mode
+         "-w"    Start kill-window mode
+To quit tmuximum, press Esc or select "exit".
 EOF
 }
 
@@ -128,8 +128,8 @@ set-filter() {
     filter=${filters%%:*}
     filters=${filters#*:}
     if has $filter; then
-      [[ $filter = "fzf" ]] && filter=($filter --ansi --prompt=tmuximum\ \>)
-      [[ $filter = "fzf-tmux" ]] && filter=($filter -r --ansi --prompt=tmuximum\ \>)
+      [[ $filter = "fzf" ]]      && filter=($filter --ansi --prompt=tmuximum\ \>\ )
+      [[ $filter = "fzf-tmux" ]] && filter=($filter --ansi --prompt=tmuximum\ \>\ )
       return 0
     fi
   done
@@ -161,7 +161,7 @@ main() {
       "-h") tmuximum::help ;;
       "-s") tmuximum::kill-session ;;
       "-w") tmuximum::kill-window ;;
-      *) error "tmuximum: illegal option $1" ;;
+      *   ) error "tmuximum: illegal option $1"
     esac
   else
     error "tmuximum: option must be one"
