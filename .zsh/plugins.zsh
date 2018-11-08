@@ -52,14 +52,11 @@ ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument-unclosed]='fg=red'
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=245'
 
-alias t='tmuximum'
-
 cd-gitroot() {
   unfunction cd-gitroot
   . $ZPLUG_REPOS/mollifier/cd-gitroot/cd-gitroot
   autoload -Uz cd-gitroot
 }
-alias cdg=cd-gitroot
 
 k() {
   unfunction k

@@ -1,18 +1,22 @@
 ### Functions whose name starts with '_' are defined in dotfiles/.zsh/functions.zsh
 
+# plugins
+alias t='tmuximum'
+alias cdg=cd-gitroot
+
 # bindkeys
-bindkey -v
+autoload -U tetris; zle -N tetris
+autoload -U history-search-end
+
 zle -N _select_history
 zle -N _ghq_list_repositories
 zle -N _git_list_log
 zle -N _git_list_checkout
 zle -N _show_ls_gs
-
-autoload -U history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 
-autoload -U tetris; zle -N tetris
+bindkey -v
 bindkey '^P' history-beginning-search-backward-end
 bindkey '^N' history-beginning-search-forward-end
 bindkey '^e' autosuggest-accept
@@ -21,9 +25,6 @@ bindkey '^m' _show_ls_gs
 bindkey '^r' _select_history
 bindkey '^]' _ghq_list_repositories
 bindkey '^b' _git_list_checkout
-
-# Using with fzf
-alias vls='vim $(git ls-files | fzf --reverse)'
 
 # git
 alias git='hub'
@@ -57,14 +58,7 @@ alias ghq-get='ghq get $(pbpaste)'
 alias gpush='git push origin $(git branch | grep "*\ " | sed "s/.* //")'
 alias gremote='git remote add origin $(pbpaste)'
 alias gwa='git worktree add $(git rev-parse --show-cdup).git-worktrees/$1 -b $1'
-
-# ls
-alias la='ls -al'
-alias ll='ls -l'
-
-# color=auto
-alias ls='gls --color=auto'
-alias grep='grep --color=auto'
+alias gremind='git remind status'
 
 # others
 alias -g ...='../..'
@@ -73,7 +67,15 @@ alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
 alias c='clear'
-alias cp='cp -r'
-alias mkdir='mkdir -p'
+
+alias vls='nvim $(git ls-files | fzf)'
 alias ql='qlmanage -p $@ >& /dev/null'
 alias reload='source ~/.zshenv && source ~/.zshrc'
+
+alias ls='gls --color=auto'
+alias grep='grep --color=auto'
+
+alias cp='cp -r'
+alias mkdir='mkdir -p'
+alias la='ls -al'
+alias ll='ls -l'
