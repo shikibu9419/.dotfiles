@@ -53,7 +53,7 @@ install() {
   if has "git"; then
     git clone https://github.com/shikibu9419/dotfiles $DOTPATH
   elif has "curl"; then
-    # $DOTPATH.tar.gz => ~/dotfiles.tar.gz
+    ## $DOTPATH.tar.gz => ~/dotfiles.tar.gz
     curl -fsSLo $DOTPAH.tar.gz $DOT_TARBALL
     tar -zxvf $DOTPAH.tar.gz --strip-components=1 -C $DOTPATH
     rm -f $DOTPAH.tar.gz
@@ -72,16 +72,8 @@ fi
 export DOTPATH="$HOME/dotfiles"
 
 install
-
-case $1 in
-  deploy)
-    sh $DOTPATH/init/deploy.sh
-    ;;
-  init)
-    sh $DOTPATH/init/initialize.sh
-    sh $DOTPATH/init/deploy.sh
-    ;;
-esac
+[[ $1 = 'init' ]] && sh $DOTPATH/init/initialize.sh
+sh $DOTPATH/init/deploy.sh
 
 # set shell
 read -p "Which shell do you use? (zsh or fish): " shell
@@ -93,9 +85,14 @@ fi
 success_msg "Install finished successfully!"
 
 cat <<EOF
-Please run this command to complete initialize truly.
+Please run this commands to complete initialize truly.
 > rustup component add rls-preview rust-analysis rust-src
 > defaults write com.apple.CrashReporter UseUNC 1
 > defaults write com.apple.dock springboard-columns -int 10
 > killall Dock
+
+And please rewrite ~/.globalrc as following diff.
+  default:\
+- :tc=native:
++ :tc=native:tc=pygments:
 EOF
