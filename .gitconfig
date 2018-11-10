@@ -8,4 +8,4 @@
 [core]
   excludesfile = ~/.gitignore_global
 [remind]
-  paths = /Users/shikibu/projects/github.com/shikibu9419/*,/Users/shikibu/dotfiles
+  paths = /Users/shikibu/projects/github.com/shikibu9419/*,/Users/shikibu/dotfiles,/Users/shikibu/developments/*
