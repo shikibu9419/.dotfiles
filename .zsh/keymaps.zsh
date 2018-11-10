@@ -56,9 +56,9 @@ alias gwork=_git_list_worktree
 alias gclone='git clone $(pbpaste)'
 alias ghq-get='ghq get $(pbpaste)'
 alias gpush='git push origin $(git branch | grep "*\ " | sed "s/.* //")'
-alias gremote='git remote add origin $(pbpaste)'
+alias grmadd='git remote add origin $(pbpaste)'
 alias gwa='git worktree add $(git rev-parse --show-cdup).git-worktrees/$1 -b $1'
-alias gremind='git remind status'
+alias remind='git remind status'
 
 # others
 alias -g ...='../..'
@@ -68,7 +68,7 @@ alias vi='nvim'
 alias vim='nvim'
 alias c='clear'
 
-alias vls='nvim $(git ls-files | fzf)'
+alias vls='vim $(git ls-files | fzf)'
 alias ql='qlmanage -p $@ >& /dev/null'
 alias reload='source ~/.zshenv && source ~/.zshrc'
 

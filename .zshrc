@@ -1,5 +1,5 @@
 if [[ -z $TMUX ]]; then
-  tmuximum
+  tmuximum && exit
 fi
 
 source ~/.zsh/plugins.zsh
