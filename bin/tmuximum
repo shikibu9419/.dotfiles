@@ -17,27 +17,32 @@ EOF
 tmuximum::operation() {
   answer=$(tmuximum::operation-list | "${filter[@]}")
   case $answer in
-    *new\ session* ) tmux new-session ;;
-    *new\ window*  ) tmux new-window ;;
-    "kill sessions") tmuximum::kill-session ;;
-    "kill windows" ) tmuximum::kill-window ;;
-    *move*         ) tmux select-window -t $(echo  "$answer" | awk '{print $4}' | sed "s/://g") ;;
-    *attach*       ) tmux attach -t $(echo "$answer" | awk '{print $4}' | sed 's/://') ;;
-    "detach"       ) tmux detach-client ;;
-    "exit"         ) return 0
+    "new session"*  ) tmux new-session ;;
+    "new window"*   ) tmux new-window ;;
+    "kill sessions" ) tmuximum::kill-session ;;
+    "kill windows"  ) tmuximum::kill-window ;;
+    "move session"* ) tmux switch-client -t $(echo "$answer" | awk '{print $5}' | sed "s/://g") ;;
+    "move window"*  ) tmux select-window -t $(echo "$answer" | awk '{print $5}' | sed "s/://g") ;;
+    *attach*        ) tmux attach -t $(echo "$answer" | awk '{print $4}' | sed 's/://') ;;
+    "detach"        ) tmux detach-client ;;
+    "exit"          ) return 0
   esac
 }
 
 tmuximum::operation-list() {
   # attach / move
-  if [ -z $TMUX ]; then
+  if [[ -z $TMUX ]]; then
     tmux list-sessions 2>/dev/null | while read line; do
       [[ ! $line =~ "attached" ]] || line="${GREEN}$line${DEFAULT}"
       echo -e "${GREEN}attach${DEFAULT} ==> [ "$line" ]"
     done
   else
+    tmux list-sessions 2>/dev/null | while read line; do
+      [[ $line =~ "attached" ]] && continue
+      echo -e "${CYAN}move${DEFAULT} session ==> [ $(echo $line | awk '{print $1 " " $2 " " $3 " " $10}') ]"
+    done
     tmux list-windows | sed "/active/d" | while read line; do
-      echo -e "${CYAN}move${DEFAULT} ==> [ $(echo $line | awk '{print $1 " " $2 " " $3 " " $4 " " $5}') ]"
+      echo -e "${CYAN}move${DEFAULT} window  ==> [ $(echo $line | awk '{print $1 " " $2 " " $3 " " $4 " " $5}') ]"
     done
   fi
 
