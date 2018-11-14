@@ -28,6 +28,12 @@ _select_history() {
 }
 
 _git_list_checkout() {
+  git rev-parse &>/dev/null
+  if [ $? -ne 0 ]; then
+    echo fatal: Not a git repository.
+    return
+  fi
+
   local branches=$(git branch --all | grep -v HEAD)
   local branch=$(echo $branches | fzf-tmux -d)
   git checkout $(echo $branch | sed "s/.* //" | sed "s#remotes/[^/]*/##")
@@ -63,9 +69,9 @@ _ghq_list_repositories() {
   selected=$(ghq list | fzf --query=$LBUFFER)
   dir=$(ghq root)/$selected
 
-  if [[ -z $selected ]]; then
+  if [ -z $selected ]; then
     return
-  elif [[ -z $TMUX ]]; then
+  elif [ -z $TMUX ]; then
     BUFFER="cd $dir"
     zle accept-line
     return
@@ -73,7 +79,7 @@ _ghq_list_repositories() {
 
   repo=${dir##*/}
 
-  if [[ ! $selected =~ ^github\.com.+$ ]]; then
+  if [ ! $selected =~ ^github\.com.+$ ]; then
     parent=${dir%/*}
     repo=${parent##*/}/$repo
   fi
@@ -81,11 +87,10 @@ _ghq_list_repositories() {
   session=${repo//./-}
   current_session=$(tmux list-sessions | grep 'attached' | cut -d":" -f1)
 
-  tmux list-sessions | grep $session > /dev/null
-  if [[ $? = 0 ]]; then
+  if [ -n $(tmux list-sessions | grep $session) ]; then
     tmux switch-client -t $session
   else
-    if [[ $current_session =~ ^[0-9]+$ ]]; then
+    if [ $current_session =~ ^[0-9]+$ ]; then
       BUFFER="cd $dir"
       zle accept-line
       tmux rename-session $session
