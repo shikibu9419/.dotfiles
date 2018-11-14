@@ -2,7 +2,7 @@
 _show_ls_gs() {
   if [ -n "$BUFFER" ]; then
     zle accept-line
-    return 0
+    return
   fi
 
   echo
@@ -10,7 +10,7 @@ _show_ls_gs() {
   ls
   echo
 
-  if [ "$(git rev-parse --is-inside-work-tree 2> /dev/null)" = 'true' ]; then
+  if _git_available; then
     echo -e "\e[0;33m--- git status ---\e[0m"
     git status -sb
     echo
@@ -28,9 +28,9 @@ _select_history() {
 }
 
 _git_list_checkout() {
-  git rev-parse &>/dev/null
-  if [ $? -ne 0 ]; then
+  if ! _git_available; then
     echo fatal: Not a git repository.
+    _show_ls_gs
     return
   fi
 
@@ -41,8 +41,12 @@ _git_list_checkout() {
 }
 
 _git_list_log() {
-  git log --graph --color=always \
-      --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
+  if ! _git_available; then
+    echo fatal: Not a git repository.
+    return
+  fi
+
+  git log --graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
   fzf --ansi --no-sort --reverse --tiebreak=index --select-1 \
       --bind "ctrl-m:execute:
                 (grep -o '[a-f0-9]\{7\}' | head -1 |
@@ -52,8 +56,7 @@ FZF-EOF"
 }
 
 _git_list_worktree() {
-  git rev-parse &>/dev/null
-  if [ $? -ne 0 ]; then
+  if ! _git_available; then
     echo fatal: Not a git repository.
     return
   fi
@@ -99,4 +102,9 @@ _ghq_list_repositories() {
       tmux switch-client -t $session
     fi
   fi
+}
+
+# utils
+_git_available() {
+  git rev-parse > /dev/null 2>&1
 }
