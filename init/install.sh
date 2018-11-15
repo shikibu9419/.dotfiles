@@ -87,9 +87,6 @@ success_msg "Install finished successfully!"
 cat <<EOF
 Please run this commands to complete initialize truly.
 > rustup component add rls-preview rust-analysis rust-src
-> defaults write com.apple.CrashReporter UseUNC 1
-> defaults write com.apple.dock springboard-columns -int 10
-> killall Dock
 
 And please rewrite ~/.globalrc as following diff.
   default:\
