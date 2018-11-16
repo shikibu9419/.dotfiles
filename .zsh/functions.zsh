@@ -20,14 +20,16 @@ _show_ls_gs() {
   zle reset-prompt
 }
 
+
 # using with fzf
 _select_history() {
   local BUFFER=$(fc -l -n 1 | fzf --reverse --tac --query=$LBUFFER)
   CURSOR=$#BUFFER
-  zle clear-screen
 }
 
+
 _git_list_checkout() {
+  echo
   if ! _git_available; then
     echo fatal: Not a git repository.
     _show_ls_gs
@@ -37,8 +39,9 @@ _git_list_checkout() {
   local branches=$(git branch --all | grep -v HEAD)
   local branch=$(echo $branches | fzf-tmux -d)
   git checkout $(echo $branch | sed "s/.* //" | sed "s#remotes/[^/]*/##")
-  zle accept-line
+  zle reset-prompt
 }
+
 
 _git_list_log() {
   if ! _git_available; then
@@ -55,6 +58,7 @@ _git_list_log() {
 FZF-EOF"
 }
 
+
 _git_list_worktree() {
   if ! _git_available; then
     echo fatal: Not a git repository.
@@ -66,6 +70,7 @@ _git_list_worktree() {
     cd $work_dir
   fi
 }
+
 
 _ghq_list_repositories() {
   local selected dir repo session current_session
@@ -81,8 +86,7 @@ _ghq_list_repositories() {
   fi
 
   repo=${dir##*/}
-
-  if [ ! $selected =~ ^github\.com.+$ ]; then
+  if [[ ! $selected =~ ^github\.com.+$ ]]; then
     parent=${dir%/*}
     repo=${parent##*/}/$repo
   fi
@@ -90,10 +94,10 @@ _ghq_list_repositories() {
   session=${repo//./-}
   current_session=$(tmux list-sessions | grep 'attached' | cut -d":" -f1)
 
-  if [ -n $(tmux list-sessions | grep $session) ]; then
+  if [[ -n $(tmux list-sessions | grep $session) ]]; then
     tmux switch-client -t $session
   else
-    if [ $current_session =~ ^[0-9]+$ ]; then
+    if [[ $current_session =~ ^[0-9]+$ ]]; then
       BUFFER="cd $dir"
       zle accept-line
       tmux rename-session $session
@@ -103,6 +107,7 @@ _ghq_list_repositories() {
     fi
   fi
 }
+
 
 # utils
 _git_available() {

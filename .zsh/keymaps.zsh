@@ -8,23 +8,23 @@ alias cdg=cd-gitroot
 autoload -U tetris; zle -N tetris
 autoload -U history-search-end
 
-zle -N _select_history
 zle -N _ghq_list_repositories
 zle -N _git_list_log
 zle -N _git_list_checkout
+zle -N _select_history
 zle -N _show_ls_gs
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 
 bindkey -v
-bindkey '^P' history-beginning-search-backward-end
-bindkey '^N' history-beginning-search-forward-end
-bindkey '^e' autosuggest-accept
-bindkey '^t' forward-word  # autosuggest-partial-accept
+bindkey '^b' _git_list_checkout
 bindkey '^m' _show_ls_gs
 bindkey '^r' _select_history
 bindkey '^]' _ghq_list_repositories
-bindkey '^b' _git_list_checkout
+bindkey '^e' autosuggest-accept
+bindkey '^t' forward-word  # autosuggest-partial-accept
+bindkey '^P' history-beginning-search-backward-end
+bindkey '^N' history-beginning-search-forward-end
 
 # git
 alias git='hub'
@@ -56,6 +56,7 @@ alias gwork=_git_list_worktree
 alias gclone='git clone $(pbpaste)'
 alias ghq-get='ghq get $(pbpaste)'
 alias gpush='git push origin $(git branch | grep "*\ " | sed "s/.* //")'
+alias gpushf='git push -f origin $(git branch | grep "*\ " | sed "s/.* //")'
 alias grmadd='git remote add origin $(pbpaste)'
 alias gwa='git worktree add $(git rev-parse --show-cdup).git-worktrees/$1 -b $1'
 alias remind='git remind status'
