@@ -1,7 +1,7 @@
 #!/bin/sh
-
 set -e
 
+export DOTPATH="$HOME/dotfiles"
 DOT_TARBALL="https://github.com/shikibu9419/dotfiles/tarball/master"
 
 has() {
@@ -69,13 +69,13 @@ if [ $# -ne 1 || $1 != "deploy" && $1 != "init" ]; then
   usage
 fi
 
-export DOTPATH="$HOME/dotfiles"
-
+# Install
 install
 [[ $1 = 'init' ]] && sh $DOTPATH/init/initialize.sh
 sh $DOTPATH/init/deploy.sh
+sh $DOTPATH/init/mac_defaults.sh
 
-# set shell
+# Set shell
 read -p "Which shell do you use? (zsh or fish): " shell
 if [[ $shell = 'zsh' || $shell = 'fish' ]]; then
   chsh -s $(which $shell)
@@ -89,7 +89,7 @@ Please run this commands to complete initialize truly.
 > rustup component add rls-preview rust-analysis rust-src
 
 And please rewrite ~/.globalrc as following diff.
-  default:\
-- :tc=native:
-+ :tc=native:tc=pygments:
+37   default:\
+38 - :tc=native:
+   + :tc=native:tc=pygments:
 EOF
