@@ -79,6 +79,7 @@ brew 'pandoc'
 brew 'cowsay'
 brew 'nmap'
 brew 'easy-tag'
+brew 'wget'
 
 #------------------------------------------
 # cask
@@ -86,6 +87,7 @@ brew 'easy-tag'
 cask 'station'
 cask 'google-chrome'
 # cask 'iterm2'
+cask 'alacritty'
 cask 'mactex'
 cask 'docker'
 cask 'docker-toolbox'

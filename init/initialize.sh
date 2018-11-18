@@ -77,11 +77,4 @@ pip install --upgrade pip
 pip install --upgrade pygments
 pip3 install neovim
 
-# Terminal
-echo "iTerm..."
-git clone --depth=1 https://github.com/mbadolato/iTerm2-Color-Schemes
-
-echo "Alacritty..."
-brew install --HEAD mscharley/homebrew/alacritty
-
 success_msg "Initialization is completed!!"
