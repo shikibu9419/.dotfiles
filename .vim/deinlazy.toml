@@ -206,20 +206,22 @@ repo = 'udalov/kotlin-vim'
 on_ft = 'kotlin'
 
 [[plugins]]
-repo = 'cespare/vim-toml'
-on_ft = 'toml'
-
-[[plugins]]
 repo = 'slim-template/vim-slim'
-hook_add = '''
-  autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
-'''
+hook_add = 'autocmd BufNewFile,BufRead *.slim setlocal filetype=slim'
 on_ft = 'slim'
 
 [[plugins]]
 repo = 'plasticboy/vim-markdown'
 hook_add = 'let g:vim_markdown_folding_disabled=1'
 on_ft = 'markdown'
+
+[[plugins]]
+repo = 'qnighy/satysfi.vim'
+on_ft = 'saty'
+
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = 'toml'
 
 [[plugins]]
 repo = 'vim-scripts/AnsiEsc.vim'
