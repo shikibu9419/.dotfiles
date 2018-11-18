@@ -94,17 +94,24 @@ _ghq_list_repositories() {
   session=${repo//./-}
   current_session=$(tmux list-sessions | grep 'attached' | cut -d":" -f1)
 
+  if [[ -n $current_session = $session ]]; then
+    BUFFER="cd $dir"
+    zle accept-line
+    return
+  fi
+
   if [[ -n $(tmux list-sessions | grep $session) ]]; then
     tmux switch-client -t $session
+    return
+  fi
+
+  if [[ $current_session =~ ^[0-9]+$ ]]; then
+    BUFFER="cd $dir"
+    zle accept-line
+    tmux rename-session $session
   else
-    if [[ $current_session =~ ^[0-9]+$ ]]; then
-      BUFFER="cd $dir"
-      zle accept-line
-      tmux rename-session $session
-    else
-      tmux new-session -d -c $dir -s $session
-      tmux switch-client -t $session
-    fi
+    tmux new-session -d -c $dir -s $session
+    tmux switch-client -t $session
   fi
 }
 
