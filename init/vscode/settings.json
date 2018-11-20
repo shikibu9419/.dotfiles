@@ -30,58 +30,12 @@
     "vim.visualstar": true,
     "vim.useCtrlKeys": true,
 
-    // "[ruby]": {
-    //  "editor.tabSize": 2,
-    // // Filepath to the configuration file for Rubocop
-    // "ruby.rubocop.configFilePath": "",
-    // // execution path of rubocop.
-    // "ruby.rubocop.executePath": "",
-    // // execute rubocop on save.
-    // "ruby.rubocop.onSave": true,
-    // // Defines if it should clear the terminal on each spec run
-    // "ruby.specClearTerminal": true,
-    // // Defines a custom command to run for specs (i.e. 'spring rspec')
-    // "ruby.specCommand": "",
-    // // Defines if it should focus on terminal on each spec run
-    // "ruby.specFocusTerminal": true,
-    // // Defines the type of tool used for testing
-    // "ruby.specGem": "rspec",
-    // // Defines the pattern for seaching test files
-    // "ruby.specPattern": "spec",
-    // // Auto Save file before running spec test
-    // "ruby.specSaveFile": false,
-    // // Zeus gem needs a certain time to start. Defined in ms
-    // "ruby.zeusStartTimeout": 2000,
-    // // Method to use for code completion. Use `false` to disable or if another extension provides this feature.
-    // "ruby.codeCompletion": false,
-    // // Which system to use for formatting. Use `false` to disable or if another extension provides this feature.
-    // "ruby.format": false,
-    // // Method to use for intellisense (go to definition, etc.). Use `false` to disable or if another extension provides this feature.
-    // "ruby.intellisense": false,
-    // // Path to the Ruby interpreter.  Set this to an absolute path to select from multiple installed Ruby versions.
-    // "ruby.interpreter.commandPath": "ruby",
-    // // Set individual ruby linters to use
-    // "ruby.lint": {},
-    // // Time (ms) to wait after keypress before running enabled linters. Ensures linters are only run when typing has finished and not for every keypress
-    // "ruby.lintDebounceTime": 500,
-    // // Defines where the Ruby extension will look to find Modules, Classes and methods.
-    // "ruby.locate": {
-    //     "exclude": "{**/@(test|spec|tmp|.*),**/@(test|spec|tmp|.*)/**,**/*_spec.rb}",
-    //     "include": "**/*.rb"
-    // },
-    // // Path to the bundler executable (used if useBundler is true)
-    // "ruby.pathToBundler": "bundle",
-    // // Path to the rct-complete command.  Set this to an absolute path to select from multiple installed Ruby versions.
-    // "ruby.rctComplete.commandPath": "rct-complete",
-    // // Whether ruby tools should be started using Bundler
-    // "ruby.useBundler": false
-    // },
-
     "[html]": {
         "editor.formatOnSave": true,
         "editor.formatOnPaste": true
     },
 
+    // Plugins
     "emmet.includeLanguages": {
         "javascript": "javascriptreact"
     },
@@ -95,11 +49,25 @@
         "suppressShowKeyBindingsNotice": true
     },
     "workbench.colorTheme": "Monokai Dimmed",
-    "github.hosts": [
+    "latex-workshop.latex.tools": [
         {
-            "host": "https://github.com",
-            "username": "oauth",
-            "token": "system"
+            "name": "latexmk",
+            "command": "latexmk",
+            "args": [
+            //     "-synctex=1",
+            //     "-interaction=nonstopmode",
+            //     "-file-line-error",
+            //     "-pdf",
+                "%DOC%"
+            ]
         }
+    ],
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "latexmk",
+            "tools": [
+                "latexmk"
+            ]
+        },
     ]
 }

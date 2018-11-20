@@ -22,6 +22,7 @@ GitHub.vscode-pull-request-github
 gizak.shortcuts
 henoc.svgeditor
 humao.rest-client
+James-Yu.latex-workshop
 jebbs.plantuml
 kaiwood.endwise
 kisstkondoros.vscode-gutter-preview
