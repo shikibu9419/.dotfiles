@@ -62,9 +62,9 @@ alias gwa='git worktree add $(git rev-parse --show-cdup).git-worktrees/$1 -b $1'
 alias remind='git remind status'
 
 # tmux
-alias tmks='tmux kill-session -t'
-alias tmkw='tmux kill-window -t'
-alias tmkp='tmux kill-pane -t'
+alias tks='tmux kill-session -t'
+alias tkw='tmux kill-window -t'
+alias tkp='tmux kill-pane -t'
 
 # others
 alias -g ...='../..'
