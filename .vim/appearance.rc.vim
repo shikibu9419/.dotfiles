@@ -1,12 +1,15 @@
 "------------------------------------------
 " View
 "------------------------------------------
-" Color
+"" Color & Highlight
 set t_Co=256
 set background=dark
+set cursorline
+hi LineNr ctermfg=243
+hi CursorLineNr ctermfg=255
 colorscheme hybrid
 
-" encodings
+"" Encodings
 set encoding=utf-8
 scriptencoding utf-8
 set fileencoding=utf-8
@@ -14,18 +17,14 @@ set fileencodings=ucs-boms,utf-8,euc-jp,cp932
 set fileformats=unix,dos,mac
 set ambiwidth=double
 
+"" Others
 set title
 set number
 set laststatus=2
 set nrformats=
 set scrolloff=3
 
-" CursorLine Settings
-set cursorline
-hi LineNr ctermfg=243
-hi CursorLineNr ctermfg=255
-
-" Highlight ZenkakuSpace
+"" Highlight ZenkakuSpace
 function! ZenkakuSpace()
   highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
 endfunction

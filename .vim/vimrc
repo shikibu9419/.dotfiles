@@ -1,4 +1,4 @@
-" True color
+"" True color
 if !has('gui_running') && exists('&termguicolors') && $COLORTERM ==# 'truecolor'
   if !has('nvim')
     let &t_8f = "\e[38;2;%lu;%lu;%lum"
@@ -14,7 +14,7 @@ source $HOME/.vim/appearance.rc.vim
 source $HOME/.vim/edit.rc.vim
 source $HOME/.vim/keymap.rc.vim
 
-" Tab setting
+"" Tab setting
 function! s:SID_PREFIX()
   return matchstr(expand('<sfile>'), '<SNR>\d\+_\zeSID_PREFIX$')
 endfunction

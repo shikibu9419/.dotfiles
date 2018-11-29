@@ -21,7 +21,7 @@ set shiftwidth=2
 set softtabstop=2
 
 augroup filetypedetect
-  " C/C++, Java, Kotlin, CSS, JSON: 4 spaces
+  "" C, C++, Java, Kotlin, CSS, JSON: 4 spaces
   autocmd BufRead,BufNewFile *.c    setlocal tabstop=4 shiftwidth=4 softtabstop=4
   autocmd BufRead,BufNewFile *.cpp  setlocal tabstop=4 shiftwidth=4 softtabstop=4
   autocmd BufRead,BufNewFile *.java setlocal tabstop=4 shiftwidth=4 softtabstop=4
@@ -46,14 +46,14 @@ set showmatch
 set matchtime=1
 set wildmenu
 set history=1000
-" Enable backspace (for Mac)
+"" Enable backspace (for Mac)
 set backspace=indent,eol,start
-" Comment setting
+"" Comment setting
 autocmd FileType * setlocal formatoptions-=ro
-" Completion setting
+"" Completion setting
 set completeopt+=noinsert
 
-" Auto write
+"" Auto write
 set autowrite
 function! s:AutoWriteIfPossible()
   if &modified && !&readonly && bufname('%') !=# '' && &buftype ==# '' && expand("%") !=# ''
@@ -67,19 +67,19 @@ augroup autowrite
   autocmd CursorHoldI * call s:AutoWriteIfPossible()
 augroup END
 
-" Enable mouse setting
+"" Enable mouse setting
 if !has('nvim')
   set ttymouse=xterm2
 endif
 set mouse=a
 
-" matchit
+"" matchit
 set matchpairs+=<:>
 if !exists('loaded_matchit')
   runtime macros/matchit.vim
 endif
 
-" Reasign
+"" Reasign
 augroup asign
   autocmd!
   autocmd BufWritePost *

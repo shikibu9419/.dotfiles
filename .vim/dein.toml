@@ -45,7 +45,7 @@ repo = 'tpope/vim-obsession'
 #----------------------------------------------
 # Tags
 #----------------------------------------------
-# gtags
+## gtags
 [[plugins]]
 repo = 'lighttiger2505/gtags.vim'
 hook_add = '''
@@ -90,7 +90,6 @@ hook_add = 'let g:gen_tags#gtags_auto_gen = 1'
 #----------------------------------------------
 # NERDTree.vim
 #----------------------------------------------
-# ファイルのツリー表示
 [[plugins]]
 repo = 'scrooloose/nerdtree'
 hook_add = '''
@@ -122,7 +121,6 @@ hook_add = '''
     \ }
 '''
 
-# NERDTree のタブ間共有
 [[plugins]]
 repo = 'jistr/vim-nerdtree-tabs'
 hook_add = '''
@@ -243,10 +241,10 @@ hook_add = '''
   " imap <c-x><c-j> <plug>(fzf-complete-file-ag)
   " imap <c-x><c-l> <plug>(fzf-complete-line)
 
-  " :FzfFiles Setting
+  "" :FzfFiles Setting
   command! -bang -nargs=? -complete=dir Files
     \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
-  " :FzfColors Setting
+  "" :FzfColors Setting
   command! -bang Colors
     \ call fzf#vim#colors({'left': '15%', 'options': '--reverse --margin 30%,0'}, <bang>0)
 
