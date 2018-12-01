@@ -1,6 +1,6 @@
 zshaddhistory() {
   local line=${1%%$'\n'}
-  [[ $#line -ge 5 && $line != 'reload' ]]
+  [[ $#line -ge 5 && $#line != 'reload' && $#line != 'myupdate' ]]
 }
 
 HISTFILE=~/.zsh_history

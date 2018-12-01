@@ -1,4 +1,4 @@
-# on accepting line
+## on accepting line
 _show_ls_gs() {
   if [ -n "$BUFFER" ]; then
     zle accept-line
@@ -21,7 +21,7 @@ _show_ls_gs() {
 }
 
 
-# using with fzf
+## using with fzf
 _select_history() {
   local BUFFER=$(fc -l -n 1 | fzf --reverse --tac --query=$LBUFFER)
   CURSOR=$#BUFFER
@@ -116,7 +116,7 @@ _ghq_list_repositories() {
 }
 
 
-# utils
+## utils
 _git_available() {
   git rev-parse > /dev/null 2>&1
 }

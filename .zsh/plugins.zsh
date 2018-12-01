@@ -17,11 +17,11 @@ zplug load
 #------------------------------------------
 # Plugin Setting
 #------------------------------------------
-# zsh-syntax-highlighting
+## zsh-syntax-highlighting
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main pattern cursor)
 typeset -A ZSH_HIGHLIGHT_STYLES
 
-# command
+### command
 ZSH_HIGHLIGHT_STYLES[command]='fg=133'
 ZSH_HIGHLIGHT_STYLES[commandseparator]='fg=133'
 ZSH_HIGHLIGHT_STYLES[alias]='fg=133'
@@ -29,27 +29,28 @@ ZSH_HIGHLIGHT_STYLES[builtin]='fg=133'
 ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=133'
 ZSH_HIGHLIGHT_STYLES[globbing]='none'
 
-# args
+### args
 ZSH_HIGHLIGHT_STYLES[path]='fg=111'
 ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=111'
 ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=111'
 # ZSH_HIGHLIGHT_STYLES[arg0]='fg=111'
 # ZSH_HIGHLIGHT_STYLES[precommand]='fg=111'
 
-# string
+### string
 ZSH_HIGHLIGHT_STYLES[comment]='fg=002'
 ZSH_HIGHLIGHT_STYLES[back-quoted-argument]='fg=002'
 ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=002'
 ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=002'
 ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]='fg=002'
 
-# errors
+### errors
 ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=red'
 ZSH_HIGHLIGHT_STYLES[back-quoted-argument-unclosed]='fg=red'
 ZSH_HIGHLIGHT_STYLES[single-quoted-argument-unclosed]='fg=red'
 ZSH_HIGHLIGHT_STYLES[double-quoted-argument-unclosed]='fg=red'
 ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument-unclosed]='fg=red'
 
+## other plugins
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=245'
 
 cd-gitroot() {

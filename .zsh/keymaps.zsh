@@ -1,10 +1,10 @@
 ### Functions whose name starts with '_' are defined in dotfiles/.zsh/functions.zsh
 
-# plugins
+## plugins
 alias t='tmuximum'
 alias cdg=cd-gitroot
 
-# bindkeys
+## bindkeys
 autoload -U tetris; zle -N tetris
 autoload -U history-search-end
 
@@ -26,7 +26,7 @@ bindkey '^t' forward-word  # autosuggest-partial-accept
 bindkey '^P' history-beginning-search-backward-end
 bindkey '^N' history-beginning-search-forward-end
 
-# git
+## git
 alias git='hub'
 alias g='git'
 alias ga='git add'
@@ -61,12 +61,15 @@ alias grmadd='git remote add origin $(pbpaste)'
 alias gwa='git worktree add $(git rev-parse --show-cdup).git-worktrees/$1 -b $1'
 alias remind='git remind status'
 
-# tmux
+## tmux
 alias tks='tmux kill-session -t'
 alias tkw='tmux kill-window -t'
 alias tkp='tmux kill-pane -t'
+alias tls='tmux list-sessions -t'
+alias tlw='tmux list-windows -t'
+alias tlp='tmux list-panes -t'
 
-# others
+## others
 alias -g ...='../..'
 alias -g ....='../../..'
 alias v='nvim'
