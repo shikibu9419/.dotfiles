@@ -128,20 +128,9 @@ hook_add = '''
 		let g:nerdtree_tabs_open_on_console_startup=1
 	endif
 '''
-
 #----------------------------------------------
-# Others
+# add commands
 #----------------------------------------------
-[[plugins]]
-repo = 'itchyny/lightline.vim'
-
-[[plugins]]
-repo = 'Shougo/vimproc.vim'
-
-[[plugins]]
-repo = 'rizzatti/dash.vim'
-hook_add = 'nmap <silent> <Leader>d <Plug>DashSearch'
-
 [[plugins]]
 repo = 'thinca/vim-quickrun'
 hook_add = '''
@@ -151,45 +140,11 @@ hook_add = '''
 hook_post_source = 'nmap <Leader>r <Plug>(quickrun)'
 
 [[plugins]]
-repo = 'scrooloose/syntastic'
-hook_add = '''
-  let g:syntastic_mode_map = { 'mode': 'passive' }
-  let g:syntastic_ruby_checkers = ['rubocop']
-
-  nnoremap <Leader>s :SyntasticCheck<CR>
-'''
-
-[[plugins]]
 repo = 'tyru/open-browser.vim'
 hook_add = '''
   nmap <Leader>b <Plug>(openbrowser-smart-search)
   vmap <Leader>b <Plug>(openbrowser-smart-search)
 '''
-
-[[plugins]]
-repo = 'osyo-manga/vim-over'
-hook_add = 'nnoremap <silent> <Leader>o :OverCommandLine<CR>'
-
-[[plugins]]
-repo = 'rhysd/clever-f.vim'
-hook_add = '''
-  let g:clever_f_across_no_line = 1
-  let g:clever_f_ignore_case = 1
-  let g:clever_f_smart_case = 1
-  let g:clever_f_fix_key_direction = 1
-'''
-
-[[plugins]]
-repo = 'Shougo/context_filetype.vim'
-hook_add = '''
-  if !exists('g:context_filetype#filetypes')
-    let g:context_filetype#filetypes = {}
-  endif
-'''
-
-[[plugins]]
-repo = 'osyo-manga/vim-precious'
-depends = 'Shougo/context_filetype.vim'
 
 [[plugins]]
 repo = 'AndrewRadev/switch.vim'
@@ -206,6 +161,71 @@ repo = 'tpope/vim-surround'
 repo = 'bronson/vim-trailing-whitespace'
 
 [[plugins]]
+repo = 'junegunn/vim-easy-align'
+hook_add = '''
+  map ga <Nop>
+  nmap ga <Plug>(EasyAlign)
+  vmap ga <Plug>(EasyAlign)
+'''
+
+#----------------------------------------------
+# enhancement
+#----------------------------------------------
+[[plugins]]
+repo = 'scrooloose/syntastic'
+hook_add = '''
+  let g:syntastic_mode_map = { 'mode': 'passive' }
+  let g:syntastic_ruby_checkers = ['rubocop']
+
+  nnoremap <Leader>s :SyntasticCheck<CR>
+'''
+
+[[plugins]]
+repo = 'osyo-manga/vim-over'
+hook_add = 'nnoremap <silent> <Leader>o :OverCommandLine<CR>'
+
+[[plugins]]
+repo = 'rhysd/clever-f.vim'
+hook_add = '''
+  let g:clever_f_across_no_line = 1
+  let g:clever_f_ignore_case = 1
+  let g:clever_f_smart_case = 1
+  let g:clever_f_fix_key_direction = 1
+'''
+
+[[plugins]]
+repo = 'rhysd/accelerated-jk'
+hook_add = '''
+  nmap j <Plug>(accelerated_jk_gj)
+  nmap k <Plug>(accelerated_jk_gk)
+'''
+
+[[plugins]]
+repo = 'yonchu/accelerated-smooth-scroll'
+hook_add = '''
+  let g:ac_smooth_scroll_du_sleep_time_msec = 7
+  let g:ac_smooth_scroll_fb_sleep_time_msec = 7
+'''
+
+#----------------------------------------------
+# appearance
+#----------------------------------------------
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+
+[[plugins]]
+repo = 'Shougo/context_filetype.vim'
+hook_add = '''
+  if !exists('g:context_filetype#filetypes')
+    let g:context_filetype#filetypes = {}
+  endif
+'''
+
+[[plugins]]
+repo = 'osyo-manga/vim-precious'
+depends = 'Shougo/context_filetype.vim'
+
+[[plugins]]
 repo = 'nathanaelkane/vim-indent-guides'
 hook_source = '''
   let g:indent_guides_enable_on_vim_startup = 1
@@ -217,6 +237,27 @@ hook_source = '''
 
 # [[plugins]]
 # repo = 'Yggdroot/indentLine'
+
+#----------------------------------------------
+# others
+#----------------------------------------------
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+
+[[plugins]]
+repo = 'terryma/vim-multiple-cursors'
+hook_add = '''
+" function! Multiple_cursors_before()
+"   if exists(':NeoCompleteLock')==2
+"     exe 'NeoCompleteLock'
+"     echo 'Disabled Neocomplete'
+"   endif
+" endfunction
+'''
+
+[[plugins]]
+repo = 'rizzatti/dash.vim'
+hook_add = 'nmap <silent> <Leader>d <Plug>DashSearch'
 
 [[plugins]]
 repo = 'junegunn/fzf'
@@ -259,28 +300,6 @@ hook_add = '''
     \ })
 '''
 
-[[plugins]]
-repo = 'junegunn/vim-easy-align'
-hook_add = '''
-  map ga <Nop>
-  nmap ga <Plug>(EasyAlign)
-  vmap ga <Plug>(EasyAlign)
-'''
-
-[[plugins]]
-repo = 'rhysd/accelerated-jk'
-hook_add = '''
-  nmap j <Plug>(accelerated_jk_gj)
-  nmap k <Plug>(accelerated_jk_gk)
-'''
-
-[[plugins]]
-repo = 'yonchu/accelerated-smooth-scroll'
-hook_add = '''
-  let g:ac_smooth_scroll_du_sleep_time_msec = 7
-  let g:ac_smooth_scroll_fb_sleep_time_msec = 7
-'''
-
 #----------------------------------------------
 # Colorschemes
 #----------------------------------------------
@@ -310,10 +329,6 @@ repo = 'jacoborus/tender.vim'
 
 [[plugins]]
 repo = 'dracula/vim'
-
-[[plugins]]
-repo = 'joshdick/onedark.vim'
-hook_source = 'let g:one_dark_termcolors=16'
 
 [[plugins]]
 repo = 'aereal/vim-colors-japanesque'
