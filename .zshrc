@@ -1,3 +1,7 @@
+path=(~/programs/flutter/bin(N-/) ~/Android/Sdk/tools(N-/) ~/Android/Sdk/platform-tools(N-/) \
+      $JAVA_HOME(N-/) ~/.cargo/bin(N-/) $GOPATH/bin(N-/) ~/.rbenv/bin(N-/) /usr/local/texlive/2018/bin/x86_64-darwin(N-/) ~/dotfiles/bin(N-/) $path)
+fpath=(~/.zplug/repos/zsh-users/zsh-completions/src(N-/) ~/.zsh/completions(N-/) $fpath)
+
 if [[ -z $TMUX ]]; then
   tmuximum && exit
 fi
