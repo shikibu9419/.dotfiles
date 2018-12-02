@@ -14,16 +14,16 @@ notice() {
   echo "=================================================="
 }
 
-success_msg() {
+strong_msg() {
   if has "printf"; then
-    printf "\n\e[37;1m$1\n"
+    printf "\e[37;1m$1\e[m\n"
   else
-    echo "\n**$1**\n"
+    echo -e "\e[37;1m$1\e[m"
   fi
 }
 
-error_msg() {
-  echo $1
+error() {
+  strong_msg $1
   exit 1
 }
 
@@ -45,7 +45,7 @@ install() {
   sudo xcode-select -s /Library/Developer/CommandLineTools
 
   if [ -d $DOTPATH ]; then
-    error_msg "**warning** $DOTPATH will be deleted!!\nInstallation failed."
+    error "**warning** $DOTPATH will be deleted!!\nInstallation failed."
   fi
 
   mkdir $DOTPATH
@@ -58,10 +58,10 @@ install() {
     tar -zxvf $DOTPAH.tar.gz --strip-components=1 -C $DOTPATH
     rm -f $DOTPAH.tar.gz
   else
-    error_msg "Command 'git' and 'curl' were not found.\nPlease install one of them to install dotfiles."
+    error "Command 'git' and 'curl' were not found.\nPlease install one of them to install dotfiles."
   fi
 
-  success_msg "Dotfiles were installed!"
+  strong_msg "Dotfiles were installed!\n"
 }
 
 
@@ -77,13 +77,10 @@ sh $DOTPATH/init/mac_defaults.sh
 
 # Set shell
 read -p "Which shell do you use? (zsh or fish): " shell
-if [[ $shell = 'zsh' || $shell = 'fish' ]]; then
-  chsh -s $(which $shell)
-fi
+[[ $shell = 'zsh' || $shell = 'fish' ]] && chsh -s $(which $shell)
 
 # Notification
-success_msg "Install finished successfully!"
-
+strong_msg "Install finished successfully!"
 cat <<EOF
 Please run this commands to complete initialize truly.
 > rustup component add rls-preview rust-analysis rust-src

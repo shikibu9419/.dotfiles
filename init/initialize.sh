@@ -24,7 +24,7 @@ notice "Start brew install."
 brew tap homebrew/bundle
 brew bundle
 brew cleanup
-success_msg "Brew install finished!"
+strong_msg "Brew install finished!\n"
 
 notice "Other settings..."
 
@@ -38,7 +38,6 @@ else
   sudo echo $(which fish) >> /etc/shells; echo $(which zsh)
 fi
 cp /usr/local/opt/global/share/gtags/gtags.conf ~/.globalrc
-
 npm install -g pure-prompt
 
 # Editors
@@ -68,13 +67,13 @@ cp $DOCKER_COMPLETION_PATH/docker-machine.zsh-completion $DOTPATH/.zsh/completio
 echo "gem..."
 ln -sifF $DOTPATH/rbenv-default-gems ~/.rbenv/default-gems
 
-echo "Rust..."
-curl https://sh.rustup.rs -sSf | sh
-
 echo "pip..."
 pip install --upgrade setuptools
 pip install --upgrade pip
 pip install --upgrade pygments
 pip3 install neovim
 
-success_msg "Initialization is completed!!"
+echo "Rust..."
+curl https://sh.rustup.rs -sSf | sh
+
+strong_msg "Initialization is completed!!\n"

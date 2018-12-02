@@ -1,7 +1,14 @@
 #!/bin/sh
 
-cd $DOTPATH
+strong_msg() {
+  if has "printf"; then
+    printf "\e[37;1m$1\e[m\n"
+  else
+    echo -e "\e[37;1m$1\e[m"
+  fi
+}
 
+cd $DOTPATH
 for f in .??*; do
 	[ $f = ".git" ]       && continue
 	[ $f = ".gitignore" ] && continue
@@ -11,4 +18,4 @@ for f in .??*; do
 	echo $f
 done
 
-echo "\n**Dotfiles were deployed!**\n"
+strong_msg "Dotfiles were deployed!\n"
