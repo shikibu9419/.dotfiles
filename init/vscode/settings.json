@@ -1,12 +1,13 @@
 {
     "editor.renderIndentGuides": true,
-    "files.autoSave": "off",
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 1000,
     "editor.fontSize": 12,
     "editor.tabSize": 4,
     "editor.renderWhitespace": "none",
     "editor.cursorStyle": "line",
     "editor.insertSpaces": true,
-    "editor.tabCompletion": true,
+    // "editor.tabCompletion": true,
     "editor.wordWrap": "on",
     "editor.renderControlCharacters": true,
     "workbench.editor.closeEmptyGroups": false,
@@ -24,6 +25,7 @@
     },
     "html.autoClosingTags": true,
 
+    /// Vim
     "vim.useSystemClipboard":true,
     "vim.hlsearch": true,
     "vim.easymotion": true,
@@ -35,7 +37,8 @@
         "editor.formatOnPaste": true
     },
 
-    // Plugins
+    /// Plugins
+    "workbench.colorTheme": "Monokai Dimmed",
     "emmet.includeLanguages": {
         "javascript": "javascriptreact"
     },
@@ -48,26 +51,36 @@
     "gitlens.advanced.messages": {
         "suppressShowKeyBindingsNotice": true
     },
-    "workbench.colorTheme": "Monokai Dimmed",
+    //// LaTeX
+    "latex-workshop.latex.autoBuild.onSave.enabled": true,
+    "latex-workshop.latex.clean.enabled": true,
+    "latex-workshop.view.pdf.viewer": "tab",
+    "latex-workshop.chktex.enabled": false,
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "latexmk",
+            "tools": [
+                "luajit"
+            ],
+        }
+    ],
     "latex-workshop.latex.tools": [
         {
             "name": "latexmk",
             "command": "latexmk",
             "args": [
-            //     "-synctex=1",
-            //     "-interaction=nonstopmode",
-            //     "-file-line-error",
-            //     "-pdf",
-                "%DOC%"
+                "%DOC%.tex"
+            ]
+        },
+        {
+            "name": "luajit",
+            "command": "luajittex",
+            "args": [
+                "--synctex=1",
+                "--cmdx",
+                "--fmt=luajitlatex.fmt",
+                "%DOC%.tex",
             ]
         }
     ],
-    "latex-workshop.latex.recipes": [
-        {
-            "name": "latexmk",
-            "tools": [
-                "latexmk"
-            ]
-        },
-    ]
 }

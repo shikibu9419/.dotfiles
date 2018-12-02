@@ -1,11 +1,15 @@
 #!/bin/zsh
 
-echo "UPDATE: brew"
+message() {
+  printf "\e[31;1mUPDATE: \e[37;1m$1\e[m\n"
+}
+
+message "brew"
 brew update
 brew upgrade
 brew cleanup
 
-echo "UPDATE: zplug"
+message "zplug"
 source ~/.zshrc > /dev/null
 if ! zplug check --verbose; then
   printf "Install? [y/N]: "
@@ -14,7 +18,7 @@ if ! zplug check --verbose; then
   fi
 fi
 
-echo "UPDATE: VSCode"
+message "vscode"
 code --list-extensions > ~/dotfiles/init/vscode/package_list.txt
 
 echo "Reloading..."
