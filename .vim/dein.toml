@@ -2,6 +2,31 @@
 repo = 'Shougo/dein.vim'
 
 #----------------------------------------------
+# LSP Client
+#----------------------------------------------
+[[plugins]]
+repo = 'autozimu/LanguageClient-neovim'
+rev = 'next'
+build = 'bash install.sh'
+hook_add = '''
+  let g:LanguageClient_serverCommands = {
+        \ 'ruby': ['solargraph', 'stdio'],
+        \}
+
+  augroup LanguageClientConfig
+    autocmd!
+    autocmd User LanguageClientStarted setlocal signcolumn=yes
+    autocmd User LanguageClientStopped setlocal signcolumn=auto
+  augroup END
+
+  let g:LanguageClient_autoStart = 1
+  nnoremap <Leader>lh :call LanguageClient_textDocument_hover()<CR>
+  nnoremap <Leader>ld :call LanguageClient_textDocument_definition()<CR>
+  nnoremap <Leader>lr :call LanguageClient_textDocument_rename()<CR>
+  nnoremap <Leader>lf :call LanguageClient_textDocument_formatting()<CR>
+'''
+
+#----------------------------------------------
 # Git
 #----------------------------------------------
 [[plugins]]
