@@ -1,14 +1,14 @@
 #!/bin/bash
 
-### ORIGINAL: https://github.com/arks22/tmuximum
+## ORIGINAL: https://github.com/arks22/tmuximum
 
 tmuximum::help() {
   cat <<EOF
 tmuximum: Usage
 $ tmuximum [OPTION]
-OPTIONS: "-h"    Display help message (this message)
-         "-s"    Start kill-session mode
-         "-w"    Start kill-window mode
+OPTIONS: -h   Display help message (this message)
+         -s   Start kill-session mode
+         -w   Start kill-window mode
 To quit tmuximum, press Esc or select "exit".
 EOF
 }
@@ -16,15 +16,15 @@ EOF
 tmuximum::operation() {
   answer=$(tmuximum::operation-list | "${filter[@]}")
   case $answer in
-    "new session"*  ) tmux new-session ;;
-    "new window"*   ) tmux new-window ;;
-    "kill sessions" ) tmuximum::kill-session ;;
-    "kill windows"  ) tmuximum::kill-window ;;
-    "move session"* ) tmux switch-client -t $(echo "$answer" | awk '{print $5}' | sed "s/://g") ;;
-    "move window"*  ) tmux select-window -t $(echo "$answer" | awk '{print $5}' | sed "s/://g") ;;
-    *attach*        ) tmux attach -t $(echo "$answer" | awk '{print $4}' | sed 's/://') ;;
-    "detach"        ) tmux detach-client ;;
-    "exit"          ) return 0
+    "new session"* ) tmux new-session ;;
+    "new window"*  ) tmux new-window ;;
+    "kill sessions") tmuximum::kill-session ;;
+    "kill windows" ) tmuximum::kill-window ;;
+    "move session"*) tmux switch-client -t $(echo "$answer" | awk '{print $5}' | sed "s/://g") ;;
+    "move window"* ) tmux select-window -t $(echo "$answer" | awk '{print $5}' | sed "s/://g") ;;
+    *attach*       ) tmux attach -t $(echo "$answer" | awk '{print $4}' | sed 's/://') ;;
+    detach         ) tmux detach-client ;;
+    exit           ) return 0
   esac
 }
 
@@ -71,7 +71,7 @@ tmuximum::kill-session() {
       tmux kill-session -t $(echo "$answer" | awk '{print $4}' | sed "s/://g")
       tmux has-session 2>/dev/null && tmuximum::kill-session || tmuximum::operation
       ;;
-    "back")
+    back)
       tmuximum::operation
   esac
 }
@@ -94,7 +94,7 @@ tmuximum::kill-window() {
         tmux kill-window -t $(echo "$answer" | awk '{print $4}' | sed "s/://g")
         tmuximum::kill-window
         ;;
-      "back")
+      back)
         tmuximum::operation
     esac
   else
@@ -162,10 +162,10 @@ main() {
     tmuximum::operation
   elif [[ $# = 1 ]]; then
     case $1 in
-      "-h") tmuximum::help ;;
-      "-s") tmuximum::kill-session ;;
-      "-w") tmuximum::kill-window ;;
-      *   ) error "tmuximum: illegal option $1"
+      -h) tmuximum::help ;;
+      -s) tmuximum::kill-session ;;
+      -w) tmuximum::kill-window ;;
+      * ) error "tmuximum: illegal option $1"
     esac
   else
     error "tmuximum: option must be one"
