@@ -1,8 +1,10 @@
 #!/bin/sh
-VSCODE_INIT_DIRECTORY="$DOTPATH/init/vscode"
+DOT_DIRECTORY="$DOTPATH/init/vscode"
+SYNC_DESTINATION_DIRECTORY="$HOME/Library/Application Support/Code/User"
 
-ln -sifF $VSCODE_INIT_DIRECTORY/settings.json ~/Library/Application\ Support/Code/User/settings.json
+ln -sifF $DOT_DIRECTORY/settings.json $SYNC_DESTINATION_DIRECTORY/settings.json
+ln -sifF $DOT_DIRECTORY/keybindings.json $SYNC_DESTINATION_DIRECTORY/keybindings.json
 
 while read pkg; do
   code --install-extension $pkg
-done < $VSCODE_INIT_DIRECTORY/package_list.txt
+done < $DOT_DIRECTORY/package_list.txt
