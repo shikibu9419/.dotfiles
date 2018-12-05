@@ -20,10 +20,6 @@ hook_add = '''
   augroup END
 
   let g:LanguageClient_autoStart = 1
-  nnoremap <Leader>lh :call LanguageClient_textDocument_hover()<CR>
-  nnoremap <Leader>ld :call LanguageClient_textDocument_definition()<CR>
-  nnoremap <Leader>lr :call LanguageClient_textDocument_rename()<CR>
-  nnoremap <Leader>lf :call LanguageClient_textDocument_formatting()<CR>
 '''
 
 #----------------------------------------------
@@ -31,15 +27,7 @@ hook_add = '''
 #----------------------------------------------
 [[plugins]]
 repo = 'tpope/vim-fugitive'
-hook_add = '''
-  let g:lightline#extensions#branch#enabled=1
-  nmap [fugitive] <Nop>
-  map <Leader>g [fugitive]
-  nmap <silent> [fugitive]s :<C-u>Gstatus<CR>
-  nmap <silent> [fugitive]d :<C-u>Gdiff<CR>
-  nmap <silent> [fugitive]b :<C-u>Gblame<CR>
-  nmap <silent> [fugitive]l :<C-u>Glog<CR>
-'''
+hook_add = 'let g:lightline#extensions#branch#enabled=1'
 
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
@@ -55,8 +43,6 @@ hook_add = '''
 repo = 'christoomey/vim-tmux-navigator'
 hook_add = '''
   let g:tmux_navigator_no_mappings = 1
-  let g:tmux_navigator_save_on_switch = 2
-
   nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
   nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
   nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
@@ -76,8 +62,8 @@ repo = 'lighttiger2505/gtags.vim'
 hook_add = '''
   let g:Gtags_Auto_Map = 0
   let g:Gtags_OpenQuickfixWindow = 1
-  nmap <silent> <C-t>k :<C-u>exe("Gtags ".expand('<cword>'))<CR>
-  nmap <silent> <C-t>r :<C-u>exe("Gtags -r ".expand('<cword>'))<CR>
+  " nmap <silent> <C-t>k :<C-u>exe("Gtags ".expand('<cword>'))<CR>
+  " nmap <silent> <C-t>r :<C-u>exe("Gtags -r ".expand('<cword>'))<CR>
 '''
 
 [[plugins]]
@@ -118,11 +104,10 @@ hook_add = 'let g:gen_tags#gtags_auto_gen = 1'
 [[plugins]]
 repo = 'scrooloose/nerdtree'
 hook_add = '''
-  let g:NERDTreeShowHidden=1
-  let g:NERDTreeShowBookmarks=1
-  nmap <Leader>n :NERDTreeToggle<CR>
+  let g:NERDTreeShowHidden = 1
+  let g:NERDTreeShowBookmarks = 1
 
-  " 他バッファを全て閉じたときにNERDTreeも一緒に閉じる
+  "" NERDTree window is closed when other all buffers are closed
   augroup NERDTreeSettings
     autocmd!
     autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -153,6 +138,7 @@ hook_add = '''
 		let g:nerdtree_tabs_open_on_console_startup=1
 	endif
 '''
+
 #----------------------------------------------
 # add commands
 #----------------------------------------------
@@ -162,14 +148,9 @@ hook_add = '''
   set splitbelow
   set splitright
 '''
-hook_post_source = 'nmap <Leader>r <Plug>(quickrun)'
 
 [[plugins]]
 repo = 'tyru/open-browser.vim'
-hook_add = '''
-  nmap <Leader>b <Plug>(openbrowser-smart-search)
-  vmap <Leader>b <Plug>(openbrowser-smart-search)
-'''
 
 [[plugins]]
 repo = 'AndrewRadev/switch.vim'
@@ -201,8 +182,6 @@ repo = 'scrooloose/syntastic'
 hook_add = '''
   let g:syntastic_mode_map = { 'mode': 'passive' }
   let g:syntastic_ruby_checkers = ['rubocop']
-
-  nnoremap <Leader>s :SyntasticCheck<CR>
 '''
 
 [[plugins]]
@@ -260,9 +239,6 @@ hook_source = '''
   autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=darkgrey
 '''
 
-# [[plugins]]
-# repo = 'Yggdroot/indentLine'
-
 #----------------------------------------------
 # others
 #----------------------------------------------
@@ -307,22 +283,10 @@ hook_add = '''
   " imap <c-x><c-j> <plug>(fzf-complete-file-ag)
   " imap <c-x><c-l> <plug>(fzf-complete-line)
 
-  "" :FzfFiles Setting
   command! -bang -nargs=? -complete=dir Files
     \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
-  "" :FzfColors Setting
   command! -bang Colors
     \ call fzf#vim#colors({'left': '15%', 'options': '--reverse --margin 30%,0'}, <bang>0)
-
-  nnoremap <Leader>l :FzfFileList<CR>
-  command! FzfFileList call fzf#run({
-    \ 'source': 'find . -type d -name .git -prune -o ! -name .DS_Store', 'sink': 'e'
-    \ })
-
-  nnoremap <Leader>m :FzfMostRecentlyUsed<CR>
-  command! FzfMostRecentlyUsed call fzf#run({
-    \ 'scommand!ource': v:oldfiles, 'sink': 'tabe', 'options': '-m -x +s', 'down': '40%'
-    \ })
 '''
 
 #----------------------------------------------
