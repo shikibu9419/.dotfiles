@@ -7,7 +7,7 @@ if !has('gui_running') && exists('&termguicolors') && $COLORTERM ==# 'truecolor'
   set termguicolors
 endif
 
-let mapleader="\<Space>"
+let mapleader = "\<Space>"
 
 source $HOME/.vim/dein.rc.vim
 source $HOME/.vim/appearance.rc.vim

@@ -2,7 +2,7 @@
 repo = 'Shougo/dein.vim'
 
 #----------------------------------------------
-# LSP Client
+# LSP client
 #----------------------------------------------
 [[plugins]]
 repo = 'autozimu/LanguageClient-neovim'
@@ -10,8 +10,8 @@ rev = 'next'
 build = 'bash install.sh'
 hook_add = '''
   let g:LanguageClient_serverCommands = {
-        \ 'ruby': ['solargraph', 'stdio'],
-        \}
+    \ 'ruby': ['solargraph', 'stdio'],
+    \}
 
   augroup LanguageClientConfig
     autocmd!
@@ -23,38 +23,7 @@ hook_add = '''
 '''
 
 #----------------------------------------------
-# Git
-#----------------------------------------------
-[[plugins]]
-repo = 'tpope/vim-fugitive'
-hook_add = 'let g:lightline#extensions#branch#enabled=1'
-
-[[plugins]]
-repo = 'airblade/vim-gitgutter'
-hook_add = '''
-  nmap ]h <Plug>GitGutterNextHunk
-  nmap [h <Plug>GitGutterPrevHunk
-'''
-
-#----------------------------------------------
-# Tmux
-#----------------------------------------------
-[[plugins]]
-repo = 'christoomey/vim-tmux-navigator'
-hook_add = '''
-  let g:tmux_navigator_no_mappings = 1
-  nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
-  nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
-  nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
-  nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
-  nnoremap <silent> <C-/> :TmuxNavigatePrevious<cr>
-'''
-
-[[plugins]]
-repo = 'tpope/vim-obsession'
-
-#----------------------------------------------
-# Tags
+# Tag jump
 #----------------------------------------------
 ## gtags
 [[plugins]]
@@ -99,7 +68,7 @@ hook_add = 'let g:gen_tags#gtags_auto_gen = 1'
 # '''
 
 #----------------------------------------------
-# NERDTree.vim
+# NERDTree
 #----------------------------------------------
 [[plugins]]
 repo = 'scrooloose/nerdtree'
@@ -140,6 +109,33 @@ hook_add = '''
 '''
 
 #----------------------------------------------
+# Git
+#----------------------------------------------
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+hook_add = 'let g:lightline#extensions#branch#enabled=1'
+
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+
+#----------------------------------------------
+# Tmux
+#----------------------------------------------
+[[plugins]]
+repo = 'christoomey/vim-tmux-navigator'
+hook_add = '''
+  let g:tmux_navigator_no_mappings = 1
+  nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
+  nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
+  nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
+  nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
+  nnoremap <silent> <C-/> :TmuxNavigatePrevious<cr>
+'''
+
+[[plugins]]
+repo = 'tpope/vim-obsession'
+
+#----------------------------------------------
 # add commands
 #----------------------------------------------
 [[plugins]]
@@ -168,11 +164,6 @@ repo = 'bronson/vim-trailing-whitespace'
 
 [[plugins]]
 repo = 'junegunn/vim-easy-align'
-hook_add = '''
-  map ga <Nop>
-  nmap ga <Plug>(EasyAlign)
-  vmap ga <Plug>(EasyAlign)
-'''
 
 #----------------------------------------------
 # enhancement
@@ -186,7 +177,6 @@ hook_add = '''
 
 [[plugins]]
 repo = 'osyo-manga/vim-over'
-hook_add = 'nnoremap <silent> <Leader>o :OverCommandLine<CR>'
 
 [[plugins]]
 repo = 'rhysd/clever-f.vim'
@@ -258,7 +248,6 @@ hook_add = '''
 
 [[plugins]]
 repo = 'rizzatti/dash.vim'
-hook_add = 'nmap <silent> <Leader>d <Plug>DashSearch'
 
 [[plugins]]
 repo = 'junegunn/fzf'
@@ -276,12 +265,6 @@ hook_add = '''
   \ 'ctrl-v': 'vsplit' }
   let g:fzf_layout = { 'down': '~30%' }
   " let g:fzf_tags_command = 'ctags -R'
-  " nmap <leader><tab> <plug>(fzf-maps-n)
-  " " Insert mode completion
-  " imap <c-x><c-k> <plug>(fzf-complete-word)
-  " imap <c-x><c-f> <plug>(fzf-complete-path)
-  " imap <c-x><c-j> <plug>(fzf-complete-file-ag)
-  " imap <c-x><c-l> <plug>(fzf-complete-line)
 
   command! -bang -nargs=? -complete=dir Files
     \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
