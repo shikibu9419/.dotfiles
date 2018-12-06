@@ -1,29 +1,6 @@
 #----------------------------------------------
 # Completion
 #----------------------------------------------
-# [[plugins]]
-# repo = 'Shougo/neocomplete.vim'
-# hook_add = '''
-#   let g:acp_enableAtStartup = 1
-#   let g:neocomplete#enable_at_startup = 1
-#   let g:neocomplete#enable_smart_case = 1
-#   let g:neocomplete#sources#syntax#min_keyword_length = 3
-#
-#   " For Ruby
-#   if !exists('g:neocomplete#force_omni_input_patterns')
-#     let g:neocomplete#force_omni_input_patterns = {}
-#   endif
-#   let g:neocomplete#force_omni_input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
-#   let g:rsenseUseomniFunc = 1
-#
-#   " Plugin key-mappings.
-#   inoremap <expr><C-g> neocomplete#undo_completion()
-#   inoremap <expr><C-l> neocomplete#complete_common_string()
-#   inoremap <expr><tab> pumvisible() ? "\<C-n>" : "\<TAB>"
-# '''
-# if = "!has('nvim')"
-# on_i = 1
-
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 hook_add = '''
@@ -37,7 +14,7 @@ hook_add = '''
   let g:deoplete#file#enable_buffer_path = 1
   let g:deoplete#max_list = 10000
 
-  inoremap <expr><tab> pumvisible() ? "\<C-n>" : "\<TAB>"
+  " inoremap <expr><tab> pumvisible() ? "\<C-n>" : "\<TAB>"
   inoremap <expr><tab> pumvisible() ? "\<C-n>" :
           \ neosnippet#expandable_or_jumpable() ?
           \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
@@ -146,17 +123,6 @@ repo = 'tpope/vim-rails'
 
 [[plugins]]
 repo = 'todesking/ruby_hl_lvar.vim'
-
-# [[plugins]]
-# repo = 'osyo-manga/vim-monster'
-# hook_add = '''
-# let g:monster#completion#rcodetools#backend = "async_rct_complete"
-# let g:deoplete#sources#omni#input_patterns = {
-#   \ "ruby" : '[^. *\t]\.\w*\|\h\w*::',
-#   \}
-# '''
-# on_ft = 'ruby'
-# on_i = 1
 
 #----------------------------------------------
 # TeX

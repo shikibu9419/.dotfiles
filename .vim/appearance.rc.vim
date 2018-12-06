@@ -8,6 +8,10 @@ set cursorline
 hi LineNr ctermfg=243
 hi CursorLineNr ctermfg=255
 colorscheme hybrid
+""" Indent guides
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
+let g:indent_guides_auto_colors = 1
 
 "" Encodings
 set encoding=utf-8
@@ -28,6 +32,7 @@ set scrolloff=3
 function! ZenkakuSpace()
   highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
 endfunction
+
 if has('syntax')
   augroup ZenkakuSpace
     autocmd!

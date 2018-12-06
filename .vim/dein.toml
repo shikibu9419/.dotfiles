@@ -7,19 +7,9 @@ repo = 'Shougo/dein.vim'
 [[plugins]]
 repo = 'autozimu/LanguageClient-neovim'
 rev = 'next'
-build = 'bash install.sh'
-hook_add = '''
-  let g:LanguageClient_serverCommands = {
-    \ 'ruby': ['solargraph', 'stdio'],
-    \}
-
-  augroup LanguageClientConfig
-    autocmd!
-    autocmd User LanguageClientStarted setlocal signcolumn=yes
-    autocmd User LanguageClientStopped setlocal signcolumn=auto
-  augroup END
-
-  let g:LanguageClient_autoStart = 1
+hook_post_update = '''
+  " TODO: Separate case by OS
+  let g:dein#plugin.build = 'bash install.sh'
 '''
 
 #----------------------------------------------
@@ -31,8 +21,6 @@ repo = 'lighttiger2505/gtags.vim'
 hook_add = '''
   let g:Gtags_Auto_Map = 0
   let g:Gtags_OpenQuickfixWindow = 1
-  " nmap <silent> <C-t>k :<C-u>exe("Gtags ".expand('<cword>'))<CR>
-  " nmap <silent> <C-t>r :<C-u>exe("Gtags -r ".expand('<cword>'))<CR>
 '''
 
 [[plugins]]
@@ -136,8 +124,22 @@ hook_add = '''
 repo = 'tpope/vim-obsession'
 
 #----------------------------------------------
-# add commands
+# Add commands
 #----------------------------------------------
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+
+[[plugins]]
+repo = 'terryma/vim-multiple-cursors'
+hook_add = '''
+" function! Multiple_cursors_before()
+"   if exists(':NeoCompleteLock')==2
+"     exe 'NeoCompleteLock'
+"     echo 'Disabled Neocomplete'
+"   endif
+" endfunction
+'''
+
 [[plugins]]
 repo = 'thinca/vim-quickrun'
 hook_add = '''
@@ -166,7 +168,7 @@ repo = 'bronson/vim-trailing-whitespace'
 repo = 'junegunn/vim-easy-align'
 
 #----------------------------------------------
-# enhancement
+# Enhancement
 #----------------------------------------------
 [[plugins]]
 repo = 'scrooloose/syntastic'
@@ -202,7 +204,7 @@ hook_add = '''
 '''
 
 #----------------------------------------------
-# appearance
+# Appearance
 #----------------------------------------------
 [[plugins]]
 repo = 'itchyny/lightline.vim'
@@ -221,37 +223,19 @@ depends = 'Shougo/context_filetype.vim'
 
 [[plugins]]
 repo = 'nathanaelkane/vim-indent-guides'
-hook_source = '''
-  let g:indent_guides_enable_on_vim_startup = 1
-  let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
-  let g:indent_guides_auto_colors = 1
-  autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=black
-  autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=darkgrey
-'''
 
 #----------------------------------------------
-# others
+# External plugins
 #----------------------------------------------
-[[plugins]]
-repo = 'Shougo/vimproc.vim'
-
-[[plugins]]
-repo = 'terryma/vim-multiple-cursors'
-hook_add = '''
-" function! Multiple_cursors_before()
-"   if exists(':NeoCompleteLock')==2
-"     exe 'NeoCompleteLock'
-"     echo 'Disabled Neocomplete'
-"   endif
-" endfunction
-'''
-
 [[plugins]]
 repo = 'rizzatti/dash.vim'
 
 [[plugins]]
 repo = 'junegunn/fzf'
-build = './install --bin'
+hook_post_update = '''
+  " TODO: Separate case by OS
+  let g:dein#plugin.build = './install --bin'
+'''
 merged = '0'
 
 [[plugins]]
@@ -264,20 +248,23 @@ hook_add = '''
   \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit' }
   let g:fzf_layout = { 'down': '~30%' }
-  " let g:fzf_tags_command = 'ctags -R'
 
   command! -bang -nargs=? -complete=dir Files
     \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
   command! -bang Colors
     \ call fzf#vim#colors({'left': '15%', 'options': '--reverse --margin 30%,0'}, <bang>0)
+
+  command! FzfFileList call fzf#run({
+    \ 'source': 'find . -type d -name .git -prune -o ! -name .DS_Store', 'sink': 'e'
+    \ })
+  command! FzfMostRecentlyUsed call fzf#run({
+    \ 'scommand!ource': v:oldfiles, 'sink': 'tabe', 'options': '-m -x +s', 'down': '40%'
+    \ })
 '''
 
 #----------------------------------------------
 # Colorschemes
 #----------------------------------------------
-[[plugins]]
-repo = 'nanotech/jellybeans.vim'
-
 [[plugins]]
 repo = 'w0ng/vim-hybrid'
 
@@ -295,12 +282,6 @@ repo = 'raphamorim/lucario'
 
 [[plugins]]
 repo = 'jdkanani/vim-material-theme'
-
-[[plugins]]
-repo = 'jacoborus/tender.vim'
-
-[[plugins]]
-repo = 'dracula/vim'
 
 [[plugins]]
 repo = 'aereal/vim-colors-japanesque'

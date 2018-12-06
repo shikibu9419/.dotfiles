@@ -1,4 +1,13 @@
-"" True color
+source $HOME/.vim/plugin.rc.vim
+source $HOME/.vim/appearance.rc.vim
+source $HOME/.vim/edit.rc.vim
+source $HOME/.vim/keymap.rc.vim
+
+"" Other config
+if has('nvim')
+  let g:python3_host_prog = expand('~/.pyenv/versions/3.7.0/bin/python')
+endif
+
 if !has('gui_running') && exists('&termguicolors') && $COLORTERM ==# 'truecolor'
   if !has('nvim')
     let &t_8f = "\e[38;2;%lu;%lu;%lum"
@@ -6,13 +15,6 @@ if !has('gui_running') && exists('&termguicolors') && $COLORTERM ==# 'truecolor'
   endif
   set termguicolors
 endif
-
-let mapleader = "\<Space>"
-
-source $HOME/.vim/dein.rc.vim
-source $HOME/.vim/appearance.rc.vim
-source $HOME/.vim/edit.rc.vim
-source $HOME/.vim/keymap.rc.vim
 
 "" Tab setting
 function! s:SID_PREFIX()

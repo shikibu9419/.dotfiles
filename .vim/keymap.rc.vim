@@ -1,4 +1,6 @@
-"" normal mode
+let mapleader = "\<Space>"
+
+"" Normal mode
 nnoremap q: :q
 nnoremap Y y$
 nnoremap + <C-a>
@@ -11,17 +13,17 @@ nnoremap <Leader>v :vsplit
 nnoremap <Leader>q <Esc>:q
 nnoremap <Leader>, :source $MYVIMRC<CR>
 
-"" insert mode
+"" Insert mode
 inoremap <F1> <Esc>
 noremap  <F1> <Esc>
 
-"" command mode
+"" Command mode
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
 cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
 cnoremap <expr> ? getcmdtype() == '?' ? '\?' : '?'
 
-"" visual mode
+"" Visual mode
 vnoremap < <gv
 vnoremap > >gv
 
@@ -38,36 +40,32 @@ nmap [h <Plug>GitGutterPrevHunk
 " imap <c-x><c-f> <plug>(fzf-complete-path)
 " imap <c-x><c-j> <plug>(fzf-complete-file-ag)
 " imap <c-x><c-l> <plug>(fzf-complete-line)
+" nmap <silent> <C-t>k :<C-u>exe("Gtags ".expand('<cword>'))<CR>
+" nmap <silent> <C-t>r :<C-u>exe("Gtags -r ".expand('<cword>'))<CR>
 
-"" using <Leader>
+"" Using <Leader>
 nmap <silent> <Leader>d <Plug>DashSearch
 nmap <silent> <Leader>n :NERDTreeToggle<CR>
 nmap <silent> <Leader>o :OverCommandLine<CR>
 nmap <Leader>b <Plug>(openbrowser-smart-search)
 vmap <Leader>b <Plug>(openbrowser-smart-search)
 nmap <Leader>r <Plug>(quickrun)
-nmap <Leader>s :SyntasticCheck<CR>
+" nmap <Leader>s :SyntasticCheck<CR>
 
-""" prefix
+""" Prefix
 map <Leader>f [fzf]
-map <Leader>g [fugitive]
+map <Leader>g [git]
 map <Leader>l [lsp]
 " map <Leader>n [nerdtree]
 
-""" keybinds
+""" Keybinds
 nmap [fzf]l :FzfFileList<CR>
 nmap [fzf]m :FzfMostRecentlyUsed<CR>
-command! FzfFileList call fzf#run({
-  \ 'source': 'find . -type d -name .git -prune -o ! -name .DS_Store', 'sink': 'e'
-  \ })
-command! FzfMostRecentlyUsed call fzf#run({
-  \ 'scommand!ource': v:oldfiles, 'sink': 'tabe', 'options': '-m -x +s', 'down': '40%'
-  \ })
 
-nmap <silent> [fugitive]s :<C-u>Gstatus<CR>
-nmap <silent> [fugitive]d :<C-u>Gdiff<CR>
-nmap <silent> [fugitive]b :<C-u>Gblame<CR>
-nmap <silent> [fugitive]l :<C-u>Glog<CR>
+nmap <silent> [git]s :<C-u>Gstatus<CR>
+nmap <silent> [git]d :<C-u>Gdiff<CR>
+nmap <silent> [git]b :<C-u>Gblame<CR>
+nmap <silent> [git]l :<C-u>Glog<CR>
 
 nmap <silent> [lsp]h :call LanguageClient_textDocument_hover()<CR>
 nmap <silent> [lsp]d :call LanguageClient_textDocument_definition()<CR>
