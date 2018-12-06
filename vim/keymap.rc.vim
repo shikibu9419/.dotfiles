@@ -1,5 +1,6 @@
 let mapleader = "\<Space>"
 
+map  <F1> <Esc>
 "" Normal mode
 nnoremap q: :q
 nnoremap Y y$
@@ -14,9 +15,6 @@ nnoremap <Leader>q <Esc>:q
 nnoremap <Leader>, :source $MYVIMRC<CR>
 
 "" Insert mode
-inoremap <F1> <Esc>
-noremap  <F1> <Esc>
-
 "" Command mode
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
@@ -30,7 +28,7 @@ vnoremap > >gv
 "----------------------------------------------
 " Plugins
 "----------------------------------------------
-map ga <Nop>
+map  ga <Nop>
 nmap ga <Plug>(EasyAlign)
 vmap ga <Plug>(EasyAlign)
 nmap ]h <Plug>GitGutterNextHunk

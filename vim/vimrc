@@ -1,7 +1,7 @@
-source $HOME/.vim/plugin.rc.vim
-source $HOME/.vim/appearance.rc.vim
-source $HOME/.vim/edit.rc.vim
-source $HOME/.vim/keymap.rc.vim
+source $DOTPATH/vim/plugin.rc.vim
+source $DOTPATH/vim/appearance.rc.vim
+source $DOTPATH/vim/edit.rc.vim
+source $DOTPATH/vim/keymap.rc.vim
 
 "" Other config
 if has('nvim')
