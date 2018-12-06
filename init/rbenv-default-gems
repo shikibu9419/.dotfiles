@@ -1,13 +1,11 @@
+neovim
 bundler
 rails
 pry
 rspec
 rubocop
-cocoapod
 gem-browse
-unf
 mp3info
-neovim
 json
 rest-client
 solargraph

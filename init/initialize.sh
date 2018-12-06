@@ -65,7 +65,7 @@ cp $DOCKER_COMPLETION_PATH/docker-machine.zsh-completion $DOTPATH/.zsh/completio
 
 # Programing Languages
 echo "gem..."
-ln -sifF $DOTPATH/rbenv-default-gems ~/.rbenv/default-gems
+ln -sifF $DOTPATH/init/rbenv-default-gems ~/.rbenv/default-gems
 
 echo "pip..."
 pip install --upgrade setuptools

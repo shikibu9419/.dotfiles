@@ -73,7 +73,7 @@ fi
 install
 [[ $1 = 'init' ]] && sh $DOTPATH/init/initialize.sh
 sh $DOTPATH/init/deploy.sh
-sh $DOTPATH/init/mac_defaults.sh
+sh $DOTPATH/init/default-writes.sh
 
 # Set shell
 read -p "Which shell do you use? (zsh or fish): " shell
