@@ -1,9 +1,6 @@
 #!/bin/sh
 
-VIM_DEIN_DIRECTORY="$DOTPATH/.vim/dein/repos/github.com/Shougo/dein.vim"
-TMUX_TPM_DIRECTORY="$HOME/.tmux/plugins/tpm"
 DOCKER_COMPLETION_PATH="/Applications/Docker.app/Contents/Resources/etc"
-
 cd $DOTPATH
 
 # set Homebrew
@@ -40,21 +37,9 @@ fi
 cp /usr/local/opt/global/share/gtags/gtags.conf ~/.globalrc
 npm install -g pure-prompt
 
-# Editors
-echo "Vim..."
-if [ ! -d $VIM_DEIN_DIRECTORY ]; then
-  mkdir -p $VIM_DEIN_DIRECTORY
-  git clone https://github.com/Shougo/dein.vim.git $VIM_DEIN_DIRECTORY
-fi
-
+# Editor
 echo "VS Code..."
 sh $DOTPATH/init/vscode/initialize.sh
-
-# Tmux
-echo "Tmux..."
-if [ ! -d $TMUX_TPM_DIRECTORY ]; then
-  git clone https://github.com/tmux-plugins/tpm $TMUX_TPM_DIRECTORY
-fi
 
 # Docker
 echo "Docker..."
