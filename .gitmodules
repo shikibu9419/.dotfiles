@@ -1,6 +1,6 @@
 [submodule ".vim/dein.vim"]
 	path = .vim/dein.vim
 	url = https://github.com/Shougo/dein.vim
-[submodule ".tmux/plugins/tpm"]
-	path = .tmux/plugins/tpm
+[submodule "tmux/plugins/tpm"]
+	path = tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
