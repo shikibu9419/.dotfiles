@@ -1,9 +1,3 @@
-# Configuration for Alacritty, the GPU enhanced terminal emulator.
-
-# Any items in the `env` entry below will be added as
-# environment variables. Some entries may override variables
-# set by alacritty itself.
-
 shell:
  program: /usr/local/bin/zsh
  args:
@@ -17,13 +11,9 @@ window:
     columns: 80
     lines: 24
 
-  # Window padding (changes require restart)
-  #
-  # Blank space added around the window in pixels. This padding is not scaled
-  # by DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 4
-    y: 4
+    x: 2
+    y: 2
 
   # Window decorations
   #
@@ -44,12 +34,7 @@ window:
   decorations: full
 
 scrolling:
-  # Maximum number of lines in the scrollback buffer.
-  # Specifying '0' will disable scrolling.
   history: 10000
-
-  # Number of lines the viewport will move for every line scrolled when
-  # scrollback is enabled (history > 0).
   multiplier: 3
 
   # Faux Scrolling
@@ -64,24 +49,17 @@ scrolling:
   # Scroll to the bottom when new text is written to the terminal.
   auto_scroll: false
 
-# Spaces per Tab (changes require restart)
-#
-# This setting defines the width of a tab in cells.
-#
-# Some applications, like Emacs, rely on knowing about the width of a tab.
-# To prevent unexpected behavior in these applications, it's also required to
-# change the `it` value in terminfo when altering this setting.
 tabspaces: 4
 
 font:
   normal:
-    family: Ricty
+    family: Ricty for Powerline
     style: Regular
   bold:
-    family: Ricty
+    family: Ricty for Powerline
     style: Bold
   italic:
-    family: Ricty
+    family: Ricty for Powerline
     style: Italic
 
   size: 13.0
