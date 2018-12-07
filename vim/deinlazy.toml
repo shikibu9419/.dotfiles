@@ -4,6 +4,9 @@
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 hook_add = '''
+  "" Completion setting
+  set completeopt+=noinsert
+
   let g:deoplete#enable_at_startup = 1
   let g:deoplete#auto_complete_delay = 0
   let g:deoplete#auto_complete_start_length = 1
@@ -27,9 +30,6 @@ if = "has('nvim')"
 on_i = 1
 
 [[plugins]]
-repo = 'zchee/deoplete-clang'
-
-[[plugins]]
 repo = 'zchee/deoplete-jedi'
 
 [[plugins]]
@@ -41,10 +41,6 @@ repo = 'zchee/deoplete-go'
 [[plugins]]
 repo = 'Shougo/neosnippet.vim'
 hook_source = '''
-  imap <C-k> <Plug>(neosnippet_expand_or_jump)
-  smap <C-k> <Plug>(neosnippet_expand_or_jump)
-  xmap <C-k> <Plug>(neosnippet_expand_target)
-
   if has('conceal')
     set conceallevel=2 concealcursor=niv
   endif
@@ -126,30 +122,30 @@ repo = 'todesking/ruby_hl_lvar.vim'
 #----------------------------------------------
 # TeX
 #----------------------------------------------
-# [[plugins]]
-# repo = 'lervag/vimtex'
-# hook_source = '''
-#   let g:vimtex_compiler_latexmk = {
-#         \ 'background': 1,
-#         \ 'build_dir': '',
-#         \ 'continuous': 1,
-#         \ 'options': [
-#         \    '-pdfdvi',
-#         \    '-verbose',
-#         \    '-file-line-error',
-#         \    '-synctex=1',
-#         \    '-interaction=nonstopmode',
-#         \],
-#         \}
-#   let g:vimtex_compiler_latexmk = {'callback': 0}
-#   let g:vimtex_latexmk_continuous = 1
-#   let g:vimtex_latexmk_options = '-pdfdvi'
-#   let g:tex_conceal = ''
-#   let g:vimtex_fold_envs = 0
-#   let g:vimtex_view_general_viewer = '/Applications/Skim.app/Contents/SharedSupport/displayline'
-#   " let g:vimtex_view_general_options = '--unique @pdf\#src:@line@tex'
-# '''
-# on_ft = 'tex'
+[[plugins]]
+repo = 'lervag/vimtex'
+hook_source = '''
+  let g:vimtex_compiler_latexmk = {
+        \ 'background': 1,
+        \ 'build_dir': '',
+        \ 'continuous': 1,
+        \ 'options': [
+        \    '-pdfdvi',
+        \    '-verbose',
+        \    '-file-line-error',
+        \    '-synctex=1',
+        \    '-interaction=nonstopmode',
+        \],
+        \}
+  let g:vimtex_compiler_latexmk = {'callback': 0}
+  let g:vimtex_latexmk_continuous = 1
+  let g:vimtex_latexmk_options = '-pdfdvi'
+  let g:tex_conceal = ''
+  let g:vimtex_fold_envs = 0
+  let g:vimtex_view_general_viewer = '/Applications/Skim.app/Contents/SharedSupport/displayline'
+  " let g:vimtex_view_general_options = '--unique @pdf\#src:@line@tex'
+'''
+on_ft = 'tex'
 
 #----------------------------------------------
 # Others
@@ -177,7 +173,6 @@ on_ft = 'kotlin'
 
 [[plugins]]
 repo = 'slim-template/vim-slim'
-hook_add = 'autocmd BufNewFile,BufRead *.slim setlocal filetype=slim'
 on_ft = 'slim'
 
 [[plugins]]

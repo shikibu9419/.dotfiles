@@ -21,7 +21,9 @@ set shiftwidth=2
 set softtabstop=2
 
 augroup filetypedetect
-  "" C, C++, Java, Kotlin, CSS, JSON: 4 spaces
+  "" Set filetype
+  autocmd BufRead,BufNewFile *.slim setlocal filetype=slim
+  "" C, C++, Java, Kotlin, CSS, JSON => 4 spaces
   autocmd BufRead,BufNewFile *.c    setlocal tabstop=4 shiftwidth=4 softtabstop=4
   autocmd BufRead,BufNewFile *.cpp  setlocal tabstop=4 shiftwidth=4 softtabstop=4
   autocmd BufRead,BufNewFile *.java setlocal tabstop=4 shiftwidth=4 softtabstop=4
@@ -48,10 +50,8 @@ set wildmenu
 set history=1000
 "" Enable backspace (for Mac)
 set backspace=indent,eol,start
-"" Comment setting
+"" Not inherit the comment state at line feed
 autocmd FileType * setlocal formatoptions-=ro
-"" Completion setting
-set completeopt+=noinsert
 
 "" Auto write
 set autowrite
@@ -73,7 +73,7 @@ if !has('nvim')
 endif
 set mouse=a
 
-"" matchit
+"" Extend matchit
 set matchpairs+=<:>
 if !exists('loaded_matchit')
   runtime macros/matchit.vim

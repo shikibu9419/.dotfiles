@@ -28,6 +28,18 @@ vnoremap > >gv
 "----------------------------------------------
 " Plugins
 "----------------------------------------------
+"" Prefix key
+map <Leader>f [fzf]
+map <Leader>g [git]
+map <Leader>l [lsp]
+" map <Leader>n [nerdtree]
+" nmap [denite] <Nop>
+" map <C-j> [denite]
+" nmap <silent> [denite]<C-D> :Denite -buffer-name=gtags_completion gtags_completion<cr>
+
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
 map  ga <Nop>
 nmap ga <Plug>(EasyAlign)
 vmap ga <Plug>(EasyAlign)
@@ -50,13 +62,6 @@ vmap <Leader>b <Plug>(openbrowser-smart-search)
 nmap <Leader>r <Plug>(quickrun)
 " nmap <Leader>s :SyntasticCheck<CR>
 
-""" Prefix
-map <Leader>f [fzf]
-map <Leader>g [git]
-map <Leader>l [lsp]
-" map <Leader>n [nerdtree]
-
-""" Keybinds
 nmap [fzf]l :FzfFileList<CR>
 nmap [fzf]m :FzfMostRecentlyUsed<CR>
 

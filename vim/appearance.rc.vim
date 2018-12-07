@@ -8,7 +8,7 @@ set cursorline
 hi LineNr ctermfg=243
 hi CursorLineNr ctermfg=255
 colorscheme hybrid
-""" Indent guides
+"" Indent guides
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
 let g:indent_guides_auto_colors = 1

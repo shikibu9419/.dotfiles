@@ -29,13 +29,6 @@ hook_add = 'let g:gen_tags#gtags_auto_gen = 1'
 
 # [[plugins]]
 # repo = 'ozelentok/denite-gtags'
-# hook_add = '''
-#     " Prefix key
-#     nmap [denite] <Nop>
-#     map <C-j> [denite]
-#     " Keymap
-#     nmap <silent> [denite]<C-D> :Denite -buffer-name=gtags_completion gtags_completion<cr>
-# '''
 
 # # ctags
 # [[plugins]]
@@ -132,12 +125,12 @@ repo = 'Shougo/vimproc.vim'
 [[plugins]]
 repo = 'terryma/vim-multiple-cursors'
 hook_add = '''
-" function! Multiple_cursors_before()
-"   if exists(':NeoCompleteLock')==2
-"     exe 'NeoCompleteLock'
-"     echo 'Disabled Neocomplete'
-"   endif
-" endfunction
+  " function! Multiple_cursors_before()
+  "   if exists(':NeoCompleteLock')==2
+  "     exe 'NeoCompleteLock'
+  "     echo 'Disabled Neocomplete'
+  "   endif
+  " endfunction
 '''
 
 [[plugins]]
@@ -209,6 +202,9 @@ hook_add = '''
 [[plugins]]
 repo = 'itchyny/lightline.vim'
 
+# [[plugins]]
+# repo = 'ryanoasis/vim-devicons'
+
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'
 hook_add = '''
@@ -223,6 +219,10 @@ depends = 'Shougo/context_filetype.vim'
 
 [[plugins]]
 repo = 'nathanaelkane/vim-indent-guides'
+hook_add = '''
+  let g:indent_guides_guide_size = 1
+  let g:indent_guides_start_level = 2
+'''
 
 #----------------------------------------------
 # External plugins
