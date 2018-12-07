@@ -1,20 +1,20 @@
 # dotfiles
 This is my dotfiles for macOS.
 
-### Install only
+## Setup
+
+Install dotfiles:
 
 ```shell
-> git clone https://github.com/shikibu9419/dotfiles.git
+$ bash <(curl -fsSL raw.github.com/shikibu9419/.dotfiles/master/init/install.sh) [DIRECTORY]
 ```
 
-### Install, Initialize and Deploy
+Make command list:
 
 ```shell
-> bash <(curl -fsSL raw.github.com/shikibu9419/dotfiles/master/init/install.sh) init
-```
-
-### Install and Deploy
-
-```shell
-> bash <(curl -fsSL raw.github.com/shikibu9419/dotfiles/master/init/install.sh) deploy
+$ make list     # list up dotfiles
+$ make init     # initialize
+$ make deploy   # deploy dotfiles
+$ make install  # initialize and deploy
+$ make update   # update repository, modules and other plugins
 ```

@@ -1,4 +1,29 @@
 #!/bin/sh
+set -e
+
+has() {
+  type "$1" > /dev/null 2>&1
+}
+
+notice() {
+  echo "=================================================="
+  echo $1
+  echo "=================================================="
+}
+
+strong_msg() {
+  if has "printf"; then
+    printf "\e[37;1m$1\e[m\n"
+  else
+    echo -e "\e[37;1m$1\e[m"
+  fi
+}
+
+error() {
+  strong_msg $1
+  exit 1
+}
+
 
 DOCKER_COMPLETIONS_PATH="/Applications/Docker.app/Contents/Resources/etc"
 ZSH_COMPLETIONS_PATH="$HOME/.zsh/completions"
@@ -37,6 +62,7 @@ else
 fi
 cp /usr/local/opt/global/share/gtags/gtags.conf ~/.globalrc
 npm install -g pure-prompt
+chsh -s $(which zsh)
 
 # Editor
 echo "VS Code..."
@@ -63,4 +89,15 @@ pip3 install neovim
 echo "Rust..."
 curl https://sh.rustup.rs -sSf | sh
 
-strong_msg "Initialization is completed!!\n"
+bash $DOTPATH/init/default-writes.sh
+
+strong_msg "Initialization finished successfully!!"
+cat <<EOF
+Please run this commands to complete initialize truly.
+> rustup component add rls-preview rust-analysis rust-src
+
+And please rewrite ~/.globalrc as following diff.
+37   default:\
+38 - :tc=native:
+   + :tc=native:tc=pygments:
+EOF
