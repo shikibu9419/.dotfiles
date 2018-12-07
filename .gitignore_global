@@ -1,17 +1,9 @@
 .DS_Store
-
-# git worktree
 .git-worktrees
-
-# **env
 .ruby-version
 .python-version
-
-# IDE dirs
 .idea
 .project
-
-# gtags
 GPATH
 GRTAGS
 GTAGS
