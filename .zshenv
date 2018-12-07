@@ -1,10 +1,11 @@
-export LANG=ja_JP.utf-8
-export LC_ALL=ja_JP.utf-8
-export TERM=xterm-256color
 export DOTPATH=$HOME/dotfiles
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_CACHE_HOME=$HOME/.cache
+
+export LANG=ja_JP.utf-8
+export LC_ALL=ja_JP.utf-8
+export TERM=xterm-256color
 export EDITOR=vim
 export GOPATH=$HOME/go
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-11.jdk/Contents/Home

@@ -1,6 +1,10 @@
 zshaddhistory() {
   local line=${1%%$'\n'}
-  [[ $#line -ge 5 && $#line != 'reload' && $#line != 'myupdate' ]]
+  local cmd=${line%% *}
+  [[ $#line -ge 5
+    && $cmd != (reload|myupdate)
+    && $cmd != (l[sal]|cd|man)
+    && $cmd != (g[acd]|t[kl][swp]) ]] ## Git/Tmux aliases
 }
 
 HISTFILE=~/.zsh_history

@@ -1,12 +1,17 @@
 if [[ -z $TMUX ]]; then
-  tmuximum && exit
+  if [[ -n $(tmux list-sessions) ]]; then
+    cmd=tmuximum
+  else
+    cmd=tmux
+  fi
+  $cmd && exit
 fi
 
-source ~/.zsh/plugins.zsh
-source ~/.zsh/appearance.zsh
-source ~/.zsh/keymaps.zsh
-source ~/.zsh/functions.zsh
-source ~/.zsh/history_config.zsh
+source $DOTPATH/zsh/plugins.zsh
+source $DOTPATH/zsh/appearance.zsh
+source $DOTPATH/zsh/keymaps.zsh
+source $DOTPATH/zsh/functions.zsh
+source $DOTPATH/zsh/history_config.zsh
 
 #------------------------------------------
 # Initialize

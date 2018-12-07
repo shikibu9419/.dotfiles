@@ -1,6 +1,8 @@
-if [ -z $TMUX ]
-  tmux; and exit
-end
+### My fish environment is uncompleted...
+
+# if [ -z $TMUX ]
+#   tmux; and exit
+# end
 
 # TODO
 # enhancd, tmuximum to fish?

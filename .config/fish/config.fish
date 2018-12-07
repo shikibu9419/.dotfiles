@@ -1,1 +1,2 @@
-source ~/.fish/rc.fish
+set -x DOTPATH ~/dotfiles
+source $DOTPATH/fish/rc.fish

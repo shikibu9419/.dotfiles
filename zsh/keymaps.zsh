@@ -1,7 +1,7 @@
-### Functions whose name starts with '_' are defined in dotfiles/.zsh/functions.zsh
+### Functions whose name starts with '_' are defined in dotfiles/zsh/functions.zsh
 
 ## plugins
-alias t='tmuximum'
+alias t=tmuximum
 alias cdg=cd-gitroot
 
 ## bindkeys
@@ -72,10 +72,10 @@ alias tlp='tmux list-panes -t'
 ## others
 alias -g ...='../..'
 alias -g ....='../../..'
-alias v='nvim'
-alias vi='nvim'
-alias vim='nvim'
-alias c='clear'
+alias v=nvim
+alias vi=nvim
+alias vim=nvim
+alias c=clear
 
 alias vls='vim $(git ls-files | fzf)'
 alias ql='qlmanage -p $@ >& /dev/null'

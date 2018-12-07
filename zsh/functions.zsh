@@ -6,12 +6,12 @@ _show_ls_gs() {
   fi
 
   echo
-  echo -e "\e[0;33m--- ls ---\e[0m"
+  echo -e '\e[0;33m--- ls ---\e[0m'
   ls
   echo
 
   if _git_available; then
-    echo -e "\e[0;33m--- git status ---\e[0m"
+    echo -e '\e[0;33m--- git status ---\e[0m'
     git status -sb
     echo
   fi
@@ -38,7 +38,7 @@ _git_list_checkout() {
 
   local branches=$(git branch --all | grep -v HEAD)
   local branch=$(echo $branches | fzf-tmux -d)
-  git checkout $(echo $branch | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+  git checkout $(echo $branch | sed 's/.* //' | sed 's#remotes/[^/]*/##')
   zle reset-prompt
 }
 

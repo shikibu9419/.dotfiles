@@ -2,15 +2,15 @@ source /usr/local/opt/zplug/init.zsh
 ZPLUG_REPOS="$HOME/.zplug/repos"
 
 zplug 'zsh-users/zsh-completions', lazy:true
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug "zsh-users/zsh-autosuggestions", defer:2
-zplug "lukechilds/zsh-nvm"
-zplug "lukechilds/zsh-better-npm-completion", defer:2
-zplug "b4b4r07/enhancd", use:init.sh
-zplug "mollifier/cd-gitroot", use:'!*'
-zplug "supercrabtree/k", use:'!*'
-# zplug "b4b4r07/emoji-cli"
-# zplug "b4b4r07/zsh-gomi"
+zplug 'zsh-users/zsh-syntax-highlighting', defer:2
+zplug 'zsh-users/zsh-autosuggestions', defer:2
+zplug 'lukechilds/zsh-nvm'
+zplug 'lukechilds/zsh-better-npm-completion', defer:2
+zplug 'b4b4r07/enhancd', use:init.sh
+zplug 'mollifier/cd-gitroot', use:'!*'
+zplug 'supercrabtree/k', use:'!*'
+# zplug 'b4b4r07/emoji-cli'
+# zplug 'b4b4r07/zsh-gomi'
 
 zplug load
 
@@ -51,7 +51,7 @@ ZSH_HIGHLIGHT_STYLES[double-quoted-argument-unclosed]='fg=red'
 ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument-unclosed]='fg=red'
 
 ## other plugins
-export FZF_ALT_C_OPTS="--select-1 --exit-0"
+export FZF_ALT_C_OPTS='--select-1 --exit-0'
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=245'
 
 cd-gitroot() {
