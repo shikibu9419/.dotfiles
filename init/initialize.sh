@@ -1,6 +1,7 @@
 #!/bin/sh
 
-DOCKER_COMPLETION_PATH="/Applications/Docker.app/Contents/Resources/etc"
+DOCKER_COMPLETIONS_PATH="/Applications/Docker.app/Contents/Resources/etc"
+ZSH_COMPLETIONS_PATH="$HOME/.zsh/completions"
 cd $DOTPATH
 
 # set Homebrew
@@ -13,7 +14,7 @@ else
 fi
 
 if ! has "brew"; then
-  error_msg "Installing Homebrew failed."
+  error "Installing Homebrew failed."
 fi
 
 # brew install
@@ -43,13 +44,14 @@ sh $DOTPATH/init/vscode/initialize.sh
 
 # Docker
 echo "Docker..."
-mkdir $DOTPATH/.zsh/completions
-cp $DOCKER_COMPLETION_PATH/docker.zsh-completion $DOTPATH/.zsh/completions/_docker
-cp $DOCKER_COMPLETION_PATH/docker-compose.zsh-completion $DOTPATH/.zsh/completions/_docker-compose
-cp $DOCKER_COMPLETION_PATH/docker-machine.zsh-completion $DOTPATH/.zsh/completions/_docker-machine
+if [ ! -d $ZSH_COMPLETIONS_PATH ] && mkdir -p $ZSH_COMPLETIONS_PATH
+cp $DOCKER_COMPLETIONS_PATH/docker.zsh-completion $ZSH_COMPLETIONS_PATH/_docker
+cp $DOCKER_COMPLETIONS_PATH/docker-compose.zsh-completion $ZSH_COMPLETIONS_PATH/_docker-compose
+cp $DOCKER_COMPLETIONS_PATH/docker-machine.zsh-completion $ZSH_COMPLETIONS_PATH/_docker-machine
 
 # Programing Languages
 echo "gem..."
+if [ ! -d ~/.rbenv ] && mkdir ~/.rbenv
 ln -sifF $DOTPATH/init/rbenv-default-gems ~/.rbenv/default-gems
 
 echo "pip..."

@@ -10,7 +10,7 @@ strong_msg() {
 
 cd $DOTPATH
 for f in .??*; do
-	[ $f = ".git" -o $f = ".gitignore" ] && continue
+	[[ $f =~ .git($|ignore|modules) ]] && continue
 	ln -sifF $DOTPATH/$f ~/$f
 	echo $f
 done
