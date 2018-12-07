@@ -15,7 +15,7 @@ deploy:
 		mkdir ~/.config; \
 	 fi
 	@$(foreach file, $(DOTFILES), ln -sfnv $(abspath $(file)) ~/$(file);)
-	@$(foreach file, $(DORDIRS),  ln -sfnv $(abspath $(file)) ~/.config/$(file);)
+	@$(foreach directory, $(DORDIRS),  ln -sfFv $(abspath config/$(directory)) ~/.config/$(directory);)
 
 init:
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/init/initialize.sh
@@ -34,7 +34,6 @@ clean:
 	@echo "Clean up dotfiles..."
 	@$(foreach link, $(DOTFILES), unlink ~/$(link);)
 	@$(foreach link, $(DORDIRS),  unlink ~/.config/$(link);)
-	@rm -irf $(DOTPATH)
 
 # help:
 #  	TODO: help message
