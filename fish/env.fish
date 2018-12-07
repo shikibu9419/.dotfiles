@@ -1,3 +1,4 @@
+set -x DOTPATH         ~/.dotfiles
 set -x XDG_CONFIG_HOME ~/.config
 set -x XDG_DATA_HOME   ~/.local/share
 set -x XDG_CACHE_HOME  ~/.cache

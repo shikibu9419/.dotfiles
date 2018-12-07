@@ -19,7 +19,7 @@ if ! zplug check --verbose; then
 fi
 
 message "vscode"
-code --list-extensions > ~/dotfiles/init/vscode/package_list.txt
+code --list-extensions > $DOTPAH/init/vscode/package_list.txt
 
 echo "Reloading..."
 source ~/.zshrc
