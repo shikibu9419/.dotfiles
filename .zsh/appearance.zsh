@@ -1,6 +1,8 @@
 autoload -Uz colors
 colors
 
+SPROMPT="%{$fg[red]%}correct: %R -> %r [nyae]? %{$reset_color%}"
+
 ## pure-prompt setting
 autoload -U promptinit; promptinit
 prompt pure

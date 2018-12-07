@@ -51,6 +51,7 @@ ZSH_HIGHLIGHT_STYLES[double-quoted-argument-unclosed]='fg=red'
 ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument-unclosed]='fg=red'
 
 ## other plugins
+export FZF_ALT_C_OPTS="--select-1 --exit-0"
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=245'
 
 cd-gitroot() {
