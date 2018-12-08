@@ -1,8 +1,8 @@
 EXCLUDES := .DS_Store .git .gitignore .gitmodules
-DOTPATH  := $(realpath $(dir $(lastword $(MAKEFILE_LIST))))
+DOTPATH  := $(CURDIR)
 DOTFILES := $(filter-out $(EXCLUDES), $(wildcard .??*))
-DORDIRS  := $(filter-out $(EXCLUDES), $(notdir $(wildcard config/*)))
-DEPLOYED := $(FILES) $(addprefix .config/, $(DORDIRS))
+XDGCONFS := $(filter-out $(EXCLUDES), $(notdir $(wildcard config/*)))
+DEPLOYED := $(DOTFILES) $(addprefix .config/, $(XDGCONFS))
 
 DEFAULT:
 
@@ -15,7 +15,7 @@ deploy:
 		mkdir ~/.config; \
 	 fi
 	@$(foreach file, $(DOTFILES), ln -sfnv $(abspath $(file)) ~/$(file);)
-	@$(foreach directory, $(DORDIRS),  ln -sfFv $(abspath config/$(directory)) ~/.config/$(directory);)
+	@$(foreach conf, $(XDGCONFS),  ln -sfFv $(abspath config/$(conf)) ~/.config/$(conf);)
 
 init:
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/init/initialize.sh
@@ -27,13 +27,18 @@ update:
 	@git submodule init
 	@git submodule update
 	@git submodule foreach git pull origin master
-	@echo "Update some plugins..."
+	@echo "Update other plugins..."
 	@myupdate
 
 clean:
 	@echo "Clean up dotfiles..."
-	@$(foreach link, $(DOTFILES), unlink ~/$(link);)
-	@$(foreach link, $(DORDIRS),  unlink ~/.config/$(link);)
+	@$(foreach link, $(DEPLOYED), unlink ~/$(link);)
+	@rm -rfi $(DOTPATH)
 
-# help:
-#  	TODO: help message
+help:
+	@echo "list     List up dotfiles which will be deployed"
+	@echo "init     Initialize dotfiles"
+	@echo "deploy   Deploy dotfiles"
+	@echo "install  Initialize and deploy"
+	@echo "update   Update repository, submodules and other plugins"
+	@echo "help     Display target list"

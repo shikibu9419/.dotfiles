@@ -9,12 +9,13 @@ Install dotfiles:
 $ bash <(curl -fsSL raw.github.com/shikibu9419/.dotfiles/master/init/install.sh) [DIRECTORY]
 ```
 
-Make command list:
+Make target list:
 
 ```shell
-$ make list     # list up dotfiles
-$ make init     # initialize
-$ make deploy   # deploy dotfiles
-$ make install  # initialize and deploy
-$ make update   # update repository, modules and other plugins
+$ make list     # List up deployed dotfiles
+$ make init     # Initialize
+$ make deploy   # Deploy dotfiles
+$ make install  # Initialize and deploy
+$ make update   # Update repository, submodules and other plugins
+$ make help     # Display target list
 ```
