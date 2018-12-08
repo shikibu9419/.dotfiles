@@ -1,5 +1,9 @@
 #!/bin/sh
+
 set -e
+DOCKER_COMPLETIONS_PATH="/Applications/Docker.app/Contents/Resources/etc"
+ZSH_COMPLETIONS_PATH="$HOME/.zsh/completions"
+VSCODE_CONFIG_DIR="$HOME/Library/Application Support/Code/User"
 
 has() {
   type "$1" > /dev/null 2>&1
@@ -11,7 +15,7 @@ notice() {
   echo '=================================================='
 }
 
-strong_msg() {
+success() {
   if has 'printf'; then
     printf "\e[37;1m$1\e[m\n"
   else
@@ -20,16 +24,14 @@ strong_msg() {
 }
 
 error() {
-  strong_msg $1
+  echo $1 1>&2
   exit 1
 }
 
 
-DOCKER_COMPLETIONS_PATH="/Applications/Docker.app/Contents/Resources/etc"
-ZSH_COMPLETIONS_PATH="$HOME/.zsh/completions"
 cd $DOTPATH
 
-# set Homebrew
+## Homebrew setting
 if has 'brew'; then
   notice 'Updating Homebrew...'
   brew update && brew upgrade
@@ -42,16 +44,16 @@ if ! has 'brew'; then
   error 'Installing Homebrew failed.'
 fi
 
-# brew install
+## brew install
 notice 'Start brew install.'
 brew tap homebrew/bundle
 brew bundle
 brew cleanup
-strong_msg 'Brew install finished!\n'
+success 'Brew install finished!\n'
 
 notice 'Other settings...'
 
-# Shell
+## Shell
 echo 'Shell...'
 if has 'tee'; then
   echo $(which zsh) | sudo tee -a /etc/shells
@@ -64,18 +66,22 @@ chsh -s $(which zsh)
 cp /usr/local/opt/global/share/gtags/gtags.conf ~/.globalrc
 npm install -g pure-prompt
 
-# Editor
+## Editor
 echo 'VS Code...'
-sh $DOTPATH/init/vscode/initialize.sh
+ln -sifF $DOTPATH/vscode/settings.json    "$VSCODE_CONFIG_DIR/settings.json"
+ln -sifF $DOTPATH/vscode/keybindings.json "$VSCODE_CONFIG_DIR/keybindings.json"
+while read pkg; do
+  code --install-extension $pkg
+done < $DOTPATH/vscode/package_list.txt
 
-# Docker
+## Docker
 echo 'Docker...'
 if [ ! -d $ZSH_COMPLETIONS_PATH ] && mkdir -p $ZSH_COMPLETIONS_PATH
 cp $DOCKER_COMPLETIONS_PATH/docker.zsh-completion $ZSH_COMPLETIONS_PATH/_docker
 cp $DOCKER_COMPLETIONS_PATH/docker-compose.zsh-completion $ZSH_COMPLETIONS_PATH/_docker-compose
 cp $DOCKER_COMPLETIONS_PATH/docker-machine.zsh-completion $ZSH_COMPLETIONS_PATH/_docker-machine
 
-# Programing Languages
+## Programing Languages
 echo 'gem...'
 if [ ! -d ~/.rbenv ] && mkdir ~/.rbenv
 ln -sifF $DOTPATH/init/rbenv-default-gems ~/.rbenv/default-gems
@@ -89,9 +95,10 @@ pip3 install neovim
 echo 'Rust...'
 curl https://sh.rustup.rs -sSf | sh
 
+## Default writes
 bash $DOTPATH/init/default-writes.sh
 
-strong_msg 'Initialization finished successfully!!'
+success 'Initialization finished successfully!!'
 cat <<EOF
 Please run this commands to complete initialize truly.
 > rustup component add rls-preview rust-analysis rust-src
