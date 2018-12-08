@@ -6,14 +6,14 @@ balias git    'hub'
 balias ls     'gls --color'
 balias grep   'grep --color'
 
-# plugins
+## plugins
 balias cdg 'cd-gitroot'
 
 function fed
 	funced $argv[1]; and funcsave $argv[1]
 end
 
-# git
+## git
 abbr g    'git'
 abbr ga   'git add'
 abbr gb   'git branch'
@@ -34,7 +34,7 @@ abbr gsta 'git stash apply'
 abbr gsee 'git see'
 abbr gpr  'git pull-request'
 
-# others
+## others
 abbr vim 'nvim'
 # balias rm 'rm -r'
 # balias cp 'cp -r'
