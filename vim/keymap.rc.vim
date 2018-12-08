@@ -1,5 +1,6 @@
 let mapleader = "\<Space>"
 
+imap <F1> <Esc>
 map  <F1> <Esc>
 "" Normal mode
 nnoremap q: :q
@@ -11,7 +12,7 @@ nnoremap <Esc> :noh<CR>
 " nnoremap <Leader>r :<C-u>registers
 nnoremap <Leader>s :split 
 nnoremap <Leader>v :vsplit 
-nnoremap <Leader>q <Esc>:q
+nnoremap <C-q> :qall<CR>
 nnoremap <Leader>, :source $MYVIMRC<CR>
 
 "" Insert mode
@@ -37,10 +38,13 @@ map <Leader>l [lsp]
 " map <C-j> [denite]
 " nmap <silent> [denite]<C-D> :Denite -buffer-name=gtags_completion gtags_completion<cr>
 
+map  ga <Nop>
+map  <C-c> <Nop>
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 xmap <C-k> <Plug>(neosnippet_expand_target)
-map  ga <Nop>
+nmap <C-c> <Plug>(caw:zeropos:toggle)
+vmap <C-c> <Plug>(caw:zeropos:toggle)
 nmap ga <Plug>(EasyAlign)
 vmap ga <Plug>(EasyAlign)
 nmap ]h <Plug>GitGutterNextHunk
@@ -59,7 +63,8 @@ nmap <silent> <Leader>n :NERDTreeToggle<CR>
 nmap <silent> <Leader>o :OverCommandLine<CR>
 nmap <Leader>b <Plug>(openbrowser-smart-search)
 vmap <Leader>b <Plug>(openbrowser-smart-search)
-nmap <Leader>r <Plug>(quickrun)
+" nmap <Leader>r <Plug>(quickrun)
+nmap <Leader>r :cclose<CR>:write<CR>:QuickRun -mode n<CR>
 " nmap <Leader>s :SyntasticCheck<CR>
 
 nmap [fzf]l :FzfFileList<CR>

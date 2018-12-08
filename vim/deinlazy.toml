@@ -110,6 +110,10 @@ if = "has('nvim')"
 repo = 'davidhalter/jedi-vim'
 on_ft = 'python'
 
+[[plugins]]
+repo = 'Vimjas/vim-python-pep8-indent'
+on_ft = 'python'
+
 #----------------------------------------------
 # Rails
 #----------------------------------------------
@@ -174,6 +178,14 @@ on_ft = 'kotlin'
 [[plugins]]
 repo = 'slim-template/vim-slim'
 on_ft = 'slim'
+
+[[plugins]]
+repo = 'digitaltoad/vim-pug'
+on_ft = 'pug'
+
+[[plugins]]
+repo = 'elzr/vim-json'
+on_ft = 'json'
 
 [[plugins]]
 repo = 'plasticboy/vim-markdown'
