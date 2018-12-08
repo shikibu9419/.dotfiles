@@ -2,7 +2,7 @@ if [[ -z $TMUX ]]; then
   if [[ -n $(tmux list-sessions) ]]; then
     cmd=tmuximum
   else
-    cmd=tmux
+    cmd='tmux new-session'
   fi
   $cmd && exit
 fi
@@ -32,7 +32,12 @@ setopt print_eight_bit
 setopt globdots
 setopt extended_glob
 
-# pip completion
+## Using with fzf
+[[ $- == *i* ]] && source "/usr/local/opt/fzf/shell/completion.zsh" 2> /dev/null
+source "/usr/local/opt/fzf/shell/key-bindings.zsh"
+export FZF_COMPLETION_TRIGGER=","
+
+## pip completion
 function _pip_completion {
   local words cword
   read -Ac words
