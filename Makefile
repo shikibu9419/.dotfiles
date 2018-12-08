@@ -2,6 +2,7 @@ EXCLUDES := .DS_Store .git .gitignore .gitmodules
 DOTPATH  := $(CURDIR)
 DOTFILES := $(filter-out $(EXCLUDES), $(wildcard .??*))
 XDGCONFS := $(filter-out $(EXCLUDES), $(notdir $(wildcard config/*)))
+VSCODE   := $(notdir $(wildcard vscode/*.json))
 DEPLOYED := $(DOTFILES) $(addprefix .config/, $(XDGCONFS))
 
 DEFAULT:
@@ -15,7 +16,8 @@ deploy:
 		mkdir ~/.config; \
 	 fi
 	@$(foreach file, $(DOTFILES), ln -sfnv $(abspath $(file)) ~/$(file);)
-	@$(foreach conf, $(XDGCONFS),  ln -sfFv $(abspath config/$(conf)) ~/.config/$(conf);)
+	@$(foreach conf, $(XDGCONFS), ln -sfFv $(abspath config/$(conf)) ~/.config/$(conf);)
+	@$(foreach json, $(VSCODE),   ln -sfnv $(abspath vscode/$(json)) ~/Library/Application Support/Code/User/$(json);)
 
 init:
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/init/initialize.sh

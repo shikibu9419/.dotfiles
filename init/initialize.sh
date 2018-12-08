@@ -3,7 +3,6 @@
 set -e
 DOCKER_COMPLETIONS_PATH="/Applications/Docker.app/Contents/Resources/etc"
 ZSH_COMPLETIONS_PATH="$HOME/.zsh/completions"
-VSCODE_CONFIG_DIR="$HOME/Library/Application Support/Code/User"
 
 has() {
   type "$1" > /dev/null 2>&1
@@ -68,11 +67,9 @@ npm install -g pure-prompt
 
 ## Editor
 echo 'VS Code...'
-ln -sifF $DOTPATH/vscode/settings.json    "$VSCODE_CONFIG_DIR/settings.json"
-ln -sifF $DOTPATH/vscode/keybindings.json "$VSCODE_CONFIG_DIR/keybindings.json"
-while read pkg; do
+echo $DOTPATH/vscode/extensions.txt | while read pkg; do
   code --install-extension $pkg
-done < $DOTPATH/vscode/package_list.txt
+done
 
 ## Docker
 echo 'Docker...'
