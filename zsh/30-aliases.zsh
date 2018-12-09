@@ -4,29 +4,6 @@
 alias t=tmuximum
 alias cdg=cd-gitroot
 
-## bindkeys
-autoload -Uz zmv
-autoload -U history-search-end
-autoload -U tetris; zle -N tetris
-
-zle -N _ghq_list_repositories
-zle -N _git_list_log
-zle -N _git_list_checkout
-zle -N _select_history
-zle -N _show_ls_gs
-zle -N history-beginning-search-backward-end history-search-end
-zle -N history-beginning-search-forward-end history-search-end
-
-bindkey -v
-bindkey '^b' _git_list_checkout
-bindkey '^m' _show_ls_gs
-bindkey '^r' _select_history
-bindkey '^]' _ghq_list_repositories
-bindkey '^e' autosuggest-accept
-bindkey '^t' forward-word  # autosuggest-partial-accept
-bindkey '^P' history-beginning-search-backward-end
-bindkey '^N' history-beginning-search-forward-end
-
 ## git
 alias git='hub'
 alias g='git'
@@ -70,19 +47,21 @@ alias tls='tmux list-sessions -t'
 alias tlw='tmux list-windows -t'
 alias tlp='tmux list-panes -t'
 
-## others
-alias reload='source ~/.zshenv && source ~/.zshrc'
-alias zmv='noglob zmv -W'
-alias -g ...='../..'
-alias -g ....='../../..'
-alias v=nvim
-alias vi=nvim
-alias vim=nvim
-alias c=clear
-
+## abbr
 alias ls='gls --color=auto'
 alias grep='grep --color=auto'
 alias la='ls -al'
 alias ll='ls -l'
 alias cp='cp -r'
 alias mkdir='mkdir -p'
+alias zmv='noglob zmv -W'
+
+## others
+alias reload='source ~/.zshenv && source ~/.zshrc'
+alias editenv='nvim $DOTPATH && echo "Reloading..."; reload'
+alias -g ...='../..'
+alias -g ....='../../..'
+alias v=nvim
+alias vi=nvim
+alias vim=nvim
+alias c=clear

@@ -12,4 +12,3 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-11.jdk/Contents/Home
 
 path=(~/programs/flutter/bin(N-/) ~/Android/Sdk/tools(N-/) ~/Android/Sdk/platform-tools(N-/) \
       $JAVA_HOME(N-/) ~/.cargo/bin(N-/) $GOPATH/bin(N-/) ~/.rbenv/bin(N-/) /usr/local/texlive/2018/bin/x86_64-darwin(N-/) $DOTPATH/bin(N-/) $path)
-fpath=(~/.zsh/completions(N-/) ~/.zplug/repos/zsh-users/zsh-completions/src(N-/) $fpath)
