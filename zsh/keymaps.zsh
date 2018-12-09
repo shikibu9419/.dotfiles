@@ -1,12 +1,13 @@
-### Functions whose name starts with '_' are defined in dotfiles/zsh/functions.zsh
+### Functions whose name starts with '_' are defined in DOTPATH/zsh/functions.zsh
 
 ## plugins
 alias t=tmuximum
 alias cdg=cd-gitroot
 
 ## bindkeys
-autoload -U tetris; zle -N tetris
+autoload -Uz zmv
 autoload -U history-search-end
+autoload -U tetris; zle -N tetris
 
 zle -N _ghq_list_repositories
 zle -N _git_list_log
@@ -70,6 +71,8 @@ alias tlw='tmux list-windows -t'
 alias tlp='tmux list-panes -t'
 
 ## others
+alias reload='source ~/.zshenv && source ~/.zshrc'
+alias zmv='noglob zmv -W'
 alias -g ...='../..'
 alias -g ....='../../..'
 alias v=nvim
@@ -77,14 +80,9 @@ alias vi=nvim
 alias vim=nvim
 alias c=clear
 
-alias vls='vim $(git ls-files | fzf)'
-alias ql='qlmanage -p $@ >& /dev/null'
-alias reload='source ~/.zshenv && source ~/.zshrc'
-
 alias ls='gls --color=auto'
 alias grep='grep --color=auto'
-
-alias cp='cp -r'
-alias mkdir='mkdir -p'
 alias la='ls -al'
 alias ll='ls -l'
+alias cp='cp -r'
+alias mkdir='mkdir -p'
