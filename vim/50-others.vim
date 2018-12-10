@@ -51,13 +51,4 @@ endfunction
 let &tabline = '%!'. s:SID_PREFIX() . 'my_tabline()'
 set showtabline=2
 
-for n in range(1, 9)
-  execute 'nnoremap <silent> [Tag]'.n  ':<C-u>tabnext'.n.'<CR>'
-endfor
-
-map <silent> <Tab>c :tablast <bar> tabnew<CR>
-map <silent> <Tab>x :tabclose<CR>
-map <silent> <Tab>n :tabnext<CR>
-map <silent> <Tab>p :tabprevious<CR>
-
 set secure

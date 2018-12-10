@@ -29,6 +29,14 @@ cnoremap <expr> ? getcmdtype() == '?' ? '\?' : '?'
 vnoremap < <gv
 vnoremap > >gv
 
+"" Tab
+map <silent> <C-n> :tabnext<CR>
+map <silent> <C-p> :tabprevious<CR>
+map <silent> <Tab>c :tablast <bar> tabnew<CR>
+for index in range(1, 9)
+  execute 'nnoremap <silent> <Tab>'.index  ':<C-u>tabnext'.index.'<CR>'
+endfor
+
 "----------------------------------------------
 " Plugins
 "----------------------------------------------
@@ -61,12 +69,12 @@ nmap [h <Plug>GitGutterPrevHunk
 " nmap <silent> <C-t>r :<C-u>exe("Gtags -r ".expand('<cword>'))<CR>
 
 "" Using <Leader>
+nmap <silent> <Leader>b <Plug>(openbrowser-smart-search)
+vmap <silent> <Leader>b <Plug>(openbrowser-smart-search)
 nmap <silent> <Leader>d <Plug>DashSearch
-nmap <silent> <Leader>n :NERDTreeToggle<CR>
+nmap <silent> <Leader>n <plug>NERDTreeTabsToggle<CR>
 nmap <silent> <Leader>o :OverCommandLine<CR>
-nmap <Leader>b <Plug>(openbrowser-smart-search)
-vmap <Leader>b <Plug>(openbrowser-smart-search)
-nmap <Leader>r <Plug>(quickrun)
+nmap <silent> <Leader>r <Plug>(quickrun)
 " nmap <Leader>r :cclose<CR>:write<CR>:QuickRun -mode n<CR>
 " nmap <Leader>s :SyntasticCheck<CR>
 
