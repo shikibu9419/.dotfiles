@@ -1,55 +1,9 @@
-source $DOTPATH/vim/plugin.rc.vim
-source $DOTPATH/vim/appearance.rc.vim
-source $DOTPATH/vim/edit.rc.vim
-source $DOTPATH/vim/keymap.rc.vim
-
-"" Other config
 if has('nvim')
   let g:python3_host_prog = expand('~/.pyenv/versions/3.7.0/bin/python')
 endif
 
-if !has('gui_running') && exists('&termguicolors') && $COLORTERM ==# 'truecolor'
-  if !has('nvim')
-    let &t_8f = "\e[38;2;%lu;%lu;%lum"
-    let &t_8b = "\e[48;2;%lu;%lu;%lum"
-  endif
-  set termguicolors
-endif
-
-"" Tab setting
-function! s:SID_PREFIX()
-  return matchstr(expand('<sfile>'), '<SNR>\d\+_\zeSID_PREFIX$')
-endfunction
-
-function! s:my_tabline()
-  let s = ''
-  for i in range(1, tabpagenr('$'))
-    let bufnrs = tabpagebuflist(i)
-    let bufnr = bufnrs[tabpagewinnr(i) - 1]  " first window, first appears
-    let no = i  " display 0-origin tabpagenr.
-    let mod = getbufvar(bufnr, '&modified') ? '!' : ' '
-    let title = fnamemodify(bufname(bufnr), ':t')
-    let title = '[' . title . ']'
-    let s .= '%'.i.'T'
-    let s .= '%#' . (i == tabpagenr() ? 'TabLineSel' : 'TabLine') . '#'
-    let s .= no . ':' . title
-    let s .= mod
-    let s .= '%#TabLineFill# '
-  endfor
-  let s .= '%#TabLineFill#%T%=%#TabLine#'
-  return s
-endfunction
-
-let &tabline = '%!'. s:SID_PREFIX() . 'my_tabline()'
-set showtabline=2
-
-for n in range(1, 9)
-  execute 'nnoremap <silent> [Tag]'.n  ':<C-u>tabnext'.n.'<CR>'
-endfor
-
-map <silent> <Tab>c :tablast <bar> tabnew<CR>
-map <silent> <Tab>x :tabclose<CR>
-map <silent> <Tab>n :tabnext<CR>
-map <silent> <Tab>p :tabprevious<CR>
-
-set secure
+source $DOTPATH/vim/plugin.rc.vim
+source $DOTPATH/vim/appearance.rc.vim
+source $DOTPATH/vim/edit.rc.vim
+source $DOTPATH/vim/keymaps.rc.vim
+source $DOTPATH/vim/others.rc.vim

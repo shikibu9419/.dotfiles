@@ -9,30 +9,6 @@ set wrapscan
 set gdefault
 
 "------------------------------------------
-" Indent
-"------------------------------------------
-set expandtab
-set shiftround
-set autoindent
-set smartindent
-
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-
-augroup filetypedetect
-  "" Set filetype
-  autocmd BufRead,BufNewFile *.slim setlocal filetype=slim
-  "" C, C++, Java, Kotlin, CSS, JSON => 4 spaces
-  autocmd BufRead,BufNewFile *.c    setlocal tabstop=4 shiftwidth=4 softtabstop=4
-  autocmd BufRead,BufNewFile *.cpp  setlocal tabstop=4 shiftwidth=4 softtabstop=4
-  autocmd BufRead,BufNewFile *.java setlocal tabstop=4 shiftwidth=4 softtabstop=4
-  autocmd BufRead,BufNewFile *.kt   setlocal tabstop=4 shiftwidth=4 softtabstop=4
-  autocmd BufRead,BufNewFile *.css  setlocal tabstop=4 shiftwidth=4 softtabstop=4
-  autocmd BufRead,BufNewFile *.json setlocal tabstop=4 shiftwidth=4 softtabstop=4
-augroup END
-
-"------------------------------------------
 " Edit
 "------------------------------------------
 set updatetime=250
@@ -48,24 +24,16 @@ set showmatch
 set matchtime=1
 set wildmenu
 set history=1000
-"" Enable backspace (for Mac)
-set backspace=indent,eol,start
-"" Not inherit the comment state at line feed
 autocmd FileType * setlocal formatoptions-=ro
+set backspace=indent,eol,start " Enable backspace (for Mac)
 
-"" Auto write
-set autowrite
-function! s:AutoWriteIfPossible()
-  if &modified && !&readonly && bufname('%') !=# '' && &buftype ==# '' && expand("%") !=# ''
-    write
-  endif
-endfunction
-
-augroup autowrite
-  autocmd!
-  autocmd CursorHold * call s:AutoWriteIfPossible()
-  autocmd CursorHoldI * call s:AutoWriteIfPossible()
-augroup END
+"" Encodings
+set encoding=utf-8
+scriptencoding utf-8
+set fileencoding=utf-8
+set fileencodings=ucs-boms,utf-8,euc-jp,cp932
+set fileformats=unix,dos,mac
+set ambiwidth=double
 
 "" Enable mouse setting
 if !has('nvim')
@@ -78,6 +46,19 @@ set matchpairs+=<:>
 if !exists('loaded_matchit')
   runtime macros/matchit.vim
 endif
+
+"" Auto write
+set autowrite
+function! s:AutoWriteIfPossible()
+  if &modified && !&readonly && bufname('%') !=# '' && &buftype ==# '' && expand("%") !=# ''
+    write
+  endif
+endfunction
+augroup autowrite
+  autocmd!
+  autocmd CursorHold * call s:AutoWriteIfPossible()
+  autocmd CursorHoldI * call s:AutoWriteIfPossible()
+augroup END
 
 "" Reasign
 augroup asign

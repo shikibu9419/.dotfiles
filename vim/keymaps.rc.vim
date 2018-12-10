@@ -2,20 +2,23 @@ let mapleader = "\<Space>"
 
 imap <F1> <Esc>
 map  <F1> <Esc>
+
 "" Normal mode
-nnoremap q: :q
 nnoremap Y y$
 nnoremap + <C-a>
 nnoremap - <C-x>
+nnoremap q: :q
+nnoremap <C-q> :qall<CR>
 nnoremap <Esc> :noh<CR>
 " nnoremap <Leader>m :<C-u>marks
 " nnoremap <Leader>r :<C-u>registers
 nnoremap <Leader>s :split 
 nnoremap <Leader>v :vsplit 
-nnoremap <C-q> :qall<CR>
 nnoremap <Leader>, :source $MYVIMRC<CR>
 
 "" Insert mode
+inoremap jj <Esc>
+
 "" Command mode
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
@@ -63,8 +66,8 @@ nmap <silent> <Leader>n :NERDTreeToggle<CR>
 nmap <silent> <Leader>o :OverCommandLine<CR>
 nmap <Leader>b <Plug>(openbrowser-smart-search)
 vmap <Leader>b <Plug>(openbrowser-smart-search)
-" nmap <Leader>r <Plug>(quickrun)
-nmap <Leader>r :cclose<CR>:write<CR>:QuickRun -mode n<CR>
+nmap <Leader>r <Plug>(quickrun)
+" nmap <Leader>r :cclose<CR>:write<CR>:QuickRun -mode n<CR>
 " nmap <Leader>s :SyntasticCheck<CR>
 
 nmap [fzf]l :FzfFileList<CR>
