@@ -3,7 +3,7 @@ fpath=(~/.zsh/completions(N-/) ~/.zplug/repos/zsh-users/zsh-completions/src(N-/)
 #------------------------------------------
 # Completion
 #------------------------------------------
-zstyle ':completion:*' list-colors "$LS_COLORS"
+zstyle ':completion:*' list-colors $LS_COLORS
 zstyle ':completion:*' menu select=2
 zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' '+m:{a-z}={A-Z}'
 zstyle ':zle:*' word-chars ' /=;@:{}[]()<>,|.'
