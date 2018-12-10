@@ -2,8 +2,8 @@ if has('nvim')
   let g:python3_host_prog = expand('~/.pyenv/versions/3.7.0/bin/python')
 endif
 
-source $DOTPATH/vim/plugin.rc.vim
-source $DOTPATH/vim/appearance.rc.vim
-source $DOTPATH/vim/edit.rc.vim
-source $DOTPATH/vim/keymaps.rc.vim
-source $DOTPATH/vim/others.rc.vim
+for conf in split(glob('$DOTPATH/vim/[1-9]*.vim'),'\n')
+  if filereadable(conf)
+    execute 'source' conf
+  endif
+endfor

@@ -3,7 +3,7 @@ if !&compatible
 endif
 filetype plugin indent off
 
-set runtimepath+=$DOTPATH/vim/dein.vim
+set runtimepath+=$DOTPATH/vim/dein
 let s:dein_dir = '$XDG_CACHE_HOME/dein'
 
 if dein#load_state(s:dein_dir)
@@ -24,3 +24,10 @@ endif
 
 filetype plugin indent on
 syntax on
+
+"" Load plugin config file
+for conf in split(glob('$DOTPATH/vim/plugins/*.vim'),'\n')
+  if filereadable(conf)
+    execute 'source' conf
+  endif
+endfor
