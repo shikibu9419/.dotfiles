@@ -1,0 +1,31 @@
+#!/bin/bash
+
+check-available-git() {
+  $(git rev-parse > /dev/null 2>&1) && return
+  echo 'fatal: not a git repository.'
+  exit 1
+}
+
+has() {
+  type "$1" > /dev/null 2>&1
+}
+
+set-fuzzy-finder() {
+  filters="fzf-tmux:fzf:peco:percol:gof"
+  while [[ -n $filters ]]; do
+    filter=${filters%%:*}
+    filters=${filters#*:}
+    if has $filter; then
+      [[ $filter = "fzf" ]]      && filter=($filter --ansi)
+      [[ $filter = "fzf-tmux" ]] && filter=($filter --ansi)
+      echo $filter
+      return
+    fi
+  done
+
+  cat <<EOF
+tmuximum: tmuximum requires fuzzy finder. Either of these is necessary.
+fzf, fzf-tmux, peco, percol, gof
+EOF
+  exit 1
+}

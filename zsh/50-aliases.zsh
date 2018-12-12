@@ -29,8 +29,8 @@ alias gcom='hub compare'
 alias gpr='hub pull-request'
 alias gsee='hub see'
 
-alias glog=_git_list_log
-alias gwork=_git_list_worktree
+alias glog=git_list_log
+alias gwork=git_list_worktree
 alias gclone='git clone $(pbpaste)'
 alias ghq-get='ghq get $(pbpaste)'
 alias gpush='git push origin $(git branch | grep "*\ " | sed "s/.* //")'

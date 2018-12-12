@@ -4,19 +4,18 @@ autoload -Uz zmv
 autoload -U history-search-end
 autoload -U tetris; zle -N tetris
 
-zle -N _ghq_list_repositories
-zle -N _git_list_log
-zle -N _git_list_checkout
-zle -N _select_history
+zle -N git_list_checkout
 zle -N _show_ls_gs
+zle -N select_history
+zle -N ghq_jump_repositories
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 
 bindkey -v
-bindkey '^b' _git_list_checkout
+bindkey '^b' git_list_checkout
 bindkey '^m' _show_ls_gs
-bindkey '^r' _select_history
-bindkey '^]' _ghq_list_repositories
+bindkey '^r' select_history
+bindkey '^]' ghq_jump_repositories
 bindkey '^e' autosuggest-accept
 bindkey '^t' forward-word  # autosuggest-partial-accept
 bindkey '^P' history-beginning-search-backward-end

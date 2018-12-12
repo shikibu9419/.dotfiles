@@ -1,0 +1,41 @@
+#!/bin/bash
+
+source $DOTPATH/bin/_shared_functions
+finder=$(set-fuzzy-finder)
+
+selected=$(ghq list | $finder --query=$LBUFFER)
+dir=$(ghq root)/$selected
+
+if [ -z $selected ]; then
+  exit 0
+elif [ -z $TMUX ]; then
+  BUFFER="cd $dir"
+  exit 0
+fi
+
+repo=${dir##*/}
+if [[ ! $selected =~ ^github\.com.+$ ]]; then
+  parent=${dir%/*}
+  repo=${parent##*/}/$repo
+fi
+
+session=${repo//./-}
+current_session=$(tmux list-sessions | grep 'attached' | cut -d":" -f1)
+
+if [[ $current_session = $session ]]; then
+  BUFFER="cd $dir"
+  exit 0
+fi
+
+if [[ -n $(tmux list-sessions | grep $session) ]]; then
+  tmux switch-client -t $session
+  exit 0
+fi
+
+if [[ $current_session =~ ^[0-9]+$ ]]; then
+  cd $dir
+  tmux rename-session $session
+else
+  tmux new-session -d -c $dir -s $session
+  tmux switch-client -t $session
+fi
