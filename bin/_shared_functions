@@ -11,14 +11,12 @@ has() {
 }
 
 set-fuzzy-finder() {
-  filters="fzf-tmux:fzf:peco:percol:gof"
-  while [[ -n $filters ]]; do
-    filter=${filters%%:*}
-    filters=${filters#*:}
-    if has $filter; then
-      [[ $filter = "fzf" ]]      && filter=($filter --ansi)
-      [[ $filter = "fzf-tmux" ]] && filter=($filter --ansi)
-      echo $filter
+  finders='fzf-tmux:fzf:peco:percol:gof'
+  while [[ -n $finders ]]; do
+    finder=${finders%%:*}
+    finders=${finders#*:}
+    if has $finder; then
+      echo $finder
       return
     fi
   done

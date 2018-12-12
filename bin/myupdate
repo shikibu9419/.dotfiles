@@ -4,22 +4,23 @@ message() {
   printf "\e[31;1mUPDATE: \e[37;1m$1\e[m\n"
 }
 
-message "brew"
+source ~/.zshrc > /dev/null
+
+message 'brew'
 brew update
 brew upgrade
 brew cleanup
 
-message "zplug"
-source ~/.zshrc > /dev/null
+message 'zplug'
 if ! zplug check --verbose; then
-  printf "Install? [y/N]: "
+  printf 'Install? [y/N]: '
   if read -q; then
     echo; zplug install
   fi
 fi
 
-message "vscode"
-code --list-extensions > $DOTPAH/init/vscode/package_list.txt
+message 'vscode'
+code --list-extensions > $DOTPATH/vscode/extensions.txt
 
-echo "Reloading..."
-source ~/.zshrc
+echo 'Reloading...'
+source ~/.zshenv && source ~/.zshrc > /dev/null

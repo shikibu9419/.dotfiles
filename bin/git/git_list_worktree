@@ -4,5 +4,5 @@ source $DOTPATH/bin/_shared_functions
 check-available-git
 finder=$(set-fuzzy-finder)
 
-work_dir=`git worktree list | $finder | awk '{print $1}'`
+work_dir=$(git worktree list | $finder | awk '{print $1}')
 [ -z $work_dir ] && cd $work_dir

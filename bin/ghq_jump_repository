@@ -22,7 +22,7 @@ fi
 session=${repo//./-}
 current_session=$(tmux list-sessions | grep 'attached' | cut -d":" -f1)
 
-if [[ $current_session = $session ]]; then
+if [ $current_session = $session ]; then
   BUFFER="cd $dir"
   exit 0
 fi
