@@ -1,39 +1,46 @@
 #!/bin/bash
 
-## compract - compress / extract files
+## compract - compress / extract files and dirs!
 echo "Sorry. This Command hadn't been implemented yet." && exit 1
-
-compract::usage() {
-  name=`basename $0`
-  cat <<EOF
-Usage:
-  compract OPTION [COMPRESS COMMAND] targets...
-OPTIONS:
-  -c    Compress files
-  -e    Extract files
-  -h    Display usage
-COMPRESS COMMANDS:
-  zip   To .zip file
-  gz    To .tar.gz file
-  bz    To .tar.bz2 file
-EOF
-}
 
 error() {
   echo $1 1>&2
   exit 1
 }
 
-# compract::compress() {
-# }
-#
-# compract::extract() {
-# }
+compract::usage() {
+  name=`basename $0`
+  cat <<EOF
+Usage:
+  compract OPTION [COMPRESS COMMAND] targets... [-n CREATE FILE/DIR NAME]
+OPTIONS:
+  -c    Compress files
+  -e    Extract files
+  -h    Display usage
+COMPRESS COMMANDS:
+  zip   targets => .zip
+  gz    targets => .tar.gz
+  bz    targets => .tar.bz2
+EOF
+}
+
+compract::compress() {
+#   case $2 in
+#     zip) ;;
+#     gz)  ;;
+#     bz)  ;;
+#     *)   error
+#   esac
+# TODO: tempファイルで-n以降
+}
+
+compract::extract() {
+}
 
 main() {
-  [ $# -eq 0 ] && error "TODO: Error"
+  [ $# -lt 2 ] && error 'TODO: Error'
 
-  case "$1" in
+  case $1 in
     -c) compract::compress $@ ;;
     -e) compract::extract $@ ;;
     -h) compract::usage ;;

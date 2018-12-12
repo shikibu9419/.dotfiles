@@ -12,7 +12,7 @@ has() {
 
 set-fuzzy-finder() {
   finders='fzf-tmux:fzf:peco:percol:gof'
-  while [[ -n $finders ]]; do
+  while [ -n $finders ]; do
     finder=${finders%%:*}
     finders=${finders#*:}
     if has $finder; then

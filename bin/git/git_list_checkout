@@ -1,7 +1,0 @@
-#!/bin/bash
-
-source $DOTPATH/bin/_shared_functions
-finder=$(set-fuzzy-finder)
-
-branch=$(git branch --all | grep -v HEAD | $finder -d)
-git checkout $(echo $branch | sed 's/.* //' | sed 's#remotes/[^/]*/##')

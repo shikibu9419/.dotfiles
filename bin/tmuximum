@@ -30,7 +30,7 @@ tmuximum::operation() {
 
 tmuximum::operation-list() {
   ## attach / move
-  if [[ -z $TMUX ]]; then
+  if [ -z $TMUX ]; then
     tmux list-sessions 2>/dev/null | while read line; do
       [[ ! $line =~ attached ]] || line="${GREEN}$line${DEFAULT}"
       echo -e "${GREEN}attach${DEFAULT} ==> [ "$line" ]"
@@ -46,7 +46,7 @@ tmuximum::operation-list() {
   fi
 
   ## new
-  [[ -n $TMUX ]] && echo -e "${BLUE}new${DEFAULT} window"
+  [ -n $TMUX ] && echo -e "${BLUE}new${DEFAULT} window"
   echo -e "${BLUE}new${DEFAULT} session"
 
   ## kill
@@ -56,7 +56,7 @@ tmuximum::operation-list() {
   tmux has-session 2>/dev/null && echo -e "${RED}kill${DEFAULT} sessions"
 
   ## detach / exit
-  [[ -n $TMUX ]] && echo detach
+  [ -n $TMUX ] && echo detach
   echo -e "${GREEN}${BOLD}exit${DEFAULT}"
 }
 
@@ -141,9 +141,9 @@ main() {
   [[ $finder =~ fzf ]] && finder=($finder --ansi)
   set-color
 
-  if [[ $# = 0 ]]; then
+  if [ $# -eq 0 ]; then
     tmuximum::operation
-  elif [[ $# = 1 ]]; then
+  elif [ $# -eq 1 ]; then
     case $1 in
       -h) tmuximum::help ;;
       -s) tmuximum::kill-session ;;
