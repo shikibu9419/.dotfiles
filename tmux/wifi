@@ -86,7 +86,7 @@ signals=(▂ ▅ ▇)
 # Get the wifi information and then set it to an info array
 info=( $(eval "$airport_path" --getinfo | grep -E "^ *(agrCtlRSSI|state|lastTxRate|SSID):" | awk '{print $2}') )
 if [[ ${#info[@]} -eq 0 ]]; then
-    echo "offline"
+    echo "offline "
     exit 1
 fi
 
