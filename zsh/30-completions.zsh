@@ -6,8 +6,6 @@ fpath=(~/.zsh/completions(N-/) ~/.zplug/repos/zsh-users/zsh-completions/src(N-/)
 zstyle ':completion:*' list-colors $LS_COLORS
 zstyle ':completion:*' menu select=2
 zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' '+m:{a-z}={A-Z}'
-zstyle ':zle:*' word-chars ' /=;@:{}[]()<>,|.'
-zstyle ':zle:*' word-style unspecified
 
 setopt no_list_types
 setopt print_eight_bit
