@@ -29,18 +29,18 @@ update:
 	@git submodule init
 	@git submodule update
 	@git submodule foreach git pull origin master
-	@echo "Update other plugins..."
+	@echo 'Update other plugins...'
 	@myupdate
 
 clean:
-	@echo "Clean up dotfiles..."
+	@echo 'Clean up dotfiles...'
 	@$(foreach link, $(DEPLOYED), unlink ~/$(link);)
 	@rm -rfi $(DOTPATH)
 
 help:
-	@echo "list     List up dotfiles which will be deployed"
-	@echo "init     Initialize dotfiles"
-	@echo "deploy   Deploy dotfiles"
-	@echo "install  Initialize and deploy"
-	@echo "update   Update repository, submodules and other plugins"
-	@echo "help     Display target list"
+	@echo 'list     List up dotfiles which will be deployed'
+	@echo 'init     Initialize macOS environment'
+	@echo 'deploy   Deploy dotfiles'
+	@echo 'install  Initialize and deploy'
+	@echo 'update   Update repository, submodules and other plugins'
+	@echo 'help     Display targets in Makefile'

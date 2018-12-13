@@ -73,14 +73,14 @@ done
 
 ## Docker
 echo 'Docker...'
-if [ ! -d $ZSH_COMPLETIONS_PATH ] && mkdir -p $ZSH_COMPLETIONS_PATH
+[ ! -d $ZSH_COMPLETIONS_PATH ] && mkdir -p $ZSH_COMPLETIONS_PATH
 cp $DOCKER_COMPLETIONS_PATH/docker.zsh-completion $ZSH_COMPLETIONS_PATH/_docker
 cp $DOCKER_COMPLETIONS_PATH/docker-compose.zsh-completion $ZSH_COMPLETIONS_PATH/_docker-compose
 cp $DOCKER_COMPLETIONS_PATH/docker-machine.zsh-completion $ZSH_COMPLETIONS_PATH/_docker-machine
 
 ## Programing Languages
 echo 'gem...'
-if [ ! -d ~/.rbenv ] && mkdir ~/.rbenv
+[ ! -d ~/.rbenv ] && mkdir ~/.rbenv
 ln -sifF $DOTPATH/init/rbenv-default-gems ~/.rbenv/default-gems
 
 echo 'pip...'

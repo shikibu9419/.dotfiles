@@ -7,10 +7,12 @@ has() {
   type "$1" > /dev/null 2>&1
 }
 
-dir=$1
+dir=~/.dotfiles
+[ -n $1 ] && dir=$1
+
 if [ -d $dir ]; then
   echo "**warning** $dir will be deleted!!"
-  echo "Installation failed."
+  echo 'Installation failed.'
   exit 1
 fi
 
@@ -25,9 +27,12 @@ elif has 'curl'; then
   tar -zxvf $dir.tar.gz --strip-components=1 -C $dir
   rm -f $dir.tar.gz
 else
-  echo "Neither 'git' nor 'curl' were found."
-  echo 'Please install one of them to install dotfiles.'
+  cat <<EOF
+Neither 'git' nor 'curl' were found.
+Please install one of them to install dotfiles.
+EOF
   exit 1
 fi
 
-echo 'dotfiles were installed!\n'
+echo 'Dotfiles were installed!'
+echo
