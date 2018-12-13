@@ -1,11 +1,8 @@
 ### My fish environment is uncompleted...
 
-if [[ -z $TMUX ]]
-  if [[ -n $(tmux list-sessions) ]]
-    cmd=tmuximum
-  else
-    cmd='tmux new-session'
-  fi
+if [ -z $TMUX ]
+  cmd=tmuximum
+  [[ -z $(tmux list-sessions) ]]; and cmd=tmux
   $cmd; and exit
 fi
 

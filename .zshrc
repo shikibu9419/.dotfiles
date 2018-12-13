@@ -1,9 +1,6 @@
-if [[ -z $TMUX ]]; then
-  if [[ -n $(tmux list-sessions) ]]; then
-    cmd=tmuximum
-  else
-    cmd=tmux
-  fi
+if [ -z $TMUX ]; then
+  cmd=tmuximum
+  if [[ -z $(tmux list-sessions) ]] && cmd=tmux
   $cmd && exit
 fi
 
