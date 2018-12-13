@@ -58,11 +58,16 @@
     "latex-workshop.chktex.enabled": false,
     "latex-workshop.latex.recipes": [
         {
-            "name": "latexmk",
-            "tools": [
-                "luajit"
-            ],
-        }
+            // "name": "luajit",
+            // "tools": [
+            //     "luajit"
+            // ],
+            // "name": "platex",
+            // "tools": [
+            //     "platex",
+            //     "dvipdfmx"
+            // ]
+        },
     ],
     "latex-workshop.latex.tools": [
         {
@@ -80,6 +85,23 @@
                 "--cmdx",
                 "--fmt=luajitlatex.fmt",
                 "%DOC%.tex",
+            ]
+        },
+        {
+            "name": "platex",
+            "command": "platex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOC%"
+            ]
+        },
+        {
+            "name": "dvipdfmx",
+            "command": "dvipdfmx",
+            "args": [
+                "%DOCFILE%.dvi"
             ]
         }
     ],
