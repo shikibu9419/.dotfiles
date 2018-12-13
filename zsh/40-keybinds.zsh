@@ -1,4 +1,4 @@
-### Functions whose name starts with '_' are defined in DOTPATH/zsh/functions.zsh
+### Original functions are defined in DOTPATH/zsh/60-functions.zsh
 
 autoload -Uz zmv
 autoload -U history-search-end

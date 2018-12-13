@@ -38,6 +38,8 @@ alias gpushf='git push -f origin $(git branch | grep "*\ " | sed "s/.* //")'
 alias grmadd='git remote add origin $(pbpaste)'
 alias gwa='git worktree add $(git rev-parse --show-cdup).git-worktrees/$1 -b $1'
 alias remind='git remind status'
+alias fpd='git diff --stat | fpp'
+alias fps='git status | fpp'
 
 ## tmux
 alias tks='tmux kill-session -t'

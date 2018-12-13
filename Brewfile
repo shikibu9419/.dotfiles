@@ -24,6 +24,7 @@ brew 'ghkw'
 brew 'fzf'
 brew 'emojify'
 brew 'jq'
+brew 'fpp'
 brew 'fish'
 
 brew 'git'
