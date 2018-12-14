@@ -45,7 +45,7 @@ hook_source = '''
     set conceallevel=2 concealcursor=niv
   endif
 
-  let g:neosnippet#snippets_directory = '~/.vim/snippets/, ~/.cache/dein/repos/github.com/Shougo/neosnippet-snippets/neosnippets/'
+  let g:neosnippet#snippets_directory = '$DOTPATH/vim/snippets/, $XDG_CACHE_HOME/dein/repos/github.com/Shougo/neosnippet-snippets/neosnippets/'
 '''
 on_i = 1
 depends = 'neosnippet-snippets'

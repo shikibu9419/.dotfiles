@@ -1,19 +1,16 @@
-"------------------------------------------
-" Indent
-"------------------------------------------
+"" Indent
 set expandtab
 set shiftround
 set autoindent
 set smartindent
-
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 
+"" Setting per filetype
 augroup filetypedetect
-  "" Set filetype
   autocmd BufRead,BufNewFile *.slim setlocal filetype=slim
-  "" C, C++, Java, Kotlin, CSS, JSON => 4 spaces
+  """ C, C++, Java, Kotlin, CSS, JSON => 4 spaces
   autocmd BufRead,BufNewFile *.c    setlocal tabstop=4 shiftwidth=4 softtabstop=4
   autocmd BufRead,BufNewFile *.cpp  setlocal tabstop=4 shiftwidth=4 softtabstop=4
   autocmd BufRead,BufNewFile *.java setlocal tabstop=4 shiftwidth=4 softtabstop=4
@@ -22,9 +19,7 @@ augroup filetypedetect
   autocmd BufRead,BufNewFile *.json setlocal tabstop=4 shiftwidth=4 softtabstop=4
 augroup END
 
-"------------------------------------------
-" Tab setting
-"------------------------------------------
+"" Tab setting
 function! s:SID_PREFIX()
   return matchstr(expand('<sfile>'), '<SNR>\d\+_\zeSID_PREFIX$')
 endfunction

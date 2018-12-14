@@ -3,9 +3,6 @@ set number
 set laststatus=2
 set nrformats=
 set scrolloff=3
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
-let g:indent_guides_auto_colors = 1
 
 "" Color & Highlight
 set t_Co=256
@@ -14,6 +11,11 @@ set cursorline
 hi LineNr ctermfg=243
 hi CursorLineNr ctermfg=255
 colorscheme hybrid
+
+"" After loading indent_guides
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
+let g:indent_guides_auto_colors = 1
 
 "" True color
 if !has('gui_running') && exists('&termguicolors') && $COLORTERM ==# 'truecolor'

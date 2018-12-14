@@ -3,7 +3,5 @@ if has('nvim')
 endif
 
 for conf in split(glob('$DOTPATH/vim/[1-9]*.vim'),'\n')
-  if filereadable(conf)
-    execute 'source' conf
-  endif
+  execute 'source' conf
 endfor

@@ -1,16 +1,3 @@
-"------------------------------------------
-" Search & Replace
-"------------------------------------------
-set incsearch
-set hls
-set ignorecase
-set smartcase
-set wrapscan
-set gdefault
-
-"------------------------------------------
-" Edit
-"------------------------------------------
 set updatetime=250
 set whichwrap=b,s,h,l,<,>,[,]
 set showcmd
@@ -26,6 +13,14 @@ set wildmenu
 set history=1000
 autocmd FileType * setlocal formatoptions-=ro
 set backspace=indent,eol,start " Enable backspace (for Mac)
+
+"" Search & Replace
+set incsearch
+set hls
+set ignorecase
+set smartcase
+set wrapscan
+set gdefault
 
 "" Encodings
 set encoding=utf-8
@@ -56,7 +51,7 @@ function! s:AutoWriteIfPossible()
 endfunction
 augroup autowrite
   autocmd!
-  autocmd CursorHold * call s:AutoWriteIfPossible()
+  autocmd CursorHold  * call s:AutoWriteIfPossible()
   autocmd CursorHoldI * call s:AutoWriteIfPossible()
 augroup END
 

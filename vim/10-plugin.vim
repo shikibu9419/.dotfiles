@@ -27,7 +27,5 @@ syntax on
 
 "" Load plugin config file
 for conf in split(glob('$DOTPATH/vim/plugins/*.vim'),'\n')
-  if filereadable(conf)
-    execute 'source' conf
-  endif
+  execute 'source' conf
 endfor
