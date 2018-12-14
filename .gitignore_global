@@ -1,9 +1,11 @@
 .DS_Store
+.idea
+.project
 .git-worktrees
 .ruby-version
 .python-version
-.idea
-.project
+node_modules
+tags
 GPATH
 GRTAGS
 GTAGS
