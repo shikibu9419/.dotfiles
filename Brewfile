@@ -45,7 +45,6 @@ brew 'tmux-xpanes'
 cask 'xquartz' # dependency
 brew 'gnuplot', args: ['with-x11']
 
-brew 'pyenv'
 brew 'ruby-build'
 brew 'rbenv'
 brew 'kotlin'

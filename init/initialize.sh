@@ -40,7 +40,7 @@ else
 fi
 
 if ! has 'brew'; then
-  error 'Installing Homebrew failed.'
+  error 'Not found: Homebrew.\nInitialize failed...'
 fi
 
 ## brew install
@@ -55,11 +55,11 @@ notice 'Other settings...'
 ## Shell
 echo 'Shell...'
 if has 'tee'; then
-  echo $(which zsh) | sudo tee -a /etc/shells
+  echo $(which zsh)  | sudo tee -a /etc/shells
   echo $(which fish) | sudo tee -a /etc/shells
 else
-  sudo echo $(which zsh) >> /etc/shells && echo $(which zsh)
-  sudo echo $(which fish) >> /etc/shells && echo $(which zsh)
+  sudo echo $(which zsh)  >> /etc/shells && echo $(which zsh)
+  sudo echo $(which fish) >> /etc/shells && echo $(which fish)
 fi
 chsh -s $(which zsh)
 cp /usr/local/opt/global/share/gtags/gtags.conf ~/.globalrc
@@ -67,14 +67,14 @@ npm install -g pure-prompt
 
 ## Editor
 echo 'VS Code...'
-echo $DOTPATH/vscode/extensions.txt | while read pkg; do
+echo $DOTPATH/init/vscode-extensions | while read pkg; do
   code --install-extension $pkg
 done
 
 ## Docker
 echo 'Docker...'
 [ ! -d $ZSH_COMPLETIONS_PATH ] && mkdir -p $ZSH_COMPLETIONS_PATH
-cp $DOCKER_COMPLETIONS_PATH/docker.zsh-completion $ZSH_COMPLETIONS_PATH/_docker
+cp $DOCKER_COMPLETIONS_PATH/docker.zsh-completion         $ZSH_COMPLETIONS_PATH/_docker
 cp $DOCKER_COMPLETIONS_PATH/docker-compose.zsh-completion $ZSH_COMPLETIONS_PATH/_docker-compose
 cp $DOCKER_COMPLETIONS_PATH/docker-machine.zsh-completion $ZSH_COMPLETIONS_PATH/_docker-machine
 
@@ -84,10 +84,9 @@ echo 'gem...'
 ln -sifF $DOTPATH/init/rbenv-default-gems ~/.rbenv/default-gems
 
 echo 'pip...'
-pip install --upgrade setuptools
-pip install --upgrade pip
-pip install --upgrade pygments
-pip3 install neovim
+pip3 install --upgrade setuptools
+pip3 install --upgrade pip
+pip3 install -r $DOTPATH/init/pip-requirements
 
 echo 'Rust...'
 curl https://sh.rustup.rs -sSf | sh
