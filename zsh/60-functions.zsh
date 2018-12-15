@@ -1,3 +1,7 @@
+_check_available_git() {
+  git rev-parse > /dev/null 2>&1
+}
+
 _show_ls_gs() {
   if [ -n "$BUFFER" ]; then
     zle accept-line
@@ -76,8 +80,4 @@ ghq_jump_repository() {
     tmux new-session -d -c $dir -s $session
     tmux switch-client -t $session
   fi
-}
-
-_check_available_git() {
-  git rev-parse > /dev/null 2>&1
 }

@@ -73,6 +73,4 @@ alias editenv='nvim $DOTPATH && echo "Reloading..."; reload > /dev/null'
 alias -g ...='../..'
 alias -g ....='../../..'
 alias v=nvim
-alias vi=nvim
-alias vim=nvim
 alias c=clear
