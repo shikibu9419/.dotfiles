@@ -67,7 +67,6 @@ brew 'llvm'
 brew 'cmake'
 brew 'imagemagick@6'
 brew 'graphviz'
-brew 'nodenv'
 brew 'readline'
 brew 'openssl'
 

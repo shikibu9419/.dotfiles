@@ -1,7 +1,5 @@
 typeset -U PATH path cdpath fpath manpath
 eval "$(rbenv init -)"
-eval "$(pyenv init -)"
-eval "$(nodenv init -)"
 
 zstyle ':zle:*' word-chars ' /=;@:{}[]()<>,|.'
 zstyle ':zle:*' word-style unspecified

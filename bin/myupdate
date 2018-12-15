@@ -20,7 +20,10 @@ if ! zplug check --verbose; then
 fi
 
 message 'vscode'
-code --list-extensions > $DOTPATH/vscode/extensions.txt
+code --list-extensions > $DOTPATH/init/vscode-extensions
+
+message 'pip3'
+pip3 freeze > $DOTPATH/init/pip-requirements
 
 echo 'Reloading...'
 source ~/.zshenv && source ~/.zshrc > /dev/null
