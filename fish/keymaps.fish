@@ -1,11 +1,3 @@
-#------------------------------------------
-# aliases & abbrs
-#------------------------------------------
-balias reload 'source ~/.config/fish/config.fish'
-balias git    'hub'
-balias ls     'gls --color'
-balias grep   'grep --color'
-
 ## plugins
 balias cdg 'cd-gitroot'
 
@@ -14,6 +6,7 @@ function fed
 end
 
 ## git
+balias git 'hub'
 abbr g    'git'
 abbr ga   'git add'
 abbr gb   'git branch'
@@ -35,8 +28,10 @@ abbr gsee 'git see'
 abbr gpr  'git pull-request'
 
 ## others
-abbr vim 'nvim'
-# balias rm 'rm -r'
-# balias cp 'cp -r'
-# balias mkdir 'mkdir -p'
-# balias ql 'qlmanage -p $@ >& /dev/null'
+balias ls   'gls --color'
+balias grep 'grep --color'
+balias reload 'source ~/.config/fish/config.fish'
+abbr v  'nvim'
+abbr rm 'rm -r'
+abbr cp 'cp -r'
+abbr mkdir 'mkdir -p'
