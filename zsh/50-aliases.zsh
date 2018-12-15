@@ -8,13 +8,20 @@ alias cdg=cd-gitroot
 alias git='hub'
 alias g='git'
 alias ga='git add'
+alias gap='git add -p'
 alias gb='git branch'
+alias gd='git branch -D'
+alias gm='git branch -m'
 alias gc='git commit -m'
-alias gca='git commit --amend'
-alias gcadd='git commit -am'
+alias gca='git commit -am'
+alias gc!='git commit --amend'
 alias gcl='git clone'
 alias gch='git checkout'
+alias gchb='git checkout -b'
+alias gchd='git checkout develop'
+alias gchm='git checkout master'
 alias gd='git diff'
+alias gdc='git diff --cached'
 alias gl='git log'
 alias gp='git push'
 alias gpl='git pull --rebase'
@@ -29,17 +36,18 @@ alias gcom='hub compare'
 alias gpr='hub pull-request'
 alias gsee='hub see'
 
-alias glog=git_list_log
-alias gwork=git_list_worktree
 alias gclone='git clone $(pbpaste)'
-alias ghq-get='ghq get $(pbpaste)'
 alias gpush='git push origin $(git branch | grep "*\ " | sed "s/.* //")'
 alias gpushf='git push -f origin $(git branch | grep "*\ " | sed "s/.* //")'
 alias grmadd='git remote add origin $(pbpaste)'
 alias gwa='git worktree add $(git rev-parse --show-cdup).git-worktrees/$1 -b $1'
-alias remind='git remind status'
+alias glog=git_list_log
+alias gwork=git_list_worktree
+
 alias fpd='git diff --stat | fpp'
 alias fps='git status | fpp'
+alias ghq-get='ghq get $(pbpaste)'
+alias remind='git remind status'
 
 ## tmux
 alias tks='tmux kill-session -t'
@@ -60,7 +68,8 @@ alias zmv='noglob zmv -W'
 
 ## others
 alias reload='source ~/.zshenv && source ~/.zshrc'
-alias editenv='nvim $DOTPATH && echo "Reloading..."; reload'
+alias cdenv='cd $DOTPATH'
+alias editenv='nvim $DOTPATH && echo "Reloading..."; reload > /dev/null'
 alias -g ...='../..'
 alias -g ....='../../..'
 alias v=nvim
