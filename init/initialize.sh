@@ -9,9 +9,9 @@ has() {
 }
 
 notice() {
-  echo '=================================================='
+  echo ==================================================
   echo $1
-  echo '=================================================='
+  echo ==================================================
 }
 
 strong() {
@@ -34,26 +34,26 @@ cd $DOTPATH
 
 ## Homebrew setting
 if has 'brew'; then
-  notice 'Updating Homebrew...'
+  notice 'Update Homebrew...'
   brew update && brew upgrade
 else
-  notice 'Installing Homebrew...'
+  notice 'Install Homebrew...'
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
-has 'brew' || error 'Not found: Homebrew.'
+has 'brew' || error "Can't install Homebrew."
 
 ## brew install
-notice 'Start brew install.'
+notice 'Start install formulas.'
 brew tap homebrew/bundle
 brew bundle
 brew cleanup
-strong 'Brew install finished!\n'
+strong 'Installation of formulas finished!\n'
 
 notice 'Other settings...'
 
 ## Shell
-strong 'Shell...'
+strong 'Shell:'
 if has 'tee'; then
   echo $(which zsh)  | sudo tee -a /etc/shells
   echo $(which fish) | sudo tee -a /etc/shells
@@ -66,30 +66,30 @@ cp /usr/local/opt/global/share/gtags/gtags.conf ~/.globalrc
 npm install -g pure-prompt
 
 ## Editor
-strong 'VS Code...'
+strong 'VS Code:'
 echo $DOTPATH/init/vscode-extensions | while read pkg; do
   code --install-extension $pkg
 done
 
 ## Docker
-strong 'Docker...'
+strong 'Docker:'
 [ -d $ZSH_COMPLETIONS_PATH ] || mkdir -p $ZSH_COMPLETIONS_PATH
 cp $DOCKER_COMPLETIONS_PATH/docker.zsh-completion         $ZSH_COMPLETIONS_PATH/_docker
 cp $DOCKER_COMPLETIONS_PATH/docker-compose.zsh-completion $ZSH_COMPLETIONS_PATH/_docker-compose
 cp $DOCKER_COMPLETIONS_PATH/docker-machine.zsh-completion $ZSH_COMPLETIONS_PATH/_docker-machine
 
+strong 'Rust:'
+curl https://sh.rustup.rs -sSf | sh
+
 ## Programing Languages
-strong 'gem...'
+strong 'gem:'
 [ -d ~/.rbenv ] || mkdir ~/.rbenv
 ln -sifF $DOTPATH/init/rbenv-default-gems ~/.rbenv/default-gems
 
-strong 'pip...'
+strong 'pip:'
 pip3 install --upgrade setuptools
-pip3 install --upgrade pip
+pip3 install --upgrade pip3
 pip3 install -r $DOTPATH/init/pip-requirements
-
-strong 'Rust...'
-curl https://sh.rustup.rs -sSf | sh
 
 ## Default writes
 bash $DOTPATH/init/default-writes.sh

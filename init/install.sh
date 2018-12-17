@@ -17,10 +17,6 @@ dir=~/.dotfiles
 [ -n $1 ] && dir=$1
 [ -d $dir ] && error "**warning** $dir will be deleted!!"
 
-echo 'Installing command-line-tools...'
-xcode-select --install
-sudo xcode-select -s /Library/Developer/CommandLineTools
-
 if has 'git'; then
   git clone https://github.com/shikibu9419/.dotfiles
 elif has 'curl'; then
