@@ -11,6 +11,8 @@ zplug 'b4b4r07/enhancd', use:init.sh
 zplug 'mollifier/cd-gitroot', use:'!*'
 zplug 'supercrabtree/k', use:'!*'
 zplug 'marzocchi/zsh-notify', use:'!*'
+zplug 'greymd/tmux-xpanes'
+zplug 'sindresorhus/pure'
 # zplug 'b4b4r07/emoji-cli'
 # zplug 'b4b4r07/zsh-gomi'
 

@@ -56,6 +56,11 @@ alias tkp='tmux kill-pane -t'
 alias tls='tmux list-sessions -t'
 alias tlw='tmux list-windows -t'
 alias tlp='tmux list-panes -t'
+alias xpanes='xpanes --log=$XDG_CACHE_HOME/xpanes-log'
+alias xpc='xpanes -c'
+alias xpd='xpanes -d -c'
+alias xpe='xpanes -e'
+alias xpssh='xpanes --ssh'
 
 ## abbr
 alias ls='gls --color=auto'
