@@ -6,6 +6,7 @@ zstyle ':zle:*' word-style unspecified
 zstyle ':notify:*' success-title 'Command finished!'
 zstyle ':notify:*' error-title   'Command failed...'
 
+SPROMPT="%{$fg[red]%}correct: %R -> %r [nyae]? %{$reset_color%}"
 chpwd() { ls }
 stty -ixon
 setopt auto_cd
