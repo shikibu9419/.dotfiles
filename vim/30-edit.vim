@@ -1,3 +1,4 @@
+set ttimeoutlen=50
 set updatetime=250
 set whichwrap=b,s,h,l,<,>,[,]
 set showcmd
