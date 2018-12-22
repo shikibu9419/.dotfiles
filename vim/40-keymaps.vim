@@ -10,11 +10,11 @@ nnoremap - <C-x>
 nnoremap q: :q
 nnoremap <C-q> :qall<CR>
 nnoremap <Esc> :noh<CR>
-" nnoremap <Leader>m :<C-u>marks
-" nnoremap <Leader>r :<C-u>registers
 nnoremap <Leader>s :split 
 nnoremap <Leader>v :vsplit 
 nnoremap <Leader>, :source $MYVIMRC<CR>
+" nnoremap <Leader>m :<C-u>marks
+" nnoremap <Leader>r :<C-u>registers
 
 "" Insert mode
 inoremap jj <Esc>
@@ -24,10 +24,24 @@ cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
 cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
 cnoremap <expr> ? getcmdtype() == '?' ? '\?' : '?'
+cabbr w!! w !sudo tee > /dev/null %
 
 "" Visual mode
 vnoremap < <gv
 vnoremap > >gv
+
+"" Like Emacs
+inoremap <C-a> <C-o>^
+inoremap <C-e> <C-o>$
+inoremap <C-f> <C-o>w
+inoremap <C-b> <C-o>b
+inoremap <C-d> <C-o>x
+
+"" Resize window
+nnoremap <S-Left>  <C-w><
+nnoremap <S-Right> <C-w>>
+nnoremap <S-Up>    <C-w>-
+nnoremap <S-Down>  <C-w>+
 
 "" Tab
 map <silent> <C-n> :tabnext<CR>
@@ -40,7 +54,7 @@ endfor
 "----------------------------------------------
 " Plugins
 "----------------------------------------------
-"" Prefix key
+"" Prefix
 map <Leader>f [fzf]
 map <Leader>g [git]
 map <Leader>l [lsp]
@@ -49,31 +63,23 @@ map <Leader>l [lsp]
 " map <C-j> [denite]
 " nmap <silent> [denite]<C-D> :Denite -buffer-name=gtags_completion gtags_completion<cr>
 
-map  ga <Nop>
-map  <C-c> <Nop>
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 xmap <C-k> <Plug>(neosnippet_expand_target)
-nmap <C-c> <Plug>(caw:zeropos:toggle)
-vmap <C-c> <Plug>(caw:zeropos:toggle)
-nmap ga <Plug>(EasyAlign)
-vmap ga <Plug>(EasyAlign)
+map  <C-c> <Nop>
+map  <C-c> <Plug>(caw:zeropos:toggle)
+map  ga <Nop>
+map  ga <Plug>(EasyAlign)
 nmap ]h <Plug>GitGutterNextHunk
 nmap [h <Plug>GitGutterPrevHunk
-" nmap <leader><tab> <plug>(fzf-maps-n)
-" imap <c-x><c-k> <plug>(fzf-complete-word)
-" imap <c-x><c-f> <plug>(fzf-complete-path)
-" imap <c-x><c-j> <plug>(fzf-complete-file-ag)
-" imap <c-x><c-l> <plug>(fzf-complete-line)
 " nmap <silent> <C-t>k :<C-u>exe("Gtags ".expand('<cword>'))<CR>
 " nmap <silent> <C-t>r :<C-u>exe("Gtags -r ".expand('<cword>'))<CR>
 
 "" Using <Leader>
-nmap <silent> <Leader>b <Plug>(openbrowser-smart-search)
-vmap <silent> <Leader>b <Plug>(openbrowser-smart-search)
+map  <silent> <Leader>b <Plug>(openbrowser-smart-search)
 nmap <silent> <Leader>d <Plug>DashSearch
 nmap <silent> <Leader>n <plug>NERDTreeTabsToggle<CR>
-nmap <silent> <Leader>o :OverCommandLine<CR>
+map  <silent> <Leader>o :OverCommandLine<CR>
 nmap <silent> <Leader>r <Plug>(quickrun)
 " nmap <Leader>r :cclose<CR>:write<CR>:QuickRun -mode n<CR>
 " nmap <Leader>s :SyntasticCheck<CR>
