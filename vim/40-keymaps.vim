@@ -43,14 +43,6 @@ nnoremap <S-Right> <C-w>>
 nnoremap <S-Up>    <C-w>-
 nnoremap <S-Down>  <C-w>+
 
-"" Tab
-map <silent> <C-n> :tabnext<CR>
-map <silent> <C-p> :tabprevious<CR>
-map <silent> <Tab>c :tablast <bar> tabnew<CR>
-for index in range(1, 9)
-  execute 'nnoremap <silent> <Tab>'.index  ':<C-u>tabnext'.index.'<CR>'
-endfor
-
 "----------------------------------------------
 " Plugins
 "----------------------------------------------

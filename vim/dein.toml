@@ -94,7 +94,6 @@ hook_add = '''
 #----------------------------------------------
 [[plugins]]
 repo = 'tpope/vim-fugitive'
-hook_add = 'let g:lightline#extensions#branch#enabled=1'
 
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
@@ -122,16 +121,16 @@ repo = 'tpope/vim-obsession'
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
 
-[[plugins]]
-repo = 'terryma/vim-multiple-cursors'
-hook_add = '''
-  function! Multiple_cursors_before()
-    if exists(':NeoCompleteLock')==2
-      exe 'NeoCompleteLock'
-      echo 'Disabled Neocomplete'
-    endif
-  endfunction
-'''
+# [[plugins]]
+# repo = 'terryma/vim-multiple-cursors'
+# hook_add = '''
+#   function! Multiple_cursors_before()
+#     if exists(':NeoCompleteLock')==2
+#       exe 'NeoCompleteLock'
+#       echo 'Disabled Neocomplete'
+#     endif
+#   endfunction
+# '''
 
 [[plugins]]
 repo = 'thinca/vim-quickrun'
@@ -210,7 +209,10 @@ hook_add = '''
 # Appearance
 #----------------------------------------------
 [[plugins]]
-repo = 'itchyny/lightline.vim'
+repo = 'vim-airline/vim-airline'
+
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes'
 
 # [[plugins]]
 # repo = 'ryanoasis/vim-devicons'

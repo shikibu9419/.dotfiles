@@ -10,10 +10,11 @@ set softtabstop=2
 "" Setting per filetype
 augroup filetypedetect
   autocmd BufRead,BufNewFile *.slim setlocal filetype=slim
-  """ C, C++, Java, Kotlin, CSS, JSON => 4 spaces
+  """ C, C++, Java, Python, Kotlin, CSS, JSON => 4 spaces
   autocmd BufRead,BufNewFile *.c    setlocal tabstop=4 shiftwidth=4 softtabstop=4
   autocmd BufRead,BufNewFile *.cpp  setlocal tabstop=4 shiftwidth=4 softtabstop=4
   autocmd BufRead,BufNewFile *.java setlocal tabstop=4 shiftwidth=4 softtabstop=4
+  autocmd BufRead,BufNewFile *.py   setlocal tabstop=4 shiftwidth=4 softtabstop=4
   autocmd BufRead,BufNewFile *.kt   setlocal tabstop=4 shiftwidth=4 softtabstop=4
   autocmd BufRead,BufNewFile *.css  setlocal tabstop=4 shiftwidth=4 softtabstop=4
   autocmd BufRead,BufNewFile *.json setlocal tabstop=4 shiftwidth=4 softtabstop=4
