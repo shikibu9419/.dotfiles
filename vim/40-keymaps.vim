@@ -3,7 +3,6 @@ let mapleader = "\<Space>"
 imap <F1> <Esc>
 map  <F1> <Esc>
 
-"" Normal mode
 nnoremap Y y$
 nnoremap + <C-a>
 nnoremap - <C-x>
@@ -16,17 +15,14 @@ nnoremap <Leader>, :source $MYVIMRC<CR>
 " nnoremap <Leader>m :<C-u>marks
 " nnoremap <Leader>r :<C-u>registers
 
-"" Insert mode
 inoremap jj <Esc>
 
-"" Command mode
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
 cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
 cnoremap <expr> ? getcmdtype() == '?' ? '\?' : '?'
 cabbr w!! w !sudo tee > /dev/null %
 
-"" Visual mode
 vnoremap < <gv
 vnoremap > >gv
 
@@ -46,18 +42,10 @@ nnoremap <S-Down>  <C-w>+
 "----------------------------------------------
 " Plugins
 "----------------------------------------------
-"" Prefix
-map <Leader>f [fzf]
-map <Leader>g [git]
-map <Leader>l [lsp]
-" map <Leader>n [nerdtree]
-" nmap [denite] <Nop>
-" map <C-j> [denite]
-" nmap <silent> [denite]<C-D> :Denite -buffer-name=gtags_completion gtags_completion<cr>
-
-imap <C-k> <Plug>(neosnippet_expand_or_jump)
-smap <C-k> <Plug>(neosnippet_expand_or_jump)
-xmap <C-k> <Plug>(neosnippet_expand_target)
+inoremap <C-l> <C-r>=lexima#insmode#leave(1, '<LT>C-G>U<LT>RIGHT>')<CR>
+inoremap <C-k> <Plug>(neosnippet_expand_or_jump)
+snoremap <C-k> <Plug>(neosnippet_expand_or_jump)
+xnoremap <C-k> <Plug>(neosnippet_expand_target)
 map  <C-c> <Nop>
 map  <C-c> <Plug>(caw:zeropos:toggle)
 map  ga <Nop>
@@ -73,8 +61,9 @@ nmap <silent> <Leader>d <Plug>DashSearch
 nmap <silent> <Leader>n <plug>NERDTreeTabsToggle<CR>
 map  <silent> <Leader>o :OverCommandLine<CR>
 nmap <silent> <Leader>r <Plug>(quickrun)
-" nmap <Leader>r :cclose<CR>:write<CR>:QuickRun -mode n<CR>
-" nmap <Leader>s :SyntasticCheck<CR>
+map <Leader>f [fzf]
+map <Leader>g [git]
+map <Leader>l [lsp]
 
 nmap [fzf]l :FzfFileList<CR>
 nmap [fzf]m :FzfMostRecentlyUsed<CR>
