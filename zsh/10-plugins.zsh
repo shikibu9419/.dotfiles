@@ -1,6 +1,5 @@
 source /usr/local/opt/zplug/init.zsh
 ZPLUG_REPOS=~/.zplug/repos
-fpath=(~/.zsh/completions(N-/) ~/.zplug/repos/zsh-users/zsh-completions/src(N-/) $fpath)
 
 zplug 'zsh-users/zsh-completions', lazy:true
 zplug 'zsh-users/zsh-syntax-highlighting', defer:2

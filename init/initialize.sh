@@ -64,9 +64,11 @@ strong 'Shell:'
 if has 'tee'; then
   echo $(which zsh)  | sudo tee -a /etc/shells
   echo $(which fish) | sudo tee -a /etc/shells
+  echo $(which xonsh) | sudo tee -a /etc/shells
 else
   sudo echo $(which zsh)  >> /etc/shells && echo $(which zsh)
   sudo echo $(which fish) >> /etc/shells && echo $(which fish)
+  sudo echo $(which xonsh) >> /etc/shells && echo $(which xonsh)
 fi
 chsh -s $(which zsh)
 
