@@ -16,7 +16,7 @@ EOF
 tmuximum::operation() {
   answer=$(tmuximum::operation-list | "${finder[@]}")
   case $answer in
-    'new session'* ) tmux new-session ;;
+    'new session'  ) tmux new-session -d -s new && tmux switch-client -t new ;;
     'new window'*  ) tmux new-window ;;
     'kill sessions') tmuximum::kill-session ;;
     'kill windows' ) tmuximum::kill-window ;;

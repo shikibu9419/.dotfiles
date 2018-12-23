@@ -32,6 +32,10 @@ error() {
   exit 1
 }
 
+checkdir() {
+  [ -d $1 ] || mkdir -p $1
+}
+
 
 cd $DOTPATH
 
@@ -65,7 +69,6 @@ else
   sudo echo $(which fish) >> /etc/shells && echo $(which fish)
 fi
 chsh -s $(which zsh)
-sed -e 's/:tc=native:/:tc=native:tc=pygments:/g' /usr/local/opt/global/share/gtags/gtags.conf > ~/.globalrc
 
 ## Editor
 strong 'VS Code:'
@@ -75,26 +78,26 @@ done
 
 ## Docker
 strong 'Docker:'
-[ -d $ZSH_COMPLETIONS_PATH ] || mkdir -p $ZSH_COMPLETIONS_PATH
+checkdir $ZSH_COMPLETIONS_PATH
 for comp in $DOCKER_COMPLETIONS_PATH/*.zsh-completion; do
   file=${comp##*/}
   cp $comp $ZSH_COMPLETIONS_PATH/_${file%.*}
 done
 
-strong 'Rust:'
-curl https://sh.rustup.rs -sSf | sh
-
 ## Package managers
 strong 'gem:'
-[ -d ~/.rbenv ] || mkdir ~/.rbenv
+checkdir ~/.rbenv
 git clone $RBENV_DEFAULT_GEMS ~/.rbenv/plugins/rbenv-default-gems
-curl -fsSL $DEFAULT_GEMS_URL -o default-gems
-mv default-gems ~/.rbenv
+curl -fsSL $DEFAULT_GEMS_URL -o default-gems && mv default-gems ~/.rbenv
 
 strong 'pip:'
 pip3 install --upgrade setuptools
 pip3 install --upgrade pip3
 pip3 install $(curl -fsSL $PIP_REQUIREMENTS_URL)
+
+## Others
+curl https://sh.rustup.rs -sSf | sh
+sed -e 's/:tc=native:/:tc=native:tc=pygments:/g' /usr/local/opt/global/share/gtags/gtags.conf > ~/.globalrc
 
 ## Default writes
 bash $DOTPATH/init/default-writes.sh

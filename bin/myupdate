@@ -4,7 +4,11 @@ message() {
   printf "\e[31;1mUPDATE: \e[37;1m$1\e[m\n"
 }
 
-source ~/.zshrc > /dev/null
+reloadenv() {
+  source ~/.zshenv && source ~/.zshrc > /dev/null
+}
+
+reloadenv
 
 message 'brew'
 brew update
@@ -22,8 +26,5 @@ fi
 message 'vscode'
 code --list-extensions > $DOTPATH/init/vscode-extensions
 
-message 'pip3'
-pip3 freeze > $DOTPATH/init/pip-requirements
-
 echo 'Reloading...'
-source ~/.zshenv && source ~/.zshrc > /dev/null
+reloadenv
