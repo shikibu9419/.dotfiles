@@ -3,6 +3,9 @@
 set -e
 DOCKER_COMPLETIONS_PATH=/Applications/Docker.app/Contents/Resources/etc
 ZSH_COMPLETIONS_PATH=~/.zsh/completions
+RBENV_DEFAULT_GEMS=https://github.com/sstephenson/rbenv-default-gems.git
+DEFAULT_GEMS_URL=https://gist.githubusercontent.com/shikibu9419/c4a6e126b0da47856ee5a8ef04d38cde/raw/rbenv-default-gems
+PIP_REQUIREMENTS_URL=https://gist.githubusercontent.com/shikibu9419/8bafc4e6146967d851d0f88567f9d15a/raw/pip-requirements
 
 has() {
   type "$1" > /dev/null 2>&1
@@ -62,8 +65,7 @@ else
   sudo echo $(which fish) >> /etc/shells && echo $(which fish)
 fi
 chsh -s $(which zsh)
-cp /usr/local/opt/global/share/gtags/gtags.conf ~/.globalrc
-npm install -g pure-prompt
+sed -e 's/:tc=native:/:tc=native:tc=pygments:/g' /usr/local/opt/global/share/gtags/gtags.conf > ~/.globalrc
 
 ## Editor
 strong 'VS Code:'
@@ -74,22 +76,25 @@ done
 ## Docker
 strong 'Docker:'
 [ -d $ZSH_COMPLETIONS_PATH ] || mkdir -p $ZSH_COMPLETIONS_PATH
-cp $DOCKER_COMPLETIONS_PATH/docker.zsh-completion         $ZSH_COMPLETIONS_PATH/_docker
-cp $DOCKER_COMPLETIONS_PATH/docker-compose.zsh-completion $ZSH_COMPLETIONS_PATH/_docker-compose
-cp $DOCKER_COMPLETIONS_PATH/docker-machine.zsh-completion $ZSH_COMPLETIONS_PATH/_docker-machine
+for comp in $DOCKER_COMPLETIONS_PATH/*.zsh-completion; do
+  file=${comp##*/}
+  cp $comp $ZSH_COMPLETIONS_PATH/_${file%.*}
+done
 
 strong 'Rust:'
 curl https://sh.rustup.rs -sSf | sh
 
-## Programing Languages
+## Package managers
 strong 'gem:'
 [ -d ~/.rbenv ] || mkdir ~/.rbenv
-ln -sifF $DOTPATH/init/rbenv-default-gems ~/.rbenv/default-gems
+git clone $RBENV_DEFAULT_GEMS ~/.rbenv/plugins/rbenv-default-gems
+curl -fsSL $DEFAULT_GEMS_URL -o default-gems
+mv default-gems ~/.rbenv
 
 strong 'pip:'
 pip3 install --upgrade setuptools
 pip3 install --upgrade pip3
-pip3 install -r $DOTPATH/init/pip-requirements
+pip3 install $(curl -fsSL $PIP_REQUIREMENTS_URL)
 
 ## Default writes
 bash $DOTPATH/init/default-writes.sh
@@ -99,9 +104,4 @@ strong 'Initialization finished successfully!!'
 cat <<EOF
 Please run this commands to complete initialize truly.
 > rustup component add rls-preview rust-analysis rust-src
-
-And please rewrite ~/.globalrc as following diff.
-37   default:\
-38 - :tc=native:
-   + :tc=native:tc=pygments:
 EOF

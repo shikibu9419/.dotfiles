@@ -18,13 +18,14 @@ dir=~/.dotfiles
 [ -d $dir ] && error "**warning** $dir will be deleted!!"
 
 if has 'git'; then
-  git clone https://github.com/shikibu9419/.dotfiles
+  git clone https://github.com/shikibu9419/.dotfiles $dir
 elif has 'curl'; then
-  curl -fsSLo $dir.tar.gz $DOT_TARBALL
+  curl -fsSL $DOT_TARBALL -o $dir.tar.gz
   tar -zxvf $dir.tar.gz --strip-components=1 -C $dir
   rm -f $dir.tar.gz
 else
   error "Neither 'git' nor 'curl' were found.\nPlease install one of them to install dotfiles."
 fi
 
-echo 'Dotfiles were installed!\n'
+echo "Dotfiles were installed on $dir!"
+echo
