@@ -55,6 +55,14 @@ nmap [h <Plug>GitGutterPrevHunk
 " nmap <silent> <C-t>k :<C-u>exe("Gtags ".expand('<cword>'))<CR>
 " nmap <silent> <C-t>r :<C-u>exe("Gtags -r ".expand('<cword>'))<CR>
 
+"" Tab
+nmap <C-p> <Plug>AirlineSelectPrevTab
+nmap <C-n> <Plug>AirlineSelectNextTab
+map <silent> <Tab>c :tablast <bar> tabnew<CR>
+for index in range(1, 9)
+  execute 'nnoremap <silent> <Tab>'.index  ':<C-u>tabnext'.index.'<CR>'
+endfor
+
 "" Using <Leader>
 map  <silent> <Leader>b <Plug>(openbrowser-smart-search)
 nmap <silent> <Leader>d <Plug>DashSearch

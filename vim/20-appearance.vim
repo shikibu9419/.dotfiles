@@ -3,6 +3,7 @@ set number
 set laststatus=2
 set nrformats=
 set scrolloff=3
+set ambiwidth=double
 
 "" Color & Highlight
 set t_Co=256
