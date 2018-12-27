@@ -5,15 +5,10 @@ message() {
 }
 
 reloadenv() {
-  source ~/.zshenv && source ~/.zshrc > /dev/null
+  source ~/.zshenv && source ~/.zprofile && source ~/.zshrc > /dev/null
 }
 
 reloadenv
-
-message 'brew'
-brew update
-brew upgrade
-brew cleanup
 
 message 'zplug'
 if ! zplug check --verbose; then
@@ -22,9 +17,15 @@ if ! zplug check --verbose; then
     echo; zplug install
   fi
 fi
+zplug update
 
 message 'vscode'
 code --list-extensions > $DOTPATH/init/vscode-extensions
+
+message 'brew'
+brew update
+brew upgrade
+brew cleanup
 
 echo 'Reloading...'
 reloadenv

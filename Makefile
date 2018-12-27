@@ -16,8 +16,8 @@ deploy:
 		mkdir ~/.config; \
 	 fi
 	@$(foreach file, $(DOTFILES), ln -sfnv $(abspath $(file)) ~/$(file);)
-	@$(foreach conf, $(XDGCONFS), ln -sfFv $(abspath config/$(conf)) ~/.config/$(conf);)
-	@$(foreach json, $(VSCODE),   ln -sfnv $(abspath vscode/$(json)) ~/Library/Application Support/Code/User/$(json);)
+	@$(foreach conf, $(XDGCONFS), ln -sfnv $(abspath config/$(conf)) ~/.config/$(conf);)
+	@$(foreach json, $(VSCODE),   ln -sfnv $(abspath vscode/$(json)) ~/Library/Application\ Support/Code/User/$(json);)
 
 init:
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/init/initialize.sh

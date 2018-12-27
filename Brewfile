@@ -26,6 +26,7 @@ brew 'emojify'
 brew 'jq'
 brew 'fpp'
 brew 'fish'
+brew 'xonsh'
 
 brew 'git'
 brew 'tig'
@@ -33,6 +34,7 @@ brew 'hub'
 brew 'ghq'
 brew 'peco'
 brew 'bat'
+brew 'tree'
 
 brew 'vim', args: ['with-lua']
 brew 'neovim'
@@ -40,7 +42,6 @@ brew 'ctags'
 brew 'global', args: ['with-exuberant-ctags', 'with-pygments']
 brew 'tmux'
 brew 'reattach-to-user-namespace'
-brew 'tmux-xpanes'
 
 cask 'xquartz' # dependency
 brew 'gnuplot', args: ['with-x11']
