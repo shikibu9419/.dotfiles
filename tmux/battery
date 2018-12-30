@@ -1,0 +1,17 @@
+#!/bin/sh
+
+if battery_info=$(/usr/bin/pmset -g ps | awk '{ if (NR == 2) print $3 " " $4 }' | sed -e "s/;//g" -e "s/%//"); then
+  quantity=$(echo $battery_info | awk '{print $1}')
+
+  if [ $quantity -gt 75 ]; then
+    decoration='#[fg=cyan] '
+  elif [ $quantity -gt 15 -a $quantity -le 75 ]; then
+    decoration='#[fg=yellow] '
+  else
+    decoration='#[fg=red] '
+  fi
+
+  [[ ! "$battery_info" =~ discharging ]] && decoration="$decoration ⚡"
+
+  echo "$decoration $quantity%"
+fi
