@@ -22,6 +22,8 @@ set ignorecase
 set smartcase
 set wrapscan
 set gdefault
+cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
+cnoremap <expr> ? getcmdtype() == '?' ? '\?' : '?'
 
 "" Encodings
 set encoding=utf-8
