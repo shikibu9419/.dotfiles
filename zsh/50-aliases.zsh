@@ -1,5 +1,3 @@
-### Functions whose name starts with '_' are defined in DOTPATH/zsh/functions.zsh
-
 ## plugins
 alias t=tmuximum
 alias cdg=cd-gitroot
@@ -32,6 +30,7 @@ alias gs='git status'
 alias gst='git stash'
 alias gsta='git stash apply'
 alias gw='git worktree'
+alias gwa='git worktree add $(git rev-parse --show-cdup).git-worktrees/$1 -b $1'
 alias gcom='hub compare'
 alias gpr='hub pull-request'
 alias gsee='hub see'
@@ -40,7 +39,6 @@ alias gclone='git clone $(pbpaste)'
 alias gpush='git push origin $(git branch | grep "*\ " | sed "s/.* //")'
 alias gpushf='git push -f origin $(git branch | grep "*\ " | sed "s/.* //")'
 alias grmadd='git remote add origin $(pbpaste)'
-alias gwa='git worktree add $(git rev-parse --show-cdup).git-worktrees/$1 -b $1'
 alias glog=git_list_log
 alias gwork=git_list_worktree
 
