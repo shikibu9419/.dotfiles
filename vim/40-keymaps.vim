@@ -51,8 +51,8 @@ cabbr w!! w !sudo tee > /dev/null %
 "----------------------------------------------
 " Plugins
 "----------------------------------------------
-noremap  ga    <Plug>(EasyAlign)
-noremap  <C-c> <Plug>(caw:zeropos:toggle)
+map ga    <Plug>(EasyAlign)
+map <C-c> <Plug>(caw:zeropos:toggle)
 inoremap <C-k> <Plug>(neosnippet_expand_or_jump)
 snoremap <C-k> <Plug>(neosnippet_expand_or_jump)
 xnoremap <C-k> <Plug>(neosnippet_expand_target)

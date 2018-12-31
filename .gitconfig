@@ -1,9 +1,8 @@
-[user]
-  name  = Kazuya Izumi
-  email = shikibu9419@gmail.com
+[include]
+  path = ~/.gitconfig.local
+[core]
+  excludesfile = ~/.gitignore_global
 [ghq]
   root = ~/projects
 [alias]
   see = browse
-[core]
-  excludesfile = ~/.gitignore_global
