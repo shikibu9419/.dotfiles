@@ -1,12 +1,11 @@
 # dotfiles
-This is my dotfiles for macOS.
 
 ## Setup
 
 Install dotfiles:
 
 ```shell
-$ bash <(curl -fsSL raw.github.com/shikibu9419/.dotfiles/master/init/install.sh) [DIRECTORY]
+$ bash <(curl -fsSL raw.github.com/shikibu9419/.dotfiles/master/install)
 ```
 
 Make target list:

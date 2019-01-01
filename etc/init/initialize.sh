@@ -8,12 +8,12 @@ DEFAULT_GEMS_URL=https://gist.githubusercontent.com/shikibu9419/c4a6e126b0da4785
 PIP_REQUIREMENTS_URL=https://gist.githubusercontent.com/shikibu9419/8bafc4e6146967d851d0f88567f9d15a/raw/pip-requirements
 
 has() {
-  type "$1" > /dev/null 2>&1
+  return $(type "$1" > /dev/null 2>&1)
 }
 
 notice() {
   echo ==================================================
-  echo $1
+  echo " $1"
   echo ==================================================
 }
 
@@ -61,7 +61,7 @@ chsh -s $(which zsh)
 
 ## Editor
 strong 'VS Code:'
-cat $DOTPATH/init/vscode-extensions | while read pkg; do
+cat $DOTPATH/etc/init/vscode-extensions | while read pkg; do
   code --install-extension $pkg
 done
 
@@ -87,7 +87,7 @@ pip3 install $(curl -fsSL $PIP_REQUIREMENTS_URL)
 sed -e 's/:tc=native:/:tc=native:tc=pygments:/g' /usr/local/opt/global/share/gtags/gtags.conf > ~/.globalrc
 
 ## Default writes
-bash $DOTPATH/init/default-writes.sh
+[ $(uname) = Darwin ] && bash $DOTPATH/etc/init/default-writes.sh
 
 
 strong 'Initialization finished successfully!!'

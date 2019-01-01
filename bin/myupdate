@@ -20,7 +20,7 @@ fi
 zplug update
 
 message 'vscode'
-code --list-extensions > $DOTPATH/init/vscode-extensions
+code --list-extensions > $DOTPATH/etc/init/vscode-extensions
 
 message 'brew'
 brew update

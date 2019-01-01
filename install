@@ -1,7 +1,6 @@
-#!/bin/sh
+#!/bin/bash
 
 set -e
-DOT_TARBALL='https://github.com/shikibu9419/.dotfiles/tarball/master'
 
 error() {
   echo $1 1>&2
@@ -10,11 +9,11 @@ error() {
 }
 
 has() {
-  type "$1" > /dev/null 2>&1
+  return $(type "$1" > /dev/null 2>&1)
 }
 
+
 dir=~/.dotfiles
-[ -n $1 ] && dir=$1
 [ -d $dir ] && error "**warning** $dir will be deleted!!"
 
 ## Homebrew setting
@@ -28,9 +27,11 @@ has 'brew' || error "Can't install Homebrew."
 
 ## Install dotfiles
 if has 'git'; then
-  git clone https://github.com/shikibu9419/.dotfiles $dir
+  git clone --recursive https://github.com/shikibu9419/.dotfiles $dir
 elif has 'curl'; then
-  curl -fsSL $DOT_TARBALL -o $dir.tar.gz
+  tarball=https://github.com/shikibu9419/.dotfiles/tarball/master
+
+  curl -fsSL $tarball -o $dir.tar.gz
   tar -zxvf $dir.tar.gz --strip-components=1 -C $dir
   rm -f $dir.tar.gz
 else
