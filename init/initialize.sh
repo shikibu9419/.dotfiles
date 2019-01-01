@@ -39,17 +39,6 @@ checkdir() {
 
 cd $DOTPATH
 
-## Homebrew setting
-if has 'brew'; then
-  notice 'Update Homebrew...'
-  brew update && brew upgrade
-else
-  notice 'Install Homebrew...'
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-fi
-
-has 'brew' || error "Can't install Homebrew."
-
 ## brew install
 notice 'Start install formulas.'
 brew tap homebrew/bundle
@@ -61,20 +50,18 @@ notice 'Other settings...'
 
 ## Shell
 strong 'Shell:'
-if has 'tee'; then
-  echo $(which zsh)  | sudo tee -a /etc/shells
-  echo $(which fish) | sudo tee -a /etc/shells
-  echo $(which xonsh) | sudo tee -a /etc/shells
-else
-  sudo echo $(which zsh)  >> /etc/shells && echo $(which zsh)
-  sudo echo $(which fish) >> /etc/shells && echo $(which fish)
-  sudo echo $(which xonsh) >> /etc/shells && echo $(which xonsh)
-fi
+for shell in (z|fi|xon)sh; do
+  if has 'tee'; then
+    echo $(which $shell)  | sudo tee -a /etc/shells
+  else
+    sudo echo $(which $shell) >> /etc/shells && echo $(which $shell)
+  fi
+done
 chsh -s $(which zsh)
 
 ## Editor
 strong 'VS Code:'
-echo $DOTPATH/init/vscode-extensions | while read pkg; do
+cat $DOTPATH/init/vscode-extensions | while read pkg; do
   code --install-extension $pkg
 done
 
@@ -94,11 +81,9 @@ curl -fsSL $DEFAULT_GEMS_URL -o default-gems && mv default-gems ~/.rbenv
 
 strong 'pip:'
 pip3 install --upgrade setuptools
-pip3 install --upgrade pip3
 pip3 install $(curl -fsSL $PIP_REQUIREMENTS_URL)
 
 ## Others
-curl https://sh.rustup.rs -sSf | sh
 sed -e 's/:tc=native:/:tc=native:tc=pygments:/g' /usr/local/opt/global/share/gtags/gtags.conf > ~/.globalrc
 
 ## Default writes
@@ -108,5 +93,6 @@ bash $DOTPATH/init/default-writes.sh
 strong 'Initialization finished successfully!!'
 cat <<EOF
 Please run this commands to complete initialize truly.
+> curl https://sh.rustup.rs -sSf | sh
 > rustup component add rls-preview rust-analysis rust-src
 EOF

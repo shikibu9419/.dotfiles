@@ -17,6 +17,16 @@ dir=~/.dotfiles
 [ -n $1 ] && dir=$1
 [ -d $dir ] && error "**warning** $dir will be deleted!!"
 
+## Homebrew setting
+if has 'brew'; then
+  brew update && brew upgrade
+else
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
+
+has 'brew' || error "Can't install Homebrew."
+
+## Install dotfiles
 if has 'git'; then
   git clone https://github.com/shikibu9419/.dotfiles $dir
 elif has 'curl'; then

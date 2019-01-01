@@ -11,6 +11,9 @@ list:
 	@echo "To be deployed to $(HOME):"
 	@$(foreach file, $(DEPLOYED), echo $(file);)
 
+initialize:
+	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/init/initialize.sh
+
 deploy:
 	@if [ ! -d ~/.config ]; then \
 		mkdir ~/.config; \
@@ -19,10 +22,7 @@ deploy:
 	@$(foreach conf, $(XDGCONFS), ln -sfnv $(abspath config/$(conf)) ~/.config/$(conf);)
 	@$(foreach json, $(VSCODE),   ln -sfnv $(abspath vscode/$(json)) ~/Library/Application\ Support/Code/User/$(json);)
 
-init:
-	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/init/initialize.sh
-
-install: deploy init
+install: initialize deploy
 
 update:
 	@git pull origin master

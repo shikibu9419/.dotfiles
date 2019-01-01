@@ -42,9 +42,8 @@ brew 'ctags'
 brew 'global', args: ['with-exuberant-ctags', 'with-pygments']
 brew 'tmux'
 brew 'reattach-to-user-namespace'
-
-cask 'xquartz' # dependency
-brew 'gnuplot', args: ['with-x11']
+# cask 'xquartz' # dependency
+# brew 'gnuplot', args: ['with-x11']
 
 brew 'ruby-build'
 brew 'rbenv'
@@ -55,7 +54,6 @@ brew 'awk'
 brew 'gradle'
 brew 'gradle-completion'
 
-brew 'heroku'
 brew 'unicorn'
 brew 'nginx'
 brew 'redis'
@@ -82,21 +80,21 @@ brew 'wget'
 #------------------------------------------
 # cask
 #------------------------------------------
-cask 'station'
+# cask 'station'
 cask 'google-chrome'
 cask 'firefox'
-cask 'mactex'
+# cask 'mactex'
 cask 'docker'
 cask 'docker-toolbox'
 
 cask 'alacritty'
-cask 'iterm2'
+# cask 'iterm2'
 cask 'hyper'
 cask 'cool-retro-term'
 
 cask 'dash'
 cask 'alfred'
-cask 'cheatsheet'
+# cask 'cheatsheet'
 cask 'appcleaner'
 cask 'bettertouchtool'
 cask 'skim'
@@ -116,12 +114,12 @@ cask 'android-platform-tools'
 cask 'adobe-creative-cloud'
 cask 'postman'
 cask 'mendeley'
-cask 'quail'
+# cask 'quail'
 cask 'tunnelblick'
 cask 'skype'
 cask 'zoomus'
 cask 'notion'
-cask 'kindle'
+# cask 'kindle'
 cask '4k-video-downloader'
 cask 'xld'
 
