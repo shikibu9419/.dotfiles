@@ -1,4 +1,4 @@
-if [ -z $TMUX ]; then
+if [[ -z $TMUX ]]; then
   cmd=tmuximum
   [[ -z $(tmux list-sessions) ]] && cmd=tmux
   $cmd && exit
