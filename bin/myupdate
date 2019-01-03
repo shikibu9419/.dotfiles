@@ -5,7 +5,7 @@ message() {
 }
 
 reloadenv() {
-  source ~/.zshenv && source ~/.zprofile && source ~/.zshrc > /dev/null
+  source ~/.zshenv && source ~/.zshrc > /dev/null
 }
 
 reloadenv
