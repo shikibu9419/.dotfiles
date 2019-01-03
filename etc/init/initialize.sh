@@ -86,9 +86,6 @@ pip3 install $(curl -fsSL $PIP_REQUIREMENTS_URL)
 ## Others
 sed -e 's/:tc=native:/:tc=native:tc=pygments:/g' /usr/local/opt/global/share/gtags/gtags.conf > ~/.globalrc
 
-## Default writes
-bash $DOTPATH/etc/init/default-writes.sh
-
 
 strong 'Initialization finished successfully!!'
 cat <<EOF
