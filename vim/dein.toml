@@ -105,11 +105,11 @@ repo = 'airblade/vim-gitgutter'
 repo = 'christoomey/vim-tmux-navigator'
 hook_add = '''
   let g:tmux_navigator_no_mappings = 1
-  nnoremap <silent> <C-w>h  :TmuxNavigateLeft<cr>
-  nnoremap <silent> <C-w>j  :TmuxNavigateDown<cr>
-  nnoremap <silent> <C-w>k  :TmuxNavigateUp<cr>
-  nnoremap <silent> <C-w>l  :TmuxNavigateRight<cr>
-  nnoremap <silent> <C-w>\\ :TmuxNavigatePrevious<cr>
+  nnoremap <silent> <C-f>h  :TmuxNavigateLeft<cr>
+  nnoremap <silent> <C-f>j  :TmuxNavigateDown<cr>
+  nnoremap <silent> <C-f>k  :TmuxNavigateUp<cr>
+  nnoremap <silent> <C-f>l  :TmuxNavigateRight<cr>
+  nnoremap <silent> <C-f>\\ :TmuxNavigatePrevious<cr>
 '''
 
 [[plugins]]
