@@ -1,20 +1,21 @@
-# dotfiles
+# .dotfiles
 
-## Setup
+My powerful & fashionable environment for macOS :sparkles:
 
-Install dotfiles:
+## Install
 
 ```shell
-$ bash <(curl -fsSL raw.github.com/shikibu9419/.dotfiles/master/install)
+> bash <(curl -fsSL git.io/shikibu.info)
 ```
 
-Make target list:
+## Make
 
 ```shell
-$ make list     # List up dotfiles which will be deployed
-$ make init     # Initialize macOS environment
-$ make deploy   # Deploy dotfiles
-$ make install  # Initialize and deploy
-$ make update   # Update repository, submodules and other plugins
-$ make help     # Display targets in Makefile
+> make help
+list     List up dotfiles which will be deployed
+init     Initialize macOS environment
+deploy   Deploy dotfiles
+install  Initialize and deploy
+update   Update repository, submodules and other plugins
+help     Display targets in Makefile
 ```
