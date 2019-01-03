@@ -1,6 +1,6 @@
-EXCLUDES := .DS_Store .git .gitignore .gitmodules
+EXCLUDES := .DS_Store
 DOTPATH  := $(CURDIR)
-DOTFILES := $(filter-out $(EXCLUDES), $(wildcard .??*))
+DOTFILES := $(filter-out $(EXCLUDES), $(notdir $(wildcard home/.??*)))
 XDGCONFS := $(filter-out $(EXCLUDES), $(notdir $(wildcard config/*)))
 VSCODE   := $(notdir $(wildcard vscode/*.json))
 DEPLOYED := $(DOTFILES) $(addprefix .config/, $(XDGCONFS))
@@ -16,7 +16,7 @@ init:
 
 deploy:
 	@[ -d ~/.config ] || mkdir ~/.config
-	@$(foreach file, $(DOTFILES), ln -sfnv $(abspath $(file)) ~/$(file);)
+	@$(foreach file, $(DOTFILES), ln -sfnv $(abspath home/$(file)) ~/$(file);)
 	@$(foreach conf, $(XDGCONFS), ln -sfnv $(abspath config/$(conf)) ~/.config/$(conf);)
 	@$(foreach json, $(VSCODE),   ln -sfnv $(abspath vscode/$(json)) ~/Library/Application\ Support/Code/User/$(json);)
 
@@ -27,11 +27,11 @@ update:
 	@git submodule init
 	@git submodule update
 	@git submodule foreach git pull origin master
-	@echo 'Update other plugins...'
+	@echo 'Updating other plugins...'
 	@myupdate
 
 clean:
-	@echo 'Clean up dotfiles...'
+	@echo 'Cleaning up dotfiles...'
 	@$(foreach link, $(DEPLOYED), unlink ~/$(link);)
 	@rm -rfi $(DOTPATH)
 
