@@ -87,7 +87,7 @@ pip3 install $(curl -fsSL $PIP_REQUIREMENTS_URL)
 sed -e 's/:tc=native:/:tc=native:tc=pygments:/g' /usr/local/opt/global/share/gtags/gtags.conf > ~/.globalrc
 
 ## Default writes
-[ $(uname) = Darwin ] && bash $DOTPATH/etc/init/default-writes.sh
+bash $DOTPATH/etc/init/default-writes.sh
 
 
 strong 'Initialization finished successfully!!'

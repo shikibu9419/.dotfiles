@@ -4,5 +4,3 @@
   excludesfile = ~/.gitignore_global
 [ghq]
   root = ~/projects
-[alias]
-  see = browse

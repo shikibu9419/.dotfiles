@@ -12,7 +12,7 @@ list:
 	@$(foreach file, $(DEPLOYED), echo $(file);)
 
 init:
-	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/init/initialize.sh
+	@[ $(uname) = Darwin ] && DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/init/initialize.sh
 
 deploy:
 	@[ -d ~/.config ] || mkdir ~/.config

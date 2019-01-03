@@ -33,7 +33,7 @@ alias gw='git worktree'
 alias gwa='git worktree add $(git rev-parse --show-cdup).git-worktrees/$1 -b $1'
 alias gcom='hub compare'
 alias gpr='hub pull-request'
-alias gsee='hub see'
+alias gsee='hub browse'
 
 alias gclone='git clone $(pbpaste)'
 alias gpush='git push origin $(git branch | grep "*\ " | sed "s/.* //")'
