@@ -15,7 +15,6 @@ hook_post_update = '''
 #----------------------------------------------
 # Tag jump
 #----------------------------------------------
-## gtags
 [[plugins]]
 repo = 'lighttiger2505/gtags.vim'
 hook_add = '''
@@ -36,7 +35,6 @@ hook_add = 'let g:gen_tags#gtags_auto_gen = 1'
 # hook_add = '''
 #   let g:vim_tags_project_tags_command = "/usr/local/bin/ctags -R {OPTIONS} {DIRECTORY} 2>/dev/null"
 #   let g:vim_tags_gems_tags_command = "/usr/local/bin/ctags -R {OPTIONS} `bundle show --paths` 2>/dev/null"
-#   " TODO: Change keymap
 #   " nnoremap <Leader>h :split<CR> :exe("tjump ".expand('<cword>'))<CR>
 #   " nnoremap <Leader>v :vsplit<CR> :exe("tjump ".expand('<cword>'))<CR>
 # '''
@@ -215,9 +213,6 @@ depends = ['vim-airline-themes']
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
 
-# [[plugins]]
-# repo = 'ryanoasis/vim-devicons'
-
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'
 hook_add = '''
@@ -289,9 +284,6 @@ repo = 'tomasr/molokai'
 
 [[plugins]]
 repo = 'gosukiwi/vim-atom-dark'
-
-[[plugins]]
-repo = 'raphamorim/lucario'
 
 [[plugins]]
 repo = 'jdkanani/vim-material-theme'
