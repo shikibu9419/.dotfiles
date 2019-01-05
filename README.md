@@ -1,6 +1,6 @@
-# dotfiles [![MIT License](http://img.shields.io/badge/license-MIT-green.svg?style=flat)](LICENSE.txt)
+# dotfiles ![](https://img.shields.io/badge/platform-macOS-lightgray.svg) [![MIT License](http://img.shields.io/badge/license-MIT-green.svg?style=flat)](LICENSE.txt)
 
-My powerful & fashionable development environment for macOS :sparkles:
+My powerful & fashionable development environment :sparkles:
 
 ## Installation
 
