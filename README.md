@@ -1,14 +1,14 @@
-# .dotfiles
+# dotfiles [![MIT License](http://img.shields.io/badge/license-MIT-green.svg?style=flat)](LICENSE.txt)
 
-My powerful & fashionable environment for macOS :sparkles:
+My powerful & fashionable development environment for macOS :sparkles:
 
-## Install
+## Installation
 
 ```shell
 > bash <(curl -fsSL git.io/shikibu.info)
 ```
 
-## Make
+## Setup
 
 ```shell
 > make help
