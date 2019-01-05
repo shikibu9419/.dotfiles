@@ -1,4 +1,4 @@
-# dotfiles ![](https://img.shields.io/badge/platform-macOS-lightgray.svg) [![MIT License](http://img.shields.io/badge/license-MIT-green.svg?style=flat)](LICENSE.txt)
+# dotfiles ![](https://img.shields.io/badge/platform-macOS-lightgray.svg) [![MIT License](http://img.shields.io/badge/license-MIT-green.svg?style=flat)](./doc/LICENSE.txt)
 
 My powerful & fashionable development environment :sparkles:
 
