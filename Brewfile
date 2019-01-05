@@ -1,16 +1,12 @@
 cask_args appdir: '/Applications'
 
-#------------------------------------------
-# tap
-#------------------------------------------
+## tap
 tap 'homebrew/core'
 tap 'homebrew/services'
 tap 'caskroom/cask'
 tap 'caskroom/versions'
 
-#------------------------------------------
-# brew
-#------------------------------------------
+## brew
 brew 'coreutils'
 brew 'zsh'
 brew 'fish'
@@ -33,9 +29,7 @@ brew 'rbenv'
 brew 'kotlin'
 brew 'go'
 
-#------------------------------------------
-# cask
-#------------------------------------------
+## cask
 cask 'google-chrome'
 cask 'firefox'
 cask 'docker'

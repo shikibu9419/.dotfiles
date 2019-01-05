@@ -60,7 +60,7 @@ alias xpd='xpanes -d -c'
 alias xpe='xpanes -e'
 alias xpssh='xpanes --ssh'
 
-## abbr
+## omit option
 alias ls='gls --color=auto'
 alias grep='grep --color=auto'
 alias la='ls -al'
@@ -70,10 +70,9 @@ alias mkdir='mkdir -p'
 alias zmv='noglob zmv -W'
 
 ## others
+alias v=nvim
 alias reload='source ~/.zshenv && source ~/.zshrc'
 alias cdenv='cd $DOTPATH'
 alias editenv='nvim $DOTPATH && echo "Reloading..."; reload > /dev/null'
 alias -g ...='../..'
 alias -g ....='../../..'
-alias v=nvim
-alias c=clear
