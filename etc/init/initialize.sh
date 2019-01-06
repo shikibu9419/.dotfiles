@@ -71,7 +71,6 @@ for comp in $DOCKER_COMPLETIONS_PATH/*.zsh-completion; do
 done
 
 strong 'gem:'
-checkdir ~/.rbenv
 git clone https://github.com/sstephenson/rbenv-default-gems.git ~/.rbenv/plugins/rbenv-default-gems
 curl -fsSL $DEFAULT_GEMS_URL -o default-gems && mv default-gems ~/.rbenv
 
