@@ -1,7 +1,7 @@
 #!/bin/bash
-airport_path="/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport"
+airport_path='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport'
 
-if air_info=($(eval "$airport_path" -I | grep -E "^ *(agrCtlRSSI|state|SSID):" | awk '{print $2}')); then
+if air_info=($(eval "$airport_path" -I | grep -E '^ *(agrCtlRSSI|state|SSID):' | awk '{print $2}')); then
 
   rssi=${air_info[0]}
   state=${air_info[1]}
@@ -17,8 +17,8 @@ if air_info=($(eval "$airport_path" -I | grep -E "^ *(agrCtlRSSI|state|SSID):" |
       done
       airport_=" ${ssid} ${signal} "
     ;;
-    init) airport_="#[fg=yellow] ... " ;;
-    *   ) airport_="#[fg=red] ✘  " ;;
+    init) airport_='#[fg=yellow] ... ' ;;
+    *   ) airport_='#[fg=red] ✘  ' ;;
   esac
   echo "${airport_}#[fg=default]"
 fi
