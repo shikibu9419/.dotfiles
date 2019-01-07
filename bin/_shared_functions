@@ -7,7 +7,7 @@ check-available-git() {
 }
 
 has() {
-  type "$1" > /dev/null 2>&1
+  return $(type "$1" > /dev/null 2>&1)
 }
 
 set-fuzzy-finder() {
@@ -22,7 +22,7 @@ set-fuzzy-finder() {
   done
 
   cat <<EOF
-tmuximum: tmuximum requires fuzzy finder. Either of these is necessary.
+This command requires FUZZY FINDER. Either of these is necessary.
 fzf, fzf-tmux, peco, percol, gof
 EOF
   exit 1

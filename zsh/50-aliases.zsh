@@ -24,8 +24,10 @@ alias gl='git log'
 alias gp='git push'
 alias gpl='git pull --rebase'
 alias grb='git rebase'
+alias grem='git remote'
+alias grema='git remote add origin $(pbpaste)'
+alias grm='git rm'
 alias grs='git reset'
-alias grm='git remote'
 alias gs='git status'
 alias gst='git stash'
 alias gsta='git stash apply'
@@ -38,13 +40,12 @@ alias gsee='hub browse'
 alias gclone='git clone $(pbpaste)'
 alias gpush='git push origin $(git branch | grep "*\ " | sed "s/.* //")'
 alias gpushf='git push -f origin $(git branch | grep "*\ " | sed "s/.* //")'
-alias grmadd='git remote add origin $(pbpaste)'
-alias glog=git_list_log
+alias glog=git_extended_log
 alias gwork=git_list_worktree
 
 alias fpd='git diff --stat | fpp'
 alias fps='git status | fpp'
-alias ghq-get='ghq get $(pbpaste)'
+alias ghget='ghq get $(pbpaste)'
 alias remind='git remind status'
 
 ## tmux
@@ -71,8 +72,6 @@ alias zmv='noglob zmv -W'
 
 ## others
 alias v=nvim
-alias reload='source ~/.zshenv && source ~/.zshrc'
-alias cdenv='cd $DOTPATH'
-alias editenv='nvim $DOTPATH && echo "Reloading..."; reload > /dev/null'
 alias -g ...='../..'
 alias -g ....='../../..'
+alias reload='source ~/.zshenv && source ~/.zshrc'
