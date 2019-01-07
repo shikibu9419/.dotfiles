@@ -1,6 +1,4 @@
-autoload -Uz zmv
 autoload -U history-search-end
-autoload -U tetris; zle -N tetris
 
 zle -N git_list_branch
 zle -N _show_ls_gs

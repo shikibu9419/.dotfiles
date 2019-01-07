@@ -13,8 +13,8 @@ zplug 'marzocchi/zsh-notify', use:'!*'
 zplug 'mafredri/zsh-async', from:'github', use:'async.zsh'
 zplug 'greymd/tmux-xpanes'
 zplug 'sindresorhus/pure'
-# zplug 'b4b4r07/emoji-cli'
-# zplug 'b4b4r07/zsh-gomi'
+zplug 'b4b4r07/zsh-gomi', use:bin
+zplug 'b4b4r07/emoji-cli', if:'which jq'
 
 zplug load
 

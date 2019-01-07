@@ -1,6 +1,10 @@
+autoload -Uz zmv
+autoload -U tetris; zle -N tetris
+
 ## plugins
 alias t=tmuximum
 alias cdg=cd-gitroot
+alias -g E='| emojify'
 
 ## git
 alias git='hub'
@@ -61,7 +65,12 @@ alias xpd='xpanes -d -c'
 alias xpe='xpanes -e'
 alias xpssh='xpanes --ssh'
 
-## omit option
+## others
+alias v=nvim
+alias -g ...='../..'
+alias -g ....='../../..'
+alias reload='source ~/.zshenv && source ~/.zshrc'
+
 alias ls='gls --color=auto'
 alias grep='grep --color=auto'
 alias la='ls -al'
@@ -69,9 +78,3 @@ alias ll='ls -l'
 alias cp='cp -r'
 alias mkdir='mkdir -p'
 alias zmv='noglob zmv -W'
-
-## others
-alias v=nvim
-alias -g ...='../..'
-alias -g ....='../../..'
-alias reload='source ~/.zshenv && source ~/.zshrc'

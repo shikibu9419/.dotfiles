@@ -8,11 +8,11 @@ setopt globdots
 setopt extended_glob
 
 ## Completion using with fzf
+export FZF_COMPLETION_TRIGGER=','
 [[ $- == *i* ]] && source /usr/local/opt/fzf/shell/completion.zsh 2> /dev/null
 source /usr/local/opt/fzf/shell/key-bindings.zsh
-export FZF_COMPLETION_TRIGGER=','
 
-## pip completion
+## pip
 function _pip_completion {
   local words cword
   read -Ac words
