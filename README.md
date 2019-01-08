@@ -16,6 +16,6 @@ list     List up dotfiles which will be deployed
 init     Initialize macOS environment
 deploy   Deploy dotfiles
 install  Initialize and deploy
-update   Update repository, submodules and other plugins
+update   Update dotfiles, submodules and other plugins
 help     Display targets in Makefile
 ```
