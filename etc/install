@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -eu
 
 error() {
   echo $1 1>&2

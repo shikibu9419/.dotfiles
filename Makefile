@@ -8,7 +8,7 @@ DEFAULT:
 
 list:
 	@echo "To be deployed to $(HOME):"
-	@$(foreach file, $(DEPLOYED), echo ' '$(file);)
+	@$(foreach file, $(DEPLOYED), echo " $(file)";)
 
 init:
 	@[ $(uname) = Darwin ] && DOTPATH=$(CURDIR) bash $(DOTPATH)/etc/init/initialize.sh

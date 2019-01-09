@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -e
+set -eu
 DEFAULT_GEMS_URL=https://gist.githubusercontent.com/shikibu9419/c4a6e126b0da47856ee5a8ef04d38cde/raw/rbenv-default-gems
 PIP_REQUIREMENTS_URL=https://gist.githubusercontent.com/shikibu9419/8bafc4e6146967d851d0f88567f9d15a/raw/pip-requirements
 DOCKER_COMPLETIONS_PATH=/Applications/Docker.app/Contents/Resources/etc
