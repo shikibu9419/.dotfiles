@@ -21,8 +21,8 @@ vnoremap < <gv
 vnoremap > >gv
 
 "" Resize window
-nnoremap <S-Left>  <C-w><
-nnoremap <S-Right> <C-w>>
+nnoremap <S-Left>  <C-w>>
+nnoremap <S-Right> <C-w><
 nnoremap <S-Up>    <C-w>-
 nnoremap <S-Down>  <C-w>+
 
@@ -51,11 +51,11 @@ cabbr w!! w !sudo tee > /dev/null %
 "----------------------------------------------
 " Plugins
 "----------------------------------------------
-map ga    <Plug>(EasyAlign)
-map <C-c> <Plug>(caw:zeropos:toggle)
-inoremap <C-k> <Plug>(neosnippet_expand_or_jump)
-snoremap <C-k> <Plug>(neosnippet_expand_or_jump)
-xnoremap <C-k> <Plug>(neosnippet_expand_target)
+map  ga    <Plug>(EasyAlign)
+map  <C-c> <Plug>(caw:zeropos:toggle)
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
 inoremap <C-l> <C-r>=lexima#insmode#leave(1, '<LT>C-G>U<LT>RIGHT>')<CR>
 
 "" Ariline Tab

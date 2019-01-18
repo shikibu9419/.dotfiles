@@ -7,7 +7,6 @@
     "editor.renderWhitespace": "none",
     "editor.cursorStyle": "line",
     "editor.insertSpaces": true,
-    // "editor.tabCompletion": true,
     "editor.wordWrap": "on",
     "editor.renderControlCharacters": true,
     "workbench.editor.closeEmptyGroups": false,
@@ -51,22 +50,17 @@
     "gitlens.advanced.messages": {
         "suppressShowKeyBindingsNotice": true
     },
-    //// LaTeX
+    // LaTeX
     "latex-workshop.latex.autoBuild.onSave.enabled": true,
     "latex-workshop.latex.clean.enabled": true,
     "latex-workshop.view.pdf.viewer": "tab",
     "latex-workshop.chktex.enabled": false,
     "latex-workshop.latex.recipes": [
         {
-            // "name": "luajit",
-            // "tools": [
-            //     "luajit"
-            // ],
-            // "name": "platex",
-            // "tools": [
-            //     "platex",
-            //     "dvipdfmx"
-            // ]
+            "name": "latexmk",
+            "tools": [
+                "latexmk"
+            ],
         },
     ],
     "latex-workshop.latex.tools": [
@@ -74,34 +68,7 @@
             "name": "latexmk",
             "command": "latexmk",
             "args": [
-                "%DOC%.tex"
-            ]
-        },
-        {
-            "name": "luajit",
-            "command": "luajittex",
-            "args": [
-                "--synctex=1",
-                "--cmdx",
-                "--fmt=luajitlatex.fmt",
-                "%DOC%.tex",
-            ]
-        },
-        {
-            "name": "platex",
-            "command": "platex",
-            "args": [
-                "-synctex=1",
-                "-interaction=nonstopmode",
-                "-file-line-error",
-                "%DOC%"
-            ]
-        },
-        {
-            "name": "dvipdfmx",
-            "command": "dvipdfmx",
-            "args": [
-                "%DOCFILE%.dvi"
+                "%DOCFILE%"
             ]
         }
     ],
