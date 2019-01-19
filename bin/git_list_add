@@ -1,0 +1,19 @@
+#!/bin/bash
+
+source $DOTPATH/bin/_shared_functions
+check-available-git
+finder=$(set-fuzzy-finder)
+
+git add -N -A
+
+selected=$(git status -s | fzf -m --ansi --preview="echo {} | awk '{print \$2}' | xargs git diff --color" \
+            | awk '{print $2}' | tr '\n' ' ')
+
+if [[ -n "$selected" ]]; then
+  if [[ $1 = -p ]]; then
+    git add -p $selected
+  else
+    git add $selected
+  fi
+  echo "Selected: $selected"
+fi

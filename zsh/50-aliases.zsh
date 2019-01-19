@@ -44,6 +44,7 @@ alias gclone='git clone $(pbpaste)'
 alias gpush='git push origin $(git branch | grep "*\ " | sed "s/.* //")'
 alias gpushf='git push -f origin $(git branch | grep "*\ " | sed "s/.* //")'
 alias gremadd='git remote add origin $(pbpaste)'
+alias gadd=git_list_add
 alias glog=git_extended_log
 alias gwork=git_list_worktree
 
