@@ -232,6 +232,9 @@ hook_add = '''
   let g:indent_guides_start_level = 2
 '''
 
+[[plugins]]
+repo = 'sheerun/vim-polyglot'
+
 #----------------------------------------------
 # External plugins
 #----------------------------------------------
