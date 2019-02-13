@@ -15,6 +15,15 @@ error() {
   exit 1
 }
 
+confirm() {
+  printf "$1 (y/N): "
+  if read -q; then
+    echo; return 0
+  else
+    echo; return 1
+  fi
+}
+
 set-fuzzy-finder() {
   finders='fzf-tmux:fzf:peco:percol:gof'
   while [ -n $finders ]; do

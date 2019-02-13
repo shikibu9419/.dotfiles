@@ -2,11 +2,14 @@
 
 source $DOTPATH/bin/_shared_functions
 
-# TODO: update, clear, reference_only
+# TODO: reference_only
 main() {
   detect::check
 
-  if [ -f $1 ]; then
+  if [ $1 = '-c' ]; then
+    confirm 'Do you really want to clear gtags files?' && rm $(git rev-parse --show-cdup)(GPATH|GTAGS|GRTAGS)
+    exit 0
+  elif [ -f $1 ]; then
     func=detect::detect_on_file
   elif [ -d $1 ]; then
     func=detect::detect_in_directory
@@ -19,13 +22,12 @@ main() {
 
 detect::check() {
   check-git-available
-  has 'fzf' || error 'Please install fzf.'
+  has 'fzf'    || error 'Please install fzf.'
   has 'global' || error 'Please install global.'
 
-  if [ ! -f $(git rev-parse --show-cdup)GPATH ]; then
-    echo 'GPATH is not created.'
-    printf 'Create GPATH / GTAGS / GRTAGS ? (y/N): '
-    read -q && { echo; gtags -v $(git rev-parse --show-cdup); echo } || { echo; error 'Abort.' }
+  if ! $(global -u); then
+    confirm 'Create GTAGS?' && gtags -v $(git rev-parse --show-cdup) || error 'detect aborted.'
+    echo
   fi
 }
 
