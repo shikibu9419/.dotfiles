@@ -70,6 +70,7 @@ alias xpssh='xpanes --ssh'
 alias v=nvim
 alias -g ...='../..'
 alias -g ....='../../..'
+alias crop='(){ pdfcrop $1 $1 }'
 alias reload='source ~/.zshenv && source ~/.zshrc'
 
 alias ls='gls --color=auto'
