@@ -7,10 +7,7 @@ repo = 'Shougo/dein.vim'
 [[plugins]]
 repo = 'autozimu/LanguageClient-neovim'
 rev = 'next'
-hook_post_update = '''
-  " TODO: Separate case by OS
-  let g:dein#plugin.build = 'bash install.sh'
-'''
+build = 'bash install.sh'
 
 #----------------------------------------------
 # Tag jump
@@ -243,10 +240,7 @@ repo = 'rizzatti/dash.vim'
 
 [[plugins]]
 repo = 'junegunn/fzf'
-hook_post_update = '''
-  " TODO: Separate case by OS
-  let g:dein#plugin.build = './install --bin'
-'''
+build = 'bash install.sh'
 merged = '0'
 
 [[plugins]]
