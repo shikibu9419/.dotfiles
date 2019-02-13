@@ -21,33 +21,36 @@ main() {
 
 detect::check() {
   check-git-available
-  has 'fzf'    || error 'Please install fzf.'
-  has 'global' || error 'Please install global.'
+  # TODO: to _shared_functions
+  has 'fzf'    || error 'fatal: fzf is not installed.'
+  has 'global' || error 'fatal: global is not installed.'
 
   if ! $(global -u); then
-    confirm 'Create GTAGS?' && gtags -v $(git rev-parse --show-cdup) || error 'detect aborted.'
+    confirm 'Create GTAGS?' && gtags -v $(git rev-parse --show-cdup) || error 'Detection aborted.'
     echo
   fi
 }
 
 detect::detect_on_file() {
-  list=$(global -fx $1 | awk '{print $1 " - " $2}')
+  list=$(global -fx $1 | awk '{ print $1 " - " $2 }')
+
   [ -z $list ] && error "$1: Nothing is defined."
 
-  echo $list | fzf --ansi --prompt="$1>" \
-    --bind "ctrl-m:execute: nvim \$(echo {} | awk '{print \"+\" \$3}') $1" \
+  echo $list | fzf --ansi --prompt="$1> " \
+    --bind "ctrl-l:execute: nvim \$(echo {} | awk '{ print \"+\" \$3 }') $1" \
     --preview="echo {} |
-      awk '{start = \$3 - 10; end = \$3 + 10; if(gsub(/\?/,\"\\\\\\\\?\",\$1)) target = \$1; else target = \$1}
-           {if(start < 1) start = 1}
-           {print \"highlight -O ansi $1 | sed -n \" start \",\" end \"p | grep --color=always -10 \" target}' |
+      awk '{ start = \$3 - 10; end = \$3 + 10; if(gsub(/\?/,\"\\\\\\\\?\",\$1)) target = \$1; else target = \$1 }
+           { if(start < 1) start = 1 }
+           { print \"highlight -O ansi $1 | sed -n \" start \",\" end \"p | grep --color=always -10 \" target }' |
       bash"
 }
 
 detect::detect_in_directory() {
   list=$(git ls-files $1)
-  [ -z $list ] && error "$1: There is no files."
 
-  echo $list | fzf --ansi --prompt="$1>" \
+  [ -z $list ] && error "$1: There is no file."
+
+  echo $list | fzf --ansi --prompt="$1> " \
     --bind "ctrl-m:execute: nvim {}" \
     --preview="highlight --force -O ansi {}"
 }
@@ -55,22 +58,28 @@ detect::detect_in_directory() {
 detect::detect_definition() {
   label=-x
   target=$1
-  [[ $target =~ -[dgr] ]] && { label=$1; target=$2 }
+  case $target in
+    -[dgr])
+      label=$1
+      target=$2
+      ;;
+    -*)
+      error "There is no such option: $target"
+  esac
 
-  list=''
-  [[ $label =~ -[dx] ]] && list=$(echo $list; global -dx $target | awk '{print $3 " - " $2}')
-  [[ $label =~ -[rx] ]] && list=$(echo $list; global -rx $target | awk '{print $3 " - " $2}')
-  [[ $label =  -g    ]] && list=$(echo $list; global -gx $target | awk '{print $3 " - " $2}')
-  list=$(echo $list | sed '/^$/d')
+  [[ $label =~ -[dx] ]] &&  defs=$(global -dx $target | awk '{ print $3 " - " $2 }')
+  [[ $label =~ -[rx] ]] &&  refs=$(global -rx $target | awk '{ print $3 " - " $2 }')
+  [[ $label =  -g    ]] && greps=$(global -gx $target | awk '{ print $3 " - " $2 }')
+  list=$({ echo $defs; echo $refs; echo $greps } | sed '/^$/d')
 
   [ -z $list ] && error "$target: Not found."
 
-  echo $list | fzf --ansi --prompt="$target>" \
-    --bind "ctrl-m:execute: nvim \$(echo {} | awk '{print \"+\" \$3 \" \" \$1}')" \
+  echo $list | fzf --ansi --prompt="$target> " \
+    --bind "ctrl-l:execute: nvim \$(echo {} | awk '{ print \"+\" \$3 \" \" \$1 }')" \
     --preview="echo {} |
-      awk '{start = \$3 - 10; end = \$3 + 10}
-           {if(start < 1) start = 1}
-           {print \"highlight --force -O ansi \" \$1 \" | sed -n \" start \",\" end \"p | grep --color=always -10 $target\"}' |
+      awk '{ start = \$3 - 10; end = \$3 + 10 }
+           { if(start < 1) start = 1 }
+           { print \"highlight --force -O ansi \" \$1 \" | sed -n \" start \",\" end \"p | grep --color=always -10 $target\" }' |
       bash"
 }
 
