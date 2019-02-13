@@ -1,12 +1,8 @@
 #!/bin/bash
 
 ## compract - compress / extract files and dirs!
-echo "Sorry. This Command hadn't been implemented yet." && exit 1
-
-error() {
-  echo $1 1>&2
-  exit 1
-}
+source $DOTPATH/bin/_shared_functions
+error "Sorry. This Command hasn't been completed yet."
 
 compract::usage() {
   name=`basename $0`

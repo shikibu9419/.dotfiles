@@ -1,0 +1,49 @@
+#!/bin/zsh
+
+source $DOTPATH/bin/_shared_functions
+
+main() {
+  # TODO: Error handling
+
+  if [ $1 = '-g' ]; then
+    # TODO:
+    global -gx $2
+  elif [ -f $1 ]; then
+    func=detect::detect_file
+  elif [ -d $1 ]; then
+    # TODO:
+    ls $1
+  else
+    func=detect::detect_definition
+  fi
+
+  $func $@
+}
+
+detect::detect_file() {
+  list=$(global -fx $1 | awk '{print $1 " - " $2}')
+  [ -z $list ] && error "$1: Nothing is defined."
+
+  echo $list | fzf --ansi --prompt="$1>" \
+    --bind "ctrl-m:execute: nvim \$(echo {} | awk '{print \"+\" \$3}') $1" \
+    --preview="echo {} |
+      awk '{start = \$3 - 10; end = \$3 + 10; if(gsub(/\?/,\"\\\\\\\\?\",\$1)) target = \$1; else target = \$1}
+           {if(start < 1) start = 1}
+           {print \"highlight -O ansi $1 | sed -n \" start \",\" end \"p | grep --color=always -10 \" target}' |
+      bash"
+}
+
+detect::detect_definition() {
+  list=$({ global -x $1; global -rx $1 } | awk '{print $3 " - " $2}')
+  [ -z $list ] && error "$1: Not found."
+
+  echo $list | fzf --ansi --prompt="$1>" \
+    --bind "ctrl-m:execute: nvim \$(echo {} | awk '{print \"+\" \$3 \" \" \$1}')" \
+    --preview="echo {} |
+      awk '{start = \$3 - 10; end = \$3 + 10}
+           {if(start < 1) start = 1}
+           {print \"highlight -O ansi \" \$1 \" | sed -n \" start \",\" end \"p | grep --color=always -10 $1\"}' |
+      bash"
+}
+
+main $@

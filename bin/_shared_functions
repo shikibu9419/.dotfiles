@@ -10,6 +10,11 @@ has() {
   return $(type "$1" > /dev/null 2>&1)
 }
 
+error() {
+  echo $1 1>&2
+  exit 1
+}
+
 set-fuzzy-finder() {
   finders='fzf-tmux:fzf:peco:percol:gof'
   while [ -n $finders ]; do
