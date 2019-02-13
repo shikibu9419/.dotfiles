@@ -2,20 +2,14 @@
 
 source $DOTPATH/bin/_shared_functions
 
+# TODO: update, clear, reference_only
 main() {
-  # TODO: Error handling
-  check-git-available
-  has 'fzf' || error 'Please install fzf.'
-  has 'global' || error 'Please install global.'
+  detect::check
 
-  if [ $1 = '-g' ]; then
-    # TODO:
-    global -gx $2
-  elif [ -f $1 ]; then
-    func=detect::detect_file
+  if [ -f $1 ]; then
+    func=detect::detect_on_file
   elif [ -d $1 ]; then
-    # TODO:
-    ls $1
+    func=detect::detect_in_directory
   else
     func=detect::detect_definition
   fi
@@ -23,7 +17,19 @@ main() {
   $func $@
 }
 
-detect::detect_file() {
+detect::check() {
+  check-git-available
+  has 'fzf' || error 'Please install fzf.'
+  has 'global' || error 'Please install global.'
+
+  if [ ! -f $(git rev-parse --show-cdup)GPATH ]; then
+    echo 'GPATH is not created.'
+    printf 'Create GPATH / GTAGS / GRTAGS ? (y/N): '
+    read -q && { echo; gtags -v $(git rev-parse --show-cdup); echo } || { echo; error 'Abort.' }
+  fi
+}
+
+detect::detect_on_file() {
   list=$(global -fx $1 | awk '{print $1 " - " $2}')
   [ -z $list ] && error "$1: Nothing is defined."
 
@@ -36,16 +42,29 @@ detect::detect_file() {
       bash"
 }
 
-detect::detect_definition() {
-  list=$({ global -x $1; global -rx $1 } | awk '{print $3 " - " $2}')
-  [ -z $list ] && error "$1: Not found."
+detect::detect_in_directory() {
+  list=$(git ls-files $1)
+  [ -z $list ] && error "$1: There is no files."
 
   echo $list | fzf --ansi --prompt="$1>" \
+    --bind "ctrl-m:execute: nvim {}" \
+    --preview="highlight --force -O ansi {}"
+}
+
+detect::detect_definition() {
+  opts=x
+  target=$1
+  [ $target = '-g' ] && target=$2 && opts=gx
+
+  list=$({ global -$opts $target; global -r$opts $target } | awk '{print $3 " - " $2}')
+  [ -z $list ] && error "$target: Not found."
+
+  echo $list | fzf --ansi --prompt="$target>" \
     --bind "ctrl-m:execute: nvim \$(echo {} | awk '{print \"+\" \$3 \" \" \$1}')" \
     --preview="echo {} |
       awk '{start = \$3 - 10; end = \$3 + 10}
            {if(start < 1) start = 1}
-           {print \"highlight -O ansi \" \$1 \" | sed -n \" start \",\" end \"p | grep --color=always -10 $1\"}' |
+           {print \"highlight --force -O ansi \" \$1 \" | sed -n \" start \",\" end \"p | grep --color=always -10 $target\"}' |
       bash"
 }
 
