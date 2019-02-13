@@ -24,10 +24,8 @@ brew 'tmux'
 brew 'reattach-to-user-namespace'
 brew 'python'
 brew 'python@2'
-brew 'ruby-build'
 brew 'rbenv'
-brew 'kotlin'
-brew 'go'
+brew 'ruby-build'
 
 ## cask
 cask 'google-chrome'
