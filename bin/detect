@@ -4,6 +4,9 @@ source $DOTPATH/bin/_shared_functions
 
 main() {
   # TODO: Error handling
+  check-git-available
+  has 'fzf' || error 'Please install fzf.'
+  has 'global' || error 'Please install global.'
 
   if [ $1 = '-g' ]; then
     # TODO:

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-check-available-git() {
+check-git-available() {
   $(git rev-parse > /dev/null 2>&1) && return
   echo 'fatal: not a git repository.'
   exit 1

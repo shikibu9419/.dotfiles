@@ -1,7 +1,7 @@
 #!/bin/bash
 
 source $DOTPATH/bin/_shared_functions
-check-available-git
+check-git-available
 finder=$(set-fuzzy-finder)
 
 work_dir=$(git worktree list | $finder | awk '{print $1}')
