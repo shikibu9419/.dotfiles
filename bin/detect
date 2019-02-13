@@ -2,7 +2,6 @@
 
 source $DOTPATH/bin/_shared_functions
 
-# TODO: reference_only
 main() {
   detect::check
 
@@ -54,11 +53,16 @@ detect::detect_in_directory() {
 }
 
 detect::detect_definition() {
-  opts=x
+  label=-x
   target=$1
-  [ $target = '-g' ] && target=$2 && opts=gx
+  [[ $target =~ -[dgr] ]] && { label=$1; target=$2 }
 
-  list=$({ global -$opts $target; global -r$opts $target } | awk '{print $3 " - " $2}')
+  list=''
+  [[ $label =~ -[dx] ]] && list=$(echo $list; global -dx $target | awk '{print $3 " - " $2}')
+  [[ $label =~ -[rx] ]] && list=$(echo $list; global -rx $target | awk '{print $3 " - " $2}')
+  [[ $label =  -g    ]] && list=$(echo $list; global -gx $target | awk '{print $3 " - " $2}')
+  list=$(echo $list | sed '/^$/d')
+
   [ -z $list ] && error "$target: Not found."
 
   echo $list | fzf --ansi --prompt="$target>" \
