@@ -28,20 +28,13 @@ confirm() {
   fi
 }
 
-set-fuzzy-finder() {
-  finders='fzf-tmux:fzf:peco:percol:gof'
-  while [ -n $finders ]; do
-    finder=${finders%%:*}
-    finders=${finders#*:}
-    if has $finder; then
-      echo $finder
-      return
-    fi
-  done
-
-  cat <<EOF
-This command requires FUZZY FINDER. Either of these is necessary.
-fzf, fzf-tmux, peco, percol, gof
-EOF
-  exit 1
-}
+readonly BLACK='\033[30m'
+readonly RED='\033[31m'
+readonly GREEN='\033[32m'
+readonly YELLOW='\033[33m'
+readonly BLUE='\033[34m'
+readonly MAGENTA='\033[35m'
+readonly CYAN='\033[36m'
+readonly WHITE='\033[37m'
+readonly BOLD='\033[1m'
+readonly DEFAULT='\033[m'

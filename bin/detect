@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 source $DOTPATH/bin/_shared_functions
-HIGHLIGHT='highlight --force -O ansi'
+readonly HIGHLIGHT='highlight --force -O ansi'
 
 main() {
   detect::check
@@ -9,11 +9,11 @@ main() {
   if [ $1 = '-c' ]; then
     confirm 'Do you really want to clear gtags files?' && rm $(git rev-parse --show-cdup)(GPATH|GTAGS|GRTAGS)
   elif [ -f $1 ]; then
-    detect::detect_on_file $@
+    detect::detect-on-file $@
   elif [ -d $1 ]; then
-    detect::detect_in_directory $@
+    detect::detect-in-directory $@
   else
-    detect::detect_definition $@
+    detect::detect-definition $@
   fi
 }
 
@@ -27,15 +27,15 @@ detect::check() {
   fi
 }
 
-detect::detect_on_file() {
+detect::detect-on-file() {
   list=$(global -fx $1 | awk '{ print $1 " - " $2 }')
 
   [ -z $list ] && error "$1: Nothing is defined."
 
-  detect::call_fzf "$list" "$1" '{1}'
+  detect::call-fzf "$list" "$1" '{1}'
 }
 
-detect::detect_in_directory() {
+detect::detect-in-directory() {
   list=$(git ls-files $1)
 
   [ -z $list ] && error "$1: There is no file."
@@ -45,7 +45,7 @@ detect::detect_in_directory() {
     --preview="$HIGHLIGHT {}"
 }
 
-detect::detect_definition() {
+detect::detect-definition() {
   label=-x
   content=$1
   case $content in
@@ -64,10 +64,10 @@ detect::detect_definition() {
 
   [ -z $list ] && error "$content: Not found."
 
-  detect::call_fzf "$list" '{1}' "$content"
+  detect::call-fzf "$list" '{1}' "$content"
 }
 
-detect::call_fzf() {
+detect::call-fzf() {
   list=$1
   target=$2
   content=$3

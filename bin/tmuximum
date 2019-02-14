@@ -3,15 +3,22 @@
 ## ORIGINAL: https://github.com/arks22/tmuximum
 source $DOTPATH/bin/_shared_functions
 
-tmuximum::help() {
-  cat <<EOF
-tmuximum: Usage
-$ tmuximum [OPTION]
-OPTIONS: -h   Display help message (this message)
-         -s   Start kill-session mode
-         -w   Start kill-window mode
-To quit tmuximum, press Esc or select "exit".
-EOF
+main() {
+  finder=$(set-fuzzy-finder)
+  [[ $finder =~ fzf ]] && finder=($finder --ansi)
+
+  if [ $# -eq 0 ]; then
+    tmuximum::operation
+  elif [ $# -eq 1 ]; then
+    case $1 in
+      -s) tmuximum::kill-session ;;
+      -w) tmuximum::kill-window ;;
+      -h) tmuximum::help ;;
+      * ) error "tmuximum: illegal option $1"
+    esac
+  else
+    error 'tmuximum: option must be one'
+  fi
 }
 
 tmuximum::operation() {
@@ -112,38 +119,33 @@ tmuximum::kill-window-list() {
   echo -e "${BLUE}back${DEFAULT}"
 }
 
-set-color() {
-  if [[ "${finder[@]}" =~ fzf ]]; then
-    readonly BLACK='\033[30m'
-    readonly RED='\033[31m'
-    readonly GREEN='\033[32m'
-    readonly YELLOW='\033[33m'
-    readonly BLUE='\033[34m'
-    readonly MAGENTA='\033[35m'
-    readonly CYAN='\033[36m'
-    readonly WHITE='\033[37m'
-    readonly BOLD='\033[1m'
-    readonly DEFAULT='\033[m'
-  fi
+tmuximum::help() {
+  cat <<EOF
+tmuximum: Usage
+$ tmuximum [OPTION]
+OPTIONS: -h   Display help message (this message)
+         -s   Start kill-session mode
+         -w   Start kill-window mode
+To quit tmuximum, press Esc or select "exit".
+EOF
 }
 
-main() {
-  finder=$(set-fuzzy-finder)
-  [[ $finder =~ fzf ]] && finder=($finder --ansi)
-  set-color
+set-fuzzy-finder() {
+  finders='fzf-tmux:fzf:peco:percol:gof'
+  while [ -n $finders ]; do
+    finder=${finders%%:*}
+    finders=${finders#*:}
+    if has $finder; then
+      echo $finder
+      return
+    fi
+  done
 
-  if [ $# -eq 0 ]; then
-    tmuximum::operation
-  elif [ $# -eq 1 ]; then
-    case $1 in
-      -h) tmuximum::help ;;
-      -s) tmuximum::kill-session ;;
-      -w) tmuximum::kill-window ;;
-      * ) error "tmuximum: illegal option $1"
-    esac
-  else
-    error 'tmuximum: option must be one'
-  fi
+  cat <<EOF
+This command requires FUZZY FINDER. Either of these is necessary.
+fzf, fzf-tmux, peco, percol, gof
+EOF
+  exit 1
 }
 
 main $@
