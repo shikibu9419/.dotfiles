@@ -8,21 +8,18 @@ main() {
 
   if [ $1 = '-c' ]; then
     confirm 'Do you really want to clear gtags files?' && rm $(git rev-parse --show-cdup)(GPATH|GTAGS|GRTAGS)
-    exit 0
   elif [ -f $1 ]; then
-    func=detect::detect_on_file
+    detect::detect_on_file $@
   elif [ -d $1 ]; then
-    func=detect::detect_in_directory
+    detect::detect_in_directory $@
   else
-    func=detect::detect_definition
+    detect::detect_definition $@
   fi
-
-  $func $@
 }
 
 detect::check() {
   check-git-available
-  check-availables fzf global
+  check-availables 'fzf' 'global'
 
   if ! $(global -u); then
     confirm 'Create GTAGS?' && gtags -v $(git rev-parse --show-cdup) || error 'Detection aborted.'
@@ -35,13 +32,7 @@ detect::detect_on_file() {
 
   [ -z $list ] && error "$1: Nothing is defined."
 
-  echo $list | fzf --ansi --prompt="$1> " \
-    --bind "ctrl-l:execute: less -R \$(echo {} | awk '{ print \"+\" \$3 }') $1" \
-    --preview="echo {} |
-      awk '{ if(\$3 > 10) start = \$3 - 10; else start = 1; end = \$3 + 10 }
-           { target = \$1; if(gsub(/\?/,\"\\\\\\\\?\",\$1)) target = \$1 }
-           { print \"$HIGHLIGHT $1 | sed -n \" start \",\" end \"p | grep --color=always -10 \" target }' |
-      bash"
+  detect::call_fzf "$list" "$1" '{1}'
 }
 
 detect::detect_in_directory() {
@@ -49,35 +40,43 @@ detect::detect_in_directory() {
 
   [ -z $list ] && error "$1: There is no file."
 
-  echo $list | fzf --ansi --prompt="$1> " \
+  echo $list | fzf -m --ansi --prompt="$1> " \
     --bind "ctrl-m:execute: nvim {}" \
     --preview="$HIGHLIGHT {}"
 }
 
 detect::detect_definition() {
   label=-x
-  target=$1
-  case $target in
+  content=$1
+  case $content in
     -[dgr])
       label=$1
-      target=$2
+      content=$2
       ;;
     -*)
-      error "There is no such option: $target"
+      error "There is no such option: $content"
   esac
 
-  [[ $label =~ -[dx] ]] &&  defs=$(global -dx $target | awk '{ print $3 " - " $2 }')
-  [[ $label =~ -[rx] ]] &&  refs=$(global -rx $target | awk '{ print $3 " - " $2 }')
-  [[ $label =  -g    ]] && greps=$(global -gx $target | awk '{ print $3 " - " $2 }')
+  [[ $label =~ -[dx] ]] &&  defs=$(global -dx $content | awk '{ print $3 " - " $2 }')
+  [[ $label =~ -[rx] ]] &&  refs=$(global -rx $content | awk '{ print $3 " - " $2 }')
+  [[ $label =  -g    ]] && greps=$(global -gx $content | awk '{ print $3 " - " $2 }')
   list=$({ echo $defs; echo $refs; echo $greps } | sed '/^$/d')
 
-  [ -z $list ] && error "$target: Not found."
+  [ -z $list ] && error "$content: Not found."
 
-  echo $list | fzf --ansi --prompt="$target> " \
-    --bind "ctrl-l:execute: (set {}; $HIGHLIGHT \${1} | less +1 -NR -p $target)" \
+  detect::call_fzf "$list" '{1}' "$content"
+}
+
+detect::call_fzf() {
+  list=$1
+  target=$2
+  content=$3
+
+  echo $list | fzf -m --ansi --prompt="$content> " \
+    --bind "ctrl-l:execute: (set {}; $HIGHLIGHT $target | less +1 -NR -p $content)" \
     --preview="set {}; \
-               line=\$($HIGHLIGHT \${1} | sed -n \${3}p | grep --color=always $target); \
-               $HIGHLIGHT \${1} | sed -E '{3}'\"s/.*/\$line/\""
+               line=\$(cont=$content; $HIGHLIGHT $target | sed -n \${3}p | grep --color=always \${cont/\?/\\\\?}); \
+               $HIGHLIGHT $target | sed -E '{3}'\"s/.*/\$line/\""
 }
 
 main $@
