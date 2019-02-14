@@ -1,9 +1,13 @@
 #!/bin/bash
 
 check-git-available() {
-  $(git rev-parse > /dev/null 2>&1) && return
-  echo 'fatal: not a git repository.'
-  exit 1
+  $(git rev-parse > /dev/null 2>&1) || error 'fatal: not a git repository.'
+}
+
+check-availables() {
+  for cmd in $@; do
+    has $cmd || error "fatal: $cmd is not installed."
+  done
 }
 
 has() {

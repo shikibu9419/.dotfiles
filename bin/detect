@@ -1,6 +1,7 @@
 #!/bin/zsh
 
 source $DOTPATH/bin/_shared_functions
+HIGHLIGHT='highlight --force -O ansi'
 
 main() {
   detect::check
@@ -21,9 +22,7 @@ main() {
 
 detect::check() {
   check-git-available
-  # TODO: to _shared_functions
-  has 'fzf'    || error 'fatal: fzf is not installed.'
-  has 'global' || error 'fatal: global is not installed.'
+  check-availables fzf global
 
   if ! $(global -u); then
     confirm 'Create GTAGS?' && gtags -v $(git rev-parse --show-cdup) || error 'Detection aborted.'
@@ -37,11 +36,11 @@ detect::detect_on_file() {
   [ -z $list ] && error "$1: Nothing is defined."
 
   echo $list | fzf --ansi --prompt="$1> " \
-    --bind "ctrl-l:execute: nvim \$(echo {} | awk '{ print \"+\" \$3 }') $1" \
+    --bind "ctrl-l:execute: less -R \$(echo {} | awk '{ print \"+\" \$3 }') $1" \
     --preview="echo {} |
-      awk '{ start = \$3 - 10; end = \$3 + 10; if(gsub(/\?/,\"\\\\\\\\?\",\$1)) target = \$1; else target = \$1 }
-           { if(start < 1) start = 1 }
-           { print \"highlight -O ansi $1 | sed -n \" start \",\" end \"p | grep --color=always -10 \" target }' |
+      awk '{ if(\$3 > 10) start = \$3 - 10; else start = 1; end = \$3 + 10 }
+           { target = \$1; if(gsub(/\?/,\"\\\\\\\\?\",\$1)) target = \$1 }
+           { print \"$HIGHLIGHT $1 | sed -n \" start \",\" end \"p | grep --color=always -10 \" target }' |
       bash"
 }
 
@@ -52,7 +51,7 @@ detect::detect_in_directory() {
 
   echo $list | fzf --ansi --prompt="$1> " \
     --bind "ctrl-m:execute: nvim {}" \
-    --preview="highlight --force -O ansi {}"
+    --preview="$HIGHLIGHT {}"
 }
 
 detect::detect_definition() {
@@ -75,12 +74,10 @@ detect::detect_definition() {
   [ -z $list ] && error "$target: Not found."
 
   echo $list | fzf --ansi --prompt="$target> " \
-    --bind "ctrl-l:execute: nvim \$(echo {} | awk '{ print \"+\" \$3 \" \" \$1 }')" \
-    --preview="echo {} |
-      awk '{ start = \$3 - 10; end = \$3 + 10 }
-           { if(start < 1) start = 1 }
-           { print \"highlight --force -O ansi \" \$1 \" | sed -n \" start \",\" end \"p | grep --color=always -10 $target\" }' |
-      bash"
+    --bind "ctrl-l:execute: (set {}; $HIGHLIGHT \${1} | less +1 -NR -p $target)" \
+    --preview="set {}; \
+               line=\$($HIGHLIGHT \${1} | sed -n \${3}p | grep --color=always $target); \
+               $HIGHLIGHT \${1} | sed -E '{3}'\"s/.*/\$line/\""
 }
 
 main $@
