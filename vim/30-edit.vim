@@ -48,7 +48,7 @@ set autoread
 set ttimeoutlen=50
 set updatetime=250
 
-function! s:AutoWriteIfPossible()
+function! s:auto_write_if_possible()
   if &modified && !&readonly && bufname('%') !=# '' && &buftype ==# '' && expand("%") !=# ''
     write
   endif
@@ -56,15 +56,13 @@ endfunction
 
 augroup autoreadwrite
   autocmd!
-  autocmd CursorHold  * call s:AutoWriteIfPossible()
-  autocmd CursorHoldI * call s:AutoWriteIfPossible()
-  autocmd CursorHold  * checktime
-  autocmd CursorHoldI * checktime
+  autocmd CursorHold  * call s:auto_write_if_possible()
+  autocmd CursorHoldI * call s:auto_write_if_possible()
   autocmd FocusGained * checktime
 augroup END
 
-"" Reasign
-augroup asign
+"" Reassign
+augroup assign
   autocmd!
   autocmd BufWritePost *
         \ if &filetype ==# '' && exists('b:ftdetect') |

@@ -110,6 +110,9 @@ hook_add = '''
 [[plugins]]
 repo = 'tpope/vim-obsession'
 
+[[plugins]]
+repo = 'tmux-plugins/vim-tmux-focus-events'
+
 #----------------------------------------------
 # Add commands
 #----------------------------------------------
