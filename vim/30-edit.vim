@@ -1,5 +1,3 @@
-set ttimeoutlen=50
-set updatetime=250
 set whichwrap=b,s,h,l,<,>,[,]
 set showcmd
 set clipboard+=unnamed
@@ -7,7 +5,6 @@ set hidden
 set virtualedit=block
 set nobackup
 set noswapfile
-set autoread
 set showmatch
 set matchtime=1
 set wildmenu
@@ -45,17 +42,25 @@ if !exists('loaded_matchit')
   runtime macros/matchit.vim
 endif
 
-"" Auto write
+"" Auto read / write
 set autowrite
+set autoread
+set ttimeoutlen=50
+set updatetime=250
+
 function! s:AutoWriteIfPossible()
   if &modified && !&readonly && bufname('%') !=# '' && &buftype ==# '' && expand("%") !=# ''
     write
   endif
 endfunction
-augroup autowrite
+
+augroup autoreadwrite
   autocmd!
   autocmd CursorHold  * call s:AutoWriteIfPossible()
   autocmd CursorHoldI * call s:AutoWriteIfPossible()
+  autocmd CursorHold  * checktime
+  autocmd CursorHoldI * checktime
+  autocmd FocusGained * checktime
 augroup END
 
 "" Reasign
