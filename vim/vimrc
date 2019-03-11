@@ -3,6 +3,8 @@ if has('nvim')
   let g:python3_host_prog = expand('/usr/local/bin/python3')
 endif
 
-for conf in split(glob('$DOTPATH/vim/[1-9]*.vim'),'\n')
-  execute 'source' conf
-endfor
+source $DOTPATH/vim/plugin.vim
+source $DOTPATH/vim/appearance.vim
+source $DOTPATH/vim/edit.vim
+source $DOTPATH/vim/keymaps.vim
+source $DOTPATH/vim/others.vim
