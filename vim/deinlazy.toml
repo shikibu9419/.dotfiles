@@ -1,43 +1,4 @@
 #----------------------------------------------
-# Completion
-#----------------------------------------------
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-hook_add = '''
-  "" Completion setting
-  set completeopt+=noinsert
-
-  let g:deoplete#enable_at_startup = 1
-  let g:deoplete#auto_complete_delay = 0
-  let g:deoplete#auto_complete_start_length = 1
-  let g:deoplete#enable_camel_case = 0
-  let g:deoplete#enable_ignore_case = 0
-  let g:deoplete#enable_refresh_always = 0
-  let g:deoplete#enable_smart_case = 1
-  let g:deoplete#file#enable_buffer_path = 1
-  let g:deoplete#max_list = 10000
-
-  inoremap <expr><tab> pumvisible() ? "\<C-n>" :
-          \ neosnippet#expandable_or_jumpable() ?
-          \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-'''
-hook_source = '''
-  call deoplete#custom#var('omni', 'input_patterns', {
-      \ 'ruby': ['[^. *\t]\.\w*', '[a-zA-Z_]\w*::'],
-  \})
-'''
-if = "has('nvim')"
-on_i = 1
-
-[[plugins]]
-repo = 'zchee/deoplete-jedi'
-on_ft = 'python'
-
-[[plugins]]
-repo = 'zchee/deoplete-go'
-on_ft = 'go'
-
-#----------------------------------------------
 # Snippets
 #----------------------------------------------
 [[plugins]]
@@ -47,6 +8,10 @@ hook_source = '''
   if has('conceal')
     set conceallevel=2 concealcursor=niv
   endif
+
+  imap <C-k> <Plug>(neosnippet_expand_or_jump)
+  smap <C-k> <Plug>(neosnippet_expand_or_jump)
+  xmap <C-k> <Plug>(neosnippet_expand_target)
 '''
 on_i = 1
 depends = 'neosnippet-snippets'
@@ -63,45 +28,6 @@ if = "!has('nvim')"
 
 [[plugins]]
 repo = 'Shougo/denite.nvim'
-hook_add = '''
-  " " コピペ (https://qiita.com/lighttiger2505/items/e0ada17634516c081ee7)
-  " " Denite用プレフィックス
-  " nmap [denite] <Nop>
-  " map <C-j> [denite]
-  "
-  " " プロジェクト内のファイル検索
-  " nmap <silent> [denite]<C-P> :<C-u>Denite file_rec -highlight-mode-insert=Search<CR>
-  " " バッファに展開中のファイル検索
-  " nmap <silent> [denite]<C-B> :<C-u>Denite buffer -highlight-mode-insert=Search<CR>
-  " " ファイル内の関数/クラス等の検索
-  " nmap <silent> [denite]<C-O> :<C-u>Denite outline -highlight-mode-insert=Search<CR>
-  " " dotfiles配下をカレントにしてfile_rec起動
-  " nmap <silent> [denite]<C-V> :<C-u>call denite#start([{'name': 'file_rec', 'args': ['~/.dotfiles']}]) -highlight-mode-insert=Search=Search<CR>
-  "
-  " " 上下移動を<C-N>, <C-P>
-  " call denite#custom#map('normal', '<C-N>', '<denite:move_to_next_line>')
-  " call denite#custom#map('normal', '<C-P>', '<denite:move_to_previous_line>')
-  " call denite#custom#map('insert', '<C-N>', '<denite:move_to_next_line>')
-  " call denite#custom#map('insert', '<C-P>', '<denite:move_to_previous_line>')
-  " " 入力履歴移動を<C-J>, <C-K>
-  " call denite#custom#map('insert', '<C-J>', '<denite:assign_next_text>')
-  " call denite#custom#map('insert', '<C-K>', '<denite:assign_previous_text>')
-  " " 横割りオープンを`<C-S>`
-  " call denite#custom#map('insert', '<C-S>', '<denite:do_action:split>')
-  " " 縦割りオープンを`<C-I>`
-  " call denite#custom#map('insert', '<C-I>', '<denite:do_action:vsplit>')
-  " " タブオープンを`<C-O>`
-  " call denite#custom#map('insert', '<C-O>', '<denite:do_action:tabopen>')
-  "
-  " " file_rec検索時にfuzzymatchを有効にし、検索対象から指定のファイルを除外
-  " call denite#custom#source(
-  "     \ 'file_rec', 'matchers', ['matcher_fuzzy', 'matcher_project_files', 'matcher_ignore_globs'])
-  "
-  " " 検索対象外のファイル指定
-  " call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
-  "     \ [ '.git/', '.ropeproject/', '__pycache__/',
-  "     \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/'])
-'''
 if = "has('nvim')"
 
 #----------------------------------------------

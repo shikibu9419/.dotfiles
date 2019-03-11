@@ -1,0 +1,77 @@
+[[plugins]]
+repo = 'prabirshrestha/async.vim'
+on_i = 1
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete.vim'
+on_i = 1
+
+[[plugins]]
+repo='prabirshrestha/asyncomplete-lsp.vim'
+on_i = 1
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete-buffer.vim'
+hook_add = '''
+let g:asyncomplete_buffer_clear_cache = 1
+call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
+    \ 'name': 'buffer',
+    \ 'whitelist': ['*'],
+    \ 'blacklist': ['go'],
+    \ 'completor': function('asyncomplete#sources#buffer#completor'),
+    \ }))
+'''
+on_i = 1
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete-file.vim'
+hook_add = '''
+call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
+    \ 'name': 'file',
+    \ 'whitelist': ['*'],
+    \ 'priority': 10,
+    \ 'completor': function('asyncomplete#sources#file#completor')
+    \ }))
+'''
+on_i = 1
+
+[[plugins]]
+repo='prabirshrestha/asyncomplete-neosnippet.vim'
+hook_add='''
+call asyncomplete#register_source(asyncomplete#sources#neosnippet#get_source_options({
+   \ 'name': 'neosnippet',
+   \ 'whitelist': ['*'],
+   \ 'completor': function('asyncomplete#sources#neosnippet#completor'),
+   \ }))
+'''
+on_i = 1
+
+## deoplete
+# [[plugins]]
+# repo = 'Shougo/deoplete.nvim'
+# hook_add = '''
+#   "" Completion setting
+#   set completeopt+=noinsert
+#
+#   let g:deoplete#enable_at_startup = 1
+#   let g:deoplete#auto_complete_delay = 0
+#   let g:deoplete#auto_complete_start_length = 1
+#   let g:deoplete#enable_camel_case = 0
+#   let g:deoplete#enable_ignore_case = 0
+#   let g:deoplete#enable_refresh_always = 0
+#   let g:deoplete#enable_smart_case = 1
+#   let g:deoplete#file#enable_buffer_path = 1
+#   let g:deoplete#max_list = 10000
+#
+#   inoremap <expr><tab> pumvisible() ? "\<C-n>" :
+#         \ neosnippet#expandable_or_jumpable() ?
+#         \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+# '''
+# hook_source = '''
+#   call deoplete#custom#var('omni', 'input_patterns', {
+#    \ 'ruby': ['[^. *\t]\.\w*', '[a-zA-Z_]\w*::'],
+# \})
+# '''
+# if = "has('nvim')"
+# on_i = 1
+
