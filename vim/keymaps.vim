@@ -41,9 +41,12 @@ nnoremap <Space>v :vsplit
 nnoremap <Space>, :source $MYVIMRC<CR>
 nnoremap <Space>m :<C-u>marks
 nnoremap <Space>r :<C-u>registers
+nnoremap <Space>o :only<CR>
 
 inoremap jj <Esc>
 
+cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
+cnoremap <expr> ? getcmdtype() == '?' ? '\?' : '?'
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
 cabbr w!! w !sudo tee > /dev/null %
@@ -70,8 +73,6 @@ endfor
 "" Using <Leader> or <Space>
 nmap <silent> <Space>d <Plug>DashSearch
 nmap <silent> <Space>n <plug>NERDTreeTabsToggle<CR>
-map  <silent> <Space>o :OverCommandLine<CR>
-
 map  <silent> <Leader>b <Plug>(openbrowser-smart-search)
 nmap <silent> <Leader>r <Plug>(quickrun)
 
@@ -82,14 +83,19 @@ map <Leader>l [lsp]
 nmap [fzf]l :FzfFileList<CR>
 nmap [fzf]m :FzfMostRecentlyUsed<CR>
 
-nmap <silent> [git]s :<C-u>Gstatus<CR>
-nmap <silent> [git]d :<C-u>Gdiff<CR>
-nmap <silent> [git]b :<C-u>Gblame<CR>
-nmap <silent> [git]l :<C-u>Glog<CR>
-nmap <silent> [git]p <Plug>GitGutterPrevHunk
-nmap <silent> [git]n <Plug>GitGutterNextHunk
+nmap [git]s :<C-u>Gstatus<CR>
+nmap [git]d :<C-u>Gdiff<CR>
+nmap [git]b :<C-u>Gblame<CR>
+nmap [git]l :<C-u>Glog<CR>
+nmap [git]p <Plug>GitGutterPrevHunk
+nmap [git]n <Plug>GitGutterNextHunk
 
-nmap <silent> [lsp]h :call LanguageClient_textDocument_hover()<CR>
-nmap <silent> [lsp]d :call LanguageClient_textDocument_definition()<CR>
-nmap <silent> [lsp]r :call LanguageClient_textDocument_rename()<CR>
-nmap <silent> [lsp]f :call LanguageClient_textDocument_formatting()<CR>
+nnoremap <buffer> [lsp]d :<C-u>LspDefinition<CR>
+nnoremap <buffer> [lsp]r :<C-u>LspReferences<CR>
+" nnoremap <buffer> gs :<C-u>LspDocumentSymbol<CR>
+" nnoremap <buffer> gS :<C-u>LspWorkspaceSymbol<CR>
+" nnoremap <buffer> gQ :<C-u>LspDocumentFormat<CR>
+" vnoremap <buffer> gQ :LspDocumentRangeFormat<CR>
+" nnoremap <buffer> K :<C-u>LspHover<CR>
+" nnoremap <buffer> <F1> :<C-u>LspImplementation<CR>
+" nnoremap <buffer> <F2> :<C-u>LspRename<CR>

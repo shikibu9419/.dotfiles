@@ -18,17 +18,6 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 imap <c-space> <Plug>(asyncomplete_force_refresh)
 
-" nnoremap <buffer> <C-]> :<C-u>LspDefinition<CR>
-" nnoremap <buffer> gd :<C-u>LspDefinition<CR>
-" nnoremap <buffer> gD :<C-u>LspReferences<CR>
-" nnoremap <buffer> gs :<C-u>LspDocumentSymbol<CR>
-" nnoremap <buffer> gS :<C-u>LspWorkspaceSymbol<CR>
-" nnoremap <buffer> gQ :<C-u>LspDocumentFormat<CR>
-" vnoremap <buffer> gQ :LspDocumentRangeFormat<CR>
-" nnoremap <buffer> K :<C-u>LspHover<CR>
-" nnoremap <buffer> <F1> :<C-u>LspImplementation<CR>
-" nnoremap <buffer> <F2> :<C-u>LspRename<CR>
-
 augroup vimlsp
   autocmd!
   autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif

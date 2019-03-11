@@ -13,11 +13,6 @@ hi LineNr ctermfg=243
 hi CursorLineNr ctermfg=255
 colorscheme hybrid
 
-"" After loading indent_guides
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
-let g:indent_guides_auto_colors = 1
-
 "" True color
 if !has('gui_running') && exists('&termguicolors') && $COLORTERM ==# 'truecolor'
   if !has('nvim')
@@ -27,16 +22,16 @@ if !has('gui_running') && exists('&termguicolors') && $COLORTERM ==# 'truecolor'
   set termguicolors
 endif
 
-"" Highlight ZenkakuSpace
-function! ZenkakuSpace()
-  highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
+"" Highlight zenkaku_space
+function! s:zenkaku_space()
+  highlight zenkaku_space cterm=underline ctermfg=lightblue guibg=darkgray
 endfunction
 
 if has('syntax')
-  augroup ZenkakuSpace
+  augroup zenkaku_space
     autocmd!
-    autocmd ColorScheme * call ZenkakuSpace()
-    autocmd VimEnter,WinEnter,BufRead * let w:m1=matchadd('ZenkakuSpace', '　')
+    autocmd ColorScheme * call s:zenkaku_space()
+    autocmd VimEnter,WinEnter,BufRead * let w:m1=matchadd('zenkaku_space', '　')
   augroup END
-  call ZenkakuSpace()
+  call s:zenkaku_space()
 endif

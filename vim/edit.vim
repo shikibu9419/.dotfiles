@@ -19,8 +19,6 @@ set ignorecase
 set smartcase
 set wrapscan
 set gdefault
-cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
-cnoremap <expr> ? getcmdtype() == '?' ? '\?' : '?'
 
 "" Encodings
 set encoding=utf-8
@@ -54,7 +52,7 @@ function! s:auto_write_if_possible()
   endif
 endfunction
 
-augroup autoreadwrite
+augroup auto_read_write
   autocmd!
   autocmd CursorHold  * call s:auto_write_if_possible()
   autocmd CursorHoldI * call s:auto_write_if_possible()
