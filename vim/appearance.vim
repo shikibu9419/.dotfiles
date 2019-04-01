@@ -11,9 +11,14 @@ set background=dark
 set cursorline
 hi LineNr ctermfg=243
 hi CursorLineNr ctermfg=255
-colorscheme hybrid
+" colorscheme hybrid
+colorscheme hybrid_material
 
 "" True color
+if has('nvim')
+  let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
+endif
+
 if !has('gui_running') && exists('&termguicolors') && $COLORTERM ==# 'truecolor'
   if !has('nvim')
     let &t_8f = "\e[38;2;%lu;%lu;%lum"

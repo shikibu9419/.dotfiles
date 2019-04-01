@@ -247,11 +247,13 @@ hook_add = '''
 # Appearance
 #----------------------------------------------
 [[plugins]]
-repo = 'vim-airline/vim-airline'
-depends = ['vim-airline-themes']
+repo = 'flazz/vim-colorschemes'
+
+# [[plugins]]
+# repo = 'ryanoasis/vim-devicons'
 
 [[plugins]]
-repo = 'vim-airline/vim-airline-themes'
+repo = 'itchyny/lightline.vim'
 
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'
@@ -271,12 +273,8 @@ hook_add = '''
   let g:indent_guides_guide_size = 1
   let g:indent_guides_start_level = 2
 '''
-hook_source = '''
-  let g:indent_guides_enable_on_vim_startup = 1
-  let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
-  let g:indent_guides_auto_colors = 1
-'''
 
+## syntax highlights
 [[plugins]]
 repo = 'sheerun/vim-polyglot'
 
@@ -284,12 +282,13 @@ repo = 'sheerun/vim-polyglot'
 # External plugins
 #----------------------------------------------
 [[plugins]]
+repo = 'mechatroner/rainbow_csv'
+
+[[plugins]]
 repo = 'rizzatti/dash.vim'
 
 [[plugins]]
-repo = 'junegunn/fzf'
-build = 'bash install.sh'
-merged = '0'
+repo = '/usr/local/opt/fzf'
 
 [[plugins]]
 repo = 'junegunn/fzf.vim'
@@ -314,27 +313,3 @@ hook_add = '''
     \ 'scommand!ource': v:oldfiles, 'sink': 'tabe', 'options': '-m -x +s', 'down': '40%'
     \ })
 '''
-
-#----------------------------------------------
-# Colorschemes
-#----------------------------------------------
-[[plugins]]
-repo = 'w0ng/vim-hybrid'
-
-[[plugins]]
-repo = 'jonathanfilip/vim-lucius'
-
-[[plugins]]
-repo = 'tomasr/molokai'
-
-[[plugins]]
-repo = 'gosukiwi/vim-atom-dark'
-
-[[plugins]]
-repo = 'jdkanani/vim-material-theme'
-
-[[plugins]]
-repo = 'aereal/vim-colors-japanesque'
-
-[[plugins]]
-repo = 'danilo-augusto/vim-afterglow'

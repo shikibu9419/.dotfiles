@@ -12,8 +12,8 @@ window:
     lines: 24
 
   padding:
-    x: 2
-    y: 2
+    x: 3
+    y: 5
 
   # Window decorations
   #
@@ -79,7 +79,7 @@ font:
 
   # Scale the font size based on the monitor's DPI. This will lead to bigger text on HiDPI
   # screens and make reading text a little easier.
-  scale_with_dpi: true
+#   scale_with_dpi: true
 
   # Thin stroke font rendering (OS X only)
   #
@@ -93,69 +93,42 @@ render_timer: false
 # Use custom cursor colors. If `true`, the `colors.cursor.foreground` and
 # `colors.cursor.background` colors will be used to display the cursor.
 # Otherwise the cell colors are inverted for the cursor.
-custom_cursor_colors: false
+# custom_cursor_colors: false
 
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
 
-# Colors (Tomorrow Night Bright)
 colors:
   # Default colors
   primary:
-    background: '0x000000'
-    foreground: '0xeaeaea'
-
-    # Bright and dim foreground colors
-    #
-    # The dimmed foreground color is calculated automatically if it is not present.
-    # If the bright foreground color is not set, or `draw_bold_text_with_bright_colors`
-    # is `false`, the normal foreground color will be used.
-    #
-    #dim_foreground: '0x9a9a9a'
-    #bright_foreground: '0xffffff'
-
-  # Cursor colors
-  #
-  # These will only be used when the `custom_cursor_colors` field is set to `true`.
-  cursor:
-    text: '0x000000'
-    cursor: '0xffffff'
+    background: '0x27292c'
+    foreground: '0xd0d2d1'
 
   # Normal colors
   normal:
-    black:   '0x000000'
-    red:     '0xd54e53'
-    green:   '0xb9ca4a'
-    yellow:  '0xe6c547'
-    blue:    '0x7aa6da'
-    magenta: '0xc397d8'
-    cyan:    '0x70c0ba'
-    white:   '0xffffff'
+    black:   '0x35383b'
+    red:     '0xb05655'
+    green:   '0x769972'
+    yellow:  '0xe1a574'
+    blue:    '0x7693ac'
+    magenta: '0x977ba0'
+    cyan:    '0x749e99'
+    white:   '0x848b92'
 
   # Bright colors
   bright:
-    black:   '0x666666'
-    red:     '0xff3334'
-    green:   '0x9ec400'
-    yellow:  '0xe7c547'
-    blue:    '0x7aa6da'
-    magenta: '0xb77ee0'
-    cyan:    '0x54ced6'
-    white:   '0xffffff'
+    black:   '0x484c52'
+    red:     '0xd27c7b'
+    green:   '0xdffebe'
+    yellow:  '0xf0d189'
+    blue:    '0x96b1c9'
+    magenta: '0xbfa5c7'
+    cyan:    '0x9fc9c3'
+    white:   '0xfcf7e2'
 
-  # Dim colors
-  #
-  # If the dim colors are not set, they will be calculated automatically based
-  # on the `normal` colors.
-  dim:
-    black:   '0x333333'
-    red:     '0xf2777a'
-    green:   '0x99cc99'
-    yellow:  '0xffcc66'
-    blue:    '0x6699cc'
-    magenta: '0xcc99cc'
-    cyan:    '0x66cccc'
-    white:   '0xdddddd'
+  cursor:
+    text: '0x000000'
+    cursor: '0xffffff'
 
   # Indexed Colors
   #
@@ -191,7 +164,7 @@ visual_bell:
   duration: 0
 
 # Background opacity
-background_opacity: 1.0
+background_opacity: 0.95
 
 # Mouse bindings
 #
@@ -227,7 +200,7 @@ selection:
 
 dynamic_title: true
 
-hide_cursor_when_typing: false
+mouse.hide_when_typing: false
 
 # Cursor style
 #
@@ -235,11 +208,11 @@ hide_cursor_when_typing: false
 #   - Block
 #   - Underline
 #   - Beam
-cursor_style: Block
+cursor.style: Block
 
 # If this is `true`, the cursor will be rendered as a hollow box when the
 # window is not focused.
-unfocused_hollow_cursor: true
+cursor.unfocused_hollow: true
 
 # Live config reload (changes require restart)
 live_config_reload: true
