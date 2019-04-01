@@ -22,33 +22,42 @@ zplug load
 # Plugin Setting
 #------------------------------------------
 ## zsh-syntax-highlighting
+local magenta='fg=177'
+local cyan='fg=012'
+local yellow='fg=011'
+
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main pattern cursor)
 typeset -A ZSH_HIGHLIGHT_STYLES
 
-ZSH_HIGHLIGHT_STYLES[command]='fg=133'
-ZSH_HIGHLIGHT_STYLES[commandseparator]='fg=133'
-ZSH_HIGHLIGHT_STYLES[alias]='fg=133'
-ZSH_HIGHLIGHT_STYLES[builtin]='fg=133'
-ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=133'
-ZSH_HIGHLIGHT_STYLES[globbing]='none'
+ZSH_HIGHLIGHT_STYLES[command]=$magenta
+ZSH_HIGHLIGHT_STYLES[precommand]=$magenta
+ZSH_HIGHLIGHT_STYLES[reserved-word]=$magenta
+ZSH_HIGHLIGHT_STYLES[commandseparator]=$magenta
+ZSH_HIGHLIGHT_STYLES[alias]=$magenta
+ZSH_HIGHLIGHT_STYLES[suffix-alias]=$magenta
+ZSH_HIGHLIGHT_STYLES[builtin]=$magenta
+ZSH_HIGHLIGHT_STYLES[function]=$magenta
 
-ZSH_HIGHLIGHT_STYLES[path]='fg=111'
-ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=111'
-ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=111'
-# ZSH_HIGHLIGHT_STYLES[arg0]='fg=111'
-# ZSH_HIGHLIGHT_STYLES[precommand]='fg=111'
+ZSH_HIGHLIGHT_STYLES[path]=$cyan
+ZSH_HIGHLIGHT_STYLES[path_prefix]=$cyan
+ZSH_HIGHLIGHT_STYLES[arg0]=$cyan
+ZSH_HIGHLIGHT_STYLES[single-hyphen-option]=$cyan
+ZSH_HIGHLIGHT_STYLES[double-hyphen-option]=$cyan
+ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]=$cyan
 
-ZSH_HIGHLIGHT_STYLES[comment]='fg=002'
-ZSH_HIGHLIGHT_STYLES[back-quoted-argument]='fg=002'
-ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=002'
-ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=002'
-ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]='fg=002'
+ZSH_HIGHLIGHT_STYLES[comment]=$yellow
+ZSH_HIGHLIGHT_STYLES[back-quoted-argument]=$yellow
+ZSH_HIGHLIGHT_STYLES[single-quoted-argument]=$yellow
+ZSH_HIGHLIGHT_STYLES[double-quoted-argument]=$yellow
+ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]=$yellow
 
 ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=red'
 ZSH_HIGHLIGHT_STYLES[back-quoted-argument-unclosed]='fg=red'
 ZSH_HIGHLIGHT_STYLES[single-quoted-argument-unclosed]='fg=red'
 ZSH_HIGHLIGHT_STYLES[double-quoted-argument-unclosed]='fg=red'
 ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument-unclosed]='fg=red'
+
+ZSH_HIGHLIGHT_STYLES[globbing]=none
 
 ## Other plugins
 export FZF_ALT_C_OPTS='--select-1 --exit-0'
