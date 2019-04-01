@@ -26,6 +26,7 @@ brew 'python'
 brew 'python@2'
 brew 'rbenv'
 brew 'ruby-build'
+brew 'ricty'
 
 ## cask
 cask 'google-chrome'
