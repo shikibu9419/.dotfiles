@@ -18,9 +18,9 @@ repo = 'prabirshrestha/asyncomplete-lsp.vim'
 
 [[plugins]]
 repo = 'prabirshrestha/asyncomplete-buffer.vim'
-hook_source = '''
-let g:asyncomplete_buffer_clear_cache = 1
-call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
+hook_add = '''
+  let g:asyncomplete_buffer_clear_cache = 1
+  call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
     \ 'name': 'buffer',
     \ 'whitelist': ['*'],
     \ 'blacklist': ['go'],
@@ -30,58 +30,24 @@ call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options
 
 [[plugins]]
 repo = 'prabirshrestha/asyncomplete-file.vim'
-hook_source = '''
-call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
-   \ 'name': 'file',
-   \ 'whitelist': ['*'],
-   \ 'priority': 10,
-   \ 'completor': function('asyncomplete#sources#file#completor')
-   \ }))
+hook_add = '''
+  call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
+    \ 'name': 'file',
+    \ 'whitelist': ['*'],
+    \ 'priority': 10,
+    \ 'completor': function('asyncomplete#sources#file#completor')
+    \ }))
 '''
 
 [[plugins]]
 repo='prabirshrestha/asyncomplete-neosnippet.vim'
-hook_source = '''
-call asyncomplete#register_source(asyncomplete#sources#neosnippet#get_source_options({
-   \ 'name': 'neosnippet',
-   \ 'whitelist': ['*'],
-   \ 'completor': function('asyncomplete#sources#neosnippet#completor'),
-   \ }))
-'''
-
-#----------------------------------------------
-# Tag jump
-#----------------------------------------------
-[[plugins]]
-repo = 'lighttiger2505/gtags.vim'
 hook_add = '''
-  let g:Gtags_Auto_Map = 0
-  let g:Gtags_OpenQuickfixWindow = 1
+  call asyncomplete#register_source(asyncomplete#sources#neosnippet#get_source_options({
+    \ 'name': 'neosnippet',
+    \ 'whitelist': ['*'],
+    \ 'completor': function('asyncomplete#sources#neosnippet#completor'),
+    \ }))
 '''
-
-[[plugins]]
-repo = 'jsfaint/gen_tags.vim'
-hook_add = 'let g:gen_tags#gtags_auto_gen = 1'
-
-# [[plugins]]
-# repo = 'ozelentok/denite-gtags'
-
-# # ctags
-# [[plugins]]
-# repo = 'szw/vim-tags'
-# hook_add = '''
-#   let g:vim_tags_project_tags_command = "/usr/local/bin/ctags -R {OPTIONS} {DIRECTORY} 2>/dev/null"
-#   let g:vim_tags_gems_tags_command = "/usr/local/bin/ctags -R {OPTIONS} `bundle show --paths` 2>/dev/null"
-#   " nnoremap <Leader>h :split<CR> :exe("tjump ".expand('<cword>'))<CR>
-#   " nnoremap <Leader>v :vsplit<CR> :exe("tjump ".expand('<cword>'))<CR>
-# '''
-#
-# [[plugins]]
-# repo = 'majutsushi/tagbar'
-# hook_add = '''
-#   let g:tagbar_width = 30
-#   set statusline=%F%m%r%h%w\%=%{tagbar#currenttag('[%s]','')}\[Pos=%v,%l]\[Len=%L]
-# '''
 
 #----------------------------------------------
 # NERDTree

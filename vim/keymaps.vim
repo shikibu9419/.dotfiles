@@ -90,6 +90,7 @@ nmap [git]l :<C-u>Glog<CR>
 nmap [git]p <Plug>GitGutterPrevHunk
 nmap [git]n <Plug>GitGutterNextHunk
 
+map <Leader>l [lsp]
 nnoremap <buffer> [lsp]d :<C-u>LspDefinition<CR>
 nnoremap <buffer> [lsp]r :<C-u>LspReferences<CR>
 " nnoremap <buffer> gs :<C-u>LspDocumentSymbol<CR>
