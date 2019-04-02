@@ -65,22 +65,22 @@ hook_add = '''
   augroup END
 '''
 
-[[plugins]]
-repo = 'Xuyuanp/nerdtree-git-plugin'
-hook_add = '''
-  let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "✹",
-    \ "Staged"    : "✚",
-    \ "Untracked" : "✭",
-    \ "Renamed"   : "➜",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "✖",
-    \ "Dirty"     : "✗",
-    \ "Clean"     : "✔︎",
-    \ 'Ignored'   : '☒',
-    \ "Unknown"   : "?"
-    \ }
-'''
+# [[plugins]]
+# repo = 'Xuyuanp/nerdtree-git-plugin'
+# hook_add = '''
+#   let g:NERDTreeIndicatorMapCustom = {
+#    \ "Modified"  : "✹",
+#    \ "Staged"    : "✚",
+#    \ "Untracked" : "✭",
+#    \ "Renamed"   : "➜",
+#    \ "Unmerged"  : "═",
+#    \ "Deleted"   : "✖",
+#    \ "Dirty"     : "✗",
+#    \ "Clean"     : "✔︎",
+#    \ 'Ignored'   : '☒',
+#    \ "Unknown"   : "?"
+#    \ }
+# '''
 
 [[plugins]]
 repo = 'jistr/vim-nerdtree-tabs'
@@ -177,11 +177,7 @@ repo = 'junegunn/vim-easy-align'
 # Enhancement
 #----------------------------------------------
 [[plugins]]
-repo = 'scrooloose/syntastic'
-hook_add = '''
-  let g:syntastic_mode_map = { 'mode': 'passive' }
-  let g:syntastic_ruby_checkers = ['rubocop']
-'''
+repo = 'w0rp/ale'
 
 [[plugins]]
 repo = 'osyo-manga/vim-over'
@@ -215,8 +211,15 @@ hook_add = '''
 [[plugins]]
 repo = 'flazz/vim-colorschemes'
 
-# [[plugins]]
-# repo = 'ryanoasis/vim-devicons'
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
+hook_add = '''
+" file-icons
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {}
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['html'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['css'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['txt'] = ''
+'''
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'
