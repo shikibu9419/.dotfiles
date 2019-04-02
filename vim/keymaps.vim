@@ -76,13 +76,13 @@ map  <silent> <Leader>b <Plug>(openbrowser-smart-search)
 nmap <silent> <Leader>r <Plug>(quickrun)
 
 map <C-j> [fzf]
-nnoremap [fzf]<C-l> :FzfFileList<CR>
-nnoremap [fzf]<C-m> :FzfMostRecentlyUsed<CR>
 nnoremap [fzf]<C-b> :FzfBuffers<CR>
+nnoremap [fzf]<C-c> :FzfColors<CR>
+nnoremap [fzf]<C-f> :FzfGFiles?<CR>
+nnoremap [fzf]<C-l> :FzfFiles<CR>
+nnoremap [fzf]<C-m> :FzfMostRecentlyUsed<CR>
+nnoremap [fzf]<C-r> :FzfRg<CR>
 nnoremap [fzf]<C-x> :FzfCommands<CR>
-nnoremap [fzf]<C-f> :FzfGFiles<CR>
-nnoremap [fzf]<C-a> :FzfAg<CR>
-nnoremap [fzf]<C-k> :Fzfbd<CR>
 
 map <Leader>g [git]
 nmap [git]s :<C-u>Gstatus<CR>
