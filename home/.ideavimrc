@@ -1,6 +1,3 @@
-" <Leader> setting
-let mapleader="\<Space>"
-
 set scrolloff=3
 set clipboard+=unnamed
 
@@ -25,7 +22,7 @@ cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
 
 "------------------------------------------
-" IDE actions (https://gist.github.com/zchee/9c78f91cc5ad771c1f5d)
+" IDEA actions (https://gist.github.com/zchee/9c78f91cc5ad771c1f5d)
 "------------------------------------------
 nnoremap / :action Find<CR>
 nnoremap n :action FindNext<CR>
@@ -33,8 +30,8 @@ nnoremap N :action FindPrevious<CR>
 nnoremap u :action $Undo<CR>
 nnoremap U :action $Redo<CR>
 nnoremap ; :action AceJumpAction<CR>
-nnoremap <Leader>o :action GotoClass<CR>
-nnoremap <Leader>O :action GotoFile<CR>
-nnoremap <Leader>d :action CloseContent<CR>
-nnoremap <Leader>j :action RecentFiles<CR>
-nnoremap <Leader>k :action FileStructurePopup<CR>
+nnoremap <Space>o :action GotoClass<CR>
+nnoremap <Space>O :action GotoFile<CR>
+nnoremap <Space>d :action CloseContent<CR>
+nnoremap <Space>j :action RecentFiles<CR>
+nnoremap <Space>k :action FileStructurePopup<CR>
