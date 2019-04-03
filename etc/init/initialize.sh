@@ -55,8 +55,9 @@ for shell in (z|fi|xon)sh; do
 done
 chsh -s $(which zsh)
 
-strong 'Global:'
-sed -e 's/:tc=native:/:tc=native:tc=pygments:/g' /usr/local/opt/global/share/gtags/gtags.conf > ~/.globalrc
+strong 'Neovim:'
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 strong 'VS Code:'
 cat $DOTPATH/etc/init/vscode-extensions | while read pkg; do
