@@ -1,12 +1,12 @@
 call plug#begin('$XDG_CACHE_HOME/nvim/plugged')
-  "" LSP client
-  Plug 'prabirshrestha/vim-lsp'
+  "" completion
   Plug 'prabirshrestha/async.vim'
   Plug 'prabirshrestha/asyncomplete.vim'
   Plug 'prabirshrestha/asyncomplete-lsp.vim'
   Plug 'prabirshrestha/asyncomplete-buffer.vim'
   Plug 'prabirshrestha/asyncomplete-file.vim'
   Plug 'prabirshrestha/asyncomplete-neosnippet.vim'
+  Plug 'prabirshrestha/vim-lsp'
 
   "" NERDTree
   Plug 'scrooloose/nerdtree'
