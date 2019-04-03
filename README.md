@@ -14,17 +14,17 @@ A powerful & fashionable development environment :sparkles:
 
 ```shell
 > make help
-list     List up dotfiles which will be deployed
+list     List files to be deployed
 init     Initialize macOS environment
 deploy   Deploy dotfiles
 install  Initialize and deploy
 update   Update dotfiles, submodules and other plugins
-help     Display targets in Makefile
+help     Display help message
 ```
 
 ## Tools
 - **Neovim** (for backend etc.)
-- **VS CODE** (for frontend and LaTeX)
+- **VSCode** (for frontend and LaTeX)
 - **Zsh**
 - **Tmux**
 - **Alacritty**

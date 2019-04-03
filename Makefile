@@ -7,7 +7,7 @@ DEPLOYED := $(DOTFILES) $(addprefix .config/, $(XDGCONFS))
 DEFAULT:
 
 list:
-	@echo "To be deployed to $(HOME):"
+	@echo "Files to be deployed to $(HOME):"
 	@$(foreach file, $(DEPLOYED), echo " $(file)";)
 
 init:
@@ -34,9 +34,9 @@ clean:
 	@rm -rfi $(DOTPATH)
 
 help:
-	@echo 'list     List up dotfiles which will be deployed'
+	@echo 'list     List files to be deployed'
 	@echo 'init     Initialize macOS environment'
 	@echo 'deploy   Deploy dotfiles'
 	@echo 'install  Initialize and deploy'
 	@echo 'update   Update dotfiles, submodules and other plugins'
-	@echo 'help     Display targets in Makefile'
+	@echo 'help     Display help message'
