@@ -1,12 +1,11 @@
-.DS_Store
 .idea
+.venv
 .project
 .git-worktrees
+__pycache__
+
+.DS_Store
 .ruby-version
 .python-version
 node_modules
-tags
-GPATH
-GRTAGS
-GTAGS
 *.class

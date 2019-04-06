@@ -1,6 +1,6 @@
 [include]
-  path = ~/.gitconfig.local
+  path = ~/.gitconfig.local  # write user information etc.
 [core]
-  excludesfile = ~/.gitignore.global
+  excludesfile = ~/.gitignore_global
 [ghq]
   root = ~/projects

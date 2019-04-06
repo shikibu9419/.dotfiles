@@ -1,6 +1,6 @@
 export LANG=en_US.utf-8
 export LC_ALL=en_US.utf-8
-export TERM=xterm-256color
+export TERM=screen-256color
 export EDITOR=nvim
 export XDG_CONFIG_HOME=~/.config
 export XDG_CACHE_HOME=~/.cache
