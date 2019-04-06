@@ -59,6 +59,11 @@ call plug#begin('$XDG_CACHE_HOME/nvim/plugged')
   Plug 'todesking/ruby_hl_lvar.vim', { 'for': 'ruby' }
 call plug#end()
 
+"" Load plugin config file
+for conf in split(glob('$DOTPATH/vim/plugins/*.vim'),'\n')
+  execute 'source' conf
+endfor
+
 let g:neoterm_autoscroll = 1
 let g:neoterm_autoinsert = 1
 let g:neoterm_default_mod = 'belowright'
