@@ -19,8 +19,23 @@ zplug 'b4b4r07/emoji-cli', if:'which jq'
 zplug load
 
 #------------------------------------------
-# Plugin Setting
+# Plugin config
 #------------------------------------------
+export FZF_ALT_C_OPTS='--select-1 --exit-0'
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=245'
+
+cd-gitroot() {
+  unfunction cd-gitroot
+  . $ZPLUG_REPOS/mollifier/cd-gitroot/cd-gitroot
+  autoload -Uz cd-gitroot
+}
+
+k() {
+  unfunction k
+  . $ZPLUG_REPOS/supercrabtree/k/k.sh
+  k "$@"
+}
+
 ## zsh-syntax-highlighting
 local magenta='fg=177'
 local cyan='fg=012'
@@ -58,19 +73,3 @@ ZSH_HIGHLIGHT_STYLES[double-quoted-argument-unclosed]='fg=red'
 ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument-unclosed]='fg=red'
 
 ZSH_HIGHLIGHT_STYLES[globbing]=none
-
-## Other plugins
-export FZF_ALT_C_OPTS='--select-1 --exit-0'
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=245'
-
-cd-gitroot() {
-  unfunction cd-gitroot
-  . $ZPLUG_REPOS/mollifier/cd-gitroot/cd-gitroot
-  autoload -Uz cd-gitroot
-}
-
-k() {
-  unfunction k
-  . $ZPLUG_REPOS/supercrabtree/k/k.sh
-  k "$@"
-}

@@ -53,7 +53,7 @@ ghq_jump_repository() {
   fi
 
   repo=${dir##*/}
-  if [[ ! $selected =~ ^github\.com.+$ ]]; then
+  if [[ ! $selected =~ ^'github.com'.+$ ]]; then
     parent=${dir%/*}
     repo=${parent##*/}/$repo
   fi
