@@ -44,6 +44,7 @@ if executable('pyls')
         \   'jedi_definition': {'follow_imports': v:true, 'follow_builtin_imports': v:true},}}}
         \})
 endif
+
 "" gem install solargraph
 if executable('solargraph')
   au User lsp_setup call lsp#register_server({
@@ -52,6 +53,7 @@ if executable('solargraph')
         \ 'whitelist': ['ruby'],
         \})
 endif
+
 "" go get golang.org/x/tools/cmd/gopls
 if executable('gopls')
   au User lsp_setup call lsp#register_server({
@@ -60,6 +62,7 @@ if executable('gopls')
         \ 'whitelist': ['go'],
         \ })
 endif
+
 "" npm install -g typescript typescript-language-server
 if executable('typescript-language-server')
   au User lsp_setup call lsp#register_server({

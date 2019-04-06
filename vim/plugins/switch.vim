@@ -1,3 +1,5 @@
+let g:switch_mapping = 'S'
+
 let s:switch_definition = {
   \ 'rails' : [
   \   [100, ':continue', ':information'],

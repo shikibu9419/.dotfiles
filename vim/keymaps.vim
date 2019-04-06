@@ -137,6 +137,8 @@ nmap <silent> <Space>n  <plug>NERDTreeTabsToggle<cr>
 nmap <silent> <Leader>d <Plug>DashSearch
 map  <silent> <Leader>b <Plug>(openbrowser-smart-search)
 nmap <silent> <Leader>r <Plug>(quickrun)
+" nnoremap <silent> <Leader>r :cclose<cr>:w<cr>:QuickRun -mode n<cr>
+" nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
 
 "" fugigive
 map <Leader>g [git]

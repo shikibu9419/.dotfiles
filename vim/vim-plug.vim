@@ -1,4 +1,6 @@
-call plug#begin('$XDG_CACHE_HOME/nvim/plugged')
+let s:plug_repo_dir = '$XDG_CACHE_HOME/nvim/plugged'
+
+call plug#begin(s:plug_repo_dir)
   "" completion
   Plug 'prabirshrestha/async.vim'
   Plug 'prabirshrestha/asyncomplete.vim'
@@ -24,8 +26,8 @@ call plug#begin('$XDG_CACHE_HOME/nvim/plugged')
   Plug 'rhysd/clever-f.vim'
   Plug 'rhysd/accelerated-jk'
   Plug 'yonchu/accelerated-smooth-scroll'
-  Plug 'Shougo/vimproc.vim'
   Plug 'terryma/vim-multiple-cursors'
+  Plug 'Shougo/vimproc.vim', {'do' : 'make'}
   Plug 'thinca/vim-quickrun'
   Plug 'tyru/open-browser.vim'
   Plug 'AndrewRadev/switch.vim'
@@ -33,13 +35,13 @@ call plug#begin('$XDG_CACHE_HOME/nvim/plugged')
   Plug 'machakann/vim-sandwich'
   Plug 'bronson/vim-trailing-whitespace'
   Plug 'junegunn/vim-easy-align'
+  Plug 'cohama/lexima.vim'
   "" Appearance
   Plug 'itchyny/lightline.vim'
+  Plug 'nathanaelkane/vim-indent-guides'
+  Plug 'ryanoasis/vim-devicons'
   Plug 'Shougo/context_filetype.vim'
   Plug 'osyo-manga/vim-precious'
-  Plug 'nathanaelkane/vim-indent-guides'
-  Plug 'mechatroner/rainbow_csv', { 'for': 'csv' }
-  Plug 'ryanoasis/vim-devicons'
   "" colorschemes
   Plug 'flazz/vim-colorschemes'
   "" syntax highlights
@@ -48,15 +50,16 @@ call plug#begin('$XDG_CACHE_HOME/nvim/plugged')
   Plug 'rizzatti/dash.vim'
   Plug '/usr/local/opt/fzf'
   Plug 'junegunn/fzf.vim'
-  Plug 'cohama/lexima.vim'
   "" Snippets
   Plug 'Shougo/neosnippet.vim'
   Plug 'Shougo/neosnippet-snippets'
-  "" Python
+  "" ftplugins
   Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
-  "" Rails
-  Plug 'tpope/vim-rails', { 'for': 'ruby' }
-  Plug 'todesking/ruby_hl_lvar.vim', { 'for': 'ruby' }
+  Plug 'plytophogy/vim-virtualenv',     { 'for': 'python' }
+  Plug 'PieterjanMontens/vim-pipenv',   { 'for': 'python' }
+  Plug 'tpope/vim-rails',               { 'for': 'ruby' }
+  Plug 'todesking/ruby_hl_lvar.vim',    { 'for': 'ruby' }
+  Plug 'mechatroner/rainbow_csv',       { 'for': 'csv' }
 call plug#end()
 
 "" Load plugin config file
@@ -64,46 +67,24 @@ for conf in split(glob('$DOTPATH/vim/plugins/*.vim'),'\n')
   execute 'source' conf
 endfor
 
+"" Tmux navigator & neoterm
+let g:tmux_navigator_no_mappings = 1
 let g:neoterm_autoscroll = 1
 let g:neoterm_autoinsert = 1
 let g:neoterm_default_mod = 'belowright'
 
-let g:tmux_navigator_no_mappings = 1
-
+"" clever f
 let g:clever_f_across_no_line = 1
 let g:clever_f_ignore_case = 1
 let g:clever_f_smart_case = 1
 let g:clever_f_fix_key_direction = 1
 
-"     function! Multiple_cursors_before()
-"       if exists(':NeoCompleteLock')==2
-"         exe 'NeoCompleteLock'
-"         echo 'Disabled Neocomplete'
-"       endif
-"     endfunction
-
+"" smooth scroll
 let g:ac_smooth_scroll_du_sleep_time_msec = 7
 let g:ac_smooth_scroll_fb_sleep_time_msec = 7
-set splitbelow
-set splitright
-let g:quickrun_no_default_key_mappings = 1
-"   let g:quickrun_config = {
-"      \ '_' : {
-"          \ 'runner' : 'vimproc',
-"          \ 'runner/vimproc/updatetime' : 40,
-"          \ 'outputter' : 'error',
-"          \ 'outputter/error/success' : 'buffer',
-"          \ 'outputter/error/error'   : 'quickfix',
-"          \ 'outputter/buffer/split' : ':botright 8sp',
-"      \ }
-"  \}
 
-if !exists('g:context_filetype#filetypes')
-  let g:context_filetype#filetypes = {}
-endif
-
-let g:switch_mapping = 'S'
-
+"" indent guides
+let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
 
@@ -113,12 +94,35 @@ let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['html'] = ''
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['css'] = ''
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['txt'] = ''
 
-let g:neosnippet#snippets_directory = '$DOTPATH/vim/snippets/, $XDG_CACHE_HOME/nvim/plugged/neosnippet-snippets/neosnippets/'
+let g:neosnippet#snippets_directory = '$DOTPATH/vim/snippets/, ' . s:plug_repo_dir . '/neosnippet-snippets/neosnippets/'
+
 if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
 
-"" LaTeX
-call lexima#add_rule({'char': '$', 'input_after': '$', 'filetype': 'tex'})
-call lexima#add_rule({'char': '$', 'at': '\%#\$', 'leave': 1, 'filetype': 'tex'})
-call lexima#add_rule({'char': '<BS>', 'at': '\$\%#\$', 'delete': 1, 'filetype': 'tex'})
+if !exists('g:context_filetype#filetypes')
+  let g:context_filetype#filetypes = {}
+endif
+
+
+"     function! Multiple_cursors_before()
+"       if exists(':NeoCompleteLock')==2
+"         exe 'NeoCompleteLock'
+"         echo 'Disabled Neocomplete'
+"       endif
+"     endfunction
+
+set splitbelow
+set splitright
+let g:quickrun_no_default_key_mappings = 1
+" let g:quickrun_config = {
+"     \ '_' : {
+"     \ 'runner' : 'vimproc',
+"     \ 'runner/vimproc/updatetime' : 60,
+"     \ 'outputter' : 'error',
+"     \ 'outputter/error/success' : 'buffer',
+"     \ 'outputter/error/error'   : 'quickfix',
+"     \ 'outputter/buffer/split' : ':botright 8sp',
+"     \ 'outputter/buffer/close_on_empty' : 1,
+"     \ }
+"     \}
