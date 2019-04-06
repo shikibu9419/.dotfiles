@@ -3,7 +3,7 @@ if has('nvim')
   let g:python3_host_prog = expand('/usr/local/bin/python3')
 endif
 
-source $DOTPATH/vim/plugin.vim
+source $DOTPATH/vim/vim-plug.vim
 source $DOTPATH/vim/appearance.vim
 source $DOTPATH/vim/edit.vim
 source $DOTPATH/vim/keymaps.vim

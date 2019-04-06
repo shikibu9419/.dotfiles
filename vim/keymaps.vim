@@ -10,7 +10,7 @@ noremap  <C-c> <Nop>
 imap <F1> <Esc>
 map  <F1> <Esc>
 
-"" Command replacement
+"" Replace maps
 noremap  H ^
 noremap  L $
 noremap  ; :
@@ -21,8 +21,7 @@ nnoremap - <C-x>
 vnoremap < <gv
 vnoremap > >gv
 nnoremap x "_x
-" (C-l is used as prefix of lsp)
-nnoremap <C-s> <C-l>
+nnoremap <C-s> <C-l> " C-l is used as prefix of lsp-keymap
 
 "" Resize window
 nnoremap <S-Left>  <C-w>>
@@ -30,7 +29,7 @@ nnoremap <S-Right> <C-w><
 nnoremap <S-Up>    <C-w>-
 nnoremap <S-Down>  <C-w>+
 
-"" Emacs commands
+"" Like Emacs
 inoremap <C-a> <C-o>^
 inoremap <C-e> <C-o>$
 inoremap <C-f> <C-o>w

@@ -74,7 +74,7 @@ endif
 set autowrite
 set autoread
 set ttimeoutlen=50
-set updatetime=250
+set updatetime=50
 
 function! s:auto_write_if_possible()
   if &modified && !&readonly && bufname('%') !=# '' && &buftype ==# '' && expand("%") !=# ''
