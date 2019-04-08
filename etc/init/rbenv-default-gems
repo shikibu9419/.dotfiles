@@ -1,0 +1,11 @@
+neovim
+bundler
+rails
+pry
+rspec
+rubocop
+gem-browse
+mp3info
+json
+rest-client
+solargraph

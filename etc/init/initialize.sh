@@ -1,10 +1,9 @@
 #!/bin/sh
 
 set -eu
-DEFAULT_GEMS_URL=https://gist.githubusercontent.com/shikibu9419/c4a6e126b0da47856ee5a8ef04d38cde/raw/rbenv-default-gems
-PIP_REQUIREMENTS_URL=https://gist.githubusercontent.com/shikibu9419/8bafc4e6146967d851d0f88567f9d15a/raw/pip-requirements
 DOCKER_COMPLETIONS_PATH=/Applications/Docker.app/Contents/Resources/etc
 ZSH_COMPLETIONS_PATH=~/.zsh/completions
+RBENV_ROOT=~/.rbenv
 
 has() {
   return $(type "$1" > /dev/null 2>&1)
@@ -59,6 +58,9 @@ strong 'Neovim:'
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+strong 'VS Code:'
+code --install-extension Shan.code-settings-sync
+
 strong 'Docker:'
 checkdir $ZSH_COMPLETIONS_PATH
 for comp in $DOCKER_COMPLETIONS_PATH/*.zsh-completion; do
@@ -67,18 +69,18 @@ for comp in $DOCKER_COMPLETIONS_PATH/*.zsh-completion; do
 done
 
 strong 'gem:'
-git clone https://github.com/sstephenson/rbenv-default-gems.git ~/.rbenv/plugins/rbenv-default-gems
-curl -fsSL $DEFAULT_GEMS_URL -o default-gems && mv default-gems ~/.rbenv
+checkdir $RBENV_ROOT
+ln -sifF $DOTPATH/etc/init/rbenv-default-gems $RBENV_ROOT/default-gems
 
 strong 'pip:'
 pip3 install --upgrade setuptools
-pip3 install $(curl -fsSL $PIP_REQUIREMENTS_URL)
+pip3 install $(cat $DOTPATH/etc/init/pip-requirements)
 
 
-strong 'Initialization finished successfully!!'
+echo 'Initialization finished successfully!!'
+string 'Please run this commands to initialize completely:'
 cat <<EOF
-Please run this commands to complete initialize truly.
-> zplug install
-> curl https://sh.rustup.rs -sSf | sh
-> rustup component add rls-preview rust-analysis rust-src
+zplug install
+curl https://sh.rustup.rs -sSf | sh
+rustup component add rls-preview rust-analysis rust-src
 EOF
