@@ -59,11 +59,6 @@ strong 'Neovim:'
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-strong 'VS Code:'
-cat $DOTPATH/etc/init/vscode-extensions | while read pkg; do
-  code --install-extension $pkg
-done
-
 strong 'Docker:'
 checkdir $ZSH_COMPLETIONS_PATH
 for comp in $DOCKER_COMPLETIONS_PATH/*.zsh-completion; do

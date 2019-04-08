@@ -17,7 +17,6 @@ deploy:
 	@[ -d ~/.config ] || mkdir ~/.config
 	@$(foreach file, $(DOTFILES), ln -sfnv $(abspath home/$(file))   ~/$(file);)
 	@$(foreach conf, $(XDGCONFS), ln -sfnv $(abspath config/$(conf)) ~/.config/$(conf);)
-	@$(foreach json, $(VSCONFS),  ln -sfnv $(abspath vscode/$(json)) ~/Library/Application\ Support/Code/User/$(json);)
 
 install: init deploy
 
