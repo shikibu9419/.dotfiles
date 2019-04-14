@@ -1,0 +1,268 @@
+[
+    // Open command pallet
+    {
+        "key": "ctrl+p",
+        "command": "workbench.action.showCommands",
+        "when": "editorFocus && vim.mode != 'CommandlineInProgress'"
+    },
+    // File search
+    {
+        "key": "ctrl+j",
+        "command": "workbench.action.quickOpen"
+    },
+    {
+        "key": "ctrl+[",
+        "command": "workbench.action.closeQuickOpen",
+        "when": "inQuickOpen"
+    },
+    // terminal
+    {
+        "key": "Ctrl+t",
+        "command": "workbench.action.terminal.toggleTerminal",
+        "when": "vim.mode == 'Normal'"
+    },
+
+    // LSP actions (jump to implementation / declaration, rename)
+    {
+        "key": "ctrl+g ctrl+i",
+        "command": "editor.action.goToImplementation",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+g ctrl+d",
+        "command": "editor.action.goToDeclaration",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+g ctrl+r",
+        "command": "editor.action.rename",
+        "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
+    },
+
+    // multiple cursor
+    {
+        "key": "ctrl+d",
+        "command": "extension.vim_cmd+d",
+        "when": "editorTextFocus && vim.active && vim.use<D-d> && !inDebugRepl"
+    },
+    // Comment toggle
+    {
+        "key": "ctrl+c",
+        "command": "editor.action.commentLine",
+        "when": "vim.active && editorTextFocus && !editorReadonly"
+    },
+    // Close editor group
+    {
+        "key": "ctrl+q ctrl+q",
+        "command": "workbench.action.closeEditorsAndGroup"
+    },
+
+    // Cancellations
+    {
+        "key": "ctrl+[",
+        "command": "search.action.cancel",
+        "when": "listFocus && searchViewletVisible"
+    },
+    {
+        "key": "ctrl+[",
+        "command": "settings.action.clearSearchResults",
+        "when": "inSettingsSearch"
+    },
+    {
+        "key": "ctrl+[",
+        "command": "keybindings.editor.clearSearchResults",
+        "when": "inKeybindings && inKeybindingsSearch"
+    },
+
+    //----------------------------------------------------------
+    // Like CLI actions
+    //----------------------------------------------------------
+    // Move between editors / groups
+    {
+        "key": "ctrl+h",
+        "command": "workbench.action.previousEditor",
+        "when": "vim.active && editorFocus && vim.mode == 'Normal'"
+    },
+    {
+        "key": "ctrl+l",
+        "command": "workbench.action.nextEditor",
+        "when": "vim.active && editorFocus && vim.mode == 'Normal'"
+    },
+
+    {
+        "key": "ctrl+f k",
+        "command": "workbench.action.focusAboveGroup"
+    },
+    {
+        "key": "ctrl+f j",
+        "command": "workbench.action.focusBelowGroup"
+    },
+    {
+        "key": "ctrl+f h",
+        "command": "workbench.action.focusLeftGroup"
+    },
+    {
+        "key": "ctrl+f l",
+        "command": "workbench.action.focusRightGroup"
+    },
+    // Create / Resize editor group
+    {
+        "key": "ctrl+f v",
+        "command": "workbench.action.newGroupBelow"
+    },
+    {
+        "key": "ctrl+f s",
+        "command": "workbench.action.newGroupRight"
+    },
+    {
+        "key": "ctrl+f m",
+        "command": "workbench.action.maximizeEditor"
+    },
+    {
+        "key": "ctrl+shift+l",
+        "command": "workbench.action.increaseViewSize"
+    },
+    {
+        "key": "ctrl+shift+h",
+        "command": "workbench.action.decreaseViewSize"
+    },
+    {
+        "key": "ctrl+f ,",
+        "command": "workbench.action.evenEditorWidths"
+    },
+
+    //----------------------------------------------------------
+    // Extentions
+    //----------------------------------------------------------
+    // [vim] on insert mode
+    {
+        "key": "ctrl+l",
+        "command": "cursorRight",
+        "when": "editorTextFocus && !editorReadOnly && vim.mode == 'Insert'"
+    },
+    {
+        "key": "ctrl+h",
+        "command": "cursorLeft",
+        "when": "editorTextFocus && !editorReadOnly && vim.mode == 'Insert'"
+    },
+    // [vim] on command mode
+    {
+        "key": "ctrl+p",
+        "command": "extension.vim_up",
+        "when": "vim.active && vim.mode == 'CommandlineInProgress' && !inDebugRepl && !suggestWidgetMultipleSuggestions && !suggestWidgetVisible"
+    },
+    {
+        "key": "ctrl+n",
+        "command": "extension.vim_down",
+        "when": "vim.active && vim.mode == 'CommandlineInProgress' && !inDebugRepl && !suggestWidgetMultipleSuggestions && !suggestWidgetVisible"
+    },
+    // スニペットの選択
+    {
+        "key": "ctrl+k",
+        "command": "insertSnippet",
+        "when": "editorTextFocus && hasSnippetCompletions && !editorTabMovesFocus && !inSnippetMode"
+    },
+    // スニペットのプレースホルダー移動
+    {
+        "key": "ctrl+k",
+        "command": "jumpToNextSnippetPlaceholder",
+        "when": "editorTextFocus && hasNextTabstop && inSnippetMode"
+    },
+    // スニペットのプレースホルダー戻る
+    {
+        "key": "ctrl+h",
+        "command": "jumpToPrevSnippetPlaceholder",
+        "when": "editorTextFocus && hasPrevTabstop && inSnippetMode"
+    },
+    // Dash
+    {
+        "key": "ctrl+e ctrl+d",
+        "command": "extension.dash.specific",
+        "when": "editorTextFocus"
+    },
+
+    //----------------------------------------------------------
+    // On sidebar
+    //----------------------------------------------------------
+    // focus sidebar
+    {
+        "key": "s f",
+        "command": "workbench.action.focusSideBar",
+        "when": "editorTextFocus && vim.mode == 'Normal'"
+    },
+    // toggle sidebar
+    {
+        "key": "s s",
+        "command": "workbench.action.toggleSidebarVisibility",
+        "when": "!inDebugMode && editorTextFocus && vim.mode == 'Normal'"
+    },
+    {
+        "key": "ctrl+[",
+        "command": "workbench.action.toggleSidebarVisibility",
+        "when": "!inDebugMode && sideBarFocus"
+    },
+    // grep search
+    {
+        "key": "s /",
+        "command": "workbench.action.findInFiles",
+        "when": "!searchInputBoxFocus && editorTextFocus && vim.mode == 'Normal'"
+    },
+    {
+        "key": "ctrl+n",
+        "command": "search.focus.nextInputBox",
+        "when": "inputBoxFocus && searchViewletVisible"
+    },
+    {
+        "key": "ctrl+p",
+        "command": "search.focus.previousInputBox",
+        "when": "inputBoxFocus && searchViewletVisible && !searchInputBoxFocus"
+    },
+    // Debug mode
+    {
+        "key": "s d",
+        "command": "workbench.view.debug",
+        "when": "editorTextFocus && vim.mode == 'Normal'"
+    },
+    // scm (git ui)
+    {
+        "key": "s g",
+        "command": "workbench.view.scm",
+        "when": "editorTextFocus && vim.mode == 'Normal'"
+    },
+    // explorer
+    {
+        "key": "s e",
+        "command": "workbench.view.explorer",
+        "when": "vim.mode != 'SearchInProgressMode' && vim.mode == 'Normal' && editorTextFocus"
+    },
+    // [explorer] Open / Rename file
+    {
+        "key": "Enter",
+        "command": "explorer.openToSide",
+        "when": "explorerViewletVisible && filesExplorerFocus"
+    },
+    {
+        "key": "r",
+        "command": "renameFile",
+        "when": "explorerViewletVisible && filesExplorerFocus"
+    },
+
+    //----------------------------------------------------------
+    // Disables
+    //----------------------------------------------------------
+    {
+        "key": "ctrl+n",
+        "command": "-cursorDown",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "ctrl+p",
+        "command": "-cursorUp",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "ctrl+h",
+        "command": "-extension.dash.specific",
+        "when": "editorTextFocus"
+    },
+]

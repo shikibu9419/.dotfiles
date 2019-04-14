@@ -11,21 +11,13 @@ reloadenv() {
 reloadenv
 
 message 'zplug'
-if ! zplug check --verbose; then
-  printf 'Install? [y/N]: '
-  if read -q; then
-    echo; zplug install
-  fi
-fi
-zplug update
+zplug install && zplug update
+
+message 'brew'
+brew update && brew upgrade && brew cleanup
 
 message 'vscode'
 code --list-extensions > $DOTPATH/etc/init/vscode-extensions
-
-message 'brew'
-brew update
-brew upgrade
-brew cleanup
 
 echo 'Reloading...'
 reloadenv

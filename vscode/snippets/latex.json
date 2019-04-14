@@ -1,0 +1,49 @@
+{
+	"Print Figure": {
+		"prefix": "figure",
+		"body": [
+			"\\\\begin{figure}[htbp]",
+			"\t\\\\centering",
+			"\t\\\\includegraphics[scale=1.0]{Figures/$1}",
+			"\t\\\\caption{$2}",
+			"\t\\\\label{f:$3}",
+			"\\\\end{figure}"
+		]
+	},
+	"Print Table": {
+		"prefix": "table",
+		"body": [
+			"\\\\begin{table}[htbp]",
+			"\t\\\\centering",
+			"\t\\\\caption{$1}",
+			"\t\\\\label{t:$2}",
+			"\t\\\\begin{tabular}{$3}",
+			"\t\t\\\\hline",
+				"\t\t$4",
+			"\t\\\\end{tabular}",
+			"\\\\end{table}"
+		]
+	},
+	"Print Minipage": {
+		"prefix": "minipage",
+		"body": [
+			"\\\\begin{figure}[htbp]",
+			"\t\\\\begin{tabular}{c}",
+			"\t\t\\\\centering",
+			"\t\t\\\\begin{minipage}{0.5\\hsize}",
+			"\t\t\t\\\\centering",
+			"\t\t\t\\\\includegraphics[scale=1.0]{Figures/$1}",
+			"\t\t\t\\\\caption{$2}",
+			"\t\t\t\\\\label{f:$3}",
+			"\t\t\\\\end{minipage}",
+			"\t\t\\\\begin{minipage}{0.5\\hsize}",
+			"\t\t\t\\\\centering",
+			"\t\t\t\\\\includegraphics[scale=1.0]{Figures/$4}",
+			"\t\t\t\\\\caption{$5}",
+			"\t\t\t\\\\label{f:$6}",
+			"\t\t\\\\end{minipage}",
+			"\t\\\\end{tabular}",
+			"\\\\end{figure}"
+		]
+	}
+}
