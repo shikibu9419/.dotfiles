@@ -1,12 +1,13 @@
-# dotfiles ![](https://img.shields.io/badge/platform-macOS-lightgray.svg) [![MIT License](http://img.shields.io/badge/license-MIT-green.svg?style=flat)](./doc/LICENSE.txt)
+# .dotfiles ![](https://img.shields.io/badge/platform-macOS-lightgray.svg) [![MIT License](http://img.shields.io/badge/license-MIT-green.svg?style=flat)](./doc/LICENSE.txt)
 
-A powerful & fashionable development environment :sparkles:
+A minimal, but powerful and fashionable development environment :muscle:
 
 ## Installation
 
 ```shell
+# Download
 > bash <(curl -fsSL git.io/shikibu.info)
-# If you would like to initialize dotfiles...
+# Initialize and deploy
 > make install
 ```
 
@@ -23,8 +24,8 @@ help     Display help message
 ```
 
 ## Tools
-- **Neovim** (for backend etc.)
-- **VSCode** (for frontend and LaTeX)
+- **Neovim** (for Backend etc.)
+- **VSCode** (for Frontend, Data Science and LaTeX)
 - **Zsh**
 - **Tmux**
 - **Alacritty**
