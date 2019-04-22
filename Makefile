@@ -1,22 +1,23 @@
 EXCLUDES := .DS_Store
 DOTFILES := $(filter-out $(EXCLUDES), $(notdir $(wildcard ./home/.??*)))
 XDGCONFS := $(filter-out $(EXCLUDES), $(notdir $(wildcard ./config/*)))
-VSCONFS  := $(notdir $(wildcard ./vscode/*.json))
+VSCONFS  := $(notdir $(wildcard ./vscode/*))
 DEPLOYED := $(DOTFILES) $(addprefix .config/, $(XDGCONFS))
 
 DEFAULT:
 
 list:
 	@echo "Files to be deployed to $(HOME):"
-	@$(foreach file, $(DEPLOYED), echo " $(file)";)
+	@$(foreach conf, $(DEPLOYED), echo " $(conf)";)
 
 init:
 	@[ $(uname) = Darwin ] && DOTPATH=$(CURDIR) bash $(DOTPATH)/etc/init/initialize.sh
 
 deploy:
 	@[ -d ~/.config ] || mkdir ~/.config
-	@$(foreach file, $(DOTFILES), ln -sfnv $(abspath home/$(file))   ~/$(file);)
+	@$(foreach conf, $(DOTFILES), ln -sfnv $(abspath home/$(conf))   ~/$(conf);)
 	@$(foreach conf, $(XDGCONFS), ln -sfnv $(abspath config/$(conf)) ~/.config/$(conf);)
+	@$(foreach conf, $(VSCONFS),  ln -sfnv $(abspath vscode/$(conf)) ~/Library/Application\ Support/Code/User/$(conf);)
 
 install: init deploy
 
