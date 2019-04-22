@@ -1,10 +1,10 @@
 {
     // Editor
-    "editor.fontSize": 10.5,
+    "editor.fontFamily": "Ricty Nerd Font",
+    "editor.fontSize": 12,
     "editor.tabSize": 4,
     "editor.renderWhitespace": "boundary",
     "editor.cursorStyle": "line",
-    "editor.insertSpaces": true,
     "editor.wordWrap": "on",
     "editor.wordSeparators": "./\\()\"'-:,.;<>~!@#$%^&*|+=[]{}`~?　、。「」【】『』（）！？てにをはがのともへでや",
     "editor.renderControlCharacters": true,
@@ -16,6 +16,7 @@
 
     // workbench
     "workbench.colorTheme": "Material Theme Darker High Contrast",
+    "workbench.tree.indent": 4,
     "workbench.editor.closeEmptyGroups": false,
     "workbench.editor.revealIfOpen": true,
     "workbench.editor.highlightModifiedTabs": true,
@@ -59,7 +60,7 @@
     },
     // Terminal
     "terminal.integrated.copyOnSelection": true,
-    "terminal.integrated.fontSize": 10.5,
+    "terminal.integrated.fontSize": 12,
 
     // vim setting
     "vim.enableNeovim": true,
@@ -79,25 +80,33 @@
         },
         {
             "before": ["<C-a>"],
-            "after": ["<Esc>", "I"],
+            "after": ["<Esc>", "I"]
         },
         {
             "before": ["<C-e>"],
-            "after": ["<Esc>", "A"],
+            "after": ["<Esc>", "A"]
         }
     ],
     "vim.normalModeKeyBindings": [
         {
+            "before": ["k"],
+            "after": ["g", "k"]
+        },
+        {
+            "before": ["j"],
+            "after": ["g", "j"]
+        },
+        {
             "before": [";"],
-            "after": [":"],
+            "after": [":"]
         },
         {
             "before": ["Y"],
-            "after": ["y", "$"],
+            "after": ["y", "$"]
         },
         {
             "before": ["D"],
-            "after": ["d", "$"],
+            "after": ["d", "$"]
         },
         {
             "before": ["H"],
@@ -106,6 +115,26 @@
         {
             "before": ["L"],
             "after": ["$"]
+        }
+    ],
+    "vim.visualModeKeyBindings": [
+        {
+            "before": [";"],
+            "after": [":"]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["u"],
+            "commands": [
+                { "command": "undo" }
+            ]
+        },
+        {
+            "before": ["<C-r>"],
+            "commands": [
+                { "command": "redo" }
+            ]
         }
     ],
 
