@@ -3,7 +3,8 @@
     {
         "key": "ctrl+p",
         "command": "workbench.action.showCommands",
-        "when": "editorFocus && vim.mode != 'CommandlineInProgress'"
+        "when": "editorTextFocus && vim.mode != 'CommandlineInProgress'"
+
     },
     // File search
     {
@@ -61,6 +62,11 @@
         "key": "ctrl+q ctrl+q",
         "command": "workbench.action.closeEditorsAndGroup"
     },
+    {
+        "key": "ctrl+n",
+        "command": "workbench.action.files.newUntitledFile",
+        "when": "activeEditorGroupEmpty"
+    },
 
     // Cancellations
     {
@@ -113,11 +119,11 @@
     // Create / Resize editor group
     {
         "key": "ctrl+f v",
-        "command": "workbench.action.newGroupBelow"
+        "command": "workbench.action.newGroupRight"
     },
     {
         "key": "ctrl+f s",
-        "command": "workbench.action.newGroupRight"
+        "command": "workbench.action.newGroupBelow"
     },
     {
         "key": "ctrl+f m",
@@ -191,13 +197,23 @@
     //----------------------------------------------------------
     // focus sidebar
     {
-        "key": "s f",
+        "key": "ctrl+s f",
+        "command": "workbench.action.focusSideBar",
+        "when": "editorTextFocus && vim.mode == 'Normal'"
+    },
+    {
+        "key": "ctrl+s ctrl+f",
         "command": "workbench.action.focusSideBar",
         "when": "editorTextFocus && vim.mode == 'Normal'"
     },
     // toggle sidebar
     {
-        "key": "s s",
+        "key": "ctrl+s s",
+        "command": "workbench.action.toggleSidebarVisibility",
+        "when": "!inDebugMode && editorTextFocus && vim.mode == 'Normal'"
+    },
+    {
+        "key": "ctrl+s ctrl+s",
         "command": "workbench.action.toggleSidebarVisibility",
         "when": "!inDebugMode && editorTextFocus && vim.mode == 'Normal'"
     },
@@ -208,7 +224,12 @@
     },
     // grep search
     {
-        "key": "s /",
+        "key": "ctrl+s /",
+        "command": "workbench.action.findInFiles",
+        "when": "!searchInputBoxFocus && editorTextFocus && vim.mode == 'Normal'"
+    },
+    {
+        "key": "ctrl+s ctrl+/",
         "command": "workbench.action.findInFiles",
         "when": "!searchInputBoxFocus && editorTextFocus && vim.mode == 'Normal'"
     },
@@ -224,19 +245,34 @@
     },
     // Debug mode
     {
-        "key": "s d",
+        "key": "ctrl+s d",
+        "command": "workbench.view.debug",
+        "when": "editorTextFocus && vim.mode == 'Normal'"
+    },
+    {
+        "key": "ctrl+s ctrl+d",
         "command": "workbench.view.debug",
         "when": "editorTextFocus && vim.mode == 'Normal'"
     },
     // scm (git ui)
     {
-        "key": "s g",
+        "key": "ctrl+s g",
+        "command": "workbench.view.scm",
+        "when": "editorTextFocus && vim.mode == 'Normal'"
+    },
+    {
+        "key": "ctrl+s ctrl+g",
         "command": "workbench.view.scm",
         "when": "editorTextFocus && vim.mode == 'Normal'"
     },
     // explorer
     {
-        "key": "s e",
+        "key": "ctrl+s e",
+        "command": "workbench.view.explorer",
+        "when": "vim.mode != 'SearchInProgressMode' && vim.mode == 'Normal' && editorTextFocus"
+    },
+    {
+        "key": "ctrl+s ctrl+e",
         "command": "workbench.view.explorer",
         "when": "vim.mode != 'SearchInProgressMode' && vim.mode == 'Normal' && editorTextFocus"
     },
@@ -269,5 +305,13 @@
         "key": "ctrl+h",
         "command": "-extension.dash.specific",
         "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+n",
+        "command": "workbench.action.files.newUntitledFile"
+    },
+    {
+        "key": "cmd+n",
+        "command": "-workbench.action.files.newUntitledFile"
     },
 ]

@@ -62,6 +62,10 @@
     "terminal.integrated.copyOnSelection": true,
     "terminal.integrated.fontSize": 12,
 
+    "julia.executablePath": "/usr/local/bin/julia",
+    "code-runner.clearPreviousOutput": true,
+    "code-runner.runInTerminal": true,
+
     // vim setting
     "vim.enableNeovim": true,
     "vim.neovimPath":"/usr/local/bin/nvim",
@@ -347,4 +351,7 @@
         "workbench.action.togglePanel"
     ],
     "sync.gist": "97007549f935c49ee2f57ec22c649dca",
+    "julia.enableTelemetry": true,
+    "latex-workshop.latex.autoClean.run": "onBuilt",
+    "latex-workshop.latex.autoBuild.run": "onFileChange",
 }
