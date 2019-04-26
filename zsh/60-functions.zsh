@@ -28,6 +28,16 @@ select_history() {
   CURSOR=$#BUFFER
 }
 
+vscode_open_project() {
+  local selected dir repo session current_session
+  selected=$(ghq list | fzf)
+  project=$(ghq root)/$selected
+
+  [[ -z $selected ]] && return
+
+  code $project
+}
+
 git_list_branch() {
   if ! _check_available_git; then
     echo 'fatal: not a git repository.'

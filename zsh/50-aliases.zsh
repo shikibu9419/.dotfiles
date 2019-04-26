@@ -72,6 +72,7 @@ alias -g ...='../..'
 alias -g ....='../../..'
 alias crop='(){ pdfcrop $1 $1 }'
 alias reload='source ~/.zshenv && source ~/.zshrc'
+alias vs=vscode_open_project
 
 alias ls='gls --color=auto'
 alias grep='grep --color=auto'
