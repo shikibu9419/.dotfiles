@@ -34,7 +34,6 @@ checkdir() {
   [ -d $1 ] || mkdir -p $1
 }
 
-
 cd $DOTPATH
 
 notice 'Install formulas.'
@@ -45,13 +44,11 @@ strong 'Installation of formulas finished!\n'
 
 notice 'Formula settings...'
 strong 'Shell:'
-for shell in (z|fi|xon)sh; do
-  if has 'tee'; then
-    echo $(which $shell)  | sudo tee -a /etc/shells
-  else
-    sudo echo $(which $shell) >> /etc/shells && echo $(which $shell)
-  fi
-done
+if has 'tee'; then
+  echo $(which zsh)  | sudo tee -a /etc/shells
+else
+  sudo echo $(which zsh) >> /etc/shells && echo $(which zsh)
+fi
 chsh -s $(which zsh)
 
 strong 'Neovim:'
@@ -59,7 +56,6 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 strong 'VS Code:'
-# code --install-extension Shan.code-settings-sync
 cat $DOTPATH/etc/init/vscode-extensions | while read pkg; do
   code --install-extension $pkg
 done
@@ -81,7 +77,7 @@ pip3 install $(cat $DOTPATH/etc/init/pip-requirements)
 
 
 echo 'Initialization finished successfully!!'
-string 'Please run this commands to initialize completely:'
+strong 'Please run this commands to initialize completely:'
 cat <<EOF
 zplug install
 curl https://sh.rustup.rs -sSf | sh

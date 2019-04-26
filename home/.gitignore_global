@@ -3,6 +3,8 @@
 .project
 .git-worktrees
 __pycache__
+.ipynb_checkpoints
+.vscode
 
 .DS_Store
 .ruby-version
