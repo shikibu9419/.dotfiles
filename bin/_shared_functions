@@ -4,7 +4,7 @@ check-git-available() {
   $(git rev-parse > /dev/null 2>&1) || error 'fatal: not a git repository.'
 }
 
-check-availables() {
+check-command-availables() {
   for cmd in $@; do
     has $cmd || error "fatal: $cmd is not installed."
   done
@@ -20,8 +20,7 @@ error() {
 }
 
 confirm() {
-  printf "$1 (y/N): "
-  if read -q; then
+  if read -sq "$1 (y/N): "; then
     echo; return 0
   else
     echo; return 1

@@ -3,10 +3,9 @@
 ## ORIGINAL: https://github.com/arks22/tmuximum
 source $DOTPATH/bin/_shared_functions
 
-main() {
-  finder=$(set-fuzzy-finder)
-  [[ $finder =~ fzf ]] && finder=($finder --ansi)
+finder='fzf --ansi'
 
+main() {
   if [ $# -eq 0 ]; then
     tmuximum::operation
   elif [ $# -eq 1 ]; then
@@ -58,9 +57,8 @@ tmuximum::operation-list() {
   echo -e "${BLUE}new${DEFAULT} session"
 
   ## kill
-  if [ -n $TMUX -a $(tmux display-message -p '#{session_windows}') -gt 1 ]; then
+  [ -n $TMUX ] && [[ $(tmux display-message -p '#{session_windows}') -gt 1 ]] && \
     echo -e "${RED}kill${DEFAULT} windows"
-  fi
   tmux has-session 2>/dev/null && echo -e "${RED}kill${DEFAULT} sessions"
 
   ## detach / exit
@@ -128,24 +126,6 @@ OPTIONS: -h   Display help message (this message)
          -w   Start kill-window mode
 To quit tmuximum, press Esc or select "exit".
 EOF
-}
-
-set-fuzzy-finder() {
-  finders='fzf-tmux:fzf:peco:percol:gof'
-  while [ -n $finders ]; do
-    finder=${finders%%:*}
-    finders=${finders#*:}
-    if has $finder; then
-      echo $finder
-      return
-    fi
-  done
-
-  cat <<EOF
-This command requires FUZZY FINDER. Either of these is necessary.
-fzf, fzf-tmux, peco, percol, gof
-EOF
-  exit 1
 }
 
 main $@
