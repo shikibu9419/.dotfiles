@@ -21,7 +21,7 @@ main() {
 }
 
 tmuximum::operation() {
-  answer=$(tmuximum::operation-list | "${finder[@]}")
+  answer=$(tmuximum::operation-list | $finder)
   case $answer in
     'new session'  ) tmux new-session -d -s new && tmux switch-client -t new ;;
     'new window'*  ) tmux new-window ;;
@@ -67,7 +67,7 @@ tmuximum::operation-list() {
 }
 
 tmuximum::kill-session() {
-  answer=$(tmuximum::kill-session-list | "${finder[@]}")
+  answer=$(tmuximum::kill-session-list | $finder)
   case $answer in
     *kill*Server*)
       tmux kill-server
@@ -94,7 +94,7 @@ tmuximum::kill-session-list() {
 
 tmuximum::kill-window() {
   if [ $(tmux display-message -p '#{session_windows}') -gt 1 ]; then
-    answer=$(tmuximum::kill-window-list | "${finder[@]}" )
+    answer=$(tmuximum::kill-window-list | $finder)
     case $answer in
       *kill*)
         tmux kill-window -t $(echo "$answer" | awk '{print $4}' | sed 's/://g')

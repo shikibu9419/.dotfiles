@@ -306,12 +306,4 @@
         "command": "-extension.dash.specific",
         "when": "editorTextFocus"
     },
-    {
-        "key": "ctrl+n",
-        "command": "workbench.action.files.newUntitledFile"
-    },
-    {
-        "key": "cmd+n",
-        "command": "-workbench.action.files.newUntitledFile"
-    },
 ]
