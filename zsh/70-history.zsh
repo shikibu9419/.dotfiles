@@ -12,10 +12,10 @@ zshaddhistory() {
   local line=${1%%$'\n'}
   local cmd=${line%% *}
   [[
-    ## Except commands
+    ## excluded commands
     $#line -ge 5
     && $cmd != (reload|(edit|cd)env|myupdate|gpush(|f))  # Original
-    && $cmd != (l[sal]|cd|man|cat|rm|rmdir)              # ls/cd/man/cat/rm(dir)
-    && $cmd != (g[acd]|t[kl][swp])                       # git/tmux aliases
+    && $cmd != (l[sal]|g[acd]|t[kl][swp])                # aliases
+    && $cmd != (cd|man|cat|rm|rmdir|mv)
   ]]
 }

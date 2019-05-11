@@ -70,7 +70,7 @@ alias xpssh='xpanes --ssh'
 alias v=nvim
 alias -g ...='../..'
 alias -g ....='../../..'
-alias crop='(){ pdfcrop $1 $1 }'
+alias crop='(){ for f in $@; do pdfcrop $f $f; done }'
 alias reload='source ~/.zshenv && source ~/.zshrc'
 alias vs=vscode_open_project
 
