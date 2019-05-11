@@ -7,3 +7,5 @@ fi
 for f in $DOTPATH/zsh/[0-9]*.zsh; do
   source $f
 done
+
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local

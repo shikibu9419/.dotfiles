@@ -3,5 +3,4 @@ pynvim
 python-language-server
 yapf
 flake8
-jupyter
 pipenv
