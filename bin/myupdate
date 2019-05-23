@@ -17,7 +17,7 @@ message 'brew'
 brew update && brew upgrade && brew cleanup
 
 message 'vscode'
-code --list-extensions > $DOTPATH/etc/init/vscode-extensions
+code --list-extensions > $DOTPATH/etc/vscode-extensions
 
 echo 'Reloading...'
 reloadenv
