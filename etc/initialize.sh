@@ -3,7 +3,6 @@
 set -eu
 DOCKER_COMPLETIONS_PATH=/Applications/Docker.app/Contents/Resources/etc
 ZSH_COMPLETIONS_PATH=~/.zsh/completions
-RBENV_ROOT=~/.rbenv
 
 has() {
   return $(type "$1" > /dev/null 2>&1)
@@ -70,19 +69,7 @@ for comp in $DOCKER_COMPLETIONS_PATH/*.zsh-completion; do
   cp $comp $ZSH_COMPLETIONS_PATH/_${file%.*}
 done
 
-strong 'gem:'
-checkdir $RBENV_ROOT
-ln -sifF $DOTPATH/etc/init/rbenv-default-gems $RBENV_ROOT/default-gems
-
-strong 'pip:'
-pip3 install --upgrade setuptools
-pip3 install $(cat $DOTPATH/etc/init/pip-requirements)
-
+strong 'Others:'
+curl https://sh.rustup.rs -sSf | sh
 
 echo 'Initialization finished successfully!!'
-strong 'Please run this commands to initialize completely:'
-cat <<EOF
-zplug install
-curl https://sh.rustup.rs -sSf | sh
-rustup component add rls-preview rust-analysis rust-src
-EOF
