@@ -2,9 +2,9 @@
 .venv
 .project
 .git-worktrees
-__pycache__
 .ipynb_checkpoints
 .vscode
+__pycache__
 
 .DS_Store
 .ruby-version

@@ -2,5 +2,9 @@
   path = ~/.gitconfig.local  # write user information etc.
 [core]
   excludesfile = ~/.gitignore_global
-[ghq]
-  root = ~/projects
+[log]
+  data = "iso"
+[merge]
+  conflictstyle = "diff3"
+[diff]
+  algorithm = "histogram"
