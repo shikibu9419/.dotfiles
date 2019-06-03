@@ -60,6 +60,7 @@ call plug#begin(s:plug_repo_dir)
   Plug 'tpope/vim-rails',               { 'for': 'ruby' }
   Plug 'todesking/ruby_hl_lvar.vim',    { 'for': 'ruby' }
   Plug 'mechatroner/rainbow_csv',       { 'for': 'csv' }
+  Plug 'editorconfig/editorconfig-vim'
 call plug#end()
 
 "" Load plugin config file
