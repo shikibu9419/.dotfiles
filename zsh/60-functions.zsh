@@ -1,3 +1,18 @@
+#------------------------------------------
+# Plugin config
+#------------------------------------------
+cd-gitroot() {
+  unfunction cd-gitroot
+  . $ZPLUG_REPOS/mollifier/cd-gitroot/cd-gitroot
+  autoload -Uz cd-gitroot
+}
+
+k() {
+  unfunction k
+  . $ZPLUG_REPOS/supercrabtree/k/k.sh
+  k "$@"
+}
+
 _check_available_git() {
   git rev-parse > /dev/null 2>&1
 }
