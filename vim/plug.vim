@@ -12,6 +12,10 @@ call plug#begin(s:plug_repo_dir)
   "" NERDTree
   Plug 'scrooloose/nerdtree'
   Plug 'jistr/vim-nerdtree-tabs'
+  "" Fuzzy Finder
+"   Plug 'Shougo/denite.nvim'
+  Plug '/usr/local/opt/fzf'
+  Plug 'junegunn/fzf.vim'
   "" Terminal & Shell
   Plug 'kassio/neoterm'
   "" Git
@@ -20,7 +24,7 @@ call plug#begin(s:plug_repo_dir)
   "" Tmux
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'tmux-plugins/vim-tmux-focus-events'
-  "" Enhancement
+  "" Others
   Plug 'w0rp/ale'
   Plug 'osyo-manga/vim-over'
   Plug 'rhysd/clever-f.vim'
@@ -36,6 +40,7 @@ call plug#begin(s:plug_repo_dir)
   Plug 'bronson/vim-trailing-whitespace'
   Plug 'junegunn/vim-easy-align'
   Plug 'cohama/lexima.vim'
+  Plug 'rizzatti/dash.vim'
   "" Appearance
   Plug 'itchyny/lightline.vim'
   Plug 'nathanaelkane/vim-indent-guides'
@@ -46,10 +51,6 @@ call plug#begin(s:plug_repo_dir)
   Plug 'flazz/vim-colorschemes'
   "" syntax highlights
   Plug 'sheerun/vim-polyglot'
-  "" External plugins
-  Plug 'rizzatti/dash.vim'
-  Plug '/usr/local/opt/fzf'
-  Plug 'junegunn/fzf.vim'
   "" Snippets
   Plug 'Shougo/neosnippet.vim'
   Plug 'Shougo/neosnippet-snippets'
@@ -67,6 +68,43 @@ call plug#end()
 for conf in split(glob('$DOTPATH/vim/plugins/*.vim'),'\n')
   execute 'source' conf
 endfor
+
+"" Denite
+" autocmd FileType denite call s:denite_my_settings()
+" function! s:denite_my_settings() abort
+"   nnoremap <silent><buffer><expr> <CR>
+"  \ denite#do_map('do_action')
+"   nnoremap <silent><buffer><expr> d
+"  \ denite#do_map('do_action', 'delete')
+"   nnoremap <silent><buffer><expr> p
+"  \ denite#do_map('do_action', 'preview')
+"   nnoremap <silent><buffer><expr> q
+"  \ denite#do_map('quit')
+"   nnoremap <silent><buffer><expr> i
+"  \ denite#do_map('open_filter_buffer')
+"   nnoremap <silent><buffer><expr> <Space>
+"  \ denite#do_map('toggle_select').'j'
+" endfunction
+" autocmd FileType denite-filter call s:denite_filter_my_setting()
+" function! s:denite_filter_my_setting() abort
+"   " 一つ上のディレクトリを開き直す
+"   inoremap <silent><buffer><expr> <BS>    denite#do_map('move_up_path')
+"   " Denite を閉じる
+"   inoremap <silent><buffer><expr> <C-c>   denite#do_map('quit')
+"   nnoremap <silent><buffer><expr> <C-c>   denite#do_map('quit')
+" endfunction
+
+" let s:denite_win_width_percent = 0.85
+" let s:denite_win_height_percent = 0.7
+"
+" " Change denite default options
+" call denite#custom#option('default', {
+"    \ 'split': 'floating',
+"    \ 'winwidth': float2nr(&columns * s:denite_win_width_percent),
+"    \ 'wincol': float2nr((&columns - (&columns * s:denite_win_width_percent)) / 2),
+"    \ 'winheight': float2nr(&lines * s:denite_win_height_percent),
+"    \ 'winrow': float2nr((&lines - (&lines * s:denite_win_height_percent)) / 2),
+"    \ })
 
 "" Tmux navigator & neoterm
 let g:tmux_navigator_no_mappings = 1

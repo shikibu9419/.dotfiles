@@ -7,19 +7,6 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 
-"" Setting per filetype
-augroup filetypedetect
-  autocmd BufRead,BufNewFile *.slim setlocal filetype=slim
-  autocmd BufRead,BufNewFile *.c    setlocal tabstop=4 shiftwidth=4 softtabstop=4
-  autocmd BufRead,BufNewFile *.cpp  setlocal tabstop=4 shiftwidth=4 softtabstop=4
-  autocmd BufRead,BufNewFile *.java setlocal tabstop=4 shiftwidth=4 softtabstop=4
-  autocmd BufRead,BufNewFile *.jl   setlocal tabstop=4 shiftwidth=4 softtabstop=4
-  autocmd BufRead,BufNewFile *.py   setlocal tabstop=4 shiftwidth=4 softtabstop=4
-  autocmd BufRead,BufNewFile *.kt   setlocal tabstop=4 shiftwidth=4 softtabstop=4
-  autocmd BufRead,BufNewFile *.css  setlocal tabstop=4 shiftwidth=4 softtabstop=4
-  autocmd BufRead,BufNewFile *.json setlocal tabstop=4 shiftwidth=4 softtabstop=4
-augroup END
-
 "" Tab setting
 function! s:SID_PREFIX()
   return matchstr(expand('<sfile>'), '<SNR>\d\+_\zeSID_PREFIX$')
@@ -46,5 +33,18 @@ endfunction
 
 let &tabline = '%!'. s:SID_PREFIX() . 'my_tabline()'
 set showtabline=2
+
+"" Setting per filetype
+augroup filetypedetect
+  autocmd BufRead,BufNewFile *.slim setlocal filetype=slim
+  autocmd BufRead,BufNewFile *.c    setlocal tabstop=4 shiftwidth=4 softtabstop=4
+  autocmd BufRead,BufNewFile *.cpp  setlocal tabstop=4 shiftwidth=4 softtabstop=4
+  autocmd BufRead,BufNewFile *.java setlocal tabstop=4 shiftwidth=4 softtabstop=4
+  autocmd BufRead,BufNewFile *.jl   setlocal tabstop=4 shiftwidth=4 softtabstop=4
+  autocmd BufRead,BufNewFile *.py   setlocal tabstop=4 shiftwidth=4 softtabstop=4
+  autocmd BufRead,BufNewFile *.kt   setlocal tabstop=4 shiftwidth=4 softtabstop=4
+  autocmd BufRead,BufNewFile *.css  setlocal tabstop=4 shiftwidth=4 softtabstop=4
+  autocmd BufRead,BufNewFile *.json setlocal tabstop=4 shiftwidth=4 softtabstop=4
+augroup END
 
 set secure

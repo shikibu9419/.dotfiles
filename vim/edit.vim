@@ -1,3 +1,10 @@
+set encoding=utf-8
+scriptencoding utf-8
+set fileencoding=utf-8
+set fileencodings=ucs-boms,utf-8,euc-jp,cp932
+set fileformats=unix,dos,mac
+set ambiwidth=double
+
 set whichwrap=b,s,h,l,<,>,[,]
 set showcmd
 set clipboard+=unnamed
@@ -30,13 +37,17 @@ if executable('rg')
     set grepformat=%f:%l:%c:%m
 endif
 
-"" Encodings
-set encoding=utf-8
-scriptencoding utf-8
-set fileencoding=utf-8
-set fileencodings=ucs-boms,utf-8,euc-jp,cp932
-set fileformats=unix,dos,mac
-set ambiwidth=double
+"" Extend matchit
+set matchpairs+=<:>
+if !exists('loaded_matchit')
+  runtime macros/matchit.vim
+endif
+
+"" Enable mouse setting
+if !has('nvim')
+  set ttymouse=xterm2
+endif
+set mouse=a
 
 "" persist undo
 if has('persistent_undo')
@@ -57,18 +68,6 @@ augroup GitSpellCheck
   autocmd!
   autocmd FileType gitcommit setlocal spell
 augroup END
-
-"" Enable mouse setting
-if !has('nvim')
-  set ttymouse=xterm2
-endif
-set mouse=a
-
-"" Extend matchit
-set matchpairs+=<:>
-if !exists('loaded_matchit')
-  runtime macros/matchit.vim
-endif
 
 "" Auto read / write
 set autowrite
@@ -91,7 +90,7 @@ augroup auto_read_write
   autocmd FocusGained * checktime
 augroup END
 
-"" Reassign
+"" Reassign filetype
 augroup assign
   autocmd!
   autocmd BufWritePost *
