@@ -4,8 +4,10 @@ if [[ -z $TMUX ]]; then
   $cmd && exit
 fi
 
-for f in $DOTPATH/zsh/[0-9]*.zsh; do
-  source $f
-done
-
+source $DOTPATH/zsh/plugins.zsh
+source $DOTPATH/zsh/appearance.zsh
+source $DOTPATH/zsh/functions.zsh
+source $DOTPATH/zsh/keybinds.zsh
+source $DOTPATH/zsh/aliases.zsh
+source $DOTPATH/zsh/others.zsh
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local

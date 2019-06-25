@@ -8,3 +8,5 @@
   conflictstyle = "diff3"
 [diff]
   algorithm = "histogram"
+[alias]
+  push-f = "push --force-with-lease"
