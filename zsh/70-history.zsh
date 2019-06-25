@@ -14,8 +14,7 @@ zshaddhistory() {
   [[
     ## excluded commands
     $#line -ge 5
-    && $cmd != (reload|myupdate|gpush(|f))  # Original
-    && $cmd != (l[sal])                     # aliases
-    && $cmd != (cd|man|cat|rm|mv|cp|mkdir|rmdir)
+    && $cmd != (reload|myupdate)  # Original
+    && $cmd != (cd|man|cat|rm|mv|cp|mkdir|rmdir|l[sal])
   ]]
 }

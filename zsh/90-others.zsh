@@ -3,10 +3,10 @@ eval "$(rbenv init -)"
 
 zstyle ':zle:*' word-chars ' /=;@:{}[]()<>,|.'
 zstyle ':zle:*' word-style unspecified
-zstyle ':notify:*' success-title 'Command finished!'
-zstyle ':notify:*' error-title   'Command failed...'
+zstyle ':notify:*' success-title 'Command finished! (in #{time_elapsed} sec.)'
+zstyle ':notify:*' error-title   'Command failed... (in #{time_elapsed} sec.)'
+zstyle ':notify:*' command-complete-timeout 15
 
-SPROMPT="%{$fg[red]%}correct: %R -> %r [nyae]? %{$reset_color%}"
 chpwd() { ls }
 setopt IGNOREEOF
 setopt auto_cd

@@ -1,15 +1,17 @@
 autoload -Uz colors
 colors
 
-## zsh-autosuggenstions & zsh-syntax-highlighting
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=245'
-
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main pattern cursor)
-typeset -A ZSH_HIGHLIGHT_STYLES
+SPROMPT="%{$fg[red]%}correct: %R -> %r [nyae]? %{$reset_color%}"
 
 local magenta='fg=177'
 local cyan='fg=012'
 local yellow='fg=011'
+
+## zsh-autosuggenstions & zsh-syntax-highlighting
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=245'
+
+typeset -A ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main pattern cursor)
 
 ZSH_HIGHLIGHT_STYLES[command]=$magenta
 ZSH_HIGHLIGHT_STYLES[precommand]=$magenta

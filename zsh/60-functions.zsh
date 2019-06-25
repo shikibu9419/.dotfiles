@@ -13,9 +13,14 @@ k() {
   k "$@"
 }
 
+
+#------------------------------------------
+# My original functions
+#------------------------------------------
 _check_available_git() {
   git rev-parse > /dev/null 2>&1
 }
+
 
 _show_ls_gs() {
   if [ -n "$BUFFER" ]; then
@@ -38,10 +43,12 @@ _show_ls_gs() {
   zle reset-prompt
 }
 
+
 select_history() {
   local BUFFER=$(fc -l -n 1 | fzf --reverse --tac --query=$LBUFFER)
   CURSOR=$#BUFFER
 }
+
 
 vscode_open_project() {
   local selected dir repo session current_session
@@ -53,6 +60,7 @@ vscode_open_project() {
   code $project
 }
 
+
 git_list_branch() {
   if ! _check_available_git; then
     echo 'fatal: not a git repository.'
@@ -63,6 +71,7 @@ git_list_branch() {
   [ -n $branch ] && git checkout $(echo $branch | sed 's/.* //' | sed 's#remotes/[^/]*/##')
   zle reset-prompt
 }
+
 
 ghq_jump_repository() {
   local selected dir repo session current_session
