@@ -16,5 +16,6 @@ zplug 'greymd/tmux-xpanes'
 zplug 'sindresorhus/pure'
 zplug 'b4b4r07/zsh-gomi', use:bin
 zplug 'b4b4r07/emoji-cli', if:'which jq'
+zplug 'shikibu9419/git-fzf-extender', use:init.sh
 
 zplug load

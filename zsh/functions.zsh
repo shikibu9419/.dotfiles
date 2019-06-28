@@ -28,13 +28,16 @@ _show_ls_gs() {
     return
   fi
 
+  local color='\e[0;33m'
+  local reset='\e[0m'
+
   echo
-  echo -e '\e[0;33m--- ls ---\e[0m'
+  echo -e "$color--- ls ---$reset"
   ls
   echo
 
   if _check_available_git; then
-    echo -e '\e[0;33m--- git status ---\e[0m'
+    echo -e "$color--- git status ---$reset"
     git status -sb
     echo
   fi
@@ -58,18 +61,6 @@ vscode_open_project() {
   [[ -z $selected ]] && return
 
   code $project
-}
-
-
-git_list_branch() {
-  if ! _check_available_git; then
-    echo 'fatal: not a git repository.'
-    return 1
-  fi
-
-  branch=$(git branch --all | grep -v HEAD | fzf-tmux --ansi -d)
-  [ -n $branch ] && git checkout $(echo $branch | sed 's/.* //' | sed 's#remotes/[^/]*/##')
-  zle reset-prompt
 }
 
 

@@ -7,10 +7,10 @@ abbrev-alias -c cdg=cd-gitroot
 
 ## git
 alias git='hub'
-alias gwa='git worktree add $(git rev-parse --show-cdup).git-worktrees/$1 -b $1'
 
-alias gadd=git_list_add
-alias glog=git_extended_log
+alias gadd=git-extended-add
+alias glog=git-extended-log
+alias gwa=git-extended-worktree-add
 alias gwork=git_list_worktree
 alias gclone='git clone $(pbpaste)'
 alias gpush='git push origin $(git branch | grep "*\ " | sed "s/.* //")'
@@ -39,9 +39,12 @@ abbrev-alias -c gco='git checkout'
 abbrev-alias -c gcob='git checkout -b'
 abbrev-alias -c gcod='git checkout develop'
 abbrev-alias -c gcom='git checkout master'
+abbrev-alias -c gch='git cherry-pick'
 abbrev-alias -c gd='git diff'
 abbrev-alias -c gdc='git diff --cached'
+abbrev-alias -c gi='git init'
 abbrev-alias -c gl='git log'
+abbrev-alias -c gm='git merge'
 abbrev-alias -c gp='git push'
 abbrev-alias -c gpl='git pull --rebase'
 abbrev-alias -c grb='git rebase'
@@ -70,7 +73,7 @@ abbrev-alias -c xpssh='xpanes --ssh'
 
 
 ## others
-abbrev-alias -c v=nvim
+abbrev-alias -c n=nvim
 abbrev-alias -g G="| grep"
 abbrev-alias -g E='| emojify'
 abbrev-alias -g '...'='../..'
