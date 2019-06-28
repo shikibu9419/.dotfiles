@@ -10,16 +10,14 @@ alias git='hub'
 
 alias gadd=git-extended-add
 alias glog=git-extended-log
-alias gwa=git-extended-worktree-add
 alias gwork=git_list_worktree
 alias gclone='git clone $(pbpaste)'
+alias ginit='git init && echo ${PWD##*/} > README.md'
 alias gpush='git push origin $(git branch | grep "*\ " | sed "s/.* //")'
 alias gpushf='git push -f origin $(git branch | grep "*\ " | sed "s/.* //")'
 alias gremadd='git remote add origin $(pbpaste)'
+alias gwa="git worktree add $(git rev-parse --show-cdup).git-worktrees/$1 -b $1"
 
-alias gcom='hub compare'
-alias gpr='hub pull-request'
-alias gsee='hub browse'
 alias fpd='git diff --stat | fpp'
 alias fps='git status | fpp'
 alias ghget='ghq get $(pbpaste)'
@@ -54,7 +52,10 @@ abbrev-alias -c grs='git reset'
 abbrev-alias -c gs='git status'
 abbrev-alias -c gst='git stash'
 abbrev-alias -c gsta='git stash apply'
-abbrev-alias -c gw='git worktree'
+
+abbrev-alias gcom='hub compare'
+abbrev-alias gpr='hub pull-request'
+abbrev-alias gbr='hub browse'
 
 
 ## tmux

@@ -6,7 +6,10 @@
   data = "iso"
 [merge]
   conflictstyle = "diff3"
+	tool = vimdiff
 [diff]
   algorithm = "histogram"
 [alias]
   push-f = "push --force-with-lease"
+[mergetool]
+	keepBackup = false
