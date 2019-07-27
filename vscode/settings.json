@@ -224,6 +224,15 @@
             "tools": [
                 "latexmk"
             ]
+        },
+        {
+            "name": "luajitlatex -> upbibtex -> luajitlatex*2",
+            "tools": [
+                "luajitlatex",
+                "upbibtex",
+                "luajitlatex",
+                "luajitlatex"
+            ]
         }
     ],
     "latex-workshop.latex.tools": [
@@ -232,6 +241,23 @@
             "command": "latexmk",
             "args": [
                 "%DOC%"
+            ]
+        },
+        {
+            "name": "luajitlatex",
+            "command": "luajitlatex",
+            "args": [
+                "-cmdx",
+                "-kanji=utf8",
+                "-fmt=luajitlatex.fmt",
+                "%DOCFILE%"
+            ]
+        },
+        {
+            "name": "upbibtex",
+            "command": "upbibtex",
+            "args": [
+                "%DOCFILE%"
             ]
         }
     ],
