@@ -2,6 +2,7 @@
   path = ~/.gitconfig.local  # write user information etc.
 [core]
   excludesfile = ~/.gitignore_global
+	commentchar = auto
 [log]
   data = "iso"
 [merge]
