@@ -10,18 +10,13 @@ alias git='hub'
 
 alias gadd=git-extended-add
 alias glog=git-extended-log
-alias gwork=git_list_worktree
+alias gwork=git-extended-worktree
+alias ginit=git-extended-init
 alias gclone='git clone $(pbpaste)'
-alias ginit='git init && echo ${PWD##*/} > README.md'
 alias gpush='git push origin $(git branch | grep "*\ " | sed "s/.* //")'
-alias gpushf='git push -f origin $(git branch | grep "*\ " | sed "s/.* //")'
+alias gpushf='git push --force-with-lease origin $(git branch | grep "*\ " | sed "s/.* //")'
 alias gremadd='git remote add origin $(pbpaste)'
 alias gwa="git worktree add $(git rev-parse --show-cdup).git-worktrees/$1 -b $1"
-
-alias fpd='git diff --stat | fpp'
-alias fps='git status | fpp'
-alias ghget='ghq get $(pbpaste)'
-alias remind='git remind status'
 
 abbrev-alias -c g=git
 abbrev-alias -c ga='git add'
@@ -40,7 +35,7 @@ abbrev-alias -c gcom='git checkout master'
 abbrev-alias -c gch='git cherry-pick'
 abbrev-alias -c gd='git diff'
 abbrev-alias -c gdc='git diff --cached'
-abbrev-alias -c gi='git init'
+abbrev-alias -c gf='git fetch'
 abbrev-alias -c gl='git log'
 abbrev-alias -c gm='git merge'
 abbrev-alias -c gp='git push'
@@ -53,10 +48,17 @@ abbrev-alias -c gs='git status'
 abbrev-alias -c gst='git stash'
 abbrev-alias -c gsta='git stash apply'
 
-abbrev-alias gcom='hub compare'
-abbrev-alias gpr='hub pull-request'
-abbrev-alias gbr='hub browse'
+# from external plugins
+alias fpd='git diff --stat | fpp'
+alias fps='git status | fpp'
+alias ghget='ghq get $(pbpaste)'
+alias remind='git remind status'
 
+abbrev-alias gcom='git compare'
+abbrev-alias gfk='git fork'
+abbrev-alias gi='git issue'
+abbrev-alias gpr='git pr'
+abbrev-alias gbr='git browse'
 
 ## tmux
 abbrev-alias -c tks='tmux kill-session -t'
@@ -72,11 +74,11 @@ abbrev-alias -c xpd='xpanes -d -c'
 abbrev-alias -c xpe='xpanes -e'
 abbrev-alias -c xpssh='xpanes --ssh'
 
-
 ## others
 abbrev-alias -c n=nvim
-abbrev-alias -g G="| grep"
 abbrev-alias -g E='| emojify'
+abbrev-alias -g G='| grep'
+abbrev-alias -g P='$(pbpaste)'
 abbrev-alias -g '...'='../..'
 abbrev-alias -g '....'='../../..'
 
