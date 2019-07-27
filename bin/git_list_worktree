@@ -1,8 +1,0 @@
-#!/bin/bash
-
-source $DOTPATH/bin/_shared_functions
-check-git-available
-finder=$(set-fuzzy-finder)
-
-work_dir=$(git worktree list | $finder | awk '{print $1}')
-[ -n $work_dir ] && cd $work_dir
