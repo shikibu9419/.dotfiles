@@ -13,7 +13,7 @@ call plug#begin(s:plug_repo_dir)
   Plug 'scrooloose/nerdtree'
   Plug 'jistr/vim-nerdtree-tabs'
   "" Fuzzy Finder
-"   Plug 'Shougo/denite.nvim'
+  Plug 'Shougo/denite.nvim'
   Plug '/usr/local/opt/fzf'
   Plug 'junegunn/fzf.vim'
   "" Terminal & Shell
@@ -93,7 +93,6 @@ endfor
 "   inoremap <silent><buffer><expr> <C-c>   denite#do_map('quit')
 "   nnoremap <silent><buffer><expr> <C-c>   denite#do_map('quit')
 " endfunction
-
 " let s:denite_win_width_percent = 0.85
 " let s:denite_win_height_percent = 0.7
 "
@@ -143,13 +142,6 @@ if !exists('g:context_filetype#filetypes')
   let g:context_filetype#filetypes = {}
 endif
 
-
-"     function! Multiple_cursors_before()
-"       if exists(':NeoCompleteLock')==2
-"         exe 'NeoCompleteLock'
-"         echo 'Disabled Neocomplete'
-"       endif
-"     endfunction
 
 set splitbelow
 set splitright

@@ -16,7 +16,7 @@ alias gclone='git clone $(pbpaste)'
 alias gpush='git push origin $(git branch | grep "*\ " | sed "s/.* //")'
 alias gpushf='git push --force-with-lease origin $(git branch | grep "*\ " | sed "s/.* //")'
 alias gremadd='git remote add origin $(pbpaste)'
-alias gwa="git worktree add $(git rev-parse --show-cdup).git-worktrees/$1 -b $1"
+alias gwa='git worktree add $(git rev-parse --show-cdup).git-worktrees/$1 -b $1'
 
 abbrev-alias -c g=git
 abbrev-alias -c ga='git add'
@@ -47,6 +47,9 @@ abbrev-alias -c grs='git reset'
 abbrev-alias -c gs='git status'
 abbrev-alias -c gst='git stash'
 abbrev-alias -c gsta='git stash apply'
+abbrev-alias -c gw='git worktree'
+abbrev-alias -c gwl='git worktree list'
+abbrev-alias -c gwp='git worktree prune'
 
 # from external plugins
 alias fpd='git diff --stat | fpp'
