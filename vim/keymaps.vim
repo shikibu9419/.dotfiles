@@ -132,10 +132,10 @@ nnoremap [fzf]<C-m> :FzfMostRecentlyUsed<cr>
 nnoremap [fzf]<C-r> :FzfRg<cr>
 nnoremap [fzf]<C-x> :FzfCommands<cr>
 
-"" use space / leader
-nmap <silent> <Space>n  <plug>NERDTreeTabsToggle<cr>
+"" use Leader
 nmap <silent> <Leader>d <Plug>DashSearch
 map  <silent> <Leader>b <Plug>(openbrowser-smart-search)
+nmap <silent> <Leader>n  <plug>NERDTreeTabsToggle<cr>
 nmap <silent> <Leader>r <Plug>(quickrun)
 " nnoremap <silent> <Leader>r :cclose<cr>:w<cr>:QuickRun -mode n<cr>
 " nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
