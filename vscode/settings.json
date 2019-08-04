@@ -67,16 +67,18 @@
     "code-runner.runInTerminal": true,
 
     // vim setting
+    "vim.leader": "<space>",
     "vim.enableNeovim": true,
     "vim.neovimPath":"/usr/local/bin/nvim",
     "vim.useSystemClipboard":true,
     "vim.hlsearch": true,
-    "vim.easymotion": true,
     "vim.visualstar": true,
     "vim.useCtrlKeys": true,
     "vim.ignorecase": true,
     "vim.incsearch": true,
-    "vim.sneak": true,
+    "vim.easymotion": true,
+    "vim.easymotionKeys": "sdfghjkl",
+
     "vim.insertModeKeyBindings": [
         {
             "before": ["j", "j"],
@@ -119,13 +121,33 @@
         {
             "before": ["L"],
             "after": ["$"]
+        },
+        {
+            "before": ["+"],
+            "after": ["<C-a>"]
+        },
+        {
+            "before": ["-"],
+            "after": ["<C-x>"]
+        },
+        {
+            "before": [
+                ";"
+            ],
+            "after": [
+                ":"
+            ]
+        },
+        {
+            "before": [
+                ":"
+            ],
+            "after": [
+                ";"
+            ]
         }
     ],
     "vim.visualModeKeyBindings": [
-        {
-            "before": [";"],
-            "after": [":"]
-        }
     ],
     "vim.normalModeKeyBindingsNonRecursive": [
         {
@@ -161,17 +183,11 @@
     "emmet.triggerExpansionOnTab": true,
 
     // css
-    // 'float' の使用を避けてください。float は脆弱な css につながり、レイアウトの一部が変更されたときに css が破損しやすくなります。
     "css.lint.float": "error",
-    // display によってプロパティを無視します。例: 'display: inline' の場合、width、height、margin-top、margin-bottom、float プロパティには効果がありません。
     "css.lint.propertyIgnoredDueToDisplay": "error",
-    // ユニバーサル セレクター (*) を使用すると処理速度が低下することが分かっています
     "css.lint.universalSelector": "error",
-    // widthとheightをいっしょに使用しない
     "css.lint.boxModel": "error",
-    // 重複する属性の使用不可
     "css.lint.duplicateProperties": "error",
-    // id属性にはcssをつけない
     "css.lint.idSelector": "error",
 
     // javascript
@@ -206,9 +222,6 @@
     },
 
     // latex
-    "latex-workshop.latex.autoBuild.onSave.enabled": true,
-    "latex-workshop.latex.clean.enabled": true,
-    "latex-workshop.latex.clean.onFailBuild.enabled": true,
     "latex-workshop.view.pdf.viewer": "tab",
     "latex-workshop.chktex.enabled": false,
     // https://blog.miz-ar.info/2016/11/magic-comments-in-tex/
@@ -262,6 +275,14 @@
         }
     ],
 
+    "vim.statusBarColorControl": true,
+    "vim.statusBarColors.normal": "#8FBCBB",
+    "vim.statusBarColors.insert": "#A3BE8C",
+    "vim.statusBarColors.visual": "#B48EAD",
+    "vim.statusBarColors.visualline": "#B48EAD",
+    "vim.statusBarColors.visualblock": "#B48EAD",
+    "vim.statusBarColors.replace": "#D08770",
+
     "workbench.colorCustomizations": {
         "activityBarBadge.background": "#C6FF00",
         "list.activeSelectionForeground": "#C6FF00",
@@ -281,7 +302,10 @@
         "panelTitle.activeBorder": "#C6FF00",
         "breadcrumb.activeSelectionForeground": "#C6FF00",
         "menu.selectionForeground": "#C6FF00",
-        "menubar.selectionForeground": "#C6FF00"
+        "menubar.selectionForeground": "#C6FF00",
+        "statusBar.background": "#8FBCBB",
+        "statusBar.noFolderBackground": "#8FBCBB",
+        "statusBar.debuggingBackground": "#8FBCBB"
     },
     "materialTheme.accent": "Acid Lime",
 
@@ -376,7 +400,7 @@
         "workbench.action.terminal.toggleTerminal",
         "workbench.action.togglePanel"
     ],
-    "sync.gist": "97007549f935c49ee2f57ec22c649dca",
+
     "julia.enableTelemetry": true,
     "latex-workshop.latex.autoClean.run": "onBuilt",
     "latex-workshop.latex.autoBuild.run": "onFileChange",

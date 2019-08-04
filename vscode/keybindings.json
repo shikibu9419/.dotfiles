@@ -9,7 +9,8 @@
     // File search
     {
         "key": "ctrl+j",
-        "command": "workbench.action.quickOpen"
+        "command": "workbench.action.quickOpen",
+        "when": "editorTextFocus && vim.mode != 'CommandlineInProgress'"
     },
     {
         "key": "ctrl+[",
@@ -42,12 +43,12 @@
 
     // multiple cursor
     {
-        "key": "ctrl+d",
+        "key": "ctrl+n",
         "command": "extension.vim_cmd+d",
         "when": "editorTextFocus && vim.active && vim.use<D-d> && !inDebugRepl"
     },
     {
-        "key": "ctrl+shift+d",
+        "key": "ctrl+shift+n",
         "command": "editor.action.selectHighlights",
         "when": "editorFocus"
     },
@@ -145,17 +146,6 @@
     //----------------------------------------------------------
     // Extentions
     //----------------------------------------------------------
-    // [vim] on insert mode
-    {
-        "key": "ctrl+l",
-        "command": "cursorRight",
-        "when": "editorTextFocus && !editorReadOnly && vim.mode == 'Insert'"
-    },
-    {
-        "key": "ctrl+h",
-        "command": "cursorLeft",
-        "when": "editorTextFocus && !editorReadOnly && vim.mode == 'Insert'"
-    },
     // [vim] on command mode
     {
         "key": "ctrl+p",
@@ -167,27 +157,25 @@
         "command": "extension.vim_down",
         "when": "vim.active && vim.mode == 'CommandlineInProgress' && !inDebugRepl && !suggestWidgetMultipleSuggestions && !suggestWidgetVisible"
     },
-    // スニペットの選択
+    // Snippets
     {
         "key": "ctrl+k",
         "command": "insertSnippet",
         "when": "editorTextFocus && hasSnippetCompletions && !editorTabMovesFocus && !inSnippetMode"
     },
-    // スニペットのプレースホルダー移動
     {
-        "key": "ctrl+k",
+        "key": "ctrl+n",
         "command": "jumpToNextSnippetPlaceholder",
         "when": "editorTextFocus && hasNextTabstop && inSnippetMode"
     },
-    // スニペットのプレースホルダー戻る
     {
-        "key": "ctrl+h",
+        "key": "ctrl+p",
         "command": "jumpToPrevSnippetPlaceholder",
         "when": "editorTextFocus && hasPrevTabstop && inSnippetMode"
     },
     // Dash
     {
-        "key": "ctrl+e ctrl+d",
+        "key": "ctrl+d",
         "command": "extension.dash.specific",
         "when": "editorTextFocus"
     },
@@ -216,11 +204,6 @@
         "key": "ctrl+s ctrl+s",
         "command": "workbench.action.toggleSidebarVisibility",
         "when": "!inDebugMode && editorTextFocus && vim.mode == 'Normal'"
-    },
-    {
-        "key": "ctrl+[",
-        "command": "workbench.action.toggleSidebarVisibility",
-        "when": "!inDebugMode && sideBarFocus"
     },
     // grep search
     {
@@ -265,6 +248,17 @@
         "command": "workbench.view.scm",
         "when": "editorTextFocus && vim.mode == 'Normal'"
     },
+    // outline
+    {
+        "key": "ctrl+s o",
+        "command": "outline.focus",
+        "when": "vim.mode != 'SearchInProgressMode' && vim.mode == 'Normal' && editorTextFocus"
+    },
+    {
+        "key": "ctrl+s ctrl+o",
+        "command": "outline.focus",
+        "when": "vim.mode != 'SearchInProgressMode' && vim.mode == 'Normal' && editorTextFocus"
+    },
     // explorer
     {
         "key": "ctrl+s e",
@@ -283,7 +277,12 @@
         "when": "explorerViewletVisible && filesExplorerFocus"
     },
     {
-        "key": "r",
+        "key": "ctrl+n",
+        "command": "explorer.newFile",
+        "when": "explorerViewletVisible && filesExplorerFocus"
+    },
+    {
+        "key": "ctrl+r",
         "command": "renameFile",
         "when": "explorerViewletVisible && filesExplorerFocus"
     },
@@ -307,7 +306,12 @@
         "when": "editorTextFocus"
     },
     {
-        "key": "ctrl+s ctrl+o",
-        "command": "outline.focus"
+        "key": "ctrl+r",
+        "command": "-workbench.action.openRecent"
     },
+    {
+        "key": "ctrl+f",
+        "command": "-cursorRight",
+        "when": "textInputFocus"
+    }
 ]
