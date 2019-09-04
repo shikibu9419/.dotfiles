@@ -3,6 +3,7 @@
     "editor.fontFamily": "Ricty Nerd Font",
     "editor.fontSize": 14,
     "editor.tabSize": 4,
+    "editor.insertSpaces": true,
     "editor.renderWhitespace": "boundary",
     "editor.cursorStyle": "line",
     "editor.wordWrap": "on",
@@ -136,14 +137,6 @@
             ],
             "after": [
                 ":"
-            ]
-        },
-        {
-            "before": [
-                ":"
-            ],
-            "after": [
-                ";"
             ]
         }
     ],

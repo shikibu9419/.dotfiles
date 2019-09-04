@@ -45,12 +45,12 @@
     {
         "key": "ctrl+n",
         "command": "extension.vim_cmd+d",
-        "when": "editorTextFocus && vim.active && vim.use<D-d> && !inDebugRepl"
+        "when": "editorTextFocus && vim.active && !inDebugRepl && vim.mode != 'Insert'"
     },
     {
         "key": "ctrl+shift+n",
         "command": "editor.action.selectHighlights",
-        "when": "editorFocus"
+        "when": "editorFocus && vim.mode != 'Insert'"
     },
     // Comment toggle
     {
@@ -272,11 +272,6 @@
     },
     // [explorer] Open / Rename file
     {
-        "key": "Enter",
-        "command": "explorer.openToSide",
-        "when": "explorerViewletVisible && filesExplorerFocus"
-    },
-    {
         "key": "ctrl+n",
         "command": "explorer.newFile",
         "when": "explorerViewletVisible && filesExplorerFocus"
@@ -313,5 +308,10 @@
         "key": "ctrl+f",
         "command": "-cursorRight",
         "when": "textInputFocus"
-    }
+    },
+    {
+        "key": "enter",
+        "command": "-renameFile",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+    },
 ]
