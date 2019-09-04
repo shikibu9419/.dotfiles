@@ -7,10 +7,14 @@
   data = "iso"
 [merge]
   conflictstyle = "diff3"
-	tool = vimdiff
+	tool = nvimdiff
 [diff]
   algorithm = "histogram"
-[alias]
-  push-f = "push --force-with-lease"
 [mergetool]
 	keepBackup = false
+[diff]
+  tool = nvimdiff
+[difftool "nvimdiff"]
+  cmd = "nvim -R -d -c \"wincmd l\" -d \"$LOCAL\" \"$REMOTE\""
+[mergetool "nvimdiff"]
+  cmd = "nvim -d -c \"4wincmd w | wincmd J\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"  \"$MERGED\""

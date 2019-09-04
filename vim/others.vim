@@ -36,7 +36,9 @@ set showtabline=2
 
 "" Setting per filetype
 augroup filetypedetect
+  autocmd BufRead,BufNewFile *.html setlocal filetype=html
   autocmd BufRead,BufNewFile *.slim setlocal filetype=slim
+  autocmd BufRead,BufNewFile *.pug  setlocal filetype=pug
   autocmd BufRead,BufNewFile *.c    setlocal tabstop=4 shiftwidth=4 softtabstop=4
   autocmd BufRead,BufNewFile *.cpp  setlocal tabstop=4 shiftwidth=4 softtabstop=4
   autocmd BufRead,BufNewFile *.java setlocal tabstop=4 shiftwidth=4 softtabstop=4

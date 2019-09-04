@@ -9,6 +9,7 @@ call plug#begin(s:plug_repo_dir)
   Plug 'prabirshrestha/asyncomplete-file.vim'
   Plug 'prabirshrestha/asyncomplete-neosnippet.vim'
   Plug 'prabirshrestha/vim-lsp'
+  Plug 'posva/vim-vue'
   "" NERDTree
   Plug 'scrooloose/nerdtree'
   Plug 'jistr/vim-nerdtree-tabs'
@@ -41,6 +42,7 @@ call plug#begin(s:plug_repo_dir)
   Plug 'junegunn/vim-easy-align'
   Plug 'cohama/lexima.vim'
   Plug 'rizzatti/dash.vim'
+  Plug 'editorconfig/editorconfig-vim'
   "" Appearance
   Plug 'itchyny/lightline.vim'
   Plug 'nathanaelkane/vim-indent-guides'
@@ -60,7 +62,6 @@ call plug#begin(s:plug_repo_dir)
   Plug 'tpope/vim-rails',               { 'for': 'ruby' }
   Plug 'todesking/ruby_hl_lvar.vim',    { 'for': 'ruby' }
   Plug 'mechatroner/rainbow_csv',       { 'for': 'csv' }
-  Plug 'editorconfig/editorconfig-vim'
 call plug#end()
 
 "" snippets directory
