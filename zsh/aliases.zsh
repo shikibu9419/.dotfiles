@@ -13,8 +13,8 @@ alias glog=git-extended-log
 alias gwork=git-extended-worktree
 alias ginit=git-extended-init
 alias gclone='git clone $(pbpaste)'
-alias gpush='git push origin $(git branch | grep "*\ " | sed "s/.* //")'
-alias gpushf='git push --force-with-lease origin $(git branch | grep "*\ " | sed "s/.* //")'
+alias gpush='git push origin $(git symbolic-ref --short HEAD)'
+alias gpushf='git push --force-with-lease origin $(git symbolic-ref --short HEAD)'
 alias gremadd='git remote add origin $(pbpaste)'
 alias gwa='git worktree add $(git rev-parse --show-cdup).git-worktrees/$1 -b $1'
 
@@ -78,9 +78,17 @@ abbrev-alias -c xpd='xpanes -d -c'
 abbrev-alias -c xpe='xpanes -e'
 abbrev-alias -c xpssh='xpanes --ssh'
 
+## docker
+abbrev-alias -c d='docker'
+abbrev-alias -c dp='docker ps'
+abbrev-alias -c dk='docker kill'
+abbrev-alias -c ds='docker stop'
+abbrev-alias -c dka='docker ps -q | xargs docker stop | xargs docker rm'
+
 ## others
 abbrev-alias -c n=nvim
 abbrev-alias -g E='| emojify'
+abbrev-alias -g C='| $(pbcopy)'
 abbrev-alias -g G='| grep'
 abbrev-alias -g P='$(pbpaste)'
 abbrev-alias -g '...'='../..'
