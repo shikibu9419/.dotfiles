@@ -1,5 +1,5 @@
 [include]
-  path = ~/.gitconfig.local  # write user information etc.
+  path = ~/.gitconfig.local  # write your own information.
 [core]
   excludesfile = ~/.gitignore_global
 	commentchar = auto
