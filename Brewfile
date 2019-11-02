@@ -2,12 +2,11 @@ cask_args appdir: '/Applications'
 
 tap 'homebrew/core'
 tap 'homebrew/services'
-tap 'caskroom/cask'
-tap 'caskroom/versions'
+tap 'homebrew/cask-versions'
+tap 'homebrew/cask'
 
 brew 'coreutils'
 brew 'zsh'
-brew 'vim', args: ['with-lua']
 brew 'neovim'
 brew 'tmux'
 brew 'zplug'

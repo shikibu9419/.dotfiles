@@ -37,7 +37,7 @@ cd $DOTPATH
 
 notice 'Install formulas.'
 brew tap homebrew/bundle
-brew bundle
+HOMEBREW_CASK_OPTS="--appdir=/Applications" brew bundle
 brew cleanup
 strong 'Installation of formulas finished!'
 echo
@@ -56,6 +56,7 @@ chsh -s $(which zsh)
 strong 'Neovim:'
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+nvim -c PlugInstall -c qall
 
 strong 'VS Code:'
 cat $DOTPATH/etc/vscode-extensions | while read pkg; do

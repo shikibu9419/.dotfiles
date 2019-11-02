@@ -11,7 +11,7 @@ list:
 	@$(foreach conf, $(DEPLOYED), echo " $(conf)";)
 
 init:
-	@[ $(uname) = Darwin ] && DOTPATH=$(CURDIR) bash $(DOTPATH)/etc/initialize.sh
+	@[ $(shell uname) = Darwin ] && DOTPATH=$(CURDIR) bash $(DOTPATH)/etc/initialize.sh
 
 deploy:
 	@[ -d ~/.config ] || mkdir ~/.config
@@ -40,3 +40,5 @@ help:
 	@echo 'install  Initialize and deploy'
 	@echo 'update   Update dotfiles, submodules and other plugins'
 	@echo 'help     Display help message'
+
+.PHONY: DEFAULT list init deploy install update clean help
