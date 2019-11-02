@@ -52,15 +52,16 @@ scrolling:
 tabspaces: 4
 
 font:
-  normal:
-    family: Ricty Nerd Font
-    style: Regular
-  bold:
-    family: Ricty Nerd Font
-    style: Bold
-  italic:
-    family: Ricty Nerd Font
-    style: Italic
+  # TODO: Add font configs as followings:
+  # normal:
+  #   family: YOUR OWN FONT
+  #   style: Regular
+  # bold:
+  #   family: YOUR OWN FONT
+  #   style: Bold
+  # italic:
+  #   family: YOUR OWN FONT
+  #   style: Italic
 
   size: 12
 
