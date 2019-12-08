@@ -1,0 +1,4 @@
+/home/.jupyter/*
+!/home/.jupyter/custom/
+/home/.jupyter/custom/*
+!/home/.jupyter/custom/custom.js
