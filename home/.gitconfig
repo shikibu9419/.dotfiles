@@ -1,7 +1,6 @@
 [include]
   path = ~/.gitconfig.local  # write your own information.
 [core]
-  excludesfile = ~/.gitignore_global
 	commentchar = auto
 [log]
   data = "iso"
