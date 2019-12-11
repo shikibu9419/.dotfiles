@@ -136,6 +136,13 @@
         { "before": ["-"], "after": ["<C-x>"] },
         { "before": ["u"],     "commands": [{ "command": "undo" }] },
         { "before": ["<C-r>"], "commands": [{ "command": "redo" }] },
+        // sidebar commands (these are also defined in keybindings.json with prefix <Ctrl-s> instead of <Leader>)
+        { "before": ["<Leader>", "s"], "commands": [{ "command": "workbench.action.toggleSidebarVisibility" }] },
+        { "before": ["<Leader>", "f"], "commands": [{ "command": "workbench.action.focusSideBar" }] },
+        { "before": ["<Leader>", "/"], "commands": [{ "command": "workbench.action.findInFiles" }] },
+        { "before": ["<Leader>", "d"], "commands": [{ "command": "workbench.view.debug" }] },
+        { "before": ["<Leader>", "o"], "commands": [{ "command": "outline.focus" }] },
+        { "before": ["<Leader>", "n"], "commands": [{ "command": "workbench.view.explorer" }] }
     ],
     "vim.visualModeKeyBindingsNonRecursive": [
     ],

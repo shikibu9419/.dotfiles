@@ -3,8 +3,11 @@
     {
         "key": "ctrl+p",
         "command": "workbench.action.showCommands",
-        "when": "editorTextFocus && vim.mode != 'CommandlineInProgress'"
-
+        "when": "editorTextFocus && vim.mode != 'CommandlineInProgress' && vim.mode != 'SearchInProgressMode'"
+    },
+    {
+        "key": "ctrl+z ctrl+z",
+        "command": "workbench.action.toggleZenMode"
     },
     // File search
     {
@@ -45,18 +48,23 @@
     {
         "key": "ctrl+n",
         "command": "extension.vim_cmd+d",
-        "when": "editorTextFocus && vim.active && !inDebugRepl && vim.mode != 'Insert'"
+        "when": "editorTextFocus && !inDebugRepl && vim.active && vim.mode != 'Insert'"
     },
     {
         "key": "ctrl+shift+n",
         "command": "editor.action.selectHighlights",
-        "when": "editorFocus && vim.mode != 'Insert'"
+        "when": "editorTextFocus && vim.mode != 'Insert'"
+    },
+    {
+        "key": "ctrl+shift+l",
+        "command": "editor.action.insertCursorAtEndOfEachLineSelected",
+        "when": "editorTextFocus && vim.mode != 'Insert' && editorHasMultipleSelections"
     },
     // Comment toggle
     {
         "key": "ctrl+c",
         "command": "editor.action.commentLine",
-        "when": "vim.active && editorTextFocus && !editorReadonly"
+        "when": "editorTextFocus && !editorReadonly"
     },
     // Close editor group
     {
@@ -93,12 +101,12 @@
     {
         "key": "ctrl+h",
         "command": "workbench.action.previousEditor",
-        "when": "vim.active && editorFocus && vim.mode == 'Normal'"
+        "when": "vim.active && vim.mode == 'Normal' && editorFocus"
     },
     {
         "key": "ctrl+l",
         "command": "workbench.action.nextEditor",
-        "when": "vim.active && editorFocus && vim.mode == 'Normal'"
+        "when": "vim.active && vim.mode == 'Normal' && editorFocus"
     },
 
     {
@@ -132,11 +140,13 @@
     },
     {
         "key": "ctrl+shift+l",
-        "command": "workbench.action.increaseViewSize"
+        "command": "workbench.action.increaseViewSize",
+        "when": "!editorHasMultipleSelections"
     },
     {
         "key": "ctrl+shift+h",
-        "command": "workbench.action.decreaseViewSize"
+        "command": "workbench.action.decreaseViewSize",
+        "when": "!editorHasMultipleSelections"
     },
     {
         "key": "ctrl+f ,",
@@ -150,12 +160,12 @@
     {
         "key": "ctrl+p",
         "command": "extension.vim_up",
-        "when": "vim.active && vim.mode == 'CommandlineInProgress' && !inDebugRepl && !suggestWidgetMultipleSuggestions && !suggestWidgetVisible"
+        "when": "vim.active && vim.mode == 'CommandlineInProgress' || vim.mode == 'SearchInProgressMode' && !inDebugRepl && !suggestWidgetMultipleSuggestions && !suggestWidgetVisible"
     },
     {
         "key": "ctrl+n",
         "command": "extension.vim_down",
-        "when": "vim.active && vim.mode == 'CommandlineInProgress' && !inDebugRepl && !suggestWidgetMultipleSuggestions && !suggestWidgetVisible"
+        "when": "vim.active && vim.mode == 'CommandlineInProgress' || vim.mode == 'SearchInProgressMode' && !inDebugRepl && !suggestWidgetMultipleSuggestions && !suggestWidgetVisible"
     },
     // Snippets
     {
@@ -183,92 +193,97 @@
     //----------------------------------------------------------
     // On sidebar
     //----------------------------------------------------------
-    // focus sidebar
-    {
-        "key": "ctrl+s f",
-        "command": "workbench.action.focusSideBar",
-        "when": "editorTextFocus && vim.mode == 'Normal'"
-    },
-    {
-        "key": "ctrl+s ctrl+f",
-        "command": "workbench.action.focusSideBar",
-        "when": "editorTextFocus && vim.mode == 'Normal'"
-    },
     // toggle sidebar
     {
         "key": "ctrl+s s",
         "command": "workbench.action.toggleSidebarVisibility",
-        "when": "!inDebugMode && editorTextFocus && vim.mode == 'Normal'"
+        "when": "!inDebugMode && vim.mode == 'Normal'"
     },
     {
         "key": "ctrl+s ctrl+s",
         "command": "workbench.action.toggleSidebarVisibility",
-        "when": "!inDebugMode && editorTextFocus && vim.mode == 'Normal'"
+        "when": "!inDebugMode && vim.mode == 'Normal'"
+    },
+    // focus sidebar
+    {
+        "key": "ctrl+s f",
+        "command": "workbench.action.focusSideBar",
+        "when": "vim.mode == 'Normal'"
+    },
+    {
+        "key": "ctrl+s ctrl+f",
+        "command": "workbench.action.focusSideBar",
+        "when": "vim.mode == 'Normal'"
     },
     // grep search
     {
         "key": "ctrl+s /",
         "command": "workbench.action.findInFiles",
-        "when": "!searchInputBoxFocus && editorTextFocus && vim.mode == 'Normal'"
+        "when": "!searchInputBoxFocus && vim.mode == 'Normal'"
     },
     {
         "key": "ctrl+s ctrl+/",
         "command": "workbench.action.findInFiles",
-        "when": "!searchInputBoxFocus && editorTextFocus && vim.mode == 'Normal'"
+        "when": "!searchInputBoxFocus && vim.mode == 'Normal'"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "workbench.action.search.toggleQueryDetails",
+        "when": "searchViewletVisible"
     },
     {
         "key": "ctrl+n",
         "command": "search.focus.nextInputBox",
-        "when": "inputBoxFocus && searchViewletVisible"
+        "when": "searchViewletVisible"
     },
     {
         "key": "ctrl+p",
         "command": "search.focus.previousInputBox",
-        "when": "inputBoxFocus && searchViewletVisible && !searchInputBoxFocus"
+        "when": "searchViewletVisible"
     },
     // Debug mode
     {
         "key": "ctrl+s d",
         "command": "workbench.view.debug",
-        "when": "editorTextFocus && vim.mode == 'Normal'"
+        "when": "vim.mode == 'Normal'"
     },
     {
         "key": "ctrl+s ctrl+d",
         "command": "workbench.view.debug",
-        "when": "editorTextFocus && vim.mode == 'Normal'"
+        "when": "vim.mode == 'Normal'"
     },
     // scm (git ui)
     {
         "key": "ctrl+s g",
         "command": "workbench.view.scm",
-        "when": "editorTextFocus && vim.mode == 'Normal'"
+        "when": "vim.mode == 'Normal'"
     },
     {
         "key": "ctrl+s ctrl+g",
         "command": "workbench.view.scm",
-        "when": "editorTextFocus && vim.mode == 'Normal'"
+        "when": "vim.mode == 'Normal'"
     },
     // outline
     {
         "key": "ctrl+s o",
         "command": "outline.focus",
-        "when": "vim.mode != 'SearchInProgressMode' && vim.mode == 'Normal' && editorTextFocus"
+        "when": "vim.mode != 'SearchInProgressMode' && vim.mode == 'Normal'"
     },
     {
         "key": "ctrl+s ctrl+o",
         "command": "outline.focus",
-        "when": "vim.mode != 'SearchInProgressMode' && vim.mode == 'Normal' && editorTextFocus"
+        "when": "vim.mode != 'SearchInProgressMode' && vim.mode == 'Normal'"
     },
     // explorer
     {
-        "key": "ctrl+s e",
+        "key": "ctrl+s n",
         "command": "workbench.view.explorer",
-        "when": "vim.mode != 'SearchInProgressMode' && vim.mode == 'Normal' && editorTextFocus"
+        "when": "vim.mode != 'SearchInProgressMode' && vim.mode == 'Normal'"
     },
     {
-        "key": "ctrl+s ctrl+e",
+       "key": "ctrl+s ctrl+n",
         "command": "workbench.view.explorer",
-        "when": "vim.mode != 'SearchInProgressMode' && vim.mode == 'Normal' && editorTextFocus"
+        "when": "vim.mode != 'SearchInProgressMode' && vim.mode == 'Normal'"
     },
     // [explorer] Open / Rename file
     {
@@ -314,4 +329,23 @@
         "command": "-renameFile",
         "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
     },
+    {
+        "key": "cmd+k z",
+        "command": "-workbench.action.toggleZenMode"
+    },
+    {
+        "key": "shift+alt+i",
+        "command": "-editor.action.insertCursorAtEndOfEachLineSelected",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+cmd+f",
+        "command": "-workbench.view.search",
+        "when": "!searchViewletVisible"
+    },
+    {
+        "key": "shift+cmd+j",
+        "command": "-workbench.action.search.toggleQueryDetails",
+        "when": "searchViewletVisible"
+    }
 ]
