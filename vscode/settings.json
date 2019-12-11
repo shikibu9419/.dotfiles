@@ -2,8 +2,9 @@
     // Editor
     "editor.fontFamily": "RictyDiminished NF",
     "editor.fontSize": 14,
-    "editor.tabSize": 4,
+    "editor.tabSize": 2,
     "editor.insertSpaces": true,
+    "editor.renderLineHighlight": "all",
     "editor.renderWhitespace": "boundary",
     "editor.cursorStyle": "line",
     "editor.wordWrap": "on",
@@ -12,6 +13,7 @@
     "editor.renderIndentGuides": true,
     "editor.multiCursorModifier": "ctrlCmd",
     "editor.minimap.enabled": false,
+    "editor.snippetSuggestions": "top",
     "breadcrumbs.enabled": true,
     "debug.inlineValues": true,
 
@@ -27,6 +29,15 @@
     "workbench.editor.tabSizing": "shrink",
     "workbench.editor.openPositioning": "first",
     "explorer.openEditors.visible": 0,
+
+    // zen mode
+    "zenMode.fullScreen": true,
+    "zenMode.centerLayout": true,
+    "zenMode.hideActivityBar": true,
+    "zenMode.hideLineNumbers": false,
+    "zenMode.hideTabs": false,
+    "zenMode.hideStatusBar": true,
+    "zenMode.restore": false,
 
     // files
     "files.autoSave": "afterDelay",
@@ -77,11 +88,14 @@
     "code-runner.clearPreviousOutput": true,
     "code-runner.runInTerminal": true,
 
+    // extensions
+    "extensions.autoUpdate": true,
+
     // vim setting
     "vim.leader": "<space>",
     "vim.enableNeovim": true,
     "vim.neovimPath":"/usr/local/bin/nvim",
-    "vim.useSystemClipboard":true,
+    "vim.useSystemClipboard": true,
     "vim.hlsearch": true,
     "vim.visualstar": true,
     "vim.useCtrlKeys": true,
@@ -89,82 +103,41 @@
     "vim.incsearch": true,
     "vim.easymotion": true,
     "vim.easymotionKeys": "sdfghjkl",
+    "vim.debug.silent": true,
 
-    "vim.insertModeKeyBindings": [
-        {
-            "before": ["j", "j"],
-            "after": ["<Esc>"]
-        },
-        {
-            "before": ["<C-a>"],
-            "after": ["<Esc>", "I"]
-        },
-        {
-            "before": ["<C-e>"],
-            "after": ["<Esc>", "A"]
-        }
-    ],
-    "vim.normalModeKeyBindings": [
-        {
-            "before": ["k"],
-            "after": ["g", "k"]
-        },
-        {
-            "before": ["j"],
-            "after": ["g", "j"]
-        },
-        {
-            "before": [";"],
-            "after": [":"]
-        },
-        {
-            "before": ["Y"],
-            "after": ["y", "$"]
-        },
-        {
-            "before": ["D"],
-            "after": ["d", "$"]
-        },
-        {
-            "before": ["H"],
-            "after": ["^"]
-        },
-        {
-            "before": ["L"],
-            "after": ["$"]
-        },
-        {
-            "before": ["+"],
-            "after": ["<C-a>"]
-        },
-        {
-            "before": ["-"],
-            "after": ["<C-x>"]
-        },
-        {
-            "before": [
-                ";"
-            ],
-            "after": [
-                ":"
-            ]
-        }
-    ],
-    "vim.visualModeKeyBindings": [
+    // highlight when yanking text
+    "vim.highlightedyank.enable": true,
+    "vim.highlightedyank.color": "rgba(143, 188, 187, 0.3)",
+    "vim.highlightedyank.duration": 300,
+    // status bar
+    "vim.statusBarColorControl": true,
+    "vim.statusBarColors.normal": "#8FBCBB",
+    "vim.statusBarColors.insert": "#A3BE8C",
+    "vim.statusBarColors.visual": "#B48EAD",
+    "vim.statusBarColors.visualline": "#B48EAD",
+    "vim.statusBarColors.visualblock": "#B48EAD",
+    "vim.statusBarColors.replace": "#D08770",
+
+    "vim.insertModeKeyBindingsNonRecursive": [
+        { "before": ["j", "j"], "after": ["<Esc>"] },
+        { "before": ["<C-a>"],  "after": ["<Esc>", "I"] },
+        { "before": ["<C-e>"],  "after": ["<Esc>", "A"] }
     ],
     "vim.normalModeKeyBindingsNonRecursive": [
-        {
-            "before": ["u"],
-            "commands": [
-                { "command": "undo" }
-            ]
-        },
-        {
-            "before": ["<C-r>"],
-            "commands": [
-                { "command": "redo" }
-            ]
-        }
+        { "before": ["k"], "after": ["g", "k"] },
+        { "before": ["j"], "after": ["g", "j"] },
+        { "before": [";"], "after": [":"] },
+        { "before": [":"], "after": [";"] },
+        { "before": ["Y"], "after": ["y", "$"] },
+        { "before": ["D"], "after": ["d", "$"] },
+        { "before": ["H"], "after": ["^"] },
+        { "before": ["L"], "after": ["$"] },
+        { "before": ["+"], "after": ["<C-a>"] },
+        { "before": ["-"], "after": ["<C-x>"] },
+        { "before": ["u"],     "commands": [{ "command": "undo" }] },
+        { "before": ["<C-r>"], "commands": [{ "command": "redo" }] },
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
     ],
 
     // html
@@ -278,14 +251,6 @@
         }
     ],
 
-    "vim.statusBarColorControl": true,
-    "vim.statusBarColors.normal": "#8FBCBB",
-    "vim.statusBarColors.insert": "#A3BE8C",
-    "vim.statusBarColors.visual": "#B48EAD",
-    "vim.statusBarColors.visualline": "#B48EAD",
-    "vim.statusBarColors.visualblock": "#B48EAD",
-    "vim.statusBarColors.replace": "#D08770",
-
     "workbench.colorCustomizations": {
         "activityBarBadge.background": "#C6FF00",
         "list.activeSelectionForeground": "#C6FF00",
@@ -306,9 +271,9 @@
         "breadcrumb.activeSelectionForeground": "#C6FF00",
         "menu.selectionForeground": "#C6FF00",
         "menubar.selectionForeground": "#C6FF00",
-        "statusBar.background": "#A3BE8C",
-        "statusBar.noFolderBackground": "#A3BE8C",
-        "statusBar.debuggingBackground": "#A3BE8C"
+        "statusBar.background": "#8FBCBB",
+        "statusBar.noFolderBackground": "#8FBCBB",
+        "statusBar.debuggingBackground": "#8FBCBB"
     },
     "materialTheme.accent": "Acid Lime",
 
