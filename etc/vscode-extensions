@@ -48,15 +48,18 @@ noku.rails-run-spec-vscode
 octref.vetur
 onecentlin.laravel-blade
 PKief.material-icon-theme
+quicktype.quicktype
 rebornix.ruby
 redhat.java
 redhat.vscode-yaml
 rogalmic.bash-debug
 rust-lang.rust
+ryu1kn.edit-with-shell
 ryu1kn.partial-diff
 satokaz.vscode-bs-ctrlchar-remover
-Shan.code-settings-sync
+sgryjp.japanese-word-handler
 shardulm94.trailing-spaces
+shuworks.vscode-table-formatter
 sianglim.slim
 SirTobi.code-clip-ring
 sporto.rails-go-to-spec
@@ -64,6 +67,7 @@ stevencl.addDocComments
 vscodevim.vim
 WallabyJs.quokka-vscode
 wayou.vscode-todo-highlight
+wingrunr21.vscode-ruby
 wix.vscode-import-cost
 wyze.theme-hybrid-next
 yzhang.markdown-all-in-one

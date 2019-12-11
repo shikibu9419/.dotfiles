@@ -285,6 +285,17 @@
         "command": "workbench.view.explorer",
         "when": "vim.mode != 'SearchInProgressMode' && vim.mode == 'Normal'"
     },
+    // extensions
+    {
+        "key": "ctrl+s e",
+        "command": "workbench.view.extensions",
+        "when": "vim.mode != 'SearchInProgressMode' && vim.mode == 'Normal'"
+    },
+    {
+        "key": "ctrl+s ctrl+e",
+        "command": "workbench.view.extensions",
+        "when": "vim.mode != 'SearchInProgressMode' && vim.mode == 'Normal'"
+    },
     // [explorer] Open / Rename file
     {
         "key": "ctrl+n",
@@ -347,5 +358,9 @@
         "key": "shift+cmd+j",
         "command": "-workbench.action.search.toggleQueryDetails",
         "when": "searchViewletVisible"
+    },
+    {
+        "key": "shift+cmd+x",
+        "command": "-workbench.view.extensions"
     }
 ]

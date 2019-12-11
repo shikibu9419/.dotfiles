@@ -1,5 +1,7 @@
 {
+    //----------------------------------------------------------
     // Editor
+    //----------------------------------------------------------
     "editor.fontFamily": "RictyDiminished NF",
     "editor.fontSize": 14,
     "editor.tabSize": 2,
@@ -17,8 +19,9 @@
     "breadcrumbs.enabled": true,
     "debug.inlineValues": true,
 
+    //----------------------------------------------------------
     // workbench
-    "workbench.colorTheme": "Material Theme Darker High Contrast",
+    //----------------------------------------------------------
     "workbench.tree.indent": 4,
     "workbench.editor.closeEmptyGroups": false,
     "workbench.editor.revealIfOpen": true,
@@ -29,17 +32,37 @@
     "workbench.editor.tabSizing": "shrink",
     "workbench.editor.openPositioning": "first",
     "explorer.openEditors.visible": 0,
+    // color theme
+    "workbench.colorTheme": "Material Theme Darker High Contrast",
+    "materialTheme.accent": "Acid Lime",
+    "workbench.colorCustomizations": {
+        "activityBarBadge.background": "#C6FF00",
+        "list.activeSelectionForeground": "#C6FF00",
+        "list.inactiveSelectionForeground": "#C6FF00",
+        "list.highlightForeground": "#C6FF00",
+        "scrollbarSlider.activeBackground": "#C6FF0050",
+        "editorSuggestWidget.highlightForeground": "#C6FF00",
+        "textLink.foreground": "#C6FF00",
+        "progressBar.background": "#C6FF00",
+        "pickerGroup.foreground": "#C6FF00",
+        "tab.activeBorder": "#C6FF00",
+        "notificationLink.foreground": "#C6FF00",
+        "editorWidget.resizeBorder": "#C6FF00",
+        "editorWidget.border": "#C6FF00",
+        "settings.modifiedItemIndicator": "#C6FF00",
+        "settings.headerForeground": "#C6FF00",
+        "panelTitle.activeBorder": "#C6FF00",
+        "breadcrumb.activeSelectionForeground": "#C6FF00",
+        "menu.selectionForeground": "#C6FF00",
+        "menubar.selectionForeground": "#C6FF00",
+        "statusBar.background": "#8FBCBB",
+        "statusBar.noFolderBackground": "#8FBCBB",
+        "statusBar.debuggingBackground": "#8FBCBB"
+    },
 
-    // zen mode
-    "zenMode.fullScreen": true,
-    "zenMode.centerLayout": true,
-    "zenMode.hideActivityBar": true,
-    "zenMode.hideLineNumbers": false,
-    "zenMode.hideTabs": false,
-    "zenMode.hideStatusBar": true,
-    "zenMode.restore": false,
-
+    //----------------------------------------------------------
     // files
+    //----------------------------------------------------------
     "files.autoSave": "afterDelay",
     "files.autoSaveDelay": 100,
     "files.associations": {
@@ -74,78 +97,35 @@
         "**/env": true,
         "**/.vscode": true
     },
-    "typescript.tsc.autoDetect": "off",
-    "grunt.autoDetect": "off",
-    "jake.autoDetect": "off",
-    "npm.autoDetect": "off",
-    "gulp.autoDetect": "off",
 
+    //----------------------------------------------------------
+    // others
+    //----------------------------------------------------------
     // Terminal
     "terminal.integrated.copyOnSelection": true,
     "terminal.integrated.fontSize": 12,
 
-    "julia.executablePath": "/usr/local/bin/julia",
+    // zen mode
+    "zenMode.fullScreen": true,
+    "zenMode.centerLayout": true,
+    "zenMode.hideActivityBar": true,
+    "zenMode.hideLineNumbers": false,
+    "zenMode.hideTabs": false,
+    "zenMode.hideStatusBar": true,
+    "zenMode.restore": false,
+
+    //----------------------------------------------------------
+    // extensions
+    //----------------------------------------------------------
+    "extensions.autoUpdate": true,
+
     "code-runner.clearPreviousOutput": true,
     "code-runner.runInTerminal": true,
 
-    // extensions
-    "extensions.autoUpdate": true,
-
-    // vim setting
-    "vim.leader": "<space>",
-    "vim.enableNeovim": true,
-    "vim.neovimPath":"/usr/local/bin/nvim",
-    "vim.useSystemClipboard": true,
-    "vim.hlsearch": true,
-    "vim.visualstar": true,
-    "vim.useCtrlKeys": true,
-    "vim.ignorecase": true,
-    "vim.incsearch": true,
-    "vim.easymotion": true,
-    "vim.easymotionKeys": "sdfghjkl",
-    "vim.debug.silent": true,
-
-    // highlight when yanking text
-    "vim.highlightedyank.enable": true,
-    "vim.highlightedyank.color": "rgba(143, 188, 187, 0.3)",
-    "vim.highlightedyank.duration": 300,
-    // status bar
-    "vim.statusBarColorControl": true,
-    "vim.statusBarColors.normal": "#8FBCBB",
-    "vim.statusBarColors.insert": "#A3BE8C",
-    "vim.statusBarColors.visual": "#B48EAD",
-    "vim.statusBarColors.visualline": "#B48EAD",
-    "vim.statusBarColors.visualblock": "#B48EAD",
-    "vim.statusBarColors.replace": "#D08770",
-
-    "vim.insertModeKeyBindingsNonRecursive": [
-        { "before": ["j", "j"], "after": ["<Esc>"] },
-        { "before": ["<C-a>"],  "after": ["<Esc>", "I"] },
-        { "before": ["<C-e>"],  "after": ["<Esc>", "A"] }
-    ],
-    "vim.normalModeKeyBindingsNonRecursive": [
-        { "before": ["k"], "after": ["g", "k"] },
-        { "before": ["j"], "after": ["g", "j"] },
-        { "before": [";"], "after": [":"] },
-        { "before": [":"], "after": [";"] },
-        { "before": ["Y"], "after": ["y", "$"] },
-        { "before": ["D"], "after": ["d", "$"] },
-        { "before": ["H"], "after": ["^"] },
-        { "before": ["L"], "after": ["$"] },
-        { "before": ["+"], "after": ["<C-a>"] },
-        { "before": ["-"], "after": ["<C-x>"] },
-        { "before": ["u"],     "commands": [{ "command": "undo" }] },
-        { "before": ["<C-r>"], "commands": [{ "command": "redo" }] },
-        // sidebar commands (these are also defined in keybindings.json with prefix <Ctrl-s> instead of <Leader>)
-        { "before": ["<Leader>", "s"], "commands": [{ "command": "workbench.action.toggleSidebarVisibility" }] },
-        { "before": ["<Leader>", "f"], "commands": [{ "command": "workbench.action.focusSideBar" }] },
-        { "before": ["<Leader>", "/"], "commands": [{ "command": "workbench.action.findInFiles" }] },
-        { "before": ["<Leader>", "d"], "commands": [{ "command": "workbench.view.debug" }] },
-        { "before": ["<Leader>", "o"], "commands": [{ "command": "outline.focus" }] },
-        { "before": ["<Leader>", "n"], "commands": [{ "command": "workbench.view.explorer" }] }
-    ],
-    "vim.visualModeKeyBindingsNonRecursive": [
-    ],
+    // python / julia
+    "julia.enableTelemetry": true,
+    "julia.enableCrashReporter": true,
+    "julia.executablePath": "/usr/local/bin/julia",
 
     // html
     "html.autoClosingTags": true,
@@ -175,6 +155,11 @@
 
     // javascript
     "javascript.updateImportsOnFileMove.enabled": "always",
+    "typescript.tsc.autoDetect": "off",
+    "grunt.autoDetect": "off",
+    "jake.autoDetect": "off",
+    "npm.autoDetect": "off",
+    "gulp.autoDetect": "off",
 
     // vetur
     "vetur.format.options.tabSize": 2,
@@ -204,9 +189,70 @@
         "suppressShowKeyBindingsNotice": true
     },
 
+    // vim
+    "vim.leader": "<space>",
+    "vim.enableNeovim": true,
+    "vim.neovimPath":"/usr/local/bin/nvim",
+    "vim.useSystemClipboard": true,
+    "vim.hlsearch": true,
+    "vim.visualstar": true,
+    "vim.useCtrlKeys": true,
+    "vim.ignorecase": true,
+    "vim.incsearch": true,
+    "vim.debug.silent": true,
+    "vim.easymotion": true,
+    "vim.easymotionKeys": "sdfghjkl",
+    "vim.camelCaseMotion.enable": true,
+    // highlight when yanking text
+    "vim.highlightedyank.enable": true,
+    "vim.highlightedyank.color": "rgba(143, 188, 187, 0.3)",
+    "vim.highlightedyank.duration": 300,
+    // status bar
+    "vim.statusBarColorControl": true,
+    "vim.statusBarColors.normal": "#8FBCBB",
+    "vim.statusBarColors.insert": "#A3BE8C",
+    "vim.statusBarColors.visual": "#B48EAD",
+    "vim.statusBarColors.visualline": "#B48EAD",
+    "vim.statusBarColors.visualblock": "#B48EAD",
+    "vim.statusBarColors.replace": "#D08770",
+    // key bindings
+    "vim.normalModeKeyBindingsNonRecursive": [
+        { "before": ["k"], "after": ["g", "k"] },
+        { "before": ["j"], "after": ["g", "j"] },
+        { "before": [";"], "after": [":"] },
+        { "before": [":"], "after": [";"] },
+        { "before": ["Y"], "after": ["y", "$"] },
+        { "before": ["D"], "after": ["d", "$"] },
+        { "before": ["H"], "after": ["^"] },
+        { "before": ["L"], "after": ["$"] },
+        { "before": ["+"], "after": ["<C-a>"] },
+        { "before": ["-"], "after": ["<C-x>"] },
+        { "before": ["u"],     "commands": [{ "command": "undo" }] },
+        { "before": ["<C-r>"], "commands": [{ "command": "redo" }] },
+        // sidebar commands (these are also defined in keybindings.json with prefix <Ctrl-s> instead of <Leader>)
+        { "before": ["<Leader>", "s"], "commands": [{ "command": "workbench.action.toggleSidebarVisibility" }] },
+        { "before": ["<Leader>", "f"], "commands": [{ "command": "workbench.action.focusSideBar" }] },
+        { "before": ["<Leader>", "/"], "commands": [{ "command": "workbench.action.findInFiles" }] },
+        { "before": ["<Leader>", "d"], "commands": [{ "command": "workbench.view.debug" }] },
+        { "before": ["<Leader>", "o"], "commands": [{ "command": "outline.focus" }] },
+        { "before": ["<Leader>", "n"], "commands": [{ "command": "workbench.view.explorer" }] },
+        { "before": ["<Leader>", "e"], "commands": [{ "command": "workbench.view.extensions" }] }
+    ],
+    "vim.insertModeKeyBindingsNonRecursive": [
+        { "before": ["j", "j"], "after": ["<Esc>"] },
+        { "before": ["<C-a>"],  "after": ["<Esc>", "I"] },
+        { "before": ["<C-e>"],  "after": ["<Esc>", "A"] }
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        { "before": [">"], "commands": ["editor.action.indentLines"] },
+        { "before": ["<"], "commands": ["editor.action.outdentLines"] }
+    ],
+
     // latex
     "latex-workshop.view.pdf.viewer": "tab",
     "latex-workshop.chktex.enabled": false,
+    "latex-workshop.latex.autoClean.run": "onBuilt",
+    "latex-workshop.latex.autoBuild.run": "onFileChange",
     // https://blog.miz-ar.info/2016/11/magic-comments-in-tex/
     "latex-workshop.latex.magic.args": [
       "-f", "-gg", "-pv", "-synctex=1", "-interaction=nonstopmode", "-file-line-error", "%DOC%"
@@ -257,32 +303,6 @@
             ]
         }
     ],
-
-    "workbench.colorCustomizations": {
-        "activityBarBadge.background": "#C6FF00",
-        "list.activeSelectionForeground": "#C6FF00",
-        "list.inactiveSelectionForeground": "#C6FF00",
-        "list.highlightForeground": "#C6FF00",
-        "scrollbarSlider.activeBackground": "#C6FF0050",
-        "editorSuggestWidget.highlightForeground": "#C6FF00",
-        "textLink.foreground": "#C6FF00",
-        "progressBar.background": "#C6FF00",
-        "pickerGroup.foreground": "#C6FF00",
-        "tab.activeBorder": "#C6FF00",
-        "notificationLink.foreground": "#C6FF00",
-        "editorWidget.resizeBorder": "#C6FF00",
-        "editorWidget.border": "#C6FF00",
-        "settings.modifiedItemIndicator": "#C6FF00",
-        "settings.headerForeground": "#C6FF00",
-        "panelTitle.activeBorder": "#C6FF00",
-        "breadcrumb.activeSelectionForeground": "#C6FF00",
-        "menu.selectionForeground": "#C6FF00",
-        "menubar.selectionForeground": "#C6FF00",
-        "statusBar.background": "#8FBCBB",
-        "statusBar.noFolderBackground": "#8FBCBB",
-        "statusBar.debuggingBackground": "#8FBCBB"
-    },
-    "materialTheme.accent": "Acid Lime",
 
     "terminal.integrated.commandsToSkipShell": [
         "editor.action.toggleTabFocusMode",
@@ -374,10 +394,5 @@
         "workbench.action.terminal.splitInActiveWorkspace",
         "workbench.action.terminal.toggleTerminal",
         "workbench.action.togglePanel"
-    ],
-
-    "julia.enableTelemetry": true,
-    "latex-workshop.latex.autoClean.run": "onBuilt",
-    "latex-workshop.latex.autoBuild.run": "onFileChange",
-    "julia.enableCrashReporter": true,
+    ]
 }
