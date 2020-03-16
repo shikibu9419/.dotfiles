@@ -27,13 +27,13 @@
     "workbench.editor.revealIfOpen": true,
     "workbench.editor.highlightModifiedTabs": true,
     "workbench.editor.showTabs": true,
-    "workbench.editor.enablePreview": true,
-    "workbench.editor.enablePreviewFromQuickOpen": true,
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
     "workbench.editor.tabSizing": "shrink",
     "workbench.editor.openPositioning": "first",
     "explorer.openEditors.visible": 0,
     // color theme
-    "workbench.colorTheme": "Material Theme Darker High Contrast",
+    "workbench.colorTheme": "Hybrid Next (Gray Background)",
     "materialTheme.accent": "Acid Lime",
     "workbench.colorCustomizations": {
         "activityBarBadge.background": "#C6FF00",
@@ -69,7 +69,6 @@
         "*.sql": "sql",
         "*.vue": "vue"
     },
-    "files.autoGuessEncoding": true,
     "files.trimFinalNewlines": false,
 
     // excludes
@@ -101,6 +100,7 @@
     //----------------------------------------------------------
     // others
     //----------------------------------------------------------
+    "window.openFilesInNewWindow": "on",
     // Terminal
     "terminal.integrated.copyOnSelection": true,
     "terminal.integrated.fontSize": 12,
@@ -129,6 +129,7 @@
 
     // html
     "html.autoClosingTags": true,
+    "html.mirrorCursorOnMatchingTag": false,
     "[html]": {
         "editor.formatOnSave": true,
         "editor.formatOnPaste": true
@@ -208,7 +209,7 @@
     "vim.highlightedyank.color": "rgba(143, 188, 187, 0.3)",
     "vim.highlightedyank.duration": 300,
     // status bar
-    "vim.statusBarColorControl": true,
+    "vim.statusBarColorControl": false,
     "vim.statusBarColors.normal": "#8FBCBB",
     "vim.statusBarColors.insert": "#A3BE8C",
     "vim.statusBarColors.visual": "#B48EAD",
@@ -244,66 +245,24 @@
         { "before": ["<C-e>"],  "after": ["<Esc>", "A"] }
     ],
     "vim.visualModeKeyBindingsNonRecursive": [
+        { "before": ["k"], "after": ["g", "k"] },
+        { "before": ["j"], "after": ["g", "j"] },
+        { "before": [";"], "after": [":"] },
+        { "before": [":"], "after": [";"] },
         { "before": [">"], "commands": ["editor.action.indentLines"] },
         { "before": ["<"], "commands": ["editor.action.outdentLines"] }
     ],
 
     // latex
     "latex-workshop.view.pdf.viewer": "tab",
-    "latex-workshop.chktex.enabled": false,
-    "latex-workshop.latex.autoClean.run": "onBuilt",
-    "latex-workshop.latex.autoBuild.run": "onFileChange",
-    // https://blog.miz-ar.info/2016/11/magic-comments-in-tex/
-    "latex-workshop.latex.magic.args": [
-      "-f", "-gg", "-pv", "-synctex=1", "-interaction=nonstopmode", "-file-line-error", "%DOC%"
-    ],
     "latex-workshop.latex.clean.fileTypes": [
-        "*.aux", "*.bbl", "*.blg", "*.idx", "*.ind", "*.lof", "*.lot", "*.out", "*.toc", "*.acn", "*.acr", "*.alg", "*.glg", "*.glo", "*.gls", "*.ist", "*.fls", "*.log", "*.fdb_latexmk", "*.synctex.gz"
+        "*.aux", "*.bbl", "*.blg", "*.idx", "*.ind", "*.lof", "*.lot", "*.out", "*.toc", "*.acn", "*.acr", "*.alg", "*.glg", "*.glo", "*.gls", "*.ist", "*.fls", "*.log", "*.fdb_latexmk"
     ],
-    "latex-workshop.latex.recipes": [
-        {
-            "name": "latexmk",
-            "tools": [
-                "latexmk"
-            ]
-        },
-        {
-            "name": "luajitlatex -> upbibtex -> luajitlatex*2",
-            "tools": [
-                "luajitlatex",
-                "upbibtex",
-                "luajitlatex",
-                "luajitlatex"
-            ]
-        }
-    ],
-    "latex-workshop.latex.tools": [
-        {
-            "name": "latexmk",
-            "command": "latexmk",
-            "args": [
-                "%DOC%"
-            ]
-        },
-        {
-            "name": "luajitlatex",
-            "command": "luajitlatex",
-            "args": [
-                "-cmdx",
-                "-kanji=utf8",
-                "-fmt=luajitlatex.fmt",
-                "%DOCFILE%"
-            ]
-        },
-        {
-            "name": "upbibtex",
-            "command": "upbibtex",
-            "args": [
-                "%DOCFILE%"
-            ]
-        }
-    ],
+    "latex-workshop.latex.recipe.default": "lastUsed",
 
+    //----------------------------------------------------------
+    // Editor
+    //----------------------------------------------------------
     "terminal.integrated.commandsToSkipShell": [
         "editor.action.toggleTabFocusMode",
         "workbench.action.debug.continue",
