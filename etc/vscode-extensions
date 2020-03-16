@@ -2,6 +2,7 @@ abusaidm.html-snippets
 aki77.rails-partial
 AlanWalk.markdown-toc
 alefragnani.Bookmarks
+Angular.ng-template
 auchenberg.vscode-browser-preview
 bierner.markdown-preview-github-styles
 bung87.rails
@@ -18,7 +19,9 @@ donjayamanne.githistory
 eamodio.gitlens
 eg2.tslint
 eg2.vscode-npm-script
+Equinusocio.vsc-community-material-theme
 Equinusocio.vsc-material-theme
+equinusocio.vsc-material-theme-icons
 esbenp.prettier-vscode
 fabiospampinato.vscode-todo-plus
 formulahendry.auto-close-tag
@@ -42,6 +45,11 @@ misogi.ruby-rubocop
 mkaufman.HTMLHint
 ms-azuretools.vscode-docker
 ms-python.python
+ms-vscode-remote.remote-containers
+ms-vscode-remote.remote-ssh
+ms-vscode-remote.remote-ssh-edit
+ms-vscode-remote.remote-wsl
+ms-vscode-remote.vscode-remote-extensionpack
 msjsdiag.debugger-for-chrome
 mushan.vscode-paste-image
 noku.rails-run-spec-vscode
@@ -58,6 +66,7 @@ ryu1kn.edit-with-shell
 ryu1kn.partial-diff
 satokaz.vscode-bs-ctrlchar-remover
 sgryjp.japanese-word-handler
+shanejarvie.hybrid-theme
 shardulm94.trailing-spaces
 shuworks.vscode-table-formatter
 sianglim.slim
