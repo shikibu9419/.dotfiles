@@ -3,7 +3,7 @@
     {
         "key": "ctrl+p",
         "command": "workbench.action.showCommands",
-        "when": "editorTextFocus && vim.mode != 'CommandlineInProgress' && vim.mode != 'SearchInProgressMode'"
+        "when": "editorTextFocus && !suggestWidgetVisible && vim.mode != 'CommandlineInProgress' && vim.mode != 'SearchInProgressMode'"
     },
     {
         "key": "ctrl+z ctrl+z",
@@ -298,14 +298,43 @@
     },
     // [explorer] Open / Rename file
     {
-        "key": "ctrl+n",
-        "command": "explorer.newFile",
-        "when": "explorerViewletVisible && filesExplorerFocus"
+        "key": "ctrl+c",
+        "command": "filesExplorer.copy",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
+    },
+    {
+        "key": "ctrl+x",
+        "command": "filesExplorer.cut",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
+    },
+    {
+        "key": "ctrl+v",
+        "command": "filesExplorer.paste",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+    },
+    {
+        "key": "ctrl+d",
+        "command": "moveFileToTrash",
+        "when": "explorerResourceMoveableToTrash && explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+    },
+    {
+        "key": "d d",
+        "command": "moveFileToTrash",
+        "when": "explorerResourceMoveableToTrash && explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
     },
     {
         "key": "ctrl+r",
         "command": "renameFile",
         "when": "explorerViewletVisible && filesExplorerFocus"
+    },
+    {
+        "key": "ctrl+n",
+        "command": "explorer.newFile",
+        "when": "explorerViewletVisible && filesExplorerFocus"
+    },
+    {
+        "key": "ctrl+f",
+        "command": "explorer.newFolder"
     },
 
     //----------------------------------------------------------
