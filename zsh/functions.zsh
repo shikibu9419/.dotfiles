@@ -17,6 +17,18 @@ k() {
 #------------------------------------------
 # My original functions
 #------------------------------------------
+extract() {
+  for f in $@; do
+    case $f in
+      *.zip)     unzip $f ;;
+      *.tar.gz)  tar xvzf $f ;;
+      *.tar.bz2) tar xvjf $f ;;
+      *) echo "$f: skipped."
+    esac
+  done
+  echo 'extract: done.'
+}
+
 _check_available_git() {
   git rev-parse > /dev/null 2>&1
 }
