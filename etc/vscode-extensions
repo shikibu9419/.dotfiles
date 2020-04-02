@@ -39,6 +39,7 @@ kaiwood.endwise
 kisstkondoros.vscode-gutter-preview
 KnisterPeter.vscode-github
 MariusAlchimavicius.json-to-ts
+mathiasfrohlich.Kotlin
 mechatroner.rainbow-csv
 miguel-savignano.ruby-symbols
 misogi.ruby-rubocop
@@ -60,6 +61,7 @@ quicktype.quicktype
 rebornix.ruby
 redhat.java
 redhat.vscode-yaml
+richardwillis.vscode-gradle
 rogalmic.bash-debug
 rust-lang.rust
 ryu1kn.edit-with-shell

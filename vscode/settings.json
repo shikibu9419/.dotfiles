@@ -80,7 +80,11 @@
         "**/.DS_Store": true,
         "**/.venv": true,
         "**/.ipynb_checkpoints": true,
-        "**/__pycache__": true
+        "**/__pycache__": true,
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
     },
     "files.watcherExclude": {
         "**/.git/objects": true,
@@ -101,6 +105,7 @@
     // others
     //----------------------------------------------------------
     "window.openFilesInNewWindow": "on",
+    "window.zoomLevel": 0,
     // Terminal
     "terminal.integrated.copyOnSelection": true,
     "terminal.integrated.fontSize": 12,
