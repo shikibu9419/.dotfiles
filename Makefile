@@ -25,11 +25,9 @@ update:
 	@git pull origin master
 	@git submodule update --init --recursive
 	@git submodule foreach git pull origin master
-	@echo 'Update other plugins:'
-	@myupdate
 
 clean:
-	@echo 'Clean up dotfiles:'
+	@echo 'Cleaning up dotfiles...'
 	@$(foreach link, $(DEPLOYED), unlink ~/$(link);)
 	@rm -rfi $(DOTPATH)
 

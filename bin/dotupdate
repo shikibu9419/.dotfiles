@@ -1,0 +1,19 @@
+#!/usr/local/bin/zsh
+
+message() {
+  printf "\e[31;1mUPDATE: \e[37;1m$1\e[m\n"
+}
+
+message 'dotfiles'
+(cd $DOTPATH && make update)
+
+message 'zplug'
+(. /usr/local/opt/zplug/init.zsh && zplug install && zplug update)
+
+message 'brew'
+brew update && brew upgrade && brew cleanup
+
+message 'vscode'
+code --list-extensions > $DOTPATH/etc/vscode-extensions
+
+echo 'Done: Run "reload".'
