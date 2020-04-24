@@ -94,20 +94,18 @@ abbrev-alias -c dka='docker ps -q | xargs docker stop | xargs docker rm'
 abbrev-alias -c v='nvim'
 abbrev-alias -g E='| emojify'
 abbrev-alias -g C='| $(pbcopy)'
-abbrev-alias -g G='| grep'
+abbrev-alias -g G='| rg'
 abbrev-alias -g P='$(pbpaste)'
 abbrev-alias -g '...'='../..'
 abbrev-alias -g '....'='../../..'
 
 alias crop='() { for f in $@; do pdfcrop $f $f; done }'
-alias temp='() { FNAME="__TEMPLATE__.$1"; nvim $FNAME && rm $FNAME }'
 alias reload='source ~/.zshenv && source ~/.zshrc'
 alias vs=vscode_open_project
 alias gz='tar cvzf $1.tar.gz $1'
 alias bz2='tar cvjf $1.tar.gz $1'
 
-alias ls='gls --color=auto'
-alias grep='grep --color=auto'
+alias ls=exa
 alias la='ls -al'
 alias ll='ls -l'
 alias cp='cp -r'

@@ -5,24 +5,46 @@ tap 'homebrew/services'
 tap 'homebrew/cask-versions'
 tap 'homebrew/cask'
 
+# important tools
 brew 'coreutils'
-brew 'zsh'
-brew 'neovim'
-brew 'tmux'
-brew 'zplug'
 brew 'git'
-brew 'reattach-to-user-namespace'
-brew 'zsh-completions'
-brew 'hub'
-brew 'ghq'
-brew 'fzf'
-brew 'emojify'
-brew 'jq'
-brew 'fpp'
+brew 'neovim'
+brew 'zsh'
+brew 'zplug'
+brew 'tmux'
 
+# shell commands
+brew 'cmake'
+brew 'cowsay' # summoning the cow
+brew 'emojify' # e.g. :smile: -> <smiling emoji>
+brew 'fpp'
+brew 'fzf' # fuzzy finder
+brew 'ghq' # getting repositories and listing them
+brew 'gnu-sed' # sed of GNU
+brew 'highlight'
+brew 'httpd'
+brew 'hub' # git extension
+brew 'jq' # JSON processor on CLI
+brew 'nmap'
+brew 'openssl'
+brew 'pandoc'
+brew 'readline'
+brew 'reattach-to-user-namespace' # Sharing clipboard of Tmux
+brew 'tree'
+brew 'wget'
+
+# upgraded shell commands
+brew 'bat' # cat
+brew 'exa' # ls
+brew 'fd' # find
+brew 'hexyl'
+brew 'procs'
+brew 'ripgrep' # grep
+
+# GUI Tools
 cask 'alacritty'
-cask 'dash'
 cask 'alfred'
-cask 'visual-studio-code'
+cask 'dash'
 cask 'docker'
 cask 'docker-toolbox'
+cask 'visual-studio-code'

@@ -22,8 +22,6 @@ zshaddhistory() {
 
 ## plugins
 typeset -U PATH path cdpath fpath manpath
-eval "$(rbenv init -)"
-
 zstyle ':zle:*' word-chars ' /=;@:{}[]()<>,|.'
 zstyle ':zle:*' word-style unspecified
 zstyle ':notify:*' success-title 'Command finished! (in #{time_elapsed} sec.)'
