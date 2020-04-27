@@ -1,21 +1,5 @@
 #------------------------------------------
-# Plugin config
-#------------------------------------------
-cd-gitroot() {
-  unfunction cd-gitroot
-  . $ZPLUG_REPOS/mollifier/cd-gitroot/cd-gitroot
-  autoload -Uz cd-gitroot
-}
-
-k() {
-  unfunction k
-  . $ZPLUG_REPOS/supercrabtree/k/k.sh
-  k "$@"
-}
-
-
-#------------------------------------------
-# My original functions
+# CLI commands
 #------------------------------------------
 extract() {
   for f in $@; do
@@ -29,12 +13,19 @@ extract() {
   echo 'extract: done.'
 }
 
-_check_available_git() {
+
+#------------------------------------------
+# called from others
+#------------------------------------------
+__shikibu::check_git_availability() {
   git rev-parse > /dev/null 2>&1
 }
 
+__shikibu::message() {
+  printf "\e[31;1mUPDATE: \e[37;1m$1\e[m\n"
+}
 
-_show_ls_gs() {
+__shikibu::show_ls_gs() {
   if [ -n "$BUFFER" ]; then
     zle accept-line
     return
@@ -48,7 +39,7 @@ _show_ls_gs() {
   ls
   echo
 
-  if _check_available_git; then
+  if __shikibu::check_git_availability; then
     echo -e "$color--- git status ---$reset"
     git status -sb
     echo
@@ -58,15 +49,13 @@ _show_ls_gs() {
   zle reset-prompt
 }
 
-
-select_history() {
+__shikibu::select_history() {
   local BUFFER=$(fc -l -n 1 | fzf --reverse --tac --query=$LBUFFER)
   CURSOR=$#BUFFER
 }
 
-
-vscode_open_project() {
-  local selected dir repo session current_session
+__shikibu::vscode_open_project() {
+  local selected
   selected=$(ghq list | fzf)
   project=$(ghq root)/$selected
 
@@ -75,8 +64,7 @@ vscode_open_project() {
   code $project
 }
 
-
-ghq_jump_repository() {
+__shikibu::ghq_jump_repository() {
   local selected dir repo session current_session
   selected=$(ghq list | fzf --query=$LBUFFER)
   dir=$(ghq root)/$selected
@@ -91,7 +79,7 @@ ghq_jump_repository() {
 
   repo=${dir##*/}
   if [[ ! $selected =~ ^'github.com'.+$ ]]; then
-    parent=${dir%/*}
+    local parent=${dir%/*}
     repo=${parent##*/}/$repo
   fi
 

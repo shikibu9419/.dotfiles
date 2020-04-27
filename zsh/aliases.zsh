@@ -100,10 +100,10 @@ abbrev-alias -g '...'='../..'
 abbrev-alias -g '....'='../../..'
 
 alias crop='() { for f in $@; do pdfcrop $f $f; done }'
-alias reload='source ~/.zshenv && source ~/.zshrc'
-alias vs=vscode_open_project
 alias gz='tar cvzf $1.tar.gz $1'
 alias bz2='tar cvjf $1.tar.gz $1'
+alias reload='source ~/.zshenv && source ~/.zshrc'
+alias vs=__shikibu::vscode_open_project
 
 alias ls=exa
 alias la='ls -al'
