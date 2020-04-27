@@ -5,18 +5,8 @@ autoload -U tetris; zle -N tetris
 abbrev-alias -c t=tmuximum
 abbrev-alias -c cdg=cd-gitroot
 
-## git
+## git & hub
 alias git='hub'
-
-alias gadd=git-extended-add
-alias glog=git-extended-log
-alias gwork=git-extended-worktree
-alias ginit=git-extended-init
-alias gclone='git clone $(pbpaste)'
-alias gpush='git push origin $(git symbolic-ref --short HEAD)'
-alias gpushf='git push --force-with-lease origin $(git symbolic-ref --short HEAD)'
-alias gremadd='git remote add origin $(pbpaste)'
-alias gwa='git worktree add $(git rev-parse --show-cdup).git-worktrees/$1 -b $1'
 
 abbrev-alias -c g=git
 abbrev-alias -c ga='git add'
@@ -57,17 +47,27 @@ abbrev-alias -c gw='git worktree'
 abbrev-alias -c gwl='git worktree list'
 abbrev-alias -c gwp='git worktree prune'
 
-# from external plugins
+abbrev-alias gcom='hub compare'
+abbrev-alias gfk='hub fork'
+abbrev-alias gi='hub issue'
+abbrev-alias gpr='hub pr'
+abbrev-alias gbr='hub browse'
+
+alias gadd=git-extended-add
+alias glog=git-extended-log
+alias gwork=git-extended-worktree
+alias ginit=git-extended-init
+alias gclone='git clone $(pbpaste)'
+alias gpush='git push origin $(git symbolic-ref --short HEAD)'
+alias gpushf='git push --force-with-lease origin $(git symbolic-ref --short HEAD)'
+alias gremadd='git remote add origin $(pbpaste)'
+alias gwa='git worktree add $(git rev-parse --show-cdup).git-worktrees/$1 -b $1'
+
+# with external plugins
 alias fpd='git diff --stat | fpp'
 alias fps='git status | fpp'
 alias ghget='ghq get $(pbpaste)'
 alias remind='git remind status'
-
-abbrev-alias gcom='git compare'
-abbrev-alias gfk='git fork'
-abbrev-alias gi='git issue'
-abbrev-alias gpr='git pr'
-abbrev-alias gbr='git browse'
 
 ## tmux
 abbrev-alias -c tks='tmux kill-session -t'
