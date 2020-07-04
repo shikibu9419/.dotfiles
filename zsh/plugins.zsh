@@ -16,8 +16,8 @@ zplug 'greymd/tmux-xpanes'
 zplug 'sindresorhus/pure'
 zplug 'b4b4r07/zsh-gomi', use:bin
 zplug 'b4b4r07/emoji-cli', if:'which jq'
-# zplug 'shikibu9419/git-fzf-extender', use:init.sh, if:'which fzf'
-source ~/dev/git-fzf-extender/init.sh
+zplug 'bigH/git-fuzzy'
+zplug 'shikibu9419/git-fzf-extender', use:init.sh, if:'which fzf'
 
 zplug load
 
@@ -25,6 +25,9 @@ zplug load
 #------------------------------------------
 # Plugin config
 #------------------------------------------
+export PATH="$ZPLUG_REPOS/bigH/git-fuzzy/bin:$PATH"
+export FZF_ALT_C_OPTS='--select-1 --exit-0'
+
 cd-gitroot() {
   unfunction cd-gitroot
   . $ZPLUG_REPOS/mollifier/cd-gitroot/cd-gitroot
