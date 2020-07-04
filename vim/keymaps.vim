@@ -63,89 +63,91 @@ nnoremap <Space>o :only<cr>
 nnoremap <Space>p "0p
 nnoremap <Space><Space> <C-^>
 
-cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
-cnoremap <expr> ? getcmdtype() == '?' ? '\?' : '?'
-cnoremap <C-p> <Up>
-cnoremap <C-n> <Down>
-cabbr w!! w !sudo tee > /dev/null %
+if !exists('g:vscode')
+  cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
+  cnoremap <expr> ? getcmdtype() == '?' ? '\?' : '?'
+  cnoremap <C-p> <Up>
+  cnoremap <C-n> <Down>
+  cabbr w!! w !sudo tee > /dev/null %
 
-" tab
-nnoremap <silent> tn :tabnext<cr>
-nnoremap <silent> tp :tabprevious<cr>
-nnoremap <silent> tc :tablast <bar> tabnew<cr>
-for index in range(1, 9)
-  execute 'nnoremap <silent> t'.index  ':<C-u>tabnext'.index.'<cr>'
-endfor
+  " tab
+  nnoremap <silent> tn :tabnext<cr>
+  nnoremap <silent> tp :tabprevious<cr>
+  nnoremap <silent> tc :tablast <bar> tabnew<cr>
+  for index in range(1, 9)
+    execute 'nnoremap <silent> t'.index  ':<C-u>tabnext'.index.'<cr>'
+  endfor
+endif
 
 "----------------------------------------------
 " Plugins
 "----------------------------------------------
-map  ga <Plug>(EasyAlign)
 nmap j  <Plug>(accelerated_jk_gj)
 nmap k  <Plug>(accelerated_jk_gk)
+map  ga <Plug>(EasyAlign)
 
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
+if !exists('g:vscode')
+  map  <C-c> <Plug>(caw:zeropos:toggle)
 
-map  <C-c> <Plug>(caw:zeropos:toggle)
-imap <C-k> <Plug>(neosnippet_expand_or_jump)
-smap <C-k> <Plug>(neosnippet_expand_or_jump)
-xmap <C-k> <Plug>(neosnippet_expand_target)
-inoremap <C-l> <C-r>=lexima#insmode#leave(1, '<LT>C-G>U<LT>RIGHT>')<cr>
+  inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+  inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 
-"" Tmux
-nnoremap <silent> <C-f>h  :TmuxNavigateLeft<cr>
-nnoremap <silent> <C-f>j  :TmuxNavigateDown<cr>
-nnoremap <silent> <C-f>k  :TmuxNavigateUp<cr>
-nnoremap <silent> <C-f>l  :TmuxNavigateRight<cr>
-nnoremap <silent> <C-f>\\ :TmuxNavigatePrevious<cr>
+  inoremap <C-l> <C-r>=lexima#insmode#leave(1, '<LT>C-G>U<LT>RIGHT>')<cr>
 
-"" neosnippet
-imap <C-k> <Plug>(neosnippet_expand_or_jump)
-smap <C-k> <Plug>(neosnippet_expand_or_jump)
-xmap <C-k> <Plug>(neosnippet_expand_target)
+  "" Tmux
+  nnoremap <silent> <C-f>h  :TmuxNavigateLeft<cr>
+  nnoremap <silent> <C-f>j  :TmuxNavigateDown<cr>
+  nnoremap <silent> <C-f>k  :TmuxNavigateUp<cr>
+  nnoremap <silent> <C-f>l  :TmuxNavigateRight<cr>
+  nnoremap <silent> <C-f>\\ :TmuxNavigatePrevious<cr>
 
-"" ale
-nmap <silent> <C-p> <Plug>(ale_previous_wrap)
-nmap <silent> <C-n> <Plug>(ale_next_wrap)
+  "" neosnippet
+  imap <C-k> <Plug>(neosnippet_expand_or_jump)
+  smap <C-k> <Plug>(neosnippet_expand_or_jump)
+  xmap <C-k> <Plug>(neosnippet_expand_target)
 
-"" lsp
-map <C-l> [lsp]
-nnoremap <buffer> [lsp]<C-d> :<C-u>LspDefinition<cr>
-nnoremap <buffer> [lsp]<C-r> :<C-u>LspReferences<cr>
-" nnoremap <buffer> gs :<C-u>LspDocumentSymbol<cr>
-" nnoremap <buffer> gS :<C-u>LspWorkspaceSymbol<cr>
-" nnoremap <buffer> gQ :<C-u>LspDocumentFormat<cr>
-" vnoremap <buffer> gQ :LspDocumentRangeFormat<cr>
-" nnoremap <buffer> K :<C-u>LspHover<cr>
-" nnoremap <buffer> <F1> :<C-u>LspImplementation<cr>
-" nnoremap <buffer> <F2> :<C-u>LspRename<cr>
+  "" ale
+  nmap <silent> <C-p> <Plug>(ale_previous_wrap)
+  nmap <silent> <C-n> <Plug>(ale_next_wrap)
 
-"" fzf
-map <C-j> [fzf]
-nnoremap [fzf]<C-b> :FzfBuffers<cr>
-nnoremap [fzf]<C-c> :FzfColors<cr>
-nnoremap [fzf]<C-f> :FzfGFiles?<cr>
-nnoremap [fzf]<C-l> :FzfFiles<cr>
-nnoremap [fzf]<C-m> :FzfMostRecentlyUsed<cr>
-nnoremap [fzf]<C-r> :FzfRg<cr>
-nnoremap [fzf]<C-x> :FzfCommands<cr>
+  "" lsp
+  map <C-l> [lsp]
+  nnoremap <buffer> [lsp]<C-d> :<C-u>LspDefinition<cr>
+  nnoremap <buffer> [lsp]<C-r> :<C-u>LspReferences<cr>
+  " nnoremap <buffer> gs :<C-u>LspDocumentSymbol<cr>
+  " nnoremap <buffer> gS :<C-u>LspWorkspaceSymbol<cr>
+  " nnoremap <buffer> gQ :<C-u>LspDocumentFormat<cr>
+  " vnoremap <buffer> gQ :LspDocumentRangeFormat<cr>
+  " nnoremap <buffer> K :<C-u>LspHover<cr>
+  " nnoremap <buffer> <F1> :<C-u>LspImplementation<cr>
+  " nnoremap <buffer> <F2> :<C-u>LspRename<cr>
 
-"" use Leader
-map  <silent> <Leader>b <Plug>(openbrowser-smart-search)
-nmap <silent> <Leader>d <Plug>DashSearch
-nmap <silent> <Leader>f <plug>NERDTreeFocusToggle<cr>
-nmap <silent> <Leader>n <plug>NERDTreeTabsToggle<cr>
-nmap <silent> <Leader>r <Plug>(quickrun)
-" nnoremap <silent> <Leader>r :cclose<cr>:w<cr>:QuickRun -mode n<cr>
-" nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
+  "" fzf
+  map <C-j> [fzf]
+  nnoremap [fzf]<C-b> :FzfBuffers<cr>
+  nnoremap [fzf]<C-c> :FzfColors<cr>
+  nnoremap [fzf]<C-f> :FzfGFiles?<cr>
+  nnoremap [fzf]<C-l> :FzfFiles<cr>
+  nnoremap [fzf]<C-m> :FzfMostRecentlyUsed<cr>
+  nnoremap [fzf]<C-r> :FzfRg<cr>
+  nnoremap [fzf]<C-x> :FzfCommands<cr>
 
-"" fugigive
-map <Leader>g [git]
-nnoremap [git]s :<C-u>Gstatus<cr>
-nnoremap [git]d :<C-u>Gdiff<cr>
-nnoremap [git]b :<C-u>Gblame<cr>
-nnoremap [git]l :<C-u>Glog<cr>
-nnoremap [git]p <Plug>GitGutterPrevHunk
-nnoremap [git]n <Plug>GitGutterNextHunk
+  "" use Leader
+  map  <silent> <Leader>b <Plug>(openbrowser-smart-search)
+  nmap <silent> <Leader>d <Plug>DashSearch
+  nmap <silent> <Leader>f <plug>NERDTreeFocusToggle<cr>
+  nmap <silent> <Leader>n <plug>NERDTreeTabsToggle<cr>
+  nmap <silent> <Leader>r <Plug>(quickrun)
+  " nnoremap <silent> <Leader>r :cclose<cr>:w<cr>:QuickRun -mode n<cr>
+  " nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
+
+  "" fugigive
+  map <Leader>g [git]
+  nnoremap [git]s :<C-u>Gstatus<cr>
+  nnoremap [git]d :<C-u>Gdiff<cr>
+  nnoremap [git]b :<C-u>Gblame<cr>
+  nnoremap [git]l :<C-u>Glog<cr>
+  nnoremap [git]p <Plug>GitGutterPrevHunk
+  nnoremap [git]n <Plug>GitGutterNextHunk
+endif

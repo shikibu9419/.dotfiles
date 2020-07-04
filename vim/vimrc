@@ -3,10 +3,11 @@ if has('nvim')
   let g:python3_host_prog = expand('/usr/local/bin/python3')
 endif
 
+source $DOTPATH/vim/plug.vim
+source $DOTPATH/vim/keymaps.vim
+
 if !exists('g:vscode')
-  source $DOTPATH/vim/plug.vim
   source $DOTPATH/vim/appearance.vim
   source $DOTPATH/vim/edit.vim
-  source $DOTPATH/vim/keymaps.vim
   source $DOTPATH/vim/others.vim
 endif
