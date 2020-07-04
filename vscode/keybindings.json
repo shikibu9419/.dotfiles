@@ -3,7 +3,7 @@
     {
         "key": "ctrl+p",
         "command": "workbench.action.showCommands",
-        "when": "editorTextFocus && !suggestWidgetVisible && vim.mode != 'CommandlineInProgress' && vim.mode != 'SearchInProgressMode'"
+        "when": "editorTextFocus && !suggestWidgetVisible && neovim.mode == normal"
     },
     {
         "key": "ctrl+z ctrl+z",
@@ -13,7 +13,7 @@
     {
         "key": "ctrl+j",
         "command": "workbench.action.quickOpen",
-        "when": "editorTextFocus && vim.mode != 'CommandlineInProgress'"
+        "when": "editorTextFocus && neovim.mode == normal"
     },
     {
         "key": "ctrl+[",
@@ -24,7 +24,7 @@
     {
         "key": "Ctrl+t",
         "command": "workbench.action.terminal.toggleTerminal",
-        "when": "vim.mode == 'Normal'"
+        "when": "neovim.mode == normal"
     },
 
     // LSP actions (jump to implementation / declaration, rename)
@@ -47,18 +47,18 @@
     // multiple cursor
     {
         "key": "ctrl+n",
-        "command": "extension.vim_cmd+d",
-        "when": "editorTextFocus && !inDebugRepl && vim.active && vim.mode != 'Insert'"
+        "command": "editor.action.addSelectionToNextFindMatch",
+        "when": "editorTextFocus && !inDebugRepl && neovim.init && neovim.mode == normal"
     },
     {
         "key": "ctrl+shift+n",
         "command": "editor.action.selectHighlights",
-        "when": "editorTextFocus && vim.mode != 'Insert'"
+        "when": "editorTextFocus && neovim.mode != insert"
     },
     {
         "key": "ctrl+shift+l",
         "command": "editor.action.insertCursorAtEndOfEachLineSelected",
-        "when": "editorTextFocus && vim.mode != 'Insert' && editorHasMultipleSelections"
+        "when": "editorTextFocus && neovim.mode != insert && editorHasMultipleSelections"
     },
     // Comment toggle
     {
@@ -101,12 +101,12 @@
     {
         "key": "ctrl+h",
         "command": "workbench.action.previousEditor",
-        "when": "vim.active && vim.mode == 'Normal' && editorFocus"
+        "when": "neovim.init && neovim.mode == normal && editorFocus"
     },
     {
         "key": "ctrl+l",
         "command": "workbench.action.nextEditor",
-        "when": "vim.active && vim.mode == 'Normal' && editorFocus"
+        "when": "neovim.init && neovim.mode == normal && editorFocus"
     },
 
     {
@@ -156,17 +156,17 @@
     //----------------------------------------------------------
     // Extentions
     //----------------------------------------------------------
-    // [vim] on command mode
-    {
-        "key": "ctrl+p",
-        "command": "extension.vim_up",
-        "when": "vim.active && vim.mode == 'CommandlineInProgress' || vim.mode == 'SearchInProgressMode' && !inDebugRepl && !suggestWidgetMultipleSuggestions && !suggestWidgetVisible"
-    },
-    {
-        "key": "ctrl+n",
-        "command": "extension.vim_down",
-        "when": "vim.active && vim.mode == 'CommandlineInProgress' || vim.mode == 'SearchInProgressMode' && !inDebugRepl && !suggestWidgetMultipleSuggestions && !suggestWidgetVisible"
-    },
+    // [neovim] on command mode
+    // {
+    //     "key": "ctrl+p",
+    //     "command": "extension.neovim_up",
+    //     "when": "neovim.init && neovim.mode == 'CommandlineInProgress' || neovim.mode == 'SearchInProgressMode' && !inDebugRepl && !suggestWidgetMultipleSuggestions && !suggestWidgetVisible"
+    // },
+    // {
+    //     "key": "ctrl+n",
+    //     "command": "extension.neovim_down",
+    //     "when": "neovim.init && neovim.mode == 'CommandlineInProgress' || neovim.mode == 'SearchInProgressMode' && !inDebugRepl && !suggestWidgetMultipleSuggestions && !suggestWidgetVisible"
+    // },
     // Snippets
     {
         "key": "ctrl+k",
@@ -197,34 +197,34 @@
     {
         "key": "ctrl+s s",
         "command": "workbench.action.toggleSidebarVisibility",
-        "when": "!inDebugMode && vim.mode == 'Normal'"
+        "when": "!inDebugMode && neovim.mode == normal"
     },
     {
         "key": "ctrl+s ctrl+s",
         "command": "workbench.action.toggleSidebarVisibility",
-        "when": "!inDebugMode && vim.mode == 'Normal'"
+        "when": "!inDebugMode && neovim.mode == normal"
     },
     // focus sidebar
     {
         "key": "ctrl+s f",
         "command": "workbench.action.focusSideBar",
-        "when": "vim.mode == 'Normal'"
+        "when": "neovim.mode == normal"
     },
     {
         "key": "ctrl+s ctrl+f",
         "command": "workbench.action.focusSideBar",
-        "when": "vim.mode == 'Normal'"
+        "when": "neovim.mode == normal"
     },
     // grep search
     {
         "key": "ctrl+s /",
         "command": "workbench.action.findInFiles",
-        "when": "!searchInputBoxFocus && vim.mode == 'Normal'"
+        "when": "!searchInputBoxFocus && neovim.mode == normal"
     },
     {
         "key": "ctrl+s ctrl+/",
         "command": "workbench.action.findInFiles",
-        "when": "!searchInputBoxFocus && vim.mode == 'Normal'"
+        "when": "!searchInputBoxFocus && neovim.mode == normal"
     },
     {
         "key": "ctrl+j",
@@ -245,56 +245,56 @@
     {
         "key": "ctrl+s d",
         "command": "workbench.view.debug",
-        "when": "vim.mode == 'Normal'"
+        "when": "neovim.mode == normal"
     },
     {
         "key": "ctrl+s ctrl+d",
         "command": "workbench.view.debug",
-        "when": "vim.mode == 'Normal'"
+        "when": "neovim.mode == normal"
     },
     // scm (git ui)
     {
         "key": "ctrl+s g",
         "command": "workbench.view.scm",
-        "when": "vim.mode == 'Normal'"
+        "when": "neovim.mode == normal"
     },
     {
         "key": "ctrl+s ctrl+g",
         "command": "workbench.view.scm",
-        "when": "vim.mode == 'Normal'"
+        "when": "neovim.mode == normal"
     },
     // outline
     {
         "key": "ctrl+s o",
         "command": "outline.focus",
-        "when": "vim.mode != 'SearchInProgressMode' && vim.mode == 'Normal'"
+        "when": "neovim.mode == normal"
     },
     {
         "key": "ctrl+s ctrl+o",
         "command": "outline.focus",
-        "when": "vim.mode != 'SearchInProgressMode' && vim.mode == 'Normal'"
+        "when": "neovim.mode == normal"
     },
     // explorer
     {
         "key": "ctrl+s n",
         "command": "workbench.view.explorer",
-        "when": "vim.mode != 'SearchInProgressMode' && vim.mode == 'Normal'"
+        "when": "neovim.mode == normal"
     },
     {
        "key": "ctrl+s ctrl+n",
         "command": "workbench.view.explorer",
-        "when": "vim.mode != 'SearchInProgressMode' && vim.mode == 'Normal'"
+        "when": "neovim.mode == normal"
     },
     // extensions
     {
         "key": "ctrl+s e",
         "command": "workbench.view.extensions",
-        "when": "vim.mode != 'SearchInProgressMode' && vim.mode == 'Normal'"
+        "when": "neovim.mode == normal"
     },
     {
         "key": "ctrl+s ctrl+e",
         "command": "workbench.view.extensions",
-        "when": "vim.mode != 'SearchInProgressMode' && vim.mode == 'Normal'"
+        "when": "neovim.mode == normal"
     },
     // [explorer] Open / Rename file
     {
@@ -391,5 +391,10 @@
     {
         "key": "shift+cmd+x",
         "command": "-workbench.view.extensions"
+    },
+    {
+        "key": "ctrl+a",
+        "command": "-vscode-neovim.ctrl-a-insert",
+        "when": "editorTextFocus && neovim.ctrlKeysInsert && !neovim.recording && neovim.mode == 'insert'"
     }
 ]

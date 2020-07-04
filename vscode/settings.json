@@ -196,68 +196,28 @@
     },
 
     // vim
-    "vim.leader": "<space>",
-    "vim.enableNeovim": true,
-    "vim.neovimPath":"/usr/local/bin/nvim",
     "vscode-neovim.neovimPath": "/usr/local/bin/nvim",
-    "vim.useSystemClipboard": true,
-    "vim.hlsearch": true,
-    "vim.visualstar": true,
-    "vim.useCtrlKeys": true,
-    "vim.ignorecase": true,
-    "vim.incsearch": true,
-    "vim.debug.silent": true,
-    "vim.easymotion": true,
-    "vim.easymotionKeys": "sdfghjkl",
-    "vim.camelCaseMotion.enable": true,
-    // highlight when yanking text
-    "vim.highlightedyank.enable": true,
-    "vim.highlightedyank.color": "rgba(143, 188, 187, 0.3)",
-    "vim.highlightedyank.duration": 300,
-    // status bar
-    "vim.statusBarColorControl": false,
-    "vim.statusBarColors.normal": "#8FBCBB",
-    "vim.statusBarColors.insert": "#A3BE8C",
-    "vim.statusBarColors.visual": "#B48EAD",
-    "vim.statusBarColors.visualline": "#B48EAD",
-    "vim.statusBarColors.visualblock": "#B48EAD",
-    "vim.statusBarColors.replace": "#D08770",
+    // "vim.leader": "<space>",
+    // // highlight when yanking text
+    // "vim.highlightedyank.enable": true,
+    // "vim.highlightedyank.color": "rgba(143, 188, 187, 0.3)",
+    // "vim.highlightedyank.duration": 300,
     // key bindings
-    "vim.normalModeKeyBindingsNonRecursive": [
-        { "before": ["k"], "after": ["g", "k"] },
-        { "before": ["j"], "after": ["g", "j"] },
-        { "before": [";"], "after": [":"] },
-        { "before": [":"], "after": [";"] },
-        { "before": ["Y"], "after": ["y", "$"] },
-        { "before": ["D"], "after": ["d", "$"] },
-        { "before": ["H"], "after": ["^"] },
-        { "before": ["L"], "after": ["$"] },
-        { "before": ["+"], "after": ["<C-a>"] },
-        { "before": ["-"], "after": ["<C-x>"] },
-        { "before": ["u"],     "commands": [{ "command": "undo" }] },
-        { "before": ["<C-r>"], "commands": [{ "command": "redo" }] },
-        // sidebar commands (these are also defined in keybindings.json with prefix <Ctrl-s> instead of <Leader>)
-        { "before": ["<Leader>", "s"], "commands": [{ "command": "workbench.action.toggleSidebarVisibility" }] },
-        { "before": ["<Leader>", "f"], "commands": [{ "command": "workbench.action.focusSideBar" }] },
-        { "before": ["<Leader>", "/"], "commands": [{ "command": "workbench.action.findInFiles" }] },
-        { "before": ["<Leader>", "d"], "commands": [{ "command": "workbench.view.debug" }] },
-        { "before": ["<Leader>", "o"], "commands": [{ "command": "outline.focus" }] },
-        { "before": ["<Leader>", "n"], "commands": [{ "command": "workbench.view.explorer" }] },
-        { "before": ["<Leader>", "e"], "commands": [{ "command": "workbench.view.extensions" }] }
-    ],
-    "vim.insertModeKeyBindingsNonRecursive": [
-        { "before": ["j", "j"], "after": ["<Esc>"] },
-        { "before": ["<C-a>"],  "after": ["<Esc>", "I"] },
-        { "before": ["<C-e>"],  "after": ["<Esc>", "A"] }
-    ],
-    "vim.visualModeKeyBindingsNonRecursive": [
-        { "before": ["k"], "after": ["g", "k"] },
-        { "before": ["j"], "after": ["g", "j"] },
-        { "before": [";"], "after": [":"] },
-        { "before": [":"], "after": [";"] },
-        { "before": [">"], "commands": ["editor.action.indentLines"] },
-        { "before": ["<"], "commands": ["editor.action.outdentLines"] }
-    ],
+    // "vim.normalModeKeyBindingsNonRecursive": [
+    //     // sidebar commands (these are also defined in keybindings.json with prefix <Ctrl-s> instead of <Leader>)
+    //     { "before": ["<Leader>", "s"], "commands": [{ "command": "workbench.action.toggleSidebarVisibility" }] },
+    //     { "before": ["<Leader>", "f"], "commands": [{ "command": "workbench.action.focusSideBar" }] },
+    //     { "before": ["<Leader>", "/"], "commands": [{ "command": "workbench.action.findInFiles" }] },
+    //     { "before": ["<Leader>", "d"], "commands": [{ "command": "workbench.view.debug" }] },
+    //     { "before": ["<Leader>", "o"], "commands": [{ "command": "outline.focus" }] },
+    //     { "before": ["<Leader>", "n"], "commands": [{ "command": "workbench.view.explorer" }] },
+    //     { "before": ["<Leader>", "e"], "commands": [{ "command": "workbench.view.extensions" }] }
+    // ],
+    // "vim.insertModeKeyBindingsNonRecursive": [
+    //     { "before": ["j", "j"], "after": ["<Esc>"] },
+    //     { "before": ["<C-a>"],  "after": ["<Esc>", "I"] },
+    //     { "before": ["<C-e>"],  "after": ["<Esc>", "A"] }
+    // ],
 
     // latex
     "latex-workshop.view.pdf.viewer": "tab",
