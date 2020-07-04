@@ -199,6 +199,7 @@
     "vim.leader": "<space>",
     "vim.enableNeovim": true,
     "vim.neovimPath":"/usr/local/bin/nvim",
+    "vscode-neovim.neovimPath": "/usr/local/bin/nvim",
     "vim.useSystemClipboard": true,
     "vim.hlsearch": true,
     "vim.visualstar": true,
@@ -358,5 +359,6 @@
         "workbench.action.terminal.splitInActiveWorkspace",
         "workbench.action.terminal.toggleTerminal",
         "workbench.action.togglePanel"
-    ]
+    ],
+    "explorer.autoReveal": "focusNoScroll"
 }
