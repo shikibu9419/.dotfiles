@@ -60,12 +60,6 @@
         "command": "editor.action.insertCursorAtEndOfEachLineSelected",
         "when": "editorTextFocus && neovim.mode != insert && editorHasMultipleSelections"
     },
-    // Comment toggle
-    {
-        "key": "ctrl+c",
-        "command": "editor.action.commentLine",
-        "when": "editorTextFocus && !editorReadonly"
-    },
     // Close editor group
     {
         "key": "ctrl+q ctrl+q",

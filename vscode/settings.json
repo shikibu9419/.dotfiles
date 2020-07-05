@@ -16,6 +16,7 @@
     "editor.multiCursorModifier": "ctrlCmd",
     "editor.minimap.enabled": false,
     "editor.snippetSuggestions": "top",
+    "editor.scrollBeyondLastLine": false,
     "breadcrumbs.enabled": true,
     "debug.inlineValues": true,
 
@@ -32,6 +33,7 @@
     "workbench.editor.tabSizing": "shrink",
     "workbench.editor.openPositioning": "first",
     "explorer.openEditors.visible": 0,
+    "explorer.autoReveal": "focusNoScroll",
     // color theme
     "workbench.colorTheme": "Hybrid Next (Gray Background)",
     "materialTheme.accent": "Acid Lime",
@@ -298,6 +300,5 @@
         "workbench.action.terminal.splitInActiveWorkspace",
         "workbench.action.terminal.toggleTerminal",
         "workbench.action.togglePanel"
-    ],
-    "explorer.autoReveal": "focusNoScroll"
+    ]
 }
