@@ -3,6 +3,7 @@ aki77.rails-partial
 AlanWalk.markdown-toc
 alefragnani.Bookmarks
 Angular.ng-template
+asvetliakov.vscode-neovim
 auchenberg.vscode-browser-preview
 bierner.markdown-preview-github-styles
 bung87.rails
@@ -11,6 +12,7 @@ castwide.solargraph
 christian-kohler.npm-intellisense
 christian-kohler.path-intellisense
 chrmarti.regex
+CoenraadS.bracket-pair-colorizer
 CoenraadS.bracket-pair-colorizer-2
 DavidAnson.vscode-markdownlint
 dbaeumer.vscode-eslint
@@ -66,6 +68,9 @@ rust-lang.rust
 ryu1kn.edit-with-shell
 ryu1kn.partial-diff
 satokaz.vscode-bs-ctrlchar-remover
+sdras.night-owl
+sdras.vue-vscode-extensionpack
+sdras.vue-vscode-snippets
 sgryjp.japanese-word-handler
 shanejarvie.hybrid-theme
 shardulm94.trailing-spaces
@@ -74,11 +79,13 @@ sianglim.slim
 SirTobi.code-clip-ring
 sporto.rails-go-to-spec
 stevencl.addDocComments
-vscodevim.vim
+tombonnike.vscode-status-bar-format-toggle
 WallabyJs.quokka-vscode
 wayou.vscode-todo-highlight
 wingrunr21.vscode-ruby
 wix.vscode-import-cost
+wmaurer.vscode-jumpy
 wyze.theme-hybrid-next
+xabikos.JavaScriptSnippets
 yzhang.markdown-all-in-one
 zxh404.vscode-proto3

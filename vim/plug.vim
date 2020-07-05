@@ -1,6 +1,7 @@
 let s:plug_repo_dir = '$XDG_CACHE_HOME/nvim/plugged'
 
 call plug#begin(s:plug_repo_dir)
+  "" Neovim only
   if !exists('g:vscode')
     "" completion
     Plug 'prabirshrestha/async.vim'
