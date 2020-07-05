@@ -156,18 +156,14 @@
     //----------------------------------------------------------
     // Extentions
     //----------------------------------------------------------
-    // [neovim] on command mode
-    // {
-    //     "key": "ctrl+p",
-    //     "command": "extension.neovim_up",
-    //     "when": "neovim.init && neovim.mode == 'CommandlineInProgress' || neovim.mode == 'SearchInProgressMode' && !inDebugRepl && !suggestWidgetMultipleSuggestions && !suggestWidgetVisible"
-    // },
-    // {
-    //     "key": "ctrl+n",
-    //     "command": "extension.neovim_down",
-    //     "when": "neovim.init && neovim.mode == 'CommandlineInProgress' || neovim.mode == 'SearchInProgressMode' && !inDebugRepl && !suggestWidgetMultipleSuggestions && !suggestWidgetVisible"
-    // },
-    // Snippets
+    // neovim
+    {
+        "command": "vscode-neovim.compositeEscape1",
+        "key": "j",
+        "when": "neovim.mode == insert",
+        "args": "j"
+    },
+    // snippets
     {
         "key": "ctrl+k",
         "command": "insertSnippet",

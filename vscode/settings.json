@@ -197,27 +197,6 @@
 
     // vim
     "vscode-neovim.neovimPath": "/usr/local/bin/nvim",
-    // "vim.leader": "<space>",
-    // // highlight when yanking text
-    // "vim.highlightedyank.enable": true,
-    // "vim.highlightedyank.color": "rgba(143, 188, 187, 0.3)",
-    // "vim.highlightedyank.duration": 300,
-    // key bindings
-    // "vim.normalModeKeyBindingsNonRecursive": [
-    //     // sidebar commands (these are also defined in keybindings.json with prefix <Ctrl-s> instead of <Leader>)
-    //     { "before": ["<Leader>", "s"], "commands": [{ "command": "workbench.action.toggleSidebarVisibility" }] },
-    //     { "before": ["<Leader>", "f"], "commands": [{ "command": "workbench.action.focusSideBar" }] },
-    //     { "before": ["<Leader>", "/"], "commands": [{ "command": "workbench.action.findInFiles" }] },
-    //     { "before": ["<Leader>", "d"], "commands": [{ "command": "workbench.view.debug" }] },
-    //     { "before": ["<Leader>", "o"], "commands": [{ "command": "outline.focus" }] },
-    //     { "before": ["<Leader>", "n"], "commands": [{ "command": "workbench.view.explorer" }] },
-    //     { "before": ["<Leader>", "e"], "commands": [{ "command": "workbench.view.extensions" }] }
-    // ],
-    // "vim.insertModeKeyBindingsNonRecursive": [
-    //     { "before": ["j", "j"], "after": ["<Esc>"] },
-    //     { "before": ["<C-a>"],  "after": ["<Esc>", "I"] },
-    //     { "before": ["<C-e>"],  "after": ["<Esc>", "A"] }
-    // ],
 
     // latex
     "latex-workshop.view.pdf.viewer": "tab",
