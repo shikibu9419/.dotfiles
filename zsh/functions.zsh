@@ -49,6 +49,10 @@ __shikibu::show_ls_gs() {
   zle reset-prompt
 }
 
+__shikibu::tmuximum_wrapper() {
+  tmuximum
+}
+
 __shikibu::select_history() {
   local BUFFER=$(fc -l -n 1 | fzf --reverse --tac --query=$LBUFFER)
   CURSOR=$#BUFFER
