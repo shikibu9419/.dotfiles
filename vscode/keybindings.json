@@ -3,7 +3,7 @@
     {
         "key": "ctrl+p",
         "command": "workbench.action.showCommands",
-        "when": "editorTextFocus && !suggestWidgetVisible && neovim.mode == normal"
+        "when": "editorTextFocus && !suggestWidgetVisible && neovim.mode == normal || activeEditorGroupEmpty"
     },
     {
         "key": "ctrl+z ctrl+z",
@@ -13,7 +13,7 @@
     {
         "key": "ctrl+j",
         "command": "workbench.action.quickOpen",
-        "when": "editorTextFocus && neovim.mode == normal"
+        "when": "editorFocus && neovim.mode == normal || activeEditorGroupEmpty"
     },
     {
         "key": "ctrl+[",
@@ -65,17 +65,12 @@
         "key": "ctrl+q ctrl+q",
         "command": "workbench.action.closeEditorsAndGroup"
     },
-    {
-        "key": "ctrl+n",
-        "command": "workbench.action.files.newUntitledFile",
-        "when": "activeEditorGroupEmpty"
-    },
 
     // Cancellations
     {
         "key": "ctrl+[",
         "command": "search.action.cancel",
-        "when": "listFocus && searchViewletVisible"
+        "when": "listFocus && searchViewletFocus"
     },
     {
         "key": "ctrl+[",
@@ -95,12 +90,12 @@
     {
         "key": "ctrl+h",
         "command": "workbench.action.previousEditor",
-        "when": "neovim.init && neovim.mode == normal && editorFocus"
+        "when": "neovim.init && neovim.mode == normal && editorFocus && !renameInputVisible"
     },
     {
         "key": "ctrl+l",
         "command": "workbench.action.nextEditor",
-        "when": "neovim.init && neovim.mode == normal && editorFocus"
+        "when": "neovim.init && neovim.mode == normal && editorFocus && !renameInputVisible"
     },
 
     {
@@ -219,17 +214,17 @@
     {
         "key": "ctrl+j",
         "command": "workbench.action.search.toggleQueryDetails",
-        "when": "searchViewletVisible"
+        "when": "searchViewletFocus"
     },
     {
         "key": "ctrl+n",
         "command": "search.focus.nextInputBox",
-        "when": "searchViewletVisible"
+        "when": "searchViewletFocus"
     },
     {
         "key": "ctrl+p",
         "command": "search.focus.previousInputBox",
-        "when": "searchViewletVisible"
+        "when": "searchViewletFocus"
     },
     // Debug mode
     {
@@ -290,41 +285,42 @@
     {
         "key": "ctrl+c",
         "command": "filesExplorer.copy",
-        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
+        "when": "explorerViewletFocus && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
     },
     {
         "key": "ctrl+x",
         "command": "filesExplorer.cut",
-        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
+        "when": "explorerViewletFocus && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
     },
     {
         "key": "ctrl+v",
         "command": "filesExplorer.paste",
-        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+        "when": "explorerViewletFocus && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
     },
     {
         "key": "ctrl+d",
         "command": "moveFileToTrash",
-        "when": "explorerResourceMoveableToTrash && explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+        "when": "explorerResourceMoveableToTrash && explorerViewletFocus && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
     },
     {
         "key": "d d",
         "command": "moveFileToTrash",
-        "when": "explorerResourceMoveableToTrash && explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+        "when": "explorerResourceMoveableToTrash && explorerViewletFocus && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
     },
     {
         "key": "ctrl+r",
         "command": "renameFile",
-        "when": "explorerViewletVisible && filesExplorerFocus"
+        "when": "explorerViewletFocus && filesExplorerFocus"
     },
     {
         "key": "ctrl+n",
         "command": "explorer.newFile",
-        "when": "explorerViewletVisible && filesExplorerFocus"
+        "when": "explorerViewletFocus && filesExplorerFocus"
     },
     {
         "key": "ctrl+f",
-        "command": "explorer.newFolder"
+        "command": "explorer.newFolder",
+        "when": "explorerViewletFocus && filesExplorerFocus"
     },
 
     //----------------------------------------------------------
