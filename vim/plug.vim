@@ -11,7 +11,12 @@ call plug#begin(s:plug_repo_dir)
     Plug 'prabirshrestha/asyncomplete-file.vim'
     Plug 'prabirshrestha/asyncomplete-neosnippet.vim'
     Plug 'prabirshrestha/vim-lsp'
+    Plug 'mattn/vim-lsp-settings'
+    Plug 'mattn/vim-lsp-icons'
+    Plug 'hrsh7th/vim-vsnip'
+    Plug 'hrsh7th/vim-vsnip-integ'
     Plug 'posva/vim-vue'
+    Plug 'mattn/vim-goimports'
     "" NERDTree
     Plug 'scrooloose/nerdtree'
     Plug 'jistr/vim-nerdtree-tabs'
