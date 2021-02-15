@@ -1,0 +1,8 @@
+\(\S\+\)\.var$
+    var {{$1}} = {{_cursor_}}
+
+\(\S\+\)\.iferr$
+    if {{$1}} != nil {
+        return {{$1}}
+    }
+    {{_cursor_}}

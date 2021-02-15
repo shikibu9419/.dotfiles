@@ -64,6 +64,7 @@ call plug#begin(s:plug_repo_dir)
     Plug 'Shougo/neosnippet-snippets'
   endif
 
+  Plug 'mattn/vim-sonictemplate'
   Plug 'rhysd/accelerated-jk'
   Plug 'yonchu/accelerated-smooth-scroll'
   Plug 'rhysd/clever-f.vim'
@@ -78,6 +79,8 @@ let g:clever_f_across_no_line = 1
 let g:clever_f_ignore_case = 1
 let g:clever_f_smart_case = 1
 let g:clever_f_fix_key_direction = 1
+
+let g:sonictemplate_vim_template_dir = expand('$DOTPATH/vim/plugins/sonictemplate')
 
 if !exists('g:vscode')
   "" quickrun

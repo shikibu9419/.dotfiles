@@ -128,7 +128,7 @@ if !exists('g:vscode')
   nnoremap [fzf]<C-b> :FzfBuffers<cr>
   nnoremap [fzf]<C-c> :FzfColors<cr>
   nnoremap [fzf]<C-f> :FzfGFiles?<cr>
-  nnoremap [fzf]<C-l> :FzfFiles<cr>
+  nnoremap [fzf]<C-j> :FzfFiles<cr>
   nnoremap [fzf]<C-m> :FzfMostRecentlyUsed<cr>
   nnoremap [fzf]<C-r> :FzfRg<cr>
   nnoremap [fzf]<C-x> :FzfCommands<cr>
