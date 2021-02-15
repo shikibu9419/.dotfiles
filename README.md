@@ -11,6 +11,12 @@ A minimal, but powerful and fashionable development environment :muscle:
 > make install
 ```
 
+## Updating
+
+```shell
+> dotupdate
+```
+
 ## Help
 
 ```shell
