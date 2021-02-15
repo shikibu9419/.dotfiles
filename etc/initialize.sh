@@ -63,6 +63,11 @@ cat $DOTPATH/etc/vscode-extensions | while read pkg; do
   code --install-extension $pkg
 done
 
+strong 'asdf:'
+cat $DOTPATH/etc/asdf-plugin-list | while read plg; do
+  asdf install $plg latest
+done
+
 strong 'Docker:'
 checkdir $ZSH_COMPLETIONS_PATH
 for comp in $DOCKER_COMPLETIONS_PATH/*.zsh-completion; do

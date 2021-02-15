@@ -8,12 +8,23 @@ tap 'homebrew/cask'
 # important tools
 brew 'coreutils'
 brew 'git'
+brew 'git-secrets'
 brew 'neovim'
 brew 'zsh'
 brew 'zplug'
 brew 'tmux'
 
-# shell commands
+# asdf - package version manager
+brew 'asdf'
+brew 'automake'
+brew 'autoconf'
+brew 'libyaml'
+brew 'libxslt'
+brew 'libtool'
+brew 'unixodb'
+brew 'unzip'
+
+# other shell commands
 brew 'cmake'
 brew 'cowsay' # summoning the cow
 brew 'emojify' # e.g. :smile: -> <smiling emoji>

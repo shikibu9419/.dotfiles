@@ -12,4 +12,6 @@ source $DOTPATH/zsh/aliases.zsh
 source $DOTPATH/zsh/completions.zsh
 source $DOTPATH/zsh/others.zsh
 
+source /usr/local/opt/asdf/asdf.sh
+
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
