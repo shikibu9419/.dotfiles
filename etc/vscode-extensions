@@ -1,3 +1,4 @@
+aaron-bond.better-comments
 abusaidm.html-snippets
 aki77.rails-partial
 AlanWalk.markdown-toc
@@ -31,6 +32,7 @@ formulahendry.auto-rename-tag
 formulahendry.code-runner
 GitHub.vscode-pull-request-github
 gizak.shortcuts
+golang.go
 henoc.svgeditor
 humao.rest-client
 IBM.output-colorizer
@@ -41,8 +43,10 @@ kaiwood.endwise
 kisstkondoros.vscode-gutter-preview
 KnisterPeter.vscode-github
 MariusAlchimavicius.json-to-ts
+marp-team.marp-vscode
 mathiasfrohlich.Kotlin
 mechatroner.rainbow-csv
+mhutchie.git-graph
 miguel-savignano.ruby-symbols
 misogi.ruby-rubocop
 mkaufman.HTMLHint
@@ -59,6 +63,7 @@ noku.rails-run-spec-vscode
 octref.vetur
 onecentlin.laravel-blade
 PKief.material-icon-theme
+praveencrony.total-lines
 quicktype.quicktype
 rebornix.ruby
 redhat.java

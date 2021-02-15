@@ -300,5 +300,11 @@
         "workbench.action.terminal.splitInActiveWorkspace",
         "workbench.action.terminal.toggleTerminal",
         "workbench.action.togglePanel"
-    ]
+    ],
+    "[typescript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "solargraph.commandPath": "/usr/local/lib/ruby/gems/3.0.0/bin/solargraph",
+    "ruby.rubocop.executePath": "/usr/local/lib/ruby/gems/3.0.0/bin/",
+    "ruby.rubocop.configFilePath": ".rubocop.yml"
 }
