@@ -24,9 +24,9 @@ zshaddhistory() {
 typeset -U PATH path cdpath fpath manpath
 zstyle ':zle:*' word-chars ' /=;@:{}[]()<>,|.'
 zstyle ':zle:*' word-style unspecified
-zstyle ':notify:*' success-title 'Command finished! (in #{time_elapsed} sec.)'
-zstyle ':notify:*' error-title   'Command failed... (in #{time_elapsed} sec.)'
-zstyle ':notify:*' command-complete-timeout 15
+# zstyle ':notify:*' success-title 'Command finished! (in #{time_elapsed} sec.)'
+# zstyle ':notify:*' error-title   'Command failed... (in #{time_elapsed} sec.)'
+# zstyle ':notify:*' command-complete-timeout 15
 
 # others
 chpwd() { ls }
