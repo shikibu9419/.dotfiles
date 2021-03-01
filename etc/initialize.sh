@@ -53,6 +53,10 @@ for shell in {z,fi,xon}sh; do
 done
 chsh -s $(which zsh)
 
+strong 'Zinit:'
+checkdir ~/.zinit
+git clone https://github.com/zdharma/zinit.git ~/.zinit/bin
+
 strong 'Neovim:'
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
