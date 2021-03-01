@@ -1,25 +1,38 @@
-source /usr/local/opt/zplug/init.zsh
-ZPLUG_REPOS=~/.zplug/repos
+source ~/.zinit/bin/zinit.zsh
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
 
-zplug 'zsh-users/zsh-completions', lazy:true
-zplug 'zsh-users/zsh-syntax-highlighting', defer:2
-zplug 'zsh-users/zsh-autosuggestions', defer:2
-zplug "momo-lab/zsh-abbrev-alias", defer:2
-zplug 'lukechilds/zsh-better-npm-completion', defer:2
-zplug 'lukechilds/zsh-nvm'
-zplug 'b4b4r07/enhancd', use:init.sh
-zplug 'mollifier/cd-gitroot', use:'!*'
-zplug 'supercrabtree/k', use:'!*'
-zplug 'marzocchi/zsh-notify'
-zplug 'mafredri/zsh-async', from:'github', use:async.zsh
-zplug 'greymd/tmux-xpanes'
-zplug 'sindresorhus/pure'
-zplug 'b4b4r07/zsh-gomi', use:bin
-zplug 'b4b4r07/emoji-cli', if:'which jq'
-zplug 'bigH/git-fuzzy'
-zplug 'shikibu9419/git-fzf-extender', use:init.sh, if:'which fzf'
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zinit-zsh/z-a-rust \
+    zinit-zsh/z-a-as-monitor \
+    zinit-zsh/z-a-patch-dl \
+    zinit-zsh/z-a-bin-gem-node
 
-zplug load
+zplugin ice blockf wait lucid atload'zicompinit; zicdreplay' for 'zsh-users/zsh-completions'
+zplugin light 'zsh-users/zsh-syntax-highlighting'
+zplugin light 'zsh-users/zsh-autosuggestions'
+zplugin light 'momo-lab/zsh-abbrev-alias'
+zplugin light 'lukechilds/zsh-better-npm-completion'
+
+zplugin light 'lukechilds/zsh-nvm'
+zplugin ice pick'init.sh'
+zplugin light 'b4b4r07/enhancd'
+zplugin ice pick'!*'
+zplugin light 'mollifier/cd-gitroot'
+zplugin ice pick'!*'
+zplugin light 'supercrabtree/k'
+# zplugin light 'marzocchi/zsh-notify'
+zplugin ice pick'async.zsh'
+zplugin light 'mafredri/zsh-async'
+zplugin light 'greymd/tmux-xpanes'
+zplugin light 'sindresorhus/pure'
+zplugin ice if'[[ -n `which jq` ]]'
+zplugin light 'b4b4r07/emoji-cli'
+zplugin ice pick'init.sh' if'[[ -n `which fzf` ]]'
+zplugin light 'shikibu9419/git-fzf-extender'
+zplugin light 'bigH/git-fuzzy'
 
 
 #------------------------------------------
