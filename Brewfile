@@ -13,6 +13,8 @@ brew 'neovim'
 brew 'zsh'
 brew 'zplug'
 brew 'tmux'
+brew 'koekeishiya/formulae/yabai'
+brew 'koekeishiya/formulae/skhd'
 
 # asdf - package version manager
 brew 'asdf'
@@ -53,10 +55,11 @@ brew 'hexyl'
 brew 'procs'
 brew 'ripgrep' # grep
 
-# GUI Tools
+# cask
 cask 'alacritty'
 cask 'alfred'
 cask 'dash'
 cask 'docker'
 cask 'docker-toolbox'
 cask 'visual-studio-code'
+cask 'karabiner-elements'
