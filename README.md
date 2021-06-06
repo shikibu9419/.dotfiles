@@ -1,6 +1,15 @@
 # .dotfiles ![](https://img.shields.io/badge/platform-macOS-lightgray.svg) [![MIT License](http://img.shields.io/badge/license-MIT-green.svg?style=flat)](./doc/LICENSE.txt)
 
 A minimal, but powerful and fashionable development environment :muscle:
+## Languages, Frameworks
+
+```shell
+# Download
+> bash <(curl -fsSL git.io/shikibu.info)
+# Initialize and deploy
+> make install
+```
+
 
 ## Installation
 

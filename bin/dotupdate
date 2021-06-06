@@ -7,8 +7,8 @@ message() {
 message 'dotfiles'
 (cd $DOTPATH && make update)
 
-message 'zplug'
-(. /usr/local/opt/zplug/init.zsh && zplug install && zplug update)
+message 'zinit'
+(zinit self-update && zinit update --all)
 
 message 'asdf'
 asdf list | sed -e ':loop;N;$!b loop;s/\n  / /g' > ~/.tool-versions
