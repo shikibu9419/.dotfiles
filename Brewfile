@@ -13,8 +13,6 @@ brew 'neovim'
 brew 'zsh'
 brew 'zplug'
 brew 'tmux'
-brew 'koekeishiya/formulae/yabai'
-brew 'koekeishiya/formulae/skhd'
 
 # asdf - package version manager
 brew 'asdf'
@@ -63,3 +61,4 @@ cask 'docker'
 cask 'docker-toolbox'
 cask 'visual-studio-code'
 cask 'karabiner-elements'
+cask 'rectangle'
