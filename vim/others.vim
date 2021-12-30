@@ -40,6 +40,7 @@ augroup filetypedetect
   autocmd BufRead,BufNewFile *.slim setlocal filetype=slim
   autocmd BufRead,BufNewFile *.pug  setlocal filetype=pug
   autocmd BufRead,BufNewFile *.c    setlocal tabstop=4 shiftwidth=4 softtabstop=4
+  autocmd BufRead,BufNewFile *.cs   setlocal tabstop=4 shiftwidth=4 softtabstop=4
   autocmd BufRead,BufNewFile *.cpp  setlocal tabstop=4 shiftwidth=4 softtabstop=4
   autocmd BufRead,BufNewFile *.java setlocal tabstop=4 shiftwidth=4 softtabstop=4
   autocmd BufRead,BufNewFile *.jl   setlocal tabstop=4 shiftwidth=4 softtabstop=4
