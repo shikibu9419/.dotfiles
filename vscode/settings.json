@@ -19,6 +19,7 @@
     "editor.scrollBeyondLastLine": false,
     "breadcrumbs.enabled": true,
     "debug.inlineValues": true,
+    "editor.defaultFormatter": null,
 
     //----------------------------------------------------------
     // workbench
@@ -180,16 +181,11 @@
     "vetur.format.defaultFormatter.stylus": "stylus-supremacy",
     "vetur.format.defaultFormatter.js": "prettier",
     "vetur.format.defaultFormatter.ts": "prettier",
-    "vetur.format.defaultFormatterOptions": {
-        "prettier": {
-          "semi": false
-        }
-      },
     "eslint.validate": [
-        "javascript",
-        "javascriptreact",
-        "vue"
-      ],
+      "javascript",
+      "javascriptreact",
+      "vue"
+    ],
 
     // git
     "git.autofetch": true,
@@ -299,12 +295,47 @@
         "workbench.action.terminal.split",
         "workbench.action.terminal.splitInActiveWorkspace",
         "workbench.action.terminal.toggleTerminal",
-        "workbench.action.togglePanel"
+        "workbench.action.togglePanel",
+        "language-julia.interrupt"
     ],
-    "[typescript]": {
-        "editor.defaultFormatter": "vscode.typescript-language-features"
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
     },
-    "solargraph.commandPath": "/usr/local/lib/ruby/gems/3.0.0/bin/solargraph",
-    "ruby.rubocop.executePath": "/usr/local/lib/ruby/gems/3.0.0/bin/",
-    "ruby.rubocop.configFilePath": ".rubocop.yml"
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
+    },
+    "ruby.rubocop.configFilePath": ".rubocop.yml",
+    "python.languageServer": "Pylance",
+    "python.analysis.diagnosticMode": "workspace",
+    "python.analysis.typeCheckingMode": "strict",
+    "solargraph.commandPath": "/Users/shikibu/.asdf/shims/solargraph",
+    "ruby.rubocop.executePath": "/Users/shikibu/.asdf/shims/",
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
+    "remote.SSH.showLoginTerminal": true,
+    "arduino.commandPath": "Contents/MacOS/Arduino",
+    "C_Cpp.intelliSenseEngine": "Tag Parser",
+    "arduino.path": "/Applications/Arduino.app",
+    "arduino.additionalUrls": [
+        "https://sandeepmistry.github.io/arduino-nRF5/package_nRF5_boards_index.json",
+        "https://dl.espressif.com/dl/package_esp32_index.json",
+        "http://arduino.esp8266.com/stable/package_esp8266com_index.json"
+    ],
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    "terminal.integrated.defaultLocation": "editor",
+    "redhat.telemetry.enabled": true,
+    "editor.bracketPairColorization.enabled": true,
+    "julia.symbolCacheDownload": true,
+    "C_Cpp.updateChannel": "Insiders",
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.python"
+    }
 }

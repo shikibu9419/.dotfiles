@@ -3,7 +3,12 @@
     {
         "key": "ctrl+p",
         "command": "workbench.action.showCommands",
-        "when": "editorTextFocus && !suggestWidgetVisible && neovim.mode == normal || activeEditorGroupEmpty"
+        "when": "activeEditorGroupEmpty || editorTextFocus && !suggestWidgetVisible && neovim.mode == 'normal'"
+    },
+    {
+        "key": "ctrl+f ctrl+p",
+        "command": "workbench.action.showCommands",
+        "when": "activeEditorGroupEmpty || editorTextFocus && !suggestWidgetVisible && neovim.mode == 'normal'"
     },
     {
         "key": "ctrl+z ctrl+z",
@@ -46,20 +51,26 @@
 
     // multiple cursor
     {
+        "command": "vscode-neovim.send",
         "key": "ctrl+n",
-        "command": "editor.action.addSelectionToNextFindMatch",
-        "when": "editorTextFocus && !inDebugRepl && neovim.init && neovim.mode == normal"
+        "when": "editorTextFocus&& !inDebugRepl && neovim.init && neovim.mode != insert",
+        "args": "<c-n>"
     },
-    {
-        "key": "ctrl+shift+n",
-        "command": "editor.action.selectHighlights",
-        "when": "editorTextFocus && neovim.mode != insert"
-    },
-    {
-        "key": "ctrl+shift+l",
-        "command": "editor.action.insertCursorAtEndOfEachLineSelected",
-        "when": "editorTextFocus && neovim.mode != insert && editorHasMultipleSelections"
-    },
+    // {
+    //     "key": "ctrl+m",
+    //     "command": "editor.action.addSelectionToNextFindMatch",
+    //     "when": "editorTextFocus && !inDebugRepl && neovim.init && neovim.mode == normal"
+    // },
+    // {
+    //     "key": "ctrl+shift+m",
+    //     "command": "editor.action.selectHighlights",
+    //     "when": "editorTextFocus && neovim.mode != insert"
+    // },
+    // {
+    //     "key": "ctrl+shift+l",
+    //     "command": "editor.action.insertCursorAtEndOfEachLineSelected",
+    //     "when": "editorTextFocus && neovim.mode != insert && editorHasMultipleSelections"
+    // },
     // Close editor group
     {
         "key": "ctrl+q ctrl+q",
@@ -170,7 +181,7 @@
     },
     // Dash
     {
-        "key": "ctrl+d",
+        "key": "ctrl+d ctrl+d",
         "command": "extension.dash.specific",
         "when": "editorTextFocus"
     },
@@ -381,6 +392,34 @@
     {
         "key": "ctrl+a",
         "command": "-vscode-neovim.ctrl-a-insert",
-        "when": "editorTextFocus && neovim.ctrlKeysInsert && !neovim.recording && neovim.mode == 'insert'"
+        "when": "editorTextFocus && neovim.ctrlKeysInsert && !neovim.recording && neovim.mode == insert"
+    },
+    {
+        "key": "ctrl+n",
+        "command": "search.action.focusNextSearchResult",
+        "when": "hasSearchResult && editorFocus && neovim.mode == normal"
+    },
+    {
+        "key": "f4",
+        "command": "-search.action.focusNextSearchResult"
+    },
+    {
+        "key": "ctrl+shift+n",
+        "command": "search.action.focusPreviousSearchResult",
+        "when": "hasSearchResult && editorFocus && neovim.mode == normal"
+    },
+    {
+        "key": "shift+f4",
+        "command": "-search.action.focusPreviousSearchResult"
+    },
+    {
+        "key": "ctrl+c",
+        "command": "-vscode-neovim.escape",
+        "when": "editorTextFocus && neovim.ctrlKeysNormal && neovim.init && neovim.mode != 'insert'"
+    },
+    {
+        "key": "ctrl+c",
+        "command": "-vscode-neovim.escape",
+        "when": "editorTextFocus && neovim.ctrlKeysInsert && neovim.init && neovim.mode == 'insert'"
     }
 ]
