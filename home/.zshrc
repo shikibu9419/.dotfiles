@@ -1,4 +1,5 @@
-if [[ -z $TMUX ]]; then
+# open tmux / tmuximum only if terminal is Alacritty
+if [[ -z $TMUX && $ON_ALACRITTY = 'ok' ]]; then
   cmd=tmuximum
   [[ -z $(tmux list-sessions) ]] && cmd=tmux
   $cmd && exit

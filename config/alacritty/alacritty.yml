@@ -5,6 +5,7 @@ shell:
 
 env:
   TERM: xterm-256color
+  ON_ALACRITTY: 'ok'
 
 window:
   dimensions:
