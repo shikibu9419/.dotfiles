@@ -55,7 +55,7 @@ chsh -s $(which zsh)
 
 strong 'Zinit:'
 checkdir ~/.zinit
-git clone https://github.com/zdharma/zinit.git ~/.zinit/bin
+sh -c "$(curl -fsSL https://git.io/zinit-install)"
 
 strong 'Neovim:'
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
