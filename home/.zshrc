@@ -15,4 +15,6 @@ source $DOTPATH/zsh/others.zsh
 
 source /usr/local/opt/asdf/asdf.sh
 
+source <(starship init zsh --print-full-init)
+
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local

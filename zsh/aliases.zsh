@@ -104,6 +104,7 @@ alias gz='tar cvzf $1.tar.gz $1'
 alias bz2='tar cvjf $1.tar.gz $1'
 alias reload='source ~/.zshenv && source ~/.zshrc'
 alias vs=__shikibu::vscode_open_project
+alias cddot="cd $DOTPATH"
 
 alias ls=exa
 alias la='ls -al'
