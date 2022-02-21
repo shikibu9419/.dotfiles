@@ -130,6 +130,29 @@
     "code-runner.clearPreviousOutput": true,
     "code-runner.runInTerminal": true,
 
+    // Todo
+    "todo-tree.general.tags": ["FIXME", "NOTE", "TODO"],
+    "todo-tree.highlights.defaultHighlight": {
+      "gutterIcon": true
+    },
+    "todo-tree.highlights.customHighlight": {
+      "TODO": {
+        "icon": "check-circle-fill",
+        "foreground": "orange",
+        "iconColour": "orange"
+      },
+      "FIXME": {
+        "icon": "flame",
+        "foreground": "yellow",
+        "iconColour": "yellow"
+      },
+      "NOTE": {
+        "icon": "paintbrush",
+        "foreground": "#00bfff",
+        "iconColour": "#00bfff"
+      }
+    },
+
     // python / julia
     "julia.enableTelemetry": true,
     "julia.enableCrashReporter": true,
@@ -337,5 +360,7 @@
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "[python]": {
         "editor.defaultFormatter": "ms-python.python"
-    }
+    },
+    "window.openWithoutArgumentsInNewWindow": "on",
+    "docker.dockerPath": "/usr/local/bin/docker"
 }
