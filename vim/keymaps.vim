@@ -108,7 +108,13 @@ if !exists('g:vscode')
 
   inoremap <C-l> <C-r>=lexima#insmode#leave(1, '<LT>C-G>U<LT>RIGHT>')<cr>
 
+  map <C-k> [snip]
+  map <C-l> [lsp]
+  map <C-j> [fzf]
+  map <Leader>g [git]
+
   "" Tmux
+  " map <C-f> [tmux]
   nnoremap <silent> <C-f>h  :TmuxNavigateLeft<cr>
   nnoremap <silent> <C-f>j  :TmuxNavigateDown<cr>
   nnoremap <silent> <C-f>k  :TmuxNavigateUp<cr>
@@ -116,16 +122,15 @@ if !exists('g:vscode')
   nnoremap <silent> <C-f>\\ :TmuxNavigatePrevious<cr>
 
   "" neosnippet
-  imap <C-k> <Plug>(neosnippet_expand_or_jump)
-  smap <C-k> <Plug>(neosnippet_expand_or_jump)
-  xmap <C-k> <Plug>(neosnippet_expand_target)
+  imap [snip] <Plug>(neosnippet_expand_or_jump)
+  smap [snip] <Plug>(neosnippet_expand_or_jump)
+  xmap [snip] <Plug>(neosnippet_expand_target)
 
   "" ale
   nmap <silent> <C-p> <Plug>(ale_previous_wrap)
   nmap <silent> <C-n> <Plug>(ale_next_wrap)
 
   "" lsp
-  map <C-l> [lsp]
   nnoremap <buffer> [lsp]<C-d> :<C-u>LspDefinition<cr>
   nnoremap <buffer> [lsp]<C-r> :<C-u>LspReferences<cr>
   " nnoremap <buffer> gs :<C-u>LspDocumentSymbol<cr>
@@ -137,7 +142,6 @@ if !exists('g:vscode')
   " nnoremap <buffer> <F2> :<C-u>LspRename<cr>
 
   "" fzf
-  map <C-j> [fzf]
   nnoremap [fzf]<C-b> :FzfBuffers<cr>
   nnoremap [fzf]<C-c> :FzfColors<cr>
   nnoremap [fzf]<C-f> :FzfGFiles?<cr>
@@ -156,7 +160,6 @@ if !exists('g:vscode')
   " nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
 
   "" fugigive
-  map <Leader>g [git]
   nnoremap [git]s :<C-u>Gstatus<cr>
   nnoremap [git]d :<C-u>Gdiff<cr>
   nnoremap [git]b :<C-u>Gblame<cr>

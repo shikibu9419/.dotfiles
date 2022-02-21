@@ -1,82 +1,83 @@
-let s:plug_repo_dir = '$XDG_CACHE_HOME/nvim/plugged'
+" let s:plug_repo_dir = '$XDG_CACHE_HOME/nvim/plugged'
+let g:jetpack#optimization = 1
 
-call plug#begin(s:plug_repo_dir)
+call jetpack#begin()
   "" Neovim only
   if !exists('g:vscode')
     "" completion
-    Plug 'prabirshrestha/async.vim'
-    Plug 'prabirshrestha/asyncomplete.vim'
-    Plug 'prabirshrestha/asyncomplete-lsp.vim'
-    Plug 'prabirshrestha/asyncomplete-buffer.vim'
-    Plug 'prabirshrestha/asyncomplete-file.vim'
-    Plug 'prabirshrestha/asyncomplete-neosnippet.vim'
-    Plug 'prabirshrestha/vim-lsp'
-    Plug 'mattn/vim-lsp-settings'
-    Plug 'mattn/vim-lsp-icons'
-    " Plug 'hrsh7th/vim-vsnip'
-    " Plug 'hrsh7th/vim-vsnip-integ'
-    Plug 'posva/vim-vue', { 'for': 'vue' }
-    Plug 'mattn/vim-goimports', { 'for': 'go' }
+    Jetpack 'prabirshrestha/async.vim'
+    Jetpack 'prabirshrestha/asyncomplete.vim'
+    Jetpack 'prabirshrestha/asyncomplete-lsp.vim'
+    Jetpack 'prabirshrestha/asyncomplete-buffer.vim'
+    Jetpack 'prabirshrestha/asyncomplete-file.vim'
+    Jetpack 'prabirshrestha/asyncomplete-neosnippet.vim'
+    Jetpack 'prabirshrestha/vim-lsp'
+    Jetpack 'mattn/vim-lsp-settings'
+    Jetpack 'mattn/vim-lsp-icons'
+    " Jetpack 'hrsh7th/vim-vsnip'
+    " Jetpack 'hrsh7th/vim-vsnip-integ'
+    Jetpack 'posva/vim-vue', { 'for': 'vue' }
+    Jetpack 'mattn/vim-goimports', { 'for': 'go' }
     "" NERDTree
-    Plug 'scrooloose/nerdtree', { 'on': ['NERDTree'] }
-    Plug 'jistr/vim-nerdtree-tabs', { 'on': ['NERDTree'] }
+    Jetpack 'scrooloose/nerdtree', { 'on': ['NERDTree'] }
+    Jetpack 'jistr/vim-nerdtree-tabs', { 'on': ['NERDTree'] }
     "" Git
-    Plug 'tpope/vim-fugitive'
-    Plug 'airblade/vim-gitgutter'
+    Jetpack 'tpope/vim-fugitive'
+    Jetpack 'airblade/vim-gitgutter'
     "" Tmux
-    Plug 'christoomey/vim-tmux-navigator'
-    Plug 'tmux-plugins/vim-tmux-focus-events'
+    Jetpack 'christoomey/vim-tmux-navigator'
+    Jetpack 'tmux-plugins/vim-tmux-focus-events'
     "" Fuzzy Finder
-    " Plug 'Shougo/denite.nvim'
-    Plug '/usr/local/opt/fzf'
-    Plug 'junegunn/fzf.vim'
+    " Jetpack 'Shougo/denite.nvim'
+"     Jetpack '/usr/local/opt/fzf'
+    Jetpack 'junegunn/fzf.vim'
     "" Terminal & Shell
-    Plug 'kassio/neoterm'
+    Jetpack 'kassio/neoterm'
     "" Others
-    Plug 'editorconfig/editorconfig-vim'
-    Plug 'cohama/lexima.vim'
-    " Plug 'w0rp/ale'
-    Plug 'osyo-manga/vim-over'
-    Plug 'thinca/vim-quickrun'
-    Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-    Plug 'rizzatti/dash.vim'
+    Jetpack 'editorconfig/editorconfig-vim'
+    Jetpack 'cohama/lexima.vim'
+    " Jetpack 'w0rp/ale'
+    Jetpack 'osyo-manga/vim-over'
+    Jetpack 'thinca/vim-quickrun'
+    Jetpack 'Shougo/vimproc.vim', { 'do' : 'make' }
+    Jetpack 'rizzatti/dash.vim'
     "" Appearance
-    Plug 'itchyny/lightline.vim'
-    Plug 'nathanaelkane/vim-indent-guides'
-    Plug 'ryanoasis/vim-devicons'
-    Plug 'Shougo/context_filetype.vim'
-    Plug 'osyo-manga/vim-precious'
+    Jetpack 'itchyny/lightline.vim'
+    Jetpack 'nathanaelkane/vim-indent-guides'
+    Jetpack 'ryanoasis/vim-devicons'
+    Jetpack 'Shougo/context_filetype.vim'
+    Jetpack 'osyo-manga/vim-precious'
     "" colorschemes
-    Plug 'flazz/vim-colorschemes'
+    Jetpack 'flazz/vim-colorschemes'
     "" syntax highlights
-    Plug 'sheerun/vim-polyglot'
+    Jetpack 'sheerun/vim-polyglot'
     "" ftplugins
-    Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
-    Plug 'plytophogy/vim-virtualenv',     { 'for': 'python' }
-    Plug 'tpope/vim-rails',               { 'for': 'ruby' }
-    Plug 'todesking/ruby_hl_lvar.vim',    { 'for': 'ruby' }
-    Plug 'mechatroner/rainbow_csv',       { 'for': 'csv' }
+    Jetpack 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
+    Jetpack 'plytophogy/vim-virtualenv',     { 'for': 'python' }
+    Jetpack 'tpope/vim-rails',               { 'for': 'ruby' }
+    Jetpack 'todesking/ruby_hl_lvar.vim',    { 'for': 'ruby' }
+    Jetpack 'mechatroner/rainbow_csv',       { 'for': 'csv' }
     "" Snippets
-    Plug 'Shougo/neosnippet.vim'
-    Plug 'Shougo/neosnippet-snippets'
+    Jetpack 'Shougo/neosnippet.vim'
+    Jetpack 'Shougo/neosnippet-snippets'
   endif
 
-  Plug 'terryma/vim-multiple-cursors'
-  Plug 'mattn/vim-sonictemplate'
-  Plug 'rhysd/accelerated-jk'
-  Plug 'yonchu/accelerated-smooth-scroll'
-  Plug 'unblevable/quick-scope'
-  Plug 'rhysd/clever-f.vim'
-  Plug 'AndrewRadev/switch.vim'
-  Plug 'machakann/vim-sandwich'
-  Plug 'bronson/vim-trailing-whitespace'
-  Plug 'junegunn/vim-easy-align'
-  Plug 'tyru/open-browser.vim', { 'on': ['OpenBrowser', '<Plug>(openbrowser-'] }
-  Plug 'tyru/caw.vim'
-  Plug 'haya14busa/vim-asterisk'
-  Plug 'arthurxavierx/vim-caser'
-  " Plug 'folke/which-key.nvim'
-call plug#end()
+  Jetpack 'terryma/vim-multiple-cursors'
+  Jetpack 'mattn/vim-sonictemplate'
+  Jetpack 'rhysd/accelerated-jk'
+  Jetpack 'yonchu/accelerated-smooth-scroll'
+  Jetpack 'unblevable/quick-scope'
+  Jetpack 'rhysd/clever-f.vim'
+  Jetpack 'AndrewRadev/switch.vim'
+  Jetpack 'machakann/vim-sandwich'
+  Jetpack 'bronson/vim-trailing-whitespace'
+  Jetpack 'junegunn/vim-easy-align'
+  Jetpack 'tyru/open-browser.vim', { 'on': ['OpenBrowser', '<Jetpack>(openbrowser-'] }
+  Jetpack 'tyru/caw.vim'
+  Jetpack 'haya14busa/vim-asterisk'
+  Jetpack 'arthurxavierx/vim-caser'
+  " Jetpack 'folke/which-key.nvim'
+call jetpack#end()
 
 if !exists('g:vscode')
   "" quickrun
@@ -85,7 +86,7 @@ if !exists('g:vscode')
   let g:quickrun_no_default_key_mappings = 1
 
   "" snippets directory
-  let g:neosnippet#snippets_directory = '$DOTPATH/vim/snippets/, ' . s:plug_repo_dir . '/neosnippet-snippets/neosnippets/'
+"   let g:neosnippet#snippets_directory = '$DOTPATH/vim/snippets/, ' . s:plug_repo_dir . '/neosnippet-snippets/neosnippets/'
 
   "" Load plugin config file
   for conf in split(glob('$DOTPATH/vim/plugins/*.vim'),'\n')

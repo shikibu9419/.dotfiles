@@ -58,9 +58,9 @@ checkdir ~/.zinit
 sh -c "$(curl -fsSL https://git.io/zinit-install)"
 
 strong 'Neovim:'
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-nvim -c PlugInstall -c qall
+curl -fLo ~/.config/nvim/autoload/jetpack.vim --create-dirs \
+  https://raw.githubusercontent.com/tani/vim-jetpack/master/autoload/jetpack.vim
+nvim -c JetpackSync -c qall
 
 strong 'VS Code:'
 cat $DOTPATH/etc/vscode-extensions | while read pkg; do
@@ -78,8 +78,5 @@ for comp in $DOCKER_COMPLETIONS_PATH/*.zsh-completion; do
   file=${comp##*/}
   cp $comp $ZSH_COMPLETIONS_PATH/_${file%.*}
 done
-
-strong 'Others:'
-curl https://sh.rustup.rs -sSf | sh
 
 echo 'Initialization finished successfully!!'
