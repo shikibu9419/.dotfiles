@@ -10,34 +10,40 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-patch-dl \
     zdharma-continuum/zinit-annex-rust
 
+# syntax highlighting
 zinit ice blockf wait lucid atload'zicompinit; zicdreplay' for 'zsh-users/zsh-completions'
-zinit light 'zsh-users/zsh-syntax-highlighting'
-zinit light 'zsh-users/zsh-autosuggestions'
-zinit light 'momo-lab/zsh-abbrev-alias'
-zinit light 'lukechilds/zsh-better-npm-completion'
-
-zinit light 'lukechilds/zsh-nvm'
-# Enhanced cd command
+zinit light zsh-users/zsh-syntax-highlighting
+# auto suggestion
+zinit light zsh-users/zsh-autosuggestions
+# abbr alias like fish
+zinit light momo-lab/zsh-abbrev-alias
+# enhanced cd command
 zinit ice pick'init.sh'
-zinit light 'b4b4r07/enhancd'
-# zinit ice pick'!*'
-zinit light 'mollifier/cd-gitroot'
-zinit ice pick'!*'
-zinit light 'supercrabtree/k'
+zinit light b4b4r07/enhancd
+# rich ls command
+zinit light supercrabtree/k
+# cd to root of git project
+zinit light mollifier/cd-gitroot
+# tmux-based terminal divider
+zinit light greymd/tmux-xpanes
 # zinit light 'marzocchi/zsh-notify'
+# dependencies
 zinit ice pick'async.zsh'
-zinit light 'mafredri/zsh-async'
-zinit light 'greymd/tmux-xpanes'
-zinit light 'sindresorhus/pure'
+zinit light mafredri/zsh-async
+# emoji command
 zinit ice if'[[ -n `which jq` ]]'
-zinit light 'b4b4r07/emoji-cli'
-
+zinit light b4b4r07/emoji-cli
+# git with fzf (original)
 zinit ice pick'init.sh' if'[[ -n `which fzf` ]]'
-zinit light 'shikibu9419/git-fzf-extender'
-
-zinit ice as"program" pick"bin/git-fuzzy"
+zinit light shikibu9419/git-fzf-extender
+# git with fzf
+zinit ice as'program' pick'bin/git-fuzzy'
 zinit light bigH/git-fuzzy
-
+# :sparkle: -> <sparkle emoji>
+zinit ice as'program' pick'emojify'
+zinit light mrowa44/emojify
+# completion of npm
+zinit light lukechilds/zsh-better-npm-completion
 
 #------------------------------------------
 # Plugin config
