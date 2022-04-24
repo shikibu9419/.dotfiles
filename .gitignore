@@ -2,3 +2,4 @@
 !/home/.jupyter/custom/
 /home/.jupyter/custom/*
 !/home/.jupyter/custom/custom.js
+/config/karabiner/automatic_backups
