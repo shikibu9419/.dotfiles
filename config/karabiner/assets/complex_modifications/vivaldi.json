@@ -1,16 +1,8 @@
 {
-  "title": "Vivaldi",
-  "conditions": [
-    {
-      "type": "frontmost_application_if",
-      "bundle_identifiers": [
-        "^com\\.vivaldi\\.Vivaldi"
-      ]
-    }
-  ],
+  "title": "Vivaldi config",
   "rules": [
     {
-      "description": "Page Up",
+      "description": "ctrl+shift+p/n to up/down arrow (only on Vivaldi)",
       "manipulators": [
         {
           "type": "basic",
@@ -24,13 +16,16 @@
             {
               "key_code": "up_arrow"
             }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.vivaldi\\.Vivaldi"
+              ]
+            }
           ]
-        }
-      ]
-    },
-    {
-      "description": "Page Down",
-      "manipulators": [
+        },
         {
           "type": "basic",
           "from": {
@@ -42,6 +37,14 @@
           "to": [
             {
               "key_code": "down_arrow"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.vivaldi\\.Vivaldi"
+              ]
             }
           ]
         }

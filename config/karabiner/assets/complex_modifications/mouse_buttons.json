@@ -1,0 +1,202 @@
+{
+  "title": "Mouse buttons control (button 4, 5, 6)",
+  "rules": [
+    {
+      "description": "button4/5 to switch desktop to left/right (w/ button6) or forward/back (w/o button6)",
+      "manipulators": [
+        {
+          "description": "Set a flag while button6 is pressed",
+          "type": "basic",
+          "from": {
+            "pointing_button": "button6"
+          },
+          "to_if_held_down": [
+            {
+              "set_variable": {
+                "name": "button6_down",
+                "value": 1
+              }
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "button6_down",
+                "value": 0
+              }
+            }
+          ],
+          "parameters": {
+              "basic.to_if_held_down_threshold_milliseconds": 0
+          }
+        },
+        {
+          "description": "button5 to switch desktop to right (without button6)",
+          "type": "basic",
+          "from": {
+            "pointing_button": "button5"
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": "left_control"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "button6_down",
+              "value": 0
+            }
+          ]
+        },
+        {
+          "description": "button4 to switch desktop to right (without button6)",
+          "type": "basic",
+          "from": {
+            "pointing_button": "button4"
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": "left_control"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "button6_down",
+              "value": 0
+            }
+          ]
+        },
+        {
+          "description": "button4 to forward (with button6)",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            },
+            "pointing_button": "button4"
+          },
+          "to": [
+            {
+              "key_code": "close_bracket",
+              "modifiers": "left_command"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "button6_down",
+              "value": 1
+            },
+            {
+              "keyboard_types": [
+                "ansi",
+                "iso"
+              ],
+              "type": "keyboard_type_if"
+            }
+          ]
+        },
+        {
+          "description": "button4 to forward (with button6)",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            },
+            "pointing_button": "button4"
+          },
+          "to": [
+            {
+              "key_code": "backslash",
+              "modifiers": "left_command"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "button6_down",
+              "value": 1
+            },
+            {
+              "keyboard_types": [
+                "jis"
+              ],
+              "type": "keyboard_type_if"
+            }
+          ]
+        },
+        {
+          "description": "button5 to back (with button6)",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            },
+            "pointing_button": "button5"
+          },
+          "to": [
+            {
+              "key_code": "open_bracket",
+              "modifiers": "left_command"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "button6_down",
+              "value": 1
+            },
+            {
+              "keyboard_types": [
+                "ansi",
+                "iso"
+              ],
+              "type": "keyboard_type_if"
+            }
+          ]
+        },
+        {
+          "description": "button5 to back (with button6)",
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            },
+            "pointing_button": "button5"
+          },
+          "to": [
+            {
+              "key_code": "close_bracket",
+              "modifiers": "left_command"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "button6_down",
+              "value": 1
+            },
+            {
+              "keyboard_types": [
+                "jis"
+              ],
+              "type": "keyboard_type_if"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
