@@ -1,0 +1,180 @@
+{
+  "title": "Slimblade controls",
+  "rules": [
+    {
+      "description": "map button1 / 2 and mouse cursor to undo / redo and scroll while button3 pressed",
+      "conditions": [
+        {
+          "type": "device_if",
+          "identifiers": [
+            {
+              "description": "Kenginston Slimblade",
+              "vendor_id": 1149,
+              "product_id": 65520
+            }
+          ]
+        }
+      ],
+      "manipulators": [
+        {
+          "description": "Set a flag while button3 is pressed",
+          "type": "basic",
+          "from": {
+            "pointing_button": "button3"
+          },
+          "to_if_held_down": [
+            {
+              "set_variable": {
+                "name": "button3_down",
+                "value": 1
+              }
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "button3_down",
+                "value": 0
+              }
+            }
+          ],
+          "parameters": {
+            "basic.to_if_held_down_threshold_milliseconds": 0
+          }
+        },
+        {
+          "description": "button1 to back / undo (with button3 pressed)",
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "button3_down",
+              "value": 1
+            }
+          ],
+          "from": {
+            "pointing_button": "button1"
+          },
+          "to": [
+            {
+              "key_code": "open_bracket",
+              "modifiers": "left_command"
+            }
+          ]
+        },
+        {
+          "description": "button2 to forward / redo (with button3 pressed)",
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "button3_down",
+              "value": 1
+            }
+          ],
+          "from": {
+            "pointing_button": "button2"
+          },
+          "to": [
+            {
+              "key_code": "close_bracket",
+              "modifiers": "left_command"
+            }
+          ]
+        },
+        {
+          "description": "mouse motion to scroll (while button3_down)",
+          "type": "mouse_motion_to_scroll",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "button3_down",
+              "value": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "map button1 / 2 to switching desktop left / right while control or command pressed",
+      "conditions": [
+        {
+          "type": "device_if",
+          "identifiers": [
+            {
+              "description": "Kenginston Slimblade",
+              "vendor_id": 1149,
+              "product_id": 65520
+            }
+          ]
+        }
+      ],
+      "manipulators": [
+        {
+          "description": "button1 to switch desktop to left (with control modifier)",
+          "type": "basic",
+          "from": {
+            "pointing_button": "button1",
+            "modifiers": {
+                "mandatory": ["control"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": "left_control"
+            }
+          ]
+        },
+        {
+          "description": "button2 to switch desktop to right (with control modifier)",
+          "type": "basic",
+          "from": {
+            "pointing_button": "button2",
+            "modifiers": {
+                "mandatory": ["control"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": "left_control"
+            }
+          ]
+        },
+        {
+          "description": "button1 to switch desktop to left (with command modifier)",
+          "type": "basic",
+          "from": {
+            "pointing_button": "button1",
+            "modifiers": {
+                "mandatory": ["command"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "open_bracket",
+              "modifiers": "left_command"
+            }
+          ]
+        },
+        {
+          "description": "button2 to switch desktop to right (with command modifier)",
+          "type": "basic",
+          "from": {
+            "pointing_button": "button2",
+            "modifiers": {
+                "mandatory": ["command"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "close_bracket",
+              "modifiers": "left_command"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

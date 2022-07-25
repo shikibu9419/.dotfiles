@@ -134,7 +134,7 @@
           ]
         },
         {
-          "description": "button5 to back (with button6)",
+          "description": "button5 to back/undo (with button6)",
           "type": "basic",
           "from": {
             "modifiers": {
@@ -166,7 +166,7 @@
           ]
         },
         {
-          "description": "button5 to back (with button6)",
+          "description": "button5 to back/redo (with button6)",
           "type": "basic",
           "from": {
             "modifiers": {

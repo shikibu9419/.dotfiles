@@ -1,8 +1,8 @@
 {
-  "title": "Vivaldi config",
+  "title": "Keyboard controls",
   "rules": [
     {
-      "description": "ctrl+shift+p/n to up/down arrow (only on Vivaldi)",
+      "description": "map ctrl+shift+p/n to up/down arrow",
       "manipulators": [
         {
           "type": "basic",
@@ -15,14 +15,6 @@
           "to": [
             {
               "key_code": "up_arrow"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^com\\.vivaldi\\.Vivaldi"
-              ]
             }
           ]
         },
@@ -37,14 +29,6 @@
           "to": [
             {
               "key_code": "down_arrow"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^com\\.vivaldi\\.Vivaldi"
-              ]
             }
           ]
         }
