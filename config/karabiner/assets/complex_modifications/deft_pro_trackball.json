@@ -1,12 +1,24 @@
 {
-  "title": "Mouse buttons control (button 4, 5, 6)",
+  "title": "DEFT Pro TrackBall control",
   "rules": [
     {
-      "description": "button4/5 to switch desktop to left/right (w/ button6) or forward/back (w/o button6)",
+      "description": "map button4 / 5 to switch desktop to left / right (w/ button6) or forward / back (w/o button6)",
       "manipulators": [
         {
           "description": "Set a flag while button6 is pressed",
           "type": "basic",
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "description": "DEFT Pro TrackBall",
+                  "vendor_id": 1390,
+                  "product_id": 305
+                }
+              ]
+            }
+          ],
           "from": {
             "pointing_button": "button6"
           },
@@ -33,6 +45,18 @@
         {
           "description": "button5 to switch desktop to right (without button6)",
           "type": "basic",
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "description": "DEFT Pro TrackBall",
+                  "vendor_id": 1390,
+                  "product_id": 305
+                }
+              ]
+            }
+          ],
           "from": {
             "pointing_button": "button5"
           },
@@ -53,6 +77,23 @@
         {
           "description": "button4 to switch desktop to right (without button6)",
           "type": "basic",
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "description": "DEFT Pro TrackBall",
+                  "vendor_id": 1390,
+                  "product_id": 305
+                }
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "button6_down",
+              "value": 0
+            }
+          ],
           "from": {
             "pointing_button": "button4"
           },
@@ -61,18 +102,35 @@
               "key_code": "right_arrow",
               "modifiers": "left_control"
             }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "button6_down",
-              "value": 0
-            }
           ]
         },
         {
           "description": "button4 to forward (with button6)",
           "type": "basic",
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "description": "DEFT Pro TrackBall",
+                  "vendor_id": 1390,
+                  "product_id": 305
+                }
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "button6_down",
+              "value": 1
+            },
+            {
+              "keyboard_types": [
+                "ansi",
+                "iso"
+              ],
+              "type": "keyboard_type_if"
+            }
+          ],
           "from": {
             "modifiers": {
               "optional": [
@@ -86,8 +144,22 @@
               "key_code": "close_bracket",
               "modifiers": "left_command"
             }
-          ],
+          ]
+        },
+        {
+          "description": "button4 to forward (with button6)",
+          "type": "basic",
           "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "description": "DEFT Pro TrackBall",
+                  "vendor_id": 1390,
+                  "product_id": 305
+                }
+              ]
+            },
             {
               "type": "variable_if",
               "name": "button6_down",
@@ -95,16 +167,11 @@
             },
             {
               "keyboard_types": [
-                "ansi",
-                "iso"
+                "jis"
               ],
               "type": "keyboard_type_if"
             }
-          ]
-        },
-        {
-          "description": "button4 to forward (with button6)",
-          "type": "basic",
+          ],
           "from": {
             "modifiers": {
               "optional": [
@@ -118,8 +185,22 @@
               "key_code": "backslash",
               "modifiers": "left_command"
             }
-          ],
+          ]
+        },
+        {
+          "description": "button5 to back / undo (with button6)",
+          "type": "basic",
           "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "description": "DEFT Pro TrackBall",
+                  "vendor_id": 1390,
+                  "product_id": 305
+                }
+              ]
+            },
             {
               "type": "variable_if",
               "name": "button6_down",
@@ -127,15 +208,12 @@
             },
             {
               "keyboard_types": [
-                "jis"
+                "ansi",
+                "iso"
               ],
               "type": "keyboard_type_if"
             }
-          ]
-        },
-        {
-          "description": "button5 to back/undo (with button6)",
-          "type": "basic",
+          ],
           "from": {
             "modifiers": {
               "optional": [
@@ -149,8 +227,22 @@
               "key_code": "open_bracket",
               "modifiers": "left_command"
             }
-          ],
+          ]
+        },
+        {
+          "description": "button5 to back / redo (with button6)",
+          "type": "basic",
           "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "description": "DEFT Pro TrackBall",
+                  "vendor_id": 1390,
+                  "product_id": 305
+                }
+              ]
+            },
             {
               "type": "variable_if",
               "name": "button6_down",
@@ -158,16 +250,11 @@
             },
             {
               "keyboard_types": [
-                "ansi",
-                "iso"
+                "jis"
               ],
               "type": "keyboard_type_if"
             }
-          ]
-        },
-        {
-          "description": "button5 to back/redo (with button6)",
-          "type": "basic",
+          ],
           "from": {
             "modifiers": {
               "optional": [
@@ -180,19 +267,6 @@
             {
               "key_code": "close_bracket",
               "modifiers": "left_command"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "button6_down",
-              "value": 1
-            },
-            {
-              "keyboard_types": [
-                "jis"
-              ],
-              "type": "keyboard_type_if"
             }
           ]
         }

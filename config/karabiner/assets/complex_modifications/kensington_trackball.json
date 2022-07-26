@@ -3,20 +3,20 @@
   "rules": [
     {
       "description": "map button1 / 2 and mouse cursor to undo / redo and scroll while button3 pressed",
-      "conditions": [
-        {
-          "type": "device_if",
-          "identifiers": [
-            {
-              "description": "Kenginston Slimblade",
-              "vendor_id": 1149,
-              "product_id": 65520
-            }
-          ]
-        }
-      ],
       "manipulators": [
         {
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "description": "Kenginston Slimblade",
+                  "vendor_id": 1149,
+                  "product_id": 65520
+                }
+              ]
+            }
+          ],
           "description": "Set a flag while button3 is pressed",
           "type": "basic",
           "from": {
@@ -47,6 +47,16 @@
           "type": "basic",
           "conditions": [
             {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "description": "Kenginston Slimblade",
+                  "vendor_id": 1149,
+                  "product_id": 65520
+                }
+              ]
+            },
+            {
               "type": "variable_if",
               "name": "button3_down",
               "value": 1
@@ -66,6 +76,16 @@
           "description": "button2 to forward / redo (with button3 pressed)",
           "type": "basic",
           "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "description": "Kenginston Slimblade",
+                  "vendor_id": 1149,
+                  "product_id": 65520
+                }
+              ]
+            },
             {
               "type": "variable_if",
               "name": "button3_down",
@@ -87,6 +107,16 @@
           "type": "mouse_motion_to_scroll",
           "conditions": [
             {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "description": "Kenginston Slimblade",
+                  "vendor_id": 1149,
+                  "product_id": 65520
+                }
+              ]
+            },
+            {
               "type": "variable_if",
               "name": "button3_down",
               "value": 1
@@ -97,22 +127,22 @@
     },
     {
       "description": "map button1 / 2 to switching desktop left / right while control or command pressed",
-      "conditions": [
-        {
-          "type": "device_if",
-          "identifiers": [
-            {
-              "description": "Kenginston Slimblade",
-              "vendor_id": 1149,
-              "product_id": 65520
-            }
-          ]
-        }
-      ],
       "manipulators": [
         {
           "description": "button1 to switch desktop to left (with control modifier)",
           "type": "basic",
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "description": "Kenginston Slimblade",
+                  "vendor_id": 1149,
+                  "product_id": 65520
+                }
+              ]
+            }
+          ],
           "from": {
             "pointing_button": "button1",
             "modifiers": {
@@ -129,6 +159,18 @@
         {
           "description": "button2 to switch desktop to right (with control modifier)",
           "type": "basic",
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "description": "Kenginston Slimblade",
+                  "vendor_id": 1149,
+                  "product_id": 65520
+                }
+              ]
+            }
+          ],
           "from": {
             "pointing_button": "button2",
             "modifiers": {
@@ -145,6 +187,18 @@
         {
           "description": "button1 to switch desktop to left (with command modifier)",
           "type": "basic",
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "description": "Kenginston Slimblade",
+                  "vendor_id": 1149,
+                  "product_id": 65520
+                }
+              ]
+            }
+          ],
           "from": {
             "pointing_button": "button1",
             "modifiers": {
@@ -161,6 +215,18 @@
         {
           "description": "button2 to switch desktop to right (with command modifier)",
           "type": "basic",
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "description": "Kenginston Slimblade",
+                  "vendor_id": 1149,
+                  "product_id": 65520
+                }
+              ]
+            }
+          ],
           "from": {
             "pointing_button": "button2",
             "modifiers": {

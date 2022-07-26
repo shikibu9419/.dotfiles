@@ -73,9 +73,60 @@
                         ]
                     },
                     {
-                        "description": "button4/5 to switch desktop to left/right (w/ button6) or forward/back (w/o button6)",
+                        "description": "map ctrl+shift+p/n to up/down arrow",
                         "manipulators": [
                             {
+                                "from": {
+                                    "key_code": "p",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control",
+                                            "shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "up_arrow"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "n",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control",
+                                            "shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "down_arrow"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "map button4 / 5 to switch desktop to left / right (w/ button6) or forward / back (w/o button6)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "description": "DEFT Pro TrackBall",
+                                                "product_id": 305,
+                                                "vendor_id": 1390
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    }
+                                ],
                                 "description": "Set a flag while button6 is pressed",
                                 "from": {
                                     "pointing_button": "button6"
@@ -124,6 +175,16 @@
                             {
                                 "conditions": [
                                     {
+                                        "identifiers": [
+                                            {
+                                                "description": "DEFT Pro TrackBall",
+                                                "product_id": 305,
+                                                "vendor_id": 1390
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
                                         "name": "button6_down",
                                         "type": "variable_if",
                                         "value": 0
@@ -143,6 +204,16 @@
                             },
                             {
                                 "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "description": "DEFT Pro TrackBall",
+                                                "product_id": 305,
+                                                "vendor_id": 1390
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
                                     {
                                         "name": "button6_down",
                                         "type": "variable_if",
@@ -175,6 +246,16 @@
                             },
                             {
                                 "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "description": "DEFT Pro TrackBall",
+                                                "product_id": 305,
+                                                "vendor_id": 1390
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
                                     {
                                         "name": "button6_down",
                                         "type": "variable_if",
@@ -207,6 +288,16 @@
                             {
                                 "conditions": [
                                     {
+                                        "identifiers": [
+                                            {
+                                                "description": "DEFT Pro TrackBall",
+                                                "product_id": 305,
+                                                "vendor_id": 1390
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
                                         "name": "button6_down",
                                         "type": "variable_if",
                                         "value": 1
@@ -219,7 +310,7 @@
                                         "type": "keyboard_type_if"
                                     }
                                 ],
-                                "description": "button5 to back (with button6)",
+                                "description": "button5 to back / undo (with button6)",
                                 "from": {
                                     "modifiers": {
                                         "optional": [
@@ -239,6 +330,16 @@
                             {
                                 "conditions": [
                                     {
+                                        "identifiers": [
+                                            {
+                                                "description": "DEFT Pro TrackBall",
+                                                "product_id": 305,
+                                                "vendor_id": 1390
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
                                         "name": "button6_down",
                                         "type": "variable_if",
                                         "value": 1
@@ -250,7 +351,7 @@
                                         "type": "keyboard_type_if"
                                     }
                                 ],
-                                "description": "button5 to back (with button6)",
+                                "description": "button5 to back / redo (with button6)",
                                 "from": {
                                     "modifiers": {
                                         "optional": [
@@ -270,60 +371,21 @@
                         ]
                     },
                     {
-                        "description": "map ctrl+shift+p/n to up/down arrow",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "p",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "control",
-                                            "shift"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "up_arrow"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "n",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "control",
-                                            "shift"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "down_arrow"
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "conditions": [
-                            {
-                                "identifiers": [
-                                    {
-                                        "description": "Kenginston Slimblade",
-                                        "product_id": 65520,
-                                        "vendor_id": 1149
-                                    }
-                                ],
-                                "type": "device_if"
-                            }
-                        ],
                         "description": "map button1 / 2 and mouse cursor to undo / redo and scroll while button3 pressed",
                         "manipulators": [
                             {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "description": "Kenginston Slimblade",
+                                                "product_id": 65520,
+                                                "vendor_id": 1149
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    }
+                                ],
                                 "description": "Set a flag while button3 is pressed",
                                 "from": {
                                     "pointing_button": "button3"
@@ -352,6 +414,16 @@
                             {
                                 "conditions": [
                                     {
+                                        "identifiers": [
+                                            {
+                                                "description": "Kenginston Slimblade",
+                                                "product_id": 65520,
+                                                "vendor_id": 1149
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
                                         "name": "button3_down",
                                         "type": "variable_if",
                                         "value": 1
@@ -371,6 +443,16 @@
                             },
                             {
                                 "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "description": "Kenginston Slimblade",
+                                                "product_id": 65520,
+                                                "vendor_id": 1149
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
                                     {
                                         "name": "button3_down",
                                         "type": "variable_if",
@@ -392,6 +474,16 @@
                             {
                                 "conditions": [
                                     {
+                                        "identifiers": [
+                                            {
+                                                "description": "Kenginston Slimblade",
+                                                "product_id": 65520,
+                                                "vendor_id": 1149
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
                                         "name": "button3_down",
                                         "type": "variable_if",
                                         "value": 1
@@ -403,21 +495,21 @@
                         ]
                     },
                     {
-                        "conditions": [
-                            {
-                                "identifiers": [
-                                    {
-                                        "description": "Kenginston Slimblade",
-                                        "product_id": 65520,
-                                        "vendor_id": 1149
-                                    }
-                                ],
-                                "type": "device_if"
-                            }
-                        ],
                         "description": "map button1 / 2 to switching desktop left / right while control or command pressed",
                         "manipulators": [
                             {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "description": "Kenginston Slimblade",
+                                                "product_id": 65520,
+                                                "vendor_id": 1149
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    }
+                                ],
                                 "description": "button1 to switch desktop to left (with control modifier)",
                                 "from": {
                                     "modifiers": {
@@ -436,6 +528,18 @@
                                 "type": "basic"
                             },
                             {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "description": "Kenginston Slimblade",
+                                                "product_id": 65520,
+                                                "vendor_id": 1149
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    }
+                                ],
                                 "description": "button2 to switch desktop to right (with control modifier)",
                                 "from": {
                                     "modifiers": {
@@ -454,6 +558,18 @@
                                 "type": "basic"
                             },
                             {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "description": "Kenginston Slimblade",
+                                                "product_id": 65520,
+                                                "vendor_id": 1149
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    }
+                                ],
                                 "description": "button1 to switch desktop to left (with command modifier)",
                                 "from": {
                                     "modifiers": {
@@ -472,6 +588,18 @@
                                 "type": "basic"
                             },
                             {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "description": "Kenginston Slimblade",
+                                                "product_id": 65520,
+                                                "vendor_id": 1149
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    }
+                                ],
                                 "description": "button2 to switch desktop to right (with command modifier)",
                                 "from": {
                                     "modifiers": {
