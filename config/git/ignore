@@ -7,7 +7,7 @@
 __pycache__
 
 *.class
-.env.*
+.*.env
 .DS_Store
 .tool-versions
 node_modules
