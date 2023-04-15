@@ -8,7 +8,7 @@ source $DOTPATH/vim/keymaps.vim
 
 if exists('g:vscode')
   source $DOTPATH/vim/vscode/settings.vim
-  source $DOTPATH/vim/vscode/keymappings.vim
+  source $DOTPATH/vim/vscode/keymaps.vim
 else
   source $DOTPATH/vim/appearance.vim
   source $DOTPATH/vim/edit.vim

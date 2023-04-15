@@ -1,4 +1,3 @@
-" let s:plug_repo_dir = '$XDG_CACHE_HOME/nvim/plugged'
 let g:jetpack#optimization = 1
 
 call jetpack#begin()
