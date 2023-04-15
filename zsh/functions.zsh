@@ -13,16 +13,16 @@ extract() {
   echo 'extract: done.'
 }
 
+paste_to() {
+  echo -e -n "$(pbpaste)" >> $1
+}
+
 
 #------------------------------------------
 # called from others
 #------------------------------------------
 __shikibu::check_git_availability() {
   git rev-parse > /dev/null 2>&1
-}
-
-__shikibu::message() {
-  printf "\e[31;1mUPDATE: \e[37;1m$1\e[m\n"
 }
 
 __shikibu::show_ls_gs() {
@@ -58,9 +58,17 @@ __shikibu::select_history() {
   CURSOR=$#BUFFER
 }
 
+__shikibu::list_projects() {
+  projects="$(ghq list -p)\n$(ls -1d $DEVPATH/*)"
+
+  # TODO: black list
+
+  echo $projects
+}
+
 __shikibu::vscode_open_project() {
   local selected
-  selected=$(ghq list | fzf)
+  selected=$(__shikibu::list_projects | fzf)
   project=$(ghq root)/$selected
 
   [[ -z $selected ]] && return
@@ -70,20 +78,19 @@ __shikibu::vscode_open_project() {
 
 __shikibu::ghq_jump_repository() {
   local selected dir repo session current_session
-  selected=$(ghq list | fzf --query=$LBUFFER)
-  dir=$(ghq root)/$selected
+  selected=$(__shikibu::list_projects | fzf --query=$LBUFFER)
 
   if [ -z $selected ]; then
     return
   elif [ -z $TMUX ]; then
-    BUFFER="cd $dir"
+    BUFFER="cd $selected"
     zle accept-line
     return
   fi
 
-  repo=${dir##*/}
+  repo=${selected##*/}
   if [[ ! $selected =~ ^'github.com'.+$ ]]; then
-    local parent=${dir%/*}
+    local parent=${selected%/*}
     repo=${parent##*/}/$repo
   fi
 
@@ -91,7 +98,7 @@ __shikibu::ghq_jump_repository() {
   current_session=$(tmux list-sessions | grep attached | cut -d":" -f1)
 
   if [[ $current_session = $session ]]; then
-    BUFFER="cd $dir"
+    BUFFER="cd $selected"
     zle accept-line
     return
   fi
@@ -102,11 +109,11 @@ __shikibu::ghq_jump_repository() {
   fi
 
   if [[ $current_session =~ ^[0-9]+$ ]]; then
-    BUFFER="cd $dir"
+    BUFFER="cd $selected"
     zle accept-line
     tmux rename-session $session
   else
-    tmux new-session -d -c $dir -s $session
+    tmux new-session -d -c $selected -s $session
     tmux switch-client -t $session
   fi
 }

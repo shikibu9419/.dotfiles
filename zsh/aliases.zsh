@@ -93,7 +93,7 @@ abbrev-alias -c dka='docker ps -q | xargs docker stop | xargs docker rm'
 ## others
 abbrev-alias -c v='nvim'
 abbrev-alias -g E='| emojify'
-abbrev-alias -g C='| pbcopy'
+abbrev-alias -g C='| tee >(pbcopy)'
 abbrev-alias -g G='| rg'
 abbrev-alias -g L='| wc -l'
 abbrev-alias -g P='$(pbpaste)'

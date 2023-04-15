@@ -8,11 +8,13 @@ zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 
 bindkey -v
-bindkey '^b' git-extended-checkout
+# bindkey '^b' git-extended-checkout
 bindkey '^e' autosuggest-accept
-bindkey '^m' __shikibu::show_ls_gs
-bindkey '^r' __shikibu::select_history
-bindkey '^j' __shikibu::tmuximum_wrapper
+if [[ $ON_ALACRITTY = 'ok' ]]; then
+  bindkey '^m' __shikibu::show_ls_gs
+  bindkey '^r' __shikibu::select_history
+  bindkey '^j' __shikibu::tmuximum_wrapper
+fi
 bindkey '^P' history-beginning-search-backward-end
 bindkey '^N' history-beginning-search-forward-end
 bindkey '^]' __shikibu::ghq_jump_repository
