@@ -79,4 +79,7 @@ for comp in $DOCKER_COMPLETIONS_PATH/*.zsh-completion; do
   cp $comp $ZSH_COMPLETIONS_PATH/_${file%.*}
 done
 
+strong 'Python'
+curl -sSL https://install.python-poetry.org | python3 -
+
 echo 'Initialization finished successfully!!'
