@@ -1,8 +1,10 @@
+alp 1.0.8
 bazel 3.7.2
 bundler 2.2.9
 flutter 1.22.6-stable
 kotlin 1.4.30-RC
 kubectl 1.20.2
-python 3.8.0 3.9.1
+nodejs 15.0.0 16.0.0 19.3.0
+python 3.7.10 3.8.10 3.9.1
 ruby 3.0.0
 v 0.2.2

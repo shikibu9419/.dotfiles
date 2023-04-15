@@ -13,7 +13,7 @@ source $DOTPATH/zsh/aliases.zsh
 source $DOTPATH/zsh/completions.zsh
 source $DOTPATH/zsh/others.zsh
 
-source /usr/local/opt/asdf/asdf.sh
+source /usr/local/opt/asdf/libexec/asdf.sh
 
 source <(starship init zsh --print-full-init)
 
