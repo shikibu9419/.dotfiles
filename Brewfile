@@ -5,16 +5,20 @@ tap 'homebrew/services'
 tap 'homebrew/cask-versions'
 tap 'homebrew/cask'
 
-# important tools
+# Important tools
 brew 'coreutils'
 brew 'git'
 brew 'neovim'
-cask 'visual-studio-code'
 brew 'zsh'
-brew 'zplug'
-brew 'tmux'
 brew 'starship' # prompt
+# brew 'zplug'
+brew 'tmux'
 brew 'reattach-to-user-namespace' # Sharing clipboard of Tmux
+
+cask 'visual-studio-code'
+cask 'rio'
+cask 'alacritty'
+cask 'karabiner-elements'
 
 # asdf - package version manager
 brew 'asdf'
@@ -27,7 +31,15 @@ brew 'libtool'
 brew 'unixodb'
 brew 'unzip'
 
-# other shell commands
+# runtimes
+# brew 'node'
+
+# Other shell commands
+brew 'zlib'
+brew 'sqlite'
+brew 'bzip2'
+brew 'libiconv'
+brew 'libzip'
 brew 'cmake'
 brew 'cowsay'
 brew 'gnu-sed' # sed of GNU
@@ -45,19 +57,9 @@ brew 'ghq'             # getting repositories and listing them
 brew 'fpp'             # Facebook Path Picker
 brew 'jq'              # JSON processor on CLI
 
-# upgraded shell commands
 brew 'bat'     # cat
 brew 'exa'     # ls
 brew 'fd'      # find
 brew 'hexyl'
 brew 'procs'
 brew 'ripgrep' # grep
-
-# cask
-cask 'alacritty'
-cask 'alfred'
-cask 'dash'
-cask 'rancher'
-cask 'docker-toolbox'
-cask 'karabiner-elements'
-cask 'rectangle'

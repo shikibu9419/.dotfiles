@@ -62,7 +62,7 @@ curl -fLo ~/.config/nvim/autoload/jetpack.vim --create-dirs \
   https://raw.githubusercontent.com/tani/vim-jetpack/master/autoload/jetpack.vim
 nvim -c JetpackSync -c qall
 
-strong 'VS Code:'
+strong 'Visual Studio Code:'
 cat $DOTPATH/etc/vscode-extensions | while read pkg; do
   code --install-extension $pkg
 done
@@ -70,6 +70,7 @@ done
 strong 'asdf:'
 cat $DOTPATH/etc/asdf-plugin-list | while read plg; do
   asdf install $plg latest
+  asdf global $plg latest
 done
 
 strong 'Docker:'
@@ -79,7 +80,9 @@ for comp in $DOCKER_COMPLETIONS_PATH/*.zsh-completion; do
   cp $comp $ZSH_COMPLETIONS_PATH/_${file%.*}
 done
 
-strong 'Python'
-curl -sSL https://install.python-poetry.org | python3 -
+strong 'Rust'
+curl https://sh.rustup.rs -sSf | sh
+rustup component add rls-preview rust-analysis rust-src
+cargo install --locked zellij
 
 echo 'Initialization finished successfully!!'
