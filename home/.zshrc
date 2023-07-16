@@ -5,6 +5,11 @@ if [[ -z $TMUX && $ON_ALACRITTY = 'ok' ]]; then
   $cmd && exit
 fi
 
+# on Rio Terminal: Open Zellij
+if [[ -z $ZELLIJ && $__CFBundleIdentifier = 'com.raphaelamorim.rio' ]]; then
+  zellij
+fi
+
 source $DOTPATH/zsh/plugins.zsh
 source $DOTPATH/zsh/appearance.zsh
 source $DOTPATH/zsh/functions.zsh
