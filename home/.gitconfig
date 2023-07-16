@@ -2,6 +2,7 @@
   path = ~/.gitconfig.local  # write your own information.
 [core]
 	commentchar = auto
+  pager = delta
 [log]
   data = "iso"
 [merge]
@@ -9,13 +10,23 @@
 	tool = nvimdiff
 [diff]
   algorithm = "histogram"
-[mergetool]
-	keepBackup = false
-[diff]
+  colorMoved = default
   tool = nvimdiff
 [difftool "nvimdiff"]
   cmd = "nvim -R -d -c \"wincmd l\" -d \"$LOCAL\" \"$REMOTE\""
+[mergetool]
+	keepBackup = false
 [mergetool "nvimdiff"]
   cmd = "nvim -d -c \"4wincmd w | wincmd J\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"  \"$MERGED\""
 [init]
   defaultBranch = main
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+[interactive]
+  diffFilter = delta --color-only
+[delta]
+  navigate = true    # use n and N to move between diff sections
+  light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)

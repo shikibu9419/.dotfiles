@@ -31,8 +31,11 @@ brew 'libtool'
 brew 'unixodb'
 brew 'unzip'
 
-# runtimes
-# brew 'node'
+# Git extensions
+brew 'git-delta'
+brew 'git-lfs'
+# brew 'git-remind'
+brew 'git-secrets'
 
 # Other shell commands
 brew 'zlib'
