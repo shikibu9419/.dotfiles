@@ -69,9 +69,16 @@ done
 
 strong 'asdf:'
 cat $DOTPATH/etc/asdf-plugin-list | while read plg; do
+  asdf plugin-add $plg
   asdf install $plg latest
-  asdf global $plg latest
+  # asdf global $plg latest
+  asdf reshim $plg
 done
+
+strong 'Python (Rye / Poetry):'
+curl -sSf https://rye-up.com/get | bash
+curl -sSL https://install.python-poetry.org | python3 -
+rye install $(cat $DOTPATH/etc/python-tools)
 
 strong 'Docker:'
 checkdir $ZSH_COMPLETIONS_PATH

@@ -5,3 +5,9 @@ kubectl
 python
 ruby
 v
+nodejs
+yarn
+pnpm
+bazel
+alp
+julia
