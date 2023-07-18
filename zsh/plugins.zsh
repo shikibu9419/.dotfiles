@@ -10,13 +10,18 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-patch-dl \
     zdharma-continuum/zinit-annex-rust
 
-# syntax highlighting
-zinit ice blockf wait lucid atload'zicompinit; zicdreplay' for 'zsh-users/zsh-completions'
-zinit light zsh-users/zsh-syntax-highlighting
 # auto suggestion
 zinit light zsh-users/zsh-autosuggestions
 # abbr alias like fish
 zinit light momo-lab/zsh-abbrev-alias
+# syntax highlighting
+zinit wait lucid for \
+ atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
+    zdharma-continuum/fast-syntax-highlighting \
+ blockf \
+    zsh-users/zsh-completions \
+ atload"!_zsh_autosuggest_start" \
+    zsh-users/zsh-autosuggestions
 # enhanced cd command
 zinit ice pick'init.sh'
 zinit light b4b4r07/enhancd

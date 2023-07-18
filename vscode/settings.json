@@ -3,7 +3,6 @@
     // Editor
     //----------------------------------------------------------
     "editor.fontFamily": "RictyDiminished NF",
-    "editor.fontSize": 14,
     "editor.tabSize": 2,
     "editor.insertSpaces": true,
     "editor.renderLineHighlight": "all",
@@ -12,7 +11,6 @@
     "editor.wordWrap": "on",
     "editor.wordSeparators": "./\\()\"'-:,.;<>~!@#$%^&*|+=[]{}`~?　、。「」【】『』（）！？てにをはがのともへでや",
     "editor.renderControlCharacters": true,
-    "editor.renderIndentGuides": true,
     "editor.multiCursorModifier": "ctrlCmd",
     "editor.minimap.enabled": false,
     "editor.snippetSuggestions": "top",
@@ -60,13 +58,10 @@
         "menubar.selectionForeground": "#C6FF00",
         "statusBar.background": "#8FBCBB",
         "statusBar.noFolderBackground": "#8FBCBB",
-        "statusBar.debuggingBackground": "#8FBCBB"
+        "statusBar.debuggingBackground": "#8FBCBB",
+        "editor.lineHighlightBackground": "#1073cf2d",
+        "editor.lineHighlightBorder": "#9fced11f"
     },
-
-    //----------------------------------------------------------
-    // files
-    //----------------------------------------------------------
-    "files.autoSave": "afterDelay",
     "files.autoSaveDelay": 100,
     "files.associations": {
         "*.sql": "sql",
@@ -108,7 +103,6 @@
     // others
     //----------------------------------------------------------
     "window.openFilesInNewWindow": "on",
-    "window.zoomLevel": 0,
     // Terminal
     "terminal.integrated.copyOnSelection": true,
     "terminal.integrated.fontSize": 12,
@@ -163,7 +157,8 @@
     "html.mirrorCursorOnMatchingTag": false,
     "[html]": {
         "editor.formatOnSave": true,
-        "editor.formatOnPaste": true
+        "editor.formatOnPaste": true,
+        "editor.defaultFormatter": "vscode.html-language-features"
     },
     "emmet.includeLanguages": {
         "twig": "html",
@@ -215,9 +210,6 @@
     "gitlens.advanced.messages": {
         "suppressShowKeyBindingsNotice": true
     },
-
-    // vim
-    "vscode-neovim.neovimPath": "/usr/local/bin/nvim",
 
     // latex
     "latex-workshop.view.pdf.viewer": "tab",
@@ -332,16 +324,14 @@
     "ruby.rubocop.configFilePath": ".rubocop.yml",
     "python.languageServer": "Pylance",
     "python.analysis.diagnosticMode": "workspace",
-    "python.analysis.typeCheckingMode": "strict",
+    "python.analysis.typeCheckingMode": "basic",
     "solargraph.commandPath": "/Users/shikibu/.asdf/shims/solargraph",
     "ruby.rubocop.executePath": "/Users/shikibu/.asdf/shims/",
     "workbench.editorAssociations": {
         "*.ipynb": "jupyter-notebook"
     },
     "remote.SSH.showLoginTerminal": true,
-    "arduino.commandPath": "Contents/MacOS/Arduino",
     "C_Cpp.intelliSenseEngine": "Tag Parser",
-    "arduino.path": "/Applications/Arduino.app",
     "arduino.additionalUrls": [
         "https://sandeepmistry.github.io/arduino-nRF5/package_nRF5_boards_index.json",
         "https://dl.espressif.com/dl/package_esp32_index.json",
@@ -359,8 +349,37 @@
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "[python]": {
-        "editor.defaultFormatter": "ms-python.python"
+        "editor.defaultFormatter": "ms-python.python",
+        "editor.formatOnType": true
     },
     "window.openWithoutArgumentsInNewWindow": "on",
-    "docker.dockerPath": "/usr/local/bin/docker"
+    "docker.dockerPath": "/usr/local/bin/docker",
+    "svelte.ask-to-enable-ts-plugin": false,
+    "terminal.integrated.enableMultiLinePasteWarning": false,
+    "prettier.printWidth": 100,
+    "files.autoSave": "afterDelay",
+    "npm.keybindingsChangedWarningShown": true,
+    "eslint.format.enable": true,
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "editor.inlineSuggest.enabled": true,
+    "editor.fontSize": 14,
+    "vscode-neovim.neovimExecutablePaths.linux": "/home/dng/squashfs-root/usr/bin/nvim",
+    "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
+    "vscode-neovim.useWSL": true,
+    "settingsSync.ignoredSettings": [
+        "vscode-neovim.useWSL"
+    ],
+    "arduino.useArduinoCli": true,
+    "terminal.integrated.env.osx": {},
+    "editor.inlayHints.enabled": "off",
+    "diffEditor.wordWrap": "off",
+    "editor.guides.indentation": false,
+    "editor.guides.bracketPairs": false,
+    "python.analysis.inlayHints.functionReturnTypes": true,
+    "python.analysis.inlayHints.variableTypes": true,
+    "python.analysis.inlayHints.pytestParameters": true,
+    "vscode_custom_css.imports": [
+        "file:///Users/shikibu/.vscode/extensions/brandonkirbyson.vscode-animations-1.0.12/dist/updateHandler.js"
+    ],
+    "editor.accessibilitySupport": "off"
 }

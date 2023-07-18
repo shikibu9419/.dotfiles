@@ -2,6 +2,7 @@ alp 1.0.8
 bazel 3.7.2
 bundler 2.2.9
 flutter 1.22.6-stable
+julia 1.9.2
 kotlin 1.4.30-RC
 kubectl 1.20.2
 nodejs 15.0.0 16.0.0 19.3.0

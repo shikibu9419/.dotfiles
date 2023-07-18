@@ -126,7 +126,7 @@
       ]
     },
     {
-      "description": "map button1 / 2 to switching desktop left / right while control or command pressed",
+      "description": "map button1 / 2 to switching desktop left / right while control or option pressed",
       "manipulators": [
         {
           "description": "button1 to switch desktop to left (with control modifier)",
@@ -146,7 +146,7 @@
           "from": {
             "pointing_button": "button1",
             "modifiers": {
-                "mandatory": ["control"]
+                "mandatory": ["caps_lock"]
             }
           },
           "to": [
@@ -174,7 +174,7 @@
           "from": {
             "pointing_button": "button2",
             "modifiers": {
-                "mandatory": ["control"]
+                "mandatory": ["caps_lock"]
             }
           },
           "to": [
@@ -185,7 +185,7 @@
           ]
         },
         {
-          "description": "button1 to switch desktop to left (with command modifier)",
+          "description": "button1 to switch desktop to left (with option modifier)",
           "type": "basic",
           "conditions": [
             {
@@ -202,7 +202,7 @@
           "from": {
             "pointing_button": "button1",
             "modifiers": {
-                "mandatory": ["command"]
+                "mandatory": ["option"]
             }
           },
           "to": [
@@ -213,7 +213,7 @@
           ]
         },
         {
-          "description": "button2 to switch desktop to right (with command modifier)",
+          "description": "button2 to switch desktop to right (with option modifier)",
           "type": "basic",
           "conditions": [
             {
@@ -230,7 +230,7 @@
           "from": {
             "pointing_button": "button2",
             "modifiers": {
-                "mandatory": ["command"]
+                "mandatory": ["option"]
             }
           },
           "to": [

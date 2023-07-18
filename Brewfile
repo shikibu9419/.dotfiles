@@ -4,6 +4,7 @@ tap 'homebrew/core'
 tap 'homebrew/services'
 tap 'homebrew/cask-versions'
 tap 'homebrew/cask'
+# tap 'suin/suin'
 
 # Important tools
 brew 'coreutils'
@@ -39,7 +40,7 @@ brew 'git-secrets'
 
 # Other shell commands
 brew 'zlib'
-brew 'sqlite'
+# brew 'sqlite'
 brew 'bzip2'
 brew 'libiconv'
 brew 'libzip'
@@ -57,7 +58,7 @@ brew 'itchyny/tap/mmv' # mv with EDITOR
 brew 'fzf'             # fuzzy finder
 brew 'gh'              # GitHub CLI
 brew 'ghq'             # getting repositories and listing them
-brew 'fpp'             # Facebook Path Picker
+# brew 'fpp'             # Facebook Path Picker
 brew 'jq'              # JSON processor on CLI
 
 brew 'bat'     # cat
