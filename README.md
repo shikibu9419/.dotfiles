@@ -1,16 +1,29 @@
 # .dotfiles ![](https://img.shields.io/badge/platform-macOS-lightgray.svg) [![MIT License](http://img.shields.io/badge/license-MIT-green.svg?style=flat)](./doc/LICENSE.txt)
 
-A minimal, but powerful and fashionable development environment :muscle:
+My powerful and fashionable development environment :muscle:
 
 
 ## Installation
 
+Download this repository
+
 ```shell
-# Download
-> bash <(curl -fsSL git.io/shikibu.info)
-# Initialize and deploy
-> make install
+bash <(curl -fsSL git.io/shikibu.info)
+cd ~/.dotfiles
 ```
+
+First, install app using brew before initialization
+
+```shell
+brew tap homebrew/bundle && HOMEBREW_CASK_OPTS="--appdir=/Applications" brew bundle && brew cleanup
+```
+
+
+Then let's initialize and deploy!
+```shell
+make install
+```
+
 
 ## Updating
 

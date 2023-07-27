@@ -35,22 +35,9 @@ checkdir() {
 
 cd $DOTPATH
 
-notice 'Install formulas.'
-brew tap homebrew/bundle
-HOMEBREW_CASK_OPTS="--appdir=/Applications" brew bundle
-brew cleanup
-strong 'Installation of formulas finished!'
-echo
 
-notice 'Formula settings...'
 strong 'Shell:'
-for shell in {z,fi,xon}sh; do
-  if has 'tee'; then
-    echo $(which $shell)  | sudo tee -a /etc/shells
-  else
-    sudo echo $(which $shell) >> /etc/shells && echo $(which $shell)
-  fi
-done
+sudo echo $(which zsh) >> /etc/shells && echo $(which $shell)
 chsh -s $(which zsh)
 
 strong 'Zinit:'
@@ -59,26 +46,22 @@ sh -c "$(curl -fsSL https://git.io/zinit-install)"
 
 strong 'Neovim:'
 curl -fLo ~/.config/nvim/autoload/jetpack.vim --create-dirs \
-  https://raw.githubusercontent.com/tani/vim-jetpack/master/autoload/jetpack.vim
+  https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim
 nvim -c JetpackSync -c qall
-
-strong 'Visual Studio Code:'
-cat $DOTPATH/etc/vscode-extensions | while read pkg; do
-  code --install-extension $pkg
-done
 
 strong 'asdf:'
 cat $DOTPATH/etc/asdf-plugin-list | while read plg; do
   asdf plugin-add $plg
   asdf install $plg latest
-  # asdf global $plg latest
   asdf reshim $plg
 done
 
-strong 'Python (Rye / Poetry):'
+strong 'Rye & Python tools'
 curl -sSf https://rye-up.com/get | bash
-curl -sSL https://install.python-poetry.org | python3 -
-rye install $(cat $DOTPATH/etc/python-tools)
+# curl -sSL https://install.python-poetry.org | python3 -
+cat $DOTPATH/etc/python-tools | while read tool; do
+    ~/.rye/shims/rye install $tool
+done
 
 strong 'Docker:'
 checkdir $ZSH_COMPLETIONS_PATH
@@ -89,7 +72,9 @@ done
 
 strong 'Rust'
 curl https://sh.rustup.rs -sSf | sh
-rustup component add rls-preview rust-analysis rust-src
-cargo install --locked zellij
+~/.cargo/bin/rustup component add rls-preview rust-analysis rust-src
+
+strong 'Zellij'
+~/.cargo/bin/cargo install --locked zellij
 
 echo 'Initialization finished successfully!!'
